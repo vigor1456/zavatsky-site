@@ -6,6 +6,7 @@ const imgs = entry.data.images.map(im => ({...im, ar: ar(im.src)}));
 const split = entry.data.splitAfter ?? imgs.length;
 const g1 = imgs.slice(0, split);
 const g2 = imgs.slice(split);
+import { cdn, srcset } from '../lib/img.js';
 ---
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -52,10 +53,10 @@ const g2 = imgs.slice(split);
     <div class="kicker" data-en="Personal series" data-cs="Osobní série">Personal series</div>
     <h1 class="g-name">Pod fólií · Under the Film</h1><p class="lead" data-en="Under the Film is about the masks daily life demands. The way we hide what and how we really are, wrapping ourselves in a thin, transparent skin the world can almost, but never quite, see through." data-cs="Pod fólií je o maskách, které si žádá každý den. O tom, jak skrýváme, co a jací doopravdy jsme, a halíme se do tenké průsvitné slupky, skrze kterou svět téměř, ale nikdy úplně, vidí.">Under the Film is about the masks daily life demands. The way we hide what and how we really are, wrapping ourselves in a thin, transparent skin the world can almost, but never quite, see through.</p></header>
     <div class="gallery">{g1.map((im)=>(
-  <div class="gi" data-ar={im.ar}><img loading="lazy" alt={im.alt} src={im.src} /></div>
+  <div class="gi" data-ar={im.ar}><img loading="lazy" decoding="async" alt={im.alt} src={cdn(im.src,1200)} srcset={srcset(im.src)} sizes="auto, (max-width: 760px) 100vw, 50vw" /></div>
 ))}</div>
 {g2.length>0 && (<div class="gallery tail">{g2.map((im)=>(
-  <div class="gi" data-ar={im.ar}><img loading="lazy" alt={im.alt} src={im.src} /></div>
+  <div class="gi" data-ar={im.ar}><img loading="lazy" decoding="async" alt={im.alt} src={cdn(im.src,1200)} srcset={srcset(im.src)} sizes="auto, (max-width: 760px) 100vw, 50vw" /></div>
 ))}</div>)}</div>
     <div class="wrap"><footer class="footer">
       <a href="people.html" data-en="Back to Portraits &amp; People" data-cs="Zpět na Portréty &amp; lidé">Back to Portraits &amp; People</a>
@@ -92,7 +93,7 @@ const g2 = imgs.slice(split);
 </div>
 <script is:inline>
 (function(){
-  var GA='G-XXXXXXXXXX', KEY='tpl_consent';
+  var GA='G-YQJYEGJQV9', KEY='tpl_consent';
   var T={
     text:{en:"This site uses analytics cookies to see how it's used. The choice is yours.",
           cs:"Tento web pou\u017e\u00edv\u00e1 analytick\u00e9 cookies, aby vid\u011bl, jak se pou\u017e\u00edv\u00e1. Volba je na v\u00e1s."},

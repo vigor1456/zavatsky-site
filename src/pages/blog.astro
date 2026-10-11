@@ -4,6 +4,7 @@ const posts = (await getCollection('journal', ({data})=>!data.draft)).sort((a,b)
 const feat = posts[0];
 const rest = posts.slice(1);
 const fmt = (d)=> new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+import { cdn, srcset } from '../lib/img.js';
 ---
 <!doctype html>
 <html lang="en">
@@ -86,7 +87,7 @@ const fmt = (d)=> new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'l
     </header>
 
     <a class="feature" href={`/blog/${feat.slug}.html`}>
-      <div class="cov"><img alt={feat.data.title} src={feat.data.cover} /></div>
+      <div class="cov"><img alt={feat.data.title} src={cdn(feat.data.cover,1200)} srcset={srcset(feat.data.cover)} sizes="(max-width: 760px) 100vw, 60vw" /></div>
       <div class="body">
         <p class="meta"><b>{feat.data.category}</b> · <span>{fmt(feat.data.date)}</span></p>
         <h2>{feat.data.title}</h2>
@@ -97,7 +98,7 @@ const fmt = (d)=> new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'l
     <div class="more">
       {rest.map((p)=>(
       <a class="card" href={`/blog/${p.slug}.html`}>
-        <div class="cov"><img alt={p.data.title} src={p.data.cover} /></div>
+        <div class="cov"><img alt={p.data.title} src={cdn(p.data.cover,800)} srcset={srcset(p.data.cover)} sizes="(max-width: 760px) 100vw, 33vw" loading="lazy" decoding="async" /></div>
         <div class="body">
           <p class="meta"><b>{p.data.category}</b> · <span>{fmt(p.data.date)}</span></p>
           <h3>{p.data.title}</h3>
@@ -141,7 +142,7 @@ const fmt = (d)=> new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'l
 </div>
 <script is:inline>
 (function(){
-  var GA='G-XXXXXXXXXX', KEY='tpl_consent';
+  var GA='G-YQJYEGJQV9', KEY='tpl_consent';
   var T={
     text:{en:"This site uses analytics cookies to see how it's used. The choice is yours.",
           cs:"Tento web pou\u017e\u00edv\u00e1 analytick\u00e9 cookies, aby vid\u011bl, jak se pou\u017e\u00edv\u00e1. Volba je na v\u00e1s."},

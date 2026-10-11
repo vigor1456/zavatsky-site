@@ -7,6 +7,7 @@ export async function getStaticPaths(){
 const { post } = Astro.props;
 const { Content } = await post.render();
 const fmt = (d)=> new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+import { cdn, srcset } from '../../lib/img.js';
 ---
 <!doctype html>
 <html lang="en">
@@ -50,6 +51,8 @@ const fmt = (d)=> new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'l
   .hero{aspect-ratio:3/2;overflow:hidden;border:1px solid var(--edge-soft);border-radius:3px;margin-bottom:clamp(1.6rem,4vw,2.4rem)}
   .hero img{width:100%;height:100%;object-fit:cover;display:block}
   .prose{max-width:66ch;margin:0 auto}
+.prose img{display:block;width:100%;height:auto;margin:2.2rem 0;border:1px solid var(--edge-soft)}
+.prose p:has(> img){margin:0}
   .prose p{margin:0 0 1.3rem;font-size:1.08rem}
   .prose .lead{font-size:1.2rem;color:var(--paper)}
   .prose blockquote{border-left:2px solid var(--warm);margin:2rem 0;padding:.2rem 0 .2rem 1.3rem;
@@ -72,7 +75,7 @@ const fmt = (d)=> new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'l
       <div class="p-kicker">{post.data.category}</div>
       <h1>{post.data.title}</h1>
       <p class="p-meta">{fmt(post.data.date)}</p>
-      <div class="hero"><img src={post.data.hero} alt={post.data.title} /></div>
+      {post.data.hero && (<div class="hero"><img src={cdn(post.data.hero,1600)} srcset={srcset(post.data.hero)} sizes="100vw" alt={post.data.title} /></div>)}
       <div class="prose"><Content /></div>
     </article>
     <footer class="footer">
@@ -111,7 +114,7 @@ const fmt = (d)=> new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'l
 </div>
 <script is:inline>
 (function(){
-  var GA='G-XXXXXXXXXX', KEY='tpl_consent';
+  var GA='G-YQJYEGJQV9', KEY='tpl_consent';
   var T={
     text:{en:"This site uses analytics cookies to see how it's used. The choice is yours.",
           cs:"Tento web pou\u017e\u00edv\u00e1 analytick\u00e9 cookies, aby vid\u011bl, jak se pou\u017e\u00edv\u00e1. Volba je na v\u00e1s."},
