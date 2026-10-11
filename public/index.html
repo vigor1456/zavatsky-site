@@ -33,11 +33,11 @@
     padding-top:env(safe-area-inset-top,0px);
     padding-bottom:env(safe-area-inset-bottom,0px);
   }
-  body::before{
-    content:"";position:fixed;inset:0;z-index:60;pointer-events:none;
+  .vignette{
+    content:"";position:fixed;inset:0;z-index:39;pointer-events:none;
     background:radial-gradient(130% 100% at 50% 40%,transparent 55%,rgba(0,0,0,.55) 100%);
   }
-  body::after{
+  .grain{
     content:"";position:fixed;inset:0;z-index:61;pointer-events:none;opacity:.05;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
@@ -196,6 +196,7 @@ html{background-color:var(--ink)}
 </style>
 </head>
 <body>
+<div class="vignette" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
   <header class="topbar">
     <a class="mark" href="#top" aria-label="Home">VZ<span>.</span></a>
     <nav class="nav">
