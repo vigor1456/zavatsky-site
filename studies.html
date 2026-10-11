@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Studies, Maximilian Ravique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0D0B08;--ink-2:#151210;--paper:#E9E3D8;--dust:#97907F;
+    --edge:rgba(231,235,236,.14);--edge-soft:rgba(231,235,236,.07);
+    --cool-glow:#C9A15C;--cool-deep:#5A4228;
+    --maxw:1160px;--pad:clamp(1.1rem,4vw,2.4rem);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Instrument Sans",system-ui,sans-serif;background:var(--ink);color:var(--paper);
+    line-height:1.65;-webkit-font-smoothing:antialiased;
+    padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+  body::after{content:"";position:fixed;inset:0;z-index:81;pointer-events:none;opacity:.045;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+  .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+    gap:1rem;height:64px;padding:0 var(--pad);padding-top:env(safe-area-inset-top,0px);
+    background:linear-gradient(var(--ink) 0%,var(--ink) 78%,rgba(13,11,8,.82) 91%,rgba(13,11,8,0) 100%)}
+  .mark{font-family:"Fraunces",serif;font-size:1.12rem;letter-spacing:.16em}
+  .mark span{color:var(--cool-glow)}
+  .back{color:var(--dust);font-size:.86rem;transition:color .25s}
+  .back:hover{color:var(--paper)}
+  .lang{border:1px solid var(--edge);background:transparent;color:var(--dust);font:inherit;
+    font-size:.78rem;padding:.28rem .6rem;border-radius:2px;cursor:pointer;letter-spacing:.04em;transition:.25s}
+  .lang:hover{color:var(--paper)} .lang b{color:var(--paper);font-weight:500}
+  header.intro{padding:clamp(3rem,7vw,5rem) 0 clamp(2rem,4vw,3rem)}
+  .kicker{color:var(--dust);font-size:.82rem;letter-spacing:.05em;margin-bottom:1rem}
+  .serie-name{font-family:"Fraunces",serif;font-weight:400;
+    font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.04;margin-bottom:1.2rem}
+  .statement{color:var(--dust);max-width:60ch;font-size:1.05rem}
+  .gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;padding-bottom:clamp(3rem,7vw,5rem)}
+  .gallery img{display:block;height:260px;width:auto;max-width:100%;
+    border:1px solid var(--edge-soft);background:var(--ink-2)}
+  .footer{border-top:1px solid var(--edge-soft);padding:clamp(2.5rem,6vw,4rem) 0;
+    display:flex;flex-wrap:wrap;gap:1rem 3rem;justify-content:space-between;align-items:flex-end}
+  .footer a{color:var(--dust)} .footer a:hover{color:var(--paper)}
+  .credit{font-family:"Fraunces",serif;font-size:.92rem;color:var(--dust);text-align:right}
+  .credit b{color:var(--paper);font-weight:400}
+  /* footer layout hardening */
+  .footer .cc-foot{flex-basis:100%;order:60;margin-top:.6rem}
+  @media(max-width:680px){
+    .footer{flex-direction:column;align-items:flex-start;gap:1.1rem}
+    .footer .credit,.footer .f-contact,.footer .legal{text-align:left}
+  }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="mark" href="index.html">MR<span>.</span></a>
+    <a class="back" href="ravique.html#galleries" data-en="‹ All galleries" data-cs="‹ Všechny galerie">‹ All galleries</a>
+    <button class="lang" id="lang" aria-label="Switch language"><b>EN</b> / CS</button>
+  </header>
+  <main>
+    <div class="wrap">
+      <header class="intro">
+        <div class="kicker" data-en="Maximilian Ravique" data-cs="Maximilian Ravique">Maximilian Ravique</div>
+        <h1 class="serie-name" data-en="Studies" data-cs="Studie">Studies</h1>
+        <p class="statement" data-en="The frames that belong to no gallery but this one. Still lifes, a quiet room, a stag, and birds caught mid-air." data-cs="Snímky, které nepatří do žádné galerie kromě této. Zátiší, tichý pokoj, jelen a ptáci zachycení ve vzduchu.">The frames that belong to no gallery but this one. Still lifes, a quiet room, a stag, and birds caught mid-air.</p>
+      </header>
+      <div class="gallery" id="gallery">
+          <img loading="lazy" alt="" data-ar="1.4982" src="images/studies-01.jpg">
+          <img loading="lazy" alt="" data-ar="0.6665" src="images/studies-02.jpg">
+          <img loading="lazy" alt="" data-ar="1.4982" src="images/studies-03.jpg">
+          <img loading="lazy" alt="" data-ar="1.5004" src="images/studies-04.jpg">
+          <img loading="lazy" alt="" data-ar="0.6675" src="images/studies-05.jpg">
+          <img loading="lazy" alt="" data-ar="1.4982" src="images/studies-06.jpg">
+      </div>
+    </div>
+    <div class="wrap">
+      <footer class="footer">
+        <a href="ravique.html#galleries" data-en="Back to galleries" data-cs="Zpět na galerie">Back to galleries</a>
+        <p class="credit">&copy; <b>Maximilian Ravique</b><br><span data-en="landscape, street, architecture and travel photography" data-cs="krajinářská, pouliční, architektonická a cestovní fotografie">landscape, street, architecture and travel photography</span></p>
+      </footer>
+    </div>
+  </main>
+<script>
+(function(){var btn=document.getElementById('lang');var lang='en';
+function apply(){document.documentElement.lang=lang;
+document.querySelectorAll('[data-en]').forEach(function(el){var v=el.getAttribute(lang==='en'?'data-en':'data-cs');if(v!=null)el.innerHTML=v;});
+btn.innerHTML=lang==='en'?'<b>EN</b> / CS':'EN / <b>CS</b>';}
+btn.addEventListener('click',function(){lang=lang==='en'?'cs':'en';apply();});apply();})();
+
+// Justified gallery layout (Flickr/Lightroom style rows)
+(function(){
+  var g=document.getElementById('gallery');
+  var imgs=[].slice.call(g.querySelectorAll('img'));
+  var GAP=7;
+  function target(w){return w<560?170:(w<900?230:300);}
+  function layout(){
+    var cw=g.clientWidth; if(!cw)return;
+    var th=target(cw), row=[], sumAr=0;
+    function flush(last){
+      if(!row.length)return;
+      var gaps=GAP*(row.length-1);
+      var h=(cw-gaps)/sumAr;
+      if(last && h>th*1.4) h=th;      // keep a short last row from ballooning
+      row.forEach(function(el){
+        var ar=parseFloat(el.getAttribute('data-ar'))||1.5;
+        el.style.width=Math.floor(ar*h)+'px'; el.style.height=Math.round(h)+'px';
+      });
+      row=[]; sumAr=0;
+    }
+    imgs.forEach(function(el){
+      var ar=parseFloat(el.getAttribute('data-ar'))||1.5;
+      row.push(el); sumAr+=ar;
+      var gaps=GAP*(row.length-1);
+      if((cw-gaps)/sumAr<=th) flush(false);
+    });
+    flush(true);
+  }
+  var t; function onresize(){clearTimeout(t);t=setTimeout(layout,120);}
+  window.addEventListener('resize',onresize);
+  window.addEventListener('load',layout);
+  layout();
+})();
+</script>
+
+<!-- cookie-consent-block -->
+<style>
+  #cc-banner{position:fixed;left:0;right:0;bottom:0;z-index:9000;background:#141210;
+    border-top:1px solid rgba(231,235,236,.14);color:#E9E3D8;
+    font-family:"Instrument Sans",system-ui,sans-serif;
+    padding:1rem clamp(1rem,4vw,2rem);padding-bottom:calc(1rem + env(safe-area-inset-bottom,0px))}
+  #cc-banner .cc-in{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1.3rem}
+  #cc-banner p{flex:1 1 300px;margin:0;font-size:.88rem;line-height:1.5;color:#B9B2A4}
+  #cc-banner a{color:#97907F;text-decoration:underline;font-size:.82rem}
+  #cc-banner .cc-btns{display:flex;gap:.55rem;margin-left:auto}
+  .cc-btn{font:inherit;font-size:.85rem;cursor:pointer;padding:.5rem 1.15rem;border-radius:2px;font-weight:500;
+    border:1px solid #C9A15C;background:#C9A15C;color:#141210}
+  .cc-btn.ghost{background:transparent;color:#E9E3D8;border-color:rgba(231,235,236,.3)}
+  .cc-foot{margin-top:1rem;font-size:.78rem}
+  .cc-foot a{color:inherit;opacity:.75;text-decoration:none;margin-right:1rem;cursor:pointer}
+  .cc-foot a:hover{opacity:1;text-decoration:underline}
+</style>
+<div id="cc-banner" role="dialog" aria-label="Cookies" hidden>
+  <div class="cc-in">
+    <p id="cc-text"></p>
+    <a id="cc-privacy" href="privacy.html"></a>
+    <span class="cc-btns">
+      <button class="cc-btn ghost" id="cc-decline"></button>
+      <button class="cc-btn" id="cc-accept"></button>
+    </span>
+  </div>
+</div>
+<script>
+(function(){
+  var GA='G-XXXXXXXXXX', KEY='tpl_consent';
+  var T={
+    text:{en:"This site uses analytics cookies to see how it's used. The choice is yours.",
+          cs:"Tento web pou\u017e\u00edv\u00e1 analytick\u00e9 cookies, aby vid\u011bl, jak se pou\u017e\u00edv\u00e1. Volba je na v\u00e1s."},
+    accept:{en:"Accept",cs:"P\u0159ijmout"}, decline:{en:"Decline",cs:"Odm\u00edtnout"},
+    privacy:{en:"Privacy policy",cs:"Z\u00e1sady ochrany"},
+    settings:{en:"Cookie settings",cs:"Nastaven\u00ed cookies"}, priv2:{en:"Privacy",cs:"Soukrom\u00ed"}
+  };
+  function L(){return (document.documentElement.lang==='cs')?'cs':'en';}
+  var banner=document.getElementById('cc-banner');
+  function paint(){var l=L();
+    document.getElementById('cc-text').textContent=T.text[l];
+    document.getElementById('cc-accept').textContent=T.accept[l];
+    document.getElementById('cc-decline').textContent=T.decline[l];
+    document.getElementById('cc-privacy').textContent=T.privacy[l];
+    var s=document.getElementById('cc-settings'), p=document.getElementById('cc-privfoot');
+    if(s)s.textContent=T.settings[l]; if(p)p.textContent=T.priv2[l];
+  }
+  function loadGA(){ if(window.__ga||GA.indexOf('XXXX')>-1)return; window.__ga=1;
+    var s=document.createElement('script'); s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+GA; document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag; gtag('js',new Date()); gtag('config',GA,{anonymize_ip:true});
+  }
+  function get(){try{return localStorage.getItem(KEY);}catch(e){return null;}}
+  function save(v){try{localStorage.setItem(KEY,v);}catch(e){}}
+  function show(){paint();banner.hidden=false;}
+  function decide(v){save(v);banner.hidden=true;if(v==='accepted')loadGA();}
+  document.getElementById('cc-accept').onclick=function(){decide('accepted');};
+  document.getElementById('cc-decline').onclick=function(){decide('declined');};
+  // add Privacy + Cookie settings into the page footer (if any)
+  var f=document.querySelector('footer');
+  if(f){var d=document.createElement('div'); d.className='cc-foot';
+    var a1=document.createElement('a'); a1.id='cc-privfoot'; a1.href='privacy.html';
+    var a2=document.createElement('a'); a2.id='cc-settings'; a2.href='javascript:void(0)'; a2.onclick=show;
+    d.appendChild(a1); d.appendChild(a2); f.appendChild(d);}
+  // initial state
+  var c=get(); paint();
+  if(c==='accepted'){loadGA();} else if(c!=='declined'){show();}
+  // keep labels in sync with the page language toggle
+  var lb=document.getElementById('lang');
+  if(lb)lb.addEventListener('click',function(){setTimeout(paint,0);});
+})();
+</script>
+
+</body>
+</html>
