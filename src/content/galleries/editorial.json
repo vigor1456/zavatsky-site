@@ -1,0 +1,31 @@
+{
+  "title": "Editorial",
+  "side": "people",
+  "images": [
+    {
+      "src": "/images/editorial-01.jpg",
+      "alt": "Editorial photography in Prague by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/editorial-02.jpg",
+      "alt": "Editorial photography in Prague by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/editorial-03.jpg",
+      "alt": "Editorial photography in Prague by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/editorial-04.jpg",
+      "alt": "Editorial photography in Prague by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/editorial-05.jpg",
+      "alt": "Editorial photography in Prague by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/editorial-06.jpg",
+      "alt": "Editorial photography in Prague by Vadim Zavatsky"
+    }
+  ],
+  "splitAfter": 3
+}

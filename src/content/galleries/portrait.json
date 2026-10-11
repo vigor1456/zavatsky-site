@@ -1,0 +1,39 @@
+{
+  "title": "Portraits",
+  "side": "people",
+  "images": [
+    {
+      "src": "/images/portrait-01.jpg",
+      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/portrait-02.jpg",
+      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/portrait-03.jpg",
+      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/portrait-04.jpg",
+      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/portrait-05.jpg",
+      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/portrait-06.jpg",
+      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/portrait-07.jpg",
+      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/portrait-08.jpg",
+      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+    }
+  ],
+  "splitAfter": 4
+}

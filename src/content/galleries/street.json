@@ -1,0 +1,30 @@
+{
+  "title": "Street",
+  "side": "ravique",
+  "images": [
+    {
+      "src": "/images/street-01.jpg",
+      "alt": ""
+    },
+    {
+      "src": "/images/street-02.jpg",
+      "alt": ""
+    },
+    {
+      "src": "/images/street-03.jpg",
+      "alt": ""
+    },
+    {
+      "src": "/images/street-04.jpg",
+      "alt": ""
+    },
+    {
+      "src": "/images/street-05.jpg",
+      "alt": ""
+    },
+    {
+      "src": "/images/street-06.jpg",
+      "alt": ""
+    }
+  ]
+}

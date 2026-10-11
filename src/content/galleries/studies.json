@@ -1,0 +1,30 @@
+{
+  "title": "Studies",
+  "side": "ravique",
+  "images": [
+    {
+      "src": "/images/studies-01.jpg",
+      "alt": ""
+    },
+    {
+      "src": "/images/studies-02.jpg",
+      "alt": ""
+    },
+    {
+      "src": "/images/studies-03.jpg",
+      "alt": ""
+    },
+    {
+      "src": "/images/studies-04.jpg",
+      "alt": ""
+    },
+    {
+      "src": "/images/studies-05.jpg",
+      "alt": ""
+    },
+    {
+      "src": "/images/studies-06.jpg",
+      "alt": ""
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+---
+import { getEntry } from 'astro:content';
+import { ar } from '../lib/ar.js';
+const entry = await getEntry('galleries','goodwife');
+const imgs = entry.data.images.map(im => ({...im, ar: ar(im.src)}));
+const split = entry.data.splitAfter ?? imgs.length;
+const g1 = imgs.slice(0, split);
+const g2 = imgs.slice(split);
+---
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Good Wife | Fine-art series by Vadim Zavatsky</title>
+<meta name="description" content="Good Wife, a cinematic fine-art photography series by Vadim Zavatsky on domestic damage and its quiet aftermath.">
+<meta name="author" content="Vadim Zavatsky">
+<meta property="og:title" content="Good Wife | Fine-art series by Vadim Zavatsky"><meta property="og:description" content="Good Wife, a cinematic fine-art photography series by Vadim Zavatsky on domestic damage and its quiet aftermath."><meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style is:inline>
+  :root{--ink:#0B0C0E;--paper:#E9E6DF;--dust:#8E8C86;--edge:rgba(233,230,224,.14);--edge-soft:rgba(233,230,224,.07);--maxw:1240px;--pad:clamp(1.1rem,4vw,2.4rem)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Instrument Sans",system-ui,sans-serif;background:var(--ink);color:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+  body::after{content:"";position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none} .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+  .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:1rem;height:64px;padding:0 var(--pad);padding-top:env(safe-area-inset-top,0px);background:linear-gradient(var(--ink) 0%,var(--ink) 78%,rgba(11,12,14,.82) 91%,rgba(11,12,14,0) 100%)}
+  .mark{font-family:"Fraunces",serif;font-size:1.12rem;letter-spacing:.16em} .mark span{color:var(--dust)}
+  .back{color:var(--dust);font-size:.86rem;transition:color .25s} .back:hover{color:var(--paper)}
+  .lang{border:1px solid var(--edge);background:transparent;color:var(--dust);font:inherit;font-size:.78rem;padding:.28rem .6rem;border-radius:2px;cursor:pointer;letter-spacing:.04em;transition:.25s} .lang:hover{color:var(--paper)} .lang b{color:var(--paper);font-weight:500}
+  header.intro{padding:clamp(3rem,7vw,5rem) 0 clamp(2rem,4vw,3rem)}
+  .kicker{color:var(--dust);font-size:.82rem;letter-spacing:.05em;margin-bottom:1rem}
+  .g-name{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(2.4rem,6vw,3.8rem);line-height:1.0;margin-bottom:1rem}
+  .lead{color:var(--dust);max-width:56ch;font-size:1.05rem}
+  .gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;align-content:flex-start}
+  .gi{display:block;overflow:hidden;border:1px solid var(--edge-soft);background:#0e0f11;width:100%}
+  .gi img{display:block;width:100%;height:auto}
+  .mid{font-family:"Fraunces",serif;font-style:italic;font-weight:300;font-size:clamp(1.3rem,3vw,1.95rem);line-height:1.4;max-width:34ch;margin:clamp(2.5rem,6vw,4.5rem) auto;color:var(--paper);text-align:center;opacity:.94}
+  .tail{padding-bottom:clamp(3rem,7vw,5rem)}
+  .footer{border-top:1px solid var(--edge-soft);padding:clamp(2.5rem,6vw,4rem) 0;display:flex;flex-wrap:wrap;gap:1rem 3rem;justify-content:space-between;align-items:flex-end}
+  .footer a{color:var(--dust)} .footer a:hover{color:var(--paper)}
+  .credit{font-family:"Fraunces",serif;font-size:.92rem;color:var(--dust);text-align:right} .credit b{color:var(--paper);font-weight:400}
+  /* footer layout hardening */
+  .footer .cc-foot{flex-basis:100%;order:60;margin-top:.6rem}
+  @media(max-width:680px){
+    .footer{flex-direction:column;align-items:flex-start;gap:1.1rem}
+    .footer .credit,.footer .f-contact,.footer .legal{text-align:left}
+  }
+</style></head>
+<body>
+  <header class="topbar"><a class="mark" href="index.html">VZ<span>.</span></a>
+    <a class="back" href="people.html" data-en="‹ Portraits &amp; People" data-cs="‹ Portréty &amp; lidé">‹ Portraits &amp; People</a>
+    <button class="lang" id="lang" aria-label="Switch language"><b>EN</b> / CS</button></header>
+  <main><div class="wrap"><header class="intro">
+    <div class="kicker" data-en="Personal series" data-cs="Osobní série">Personal series</div>
+    <h1 class="g-name">Good Wife</h1><p class="lead" data-en="A marriage lived in misunderstanding, abuse and quiet cruelty does not always end quietly. Good Wife follows the moment that damage turns deadly, and the cold, domestic calm of cleaning away what is left." data-cs="Manželství žité v neporozumění, násilí a tiché krutosti nekončí vždy tiše. Good Wife sleduje okamžik, kdy se ta újma promění ve smrtící, a chladný, všední klid uklízení toho, co zbylo.">A marriage lived in misunderstanding, abuse and quiet cruelty does not always end quietly. Good Wife follows the moment that damage turns deadly, and the cold, domestic calm of cleaning away what is left.</p></header>
+    <div class="gallery">{g1.map((im)=>(
+  <div class="gi" data-ar={im.ar}><img loading="lazy" alt={im.alt} src={im.src} /></div>
+))}</div>
+{g2.length>0 && (<div class="gallery tail">{g2.map((im)=>(
+  <div class="gi" data-ar={im.ar}><img loading="lazy" alt={im.alt} src={im.src} /></div>
+))}</div>)}</div>
+    <div class="wrap"><footer class="footer">
+      <a href="people.html" data-en="Back to Portraits &amp; People" data-cs="Zpět na Portréty &amp; lidé">Back to Portraits &amp; People</a>
+      <p class="credit">&copy; <b>Vadim Zavatsky</b><br>Fotograf · Praha</p></footer></div></main>
+  <script is:inline>(function(){var b=document.getElementById('lang');var l='en';function a(){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=e.getAttribute(l==='en'?'data-en':'data-cs');if(v!=null)e.innerHTML=v;});b.innerHTML=l==='en'?'<b>EN</b> / CS':'EN / <b>CS</b>';}b.addEventListener('click',function(){l=l==='en'?'cs':'en';a();});a();})();</script>
+  <script is:inline>(function(){var gs=[].slice.call(document.querySelectorAll('.gallery'));function lay(g){var it=[].slice.call(g.querySelectorAll('.gi'));if(!it.length)return;var W=g.clientWidth,gap=8;if(window.innerWidth<760){it.forEach(function(gi){gi.style.width='100%';gi.style.height='auto';var im=gi.querySelector('img');im.style.height='auto';im.style.objectFit='';});return;}var cap=W<1100?260:320,row=[],rar=0;function fl(last){var av=W-gap*(row.length-1);var r=row.reduce(function(s,gi){return s+parseFloat(gi.dataset.ar);},0);var h=av/r;if(last&&h>cap)h=cap;var ws=row.map(function(gi){return Math.round(parseFloat(gi.dataset.ar)*h);});if(!last){var d=av-ws.reduce(function(a,b){return a+b;},0);ws[ws.length-1]+=d;}row.forEach(function(gi,i){gi.style.width=ws[i]+'px';gi.style.height=Math.round(h)+'px';var im=gi.querySelector('img');im.style.width='100%';im.style.height='100%';im.style.objectFit='cover';});row=[];rar=0;}it.forEach(function(gi){row.push(gi);rar+=parseFloat(gi.dataset.ar);var av=W-gap*(row.length-1);if(av/rar<=cap)fl(false);});if(row.length)fl(true);}function all(){gs.forEach(lay);}var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(all,80);});all();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(all);})();</script>
+
+<!-- cookie-consent-block -->
+<style is:inline>
+  #cc-banner{position:fixed;left:0;right:0;bottom:0;z-index:9000;background:#141210;
+    border-top:1px solid rgba(231,235,236,.14);color:#E9E3D8;
+    font-family:"Instrument Sans",system-ui,sans-serif;
+    padding:1rem clamp(1rem,4vw,2rem);padding-bottom:calc(1rem + env(safe-area-inset-bottom,0px))}
+  #cc-banner .cc-in{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1.3rem}
+  #cc-banner p{flex:1 1 300px;margin:0;font-size:.88rem;line-height:1.5;color:#B9B2A4}
+  #cc-banner a{color:#97907F;text-decoration:underline;font-size:.82rem}
+  #cc-banner .cc-btns{display:flex;gap:.55rem;margin-left:auto}
+  .cc-btn{font:inherit;font-size:.85rem;cursor:pointer;padding:.5rem 1.15rem;border-radius:2px;font-weight:500;
+    border:1px solid #C9A15C;background:#C9A15C;color:#141210}
+  .cc-btn.ghost{background:transparent;color:#E9E3D8;border-color:rgba(231,235,236,.3)}
+  .cc-foot{margin-top:1rem;font-size:.78rem}
+  .cc-foot a{color:inherit;opacity:.75;text-decoration:none;margin-right:1rem;cursor:pointer}
+  .cc-foot a:hover{opacity:1;text-decoration:underline}
+</style>
+<div id="cc-banner" role="dialog" aria-label="Cookies" hidden>
+  <div class="cc-in">
+    <p id="cc-text"></p>
+    <a id="cc-privacy" href="privacy.html"></a>
+    <span class="cc-btns">
+      <button class="cc-btn ghost" id="cc-decline"></button>
+      <button class="cc-btn" id="cc-accept"></button>
+    </span>
+  </div>
+</div>
+<script is:inline>
+(function(){
+  var GA='G-XXXXXXXXXX', KEY='tpl_consent';
+  var T={
+    text:{en:"This site uses analytics cookies to see how it's used. The choice is yours.",
+          cs:"Tento web pou\u017e\u00edv\u00e1 analytick\u00e9 cookies, aby vid\u011bl, jak se pou\u017e\u00edv\u00e1. Volba je na v\u00e1s."},
+    accept:{en:"Accept",cs:"P\u0159ijmout"}, decline:{en:"Decline",cs:"Odm\u00edtnout"},
+    privacy:{en:"Privacy policy",cs:"Z\u00e1sady ochrany"},
+    settings:{en:"Cookie settings",cs:"Nastaven\u00ed cookies"}, priv2:{en:"Privacy",cs:"Soukrom\u00ed"}
+  };
+  function L(){return (document.documentElement.lang==='cs')?'cs':'en';}
+  var banner=document.getElementById('cc-banner');
+  function paint(){var l=L();
+    document.getElementById('cc-text').textContent=T.text[l];
+    document.getElementById('cc-accept').textContent=T.accept[l];
+    document.getElementById('cc-decline').textContent=T.decline[l];
+    document.getElementById('cc-privacy').textContent=T.privacy[l];
+    var s=document.getElementById('cc-settings'), p=document.getElementById('cc-privfoot');
+    if(s)s.textContent=T.settings[l]; if(p)p.textContent=T.priv2[l];
+  }
+  function loadGA(){ if(window.__ga||GA.indexOf('XXXX')>-1)return; window.__ga=1;
+    var s=document.createElement('script'); s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+GA; document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag; gtag('js',new Date()); gtag('config',GA,{anonymize_ip:true});
+  }
+  function get(){try{return localStorage.getItem(KEY);}catch(e){return null;}}
+  function save(v){try{localStorage.setItem(KEY,v);}catch(e){}}
+  function show(){paint();banner.hidden=false;}
+  function decide(v){save(v);banner.hidden=true;if(v==='accepted')loadGA();}
+  document.getElementById('cc-accept').onclick=function(){decide('accepted');};
+  document.getElementById('cc-decline').onclick=function(){decide('declined');};
+  // add Privacy + Cookie settings into the page footer (if any)
+  var f=document.querySelector('footer');
+  if(f){var d=document.createElement('div'); d.className='cc-foot';
+    var a1=document.createElement('a'); a1.id='cc-privfoot'; a1.href='privacy.html';
+    var a2=document.createElement('a'); a2.id='cc-settings'; a2.href='javascript:void(0)'; a2.onclick=show;
+    d.appendChild(a1); d.appendChild(a2); f.appendChild(d);}
+  // initial state
+  var c=get(); paint();
+  if(c==='accepted'){loadGA();} else if(c!=='declined'){show();}
+  // keep labels in sync with the page language toggle
+  var lb=document.getElementById('lang');
+  if(lb)lb.addEventListener('click',function(){setTimeout(paint,0);});
+})();
+</script>
+
+</body></html>

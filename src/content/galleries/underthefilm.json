@@ -1,0 +1,35 @@
+{
+  "title": "Pod fólií · Under the Film",
+  "side": "people",
+  "images": [
+    {
+      "src": "/images/underthefilm-01.jpg",
+      "alt": "Under the Film fine-art photography series by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/underthefilm-02.jpg",
+      "alt": "Under the Film fine-art photography series by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/underthefilm-03.jpg",
+      "alt": "Under the Film fine-art photography series by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/underthefilm-04.jpg",
+      "alt": "Under the Film fine-art photography series by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/underthefilm-05.jpg",
+      "alt": "Under the Film fine-art photography series by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/underthefilm-06.jpg",
+      "alt": "Under the Film fine-art photography series by Vadim Zavatsky"
+    },
+    {
+      "src": "/images/underthefilm-07.jpg",
+      "alt": "Under the Film fine-art photography series by Vadim Zavatsky"
+    }
+  ],
+  "splitAfter": 4
+}
