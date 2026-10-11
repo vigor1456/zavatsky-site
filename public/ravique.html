@@ -21,7 +21,7 @@
   html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
   body{font-family:"Instrument Sans",system-ui,sans-serif;background:var(--ink);color:var(--paper);
     line-height:1.65;-webkit-font-smoothing:antialiased;
-    padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+    padding-bottom:env(safe-area-inset-bottom,0px)}
   body::before{content:"";position:fixed;inset:0;z-index:80;pointer-events:none;
     background:radial-gradient(135% 105% at 50% 34%,transparent 60%,rgba(0,0,0,.5) 100%)}
   body::after{content:"";position:fixed;inset:0;z-index:81;pointer-events:none;opacity:.045;
@@ -30,8 +30,10 @@
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
 
   .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
-    gap:1rem;height:64px;padding:0 var(--pad);padding-top:env(safe-area-inset-top,0px);
-    background:linear-gradient(var(--ink) 0%,var(--ink) 78%,rgba(13,11,8,.82) 91%,rgba(13,11,8,0) 100%)}
+    gap:1rem;height:calc(64px + env(safe-area-inset-top,0px));padding:0 var(--pad);padding-top:env(safe-area-inset-top,0px);
+    background-color:var(--ink)}
+.topbar::after{content:"";position:absolute;left:0;right:0;top:100%;height:14px;pointer-events:none;background:linear-gradient(rgba(13,11,8,.82),rgba(13,11,8,0))}
+html{background-color:var(--ink)}
   .mark{font-family:"Fraunces",serif;font-size:1.12rem;letter-spacing:.16em}
   .mark span{color:var(--dust)}
   .nav{display:flex;gap:1.4rem;align-items:center}
