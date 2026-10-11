@@ -1,0 +1,176 @@
+# Sveltia CMS configuration (Decap-compatible)
+# 1) set repo to your GitHub "owner/name"
+# 2) set base_url to your sveltia-cms-auth Cloudflare Worker (see README-CMS.md)
+backend:
+  name: github
+  repo: OWNER/REPO
+  branch: main
+  base_url: https://YOUR-OAUTH-WORKER.workers.dev
+
+# uploads are committed here; content stores the /images/... path
+media_folder: "public/images"
+public_folder: "/images"
+
+site_url: https://zavatsky.photo
+display_url: https://zavatsky.photo
+
+collections:
+  - name: journal
+    label: "Journal"
+    label_singular: "Post"
+    description: "Blog posts. English only. New posts publish automatically after a short build."
+    folder: "src/content/journal"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    preview_path: "blog/{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { name: author, label: "Author voice", widget: select, options: ["VZ", "MR"], default: "VZ", hint: "VZ = Vadim Zavatsky, MR = Maximilian Ravique" }
+      - { name: category, label: Category, widget: string, default: "Journal" }
+      - { name: cover, label: "Cover image (listing)", widget: image }
+      - { name: hero, label: "Hero image (top of post)", widget: image, required: false }
+      - { name: excerpt, label: Excerpt, widget: text, required: false }
+      - { name: draft, label: "Draft (hide from site)", widget: boolean, default: false }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: galleries
+    label: "Galleries"
+    description: "Add, remove, reorder and caption the photos in each gallery."
+    editor:
+      preview: false
+    files:
+      - name: portrait
+        label: "Portraits (Vadim Zavatsky)"
+        file: "src/content/galleries/portrait.json"
+        fields:
+          - { name: title, label: "Gallery name", widget: string }
+          - { name: side, label: Side, widget: hidden }
+          - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the visual break. Leave as-is unless rebalancing." }
+          - name: images
+            label: Photos
+            label_singular: Photo
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: src, label: Photo, widget: image }
+              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
+      - name: editorial
+        label: "Editorial (Vadim Zavatsky)"
+        file: "src/content/galleries/editorial.json"
+        fields:
+          - { name: title, label: "Gallery name", widget: string }
+          - { name: side, label: Side, widget: hidden }
+          - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the visual break. Leave as-is unless rebalancing." }
+          - name: images
+            label: Photos
+            label_singular: Photo
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: src, label: Photo, widget: image }
+              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
+      - name: goodwife
+        label: "Series: The Good Wife (Vadim Zavatsky)"
+        file: "src/content/galleries/goodwife.json"
+        fields:
+          - { name: title, label: "Gallery name", widget: string }
+          - { name: side, label: Side, widget: hidden }
+          - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the visual break. Leave as-is unless rebalancing." }
+          - name: images
+            label: Photos
+            label_singular: Photo
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: src, label: Photo, widget: image }
+              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
+      - name: untold
+        label: "Series: Untold (Vadim Zavatsky)"
+        file: "src/content/galleries/untold.json"
+        fields:
+          - { name: title, label: "Gallery name", widget: string }
+          - { name: side, label: Side, widget: hidden }
+          - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the visual break. Leave as-is unless rebalancing." }
+          - name: images
+            label: Photos
+            label_singular: Photo
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: src, label: Photo, widget: image }
+              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
+      - name: underthefilm
+        label: "Series: Under the Film (Vadim Zavatsky)"
+        file: "src/content/galleries/underthefilm.json"
+        fields:
+          - { name: title, label: "Gallery name", widget: string }
+          - { name: side, label: Side, widget: hidden }
+          - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the visual break. Leave as-is unless rebalancing." }
+          - name: images
+            label: Photos
+            label_singular: Photo
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: src, label: Photo, widget: image }
+              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
+      - name: landscape
+        label: "Landscape (Maximilian Ravique)"
+        file: "src/content/galleries/landscape.json"
+        fields:
+          - { name: title, label: "Gallery name", widget: string }
+          - { name: side, label: Side, widget: hidden }
+          - name: images
+            label: Photos
+            label_singular: Photo
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: src, label: Photo, widget: image }
+              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
+      - name: street
+        label: "Street (Maximilian Ravique)"
+        file: "src/content/galleries/street.json"
+        fields:
+          - { name: title, label: "Gallery name", widget: string }
+          - { name: side, label: Side, widget: hidden }
+          - name: images
+            label: Photos
+            label_singular: Photo
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: src, label: Photo, widget: image }
+              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
+      - name: architecture
+        label: "Architecture (Maximilian Ravique)"
+        file: "src/content/galleries/architecture.json"
+        fields:
+          - { name: title, label: "Gallery name", widget: string }
+          - { name: side, label: Side, widget: hidden }
+          - name: images
+            label: Photos
+            label_singular: Photo
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: src, label: Photo, widget: image }
+              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
+      - name: studies
+        label: "Studies (Maximilian Ravique)"
+        file: "src/content/galleries/studies.json"
+        fields:
+          - { name: title, label: "Gallery name", widget: string }
+          - { name: side, label: Side, widget: hidden }
+          - name: images
+            label: Photos
+            label_singular: Photo
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: src, label: Photo, widget: image }
+              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
