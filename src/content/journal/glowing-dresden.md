@@ -1,6 +1,6 @@
 ---
 title: Glowing Dresden
-date: 2026-10-11
+date: 2024-08-11
 author: MR
 category: Travel notes
 cover: /images/architecture-04.jpg
