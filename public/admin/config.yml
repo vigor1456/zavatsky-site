@@ -195,3 +195,78 @@ collections:
         fields:
           - { name: src, label: Photo, widget: image, hint: "sRGB, 2048 px on the long side, about 85% JPEG quality." }
           - { name: alt, label: "Description (for screen readers and Google)", widget: string, required: false, default: "", hint: "One short sentence saying what is in the photo." }
+
+  - name: prints
+    label: "Prints"
+    label_singular: "Print"
+    description: "Prints offered on the Prints page. Formats, sizes and prices are set once in Print price list."
+    folder: "src/content/prints"
+    create: true
+    delete: true
+    extension: json
+    format: json
+    identifier_field: title
+    slug: "{{slug}}"
+    summary: "{{order}}: {{title}}"
+    sortable_fields: [order, title]
+    editor:
+      preview: false
+    fields:
+      - { name: title, label: "Title (English)", widget: string }
+      - { name: title_cs, label: "Title (Czech)", widget: string, required: false }
+      - { name: order, label: "Position", widget: number, value_type: int, default: 100, hint: "Lower numbers come first. Existing: Lamps in the Fog 10, Above the Clouds 20." }
+      - { name: available, label: "Show on the Prints page", widget: boolean, default: true, hint: "Switch off to hide a print without deleting it." }
+      - { name: place, label: "Place (English)", widget: string, required: false }
+      - { name: place_cs, label: "Place (Czech)", widget: string, required: false }
+      - { name: year, label: "Year", widget: number, value_type: int, required: false }
+      - { name: story, label: "Short story (English)", widget: text, hint: "Two or three sentences about the photograph." }
+      - { name: story_cs, label: "Short story (Czech)", widget: text, required: false }
+      - { name: orientation, label: "Orientation", widget: select, options: [landscape, portrait, square], default: landscape }
+      - { name: formats, label: "Available formats", widget: select, multiple: true, options: [{ label: "Fine art print", value: print }, { label: "Framed print", value: framed }, { label: "Framed canvas", value: canvas }], default: [print, framed, canvas] }
+      - name: mockups
+        label: "Mockups"
+        label_singular: "Mockup"
+        widget: list
+        min: 1
+        hint: "The first one is shown large; the others become thumbnails visitors can switch to. Square images work best."
+        summary: "{{fields.alt}}"
+        fields:
+          - { name: src, label: Image, widget: image }
+          - { name: alt, label: "Description (for screen readers and Google)", widget: string, required: false, default: "" }
+
+  - name: printshop
+    label: "Print price list"
+    description: "Formats, sizes and prices shared by all prints, plus the texts on the Prints page."
+    editor:
+      preview: false
+    files:
+      - name: settings
+        label: "Prices and texts"
+        file: "src/content/printshop/settings.json"
+        fields:
+          - { name: intro, label: "Intro (English)", widget: text }
+          - { name: intro_cs, label: "Intro (Czech)", widget: text, required: false }
+          - { name: shipping, label: "Made to order text (English)", widget: text }
+          - { name: shipping_cs, label: "Made to order text (Czech)", widget: text, required: false }
+          - { name: etsy_url, label: "Etsy shop link (optional)", widget: string, required: false, hint: "When filled in, UK buyers see a link to your Etsy shop." }
+          - name: formats
+            label: "Formats"
+            label_singular: "Format"
+            widget: list
+            allow_add: false
+            summary: "{{fields.name}}"
+            fields:
+              - { name: id, label: "ID (do not change)", widget: hidden }
+              - { name: name, label: "Name (English)", widget: string }
+              - { name: name_cs, label: "Name (Czech)", widget: string, required: false }
+              - { name: note, label: "Note (English)", widget: string, required: false }
+              - { name: note_cs, label: "Note (Czech)", widget: string, required: false }
+              - name: sizes
+                label: "Sizes and prices"
+                label_singular: "Size"
+                widget: list
+                summary: "{{fields.size}}: {{fields.price}}"
+                fields:
+                  - { name: size, label: "Size", widget: string, hint: "e.g. 50 × 70 cm" }
+                  - { name: price, label: "Price in EUR", widget: number, value_type: float, required: false, hint: "Leave empty to show 'Price on request'." }
+                  - { name: sku, label: "Prodigi SKU (for automatic orders later)", widget: string, required: false }

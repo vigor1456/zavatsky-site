@@ -1,0 +1,81 @@
+{
+  "intro": "Archival pigment prints of the work, made to order and shipped across the EU. Choose a photograph, a format and a size, and I’ll take it from there.",
+  "intro_cs": "Archivní pigmentové tisky, vyráběné na zakázku a odesílané po celé EU. Vyberte snímek, formát a velikost, o zbytek se postarám.",
+  "shipping": "Every print is made to order by a fine-art print lab in the Netherlands and shipped tracked within the EU, usually within a week. Shipping is included in the price. For the UK, write to me.",
+  "shipping_cs": "Každý tisk vyrábí na zakázku laboratoř uměleckého tisku v Nizozemsku a odesílá se se sledováním po EU, obvykle do týdne. Doprava je v ceně. Pro Velkou Británii mi napište.",
+  "etsy_url": "",
+  "formats": [
+    {
+      "id": "print",
+      "name": "Fine art print",
+      "name_cs": "Umělecký tisk",
+      "note": "Unframed, on Hahnemühle Photo Rag cotton paper",
+      "note_cs": "Bez rámu, na bavlněném papíře Hahnemühle Photo Rag",
+      "sizes": [
+        {
+          "size": "A3, 30 × 42 cm",
+          "price": 45,
+          "sku": "GLOBAL-HPR-A3"
+        },
+        {
+          "size": "A2, 42 × 59 cm",
+          "price": 70,
+          "sku": "GLOBAL-HPR-A2"
+        },
+        {
+          "size": "A1, 59 × 84 cm",
+          "price": 130,
+          "sku": "GLOBAL-HPR-A1"
+        }
+      ]
+    },
+    {
+      "id": "framed",
+      "name": "Framed print",
+      "name_cs": "Tisk v rámu",
+      "note": "Archival matte art paper, with mount and acrylic glazing. Frame in black, white or natural wood.",
+      "note_cs": "Archivní matný papír, s paspartou a akrylátovým sklem. Rám černý, bílý nebo z přírodního dřeva.",
+      "sizes": [
+        {
+          "size": "30 × 40 cm",
+          "price": 115,
+          "sku": "GLOBAL-CFPM-12X16"
+        },
+        {
+          "size": "50 × 70 cm",
+          "price": 165,
+          "sku": "GLOBAL-CFPM-20X28"
+        },
+        {
+          "size": "70 × 100 cm",
+          "price": 220,
+          "sku": "GLOBAL-CFPM-28X40"
+        }
+      ]
+    },
+    {
+      "id": "canvas",
+      "name": "Framed canvas",
+      "name_cs": "Plátno v rámu",
+      "note": "Stretched canvas in a float frame, ready to hang",
+      "note_cs": "Napnuté plátno ve stínovém rámu, připravené k zavěšení",
+      "sizes": [
+        {
+          "size": "41 × 51 cm",
+          "price": 150,
+          "sku": "GLOBAL-FRA-CAN-16X20"
+        },
+        {
+          "size": "51 × 71 cm",
+          "price": 195,
+          "sku": "GLOBAL-FRA-CAN-20X28"
+        },
+        {
+          "size": "71 × 102 cm",
+          "price": 260,
+          "sku": "GLOBAL-FRA-CAN-28X40"
+        }
+      ]
+    }
+  ]
+}

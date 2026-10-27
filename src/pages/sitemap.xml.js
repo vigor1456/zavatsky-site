@@ -3,7 +3,7 @@
 import { getCollection } from 'astro:content';
 import { SITE } from '../lib/site.js';
 
-const STATIC = ['/', '/people', '/ravique', '/about', '/blog', '/privacy'];
+const STATIC = ['/', '/people', '/ravique', '/prints', '/about', '/blog', '/privacy'];
 
 export async function GET() {
   const reserved = new Set(['people', 'ravique', 'about', 'privacy', 'blog', '404', 'index', 'rss', 'sitemap', 'llms', 'admin', 'images']);

@@ -259,3 +259,27 @@ body.v-lock { overflow: hidden; }
 .credits dt { font-size: 13px; color: var(--muted); }
 .credits dd { font-size: 16px; color: var(--paper); }
 .credits a { text-decoration: none; border-bottom: 1px solid var(--accent); }
+
+/* ---------- prints page ---------- */
+.pr-stage { display: grid; }
+.pr-img { grid-area: 1 / 1; width: min(100%, calc(85svh * var(--ar, 1))); height: auto; aspect-ratio: var(--ar, 1); object-fit: cover; opacity: 0; transition: opacity 0.45s ease; }
+.br .pr-img { justify-self: end; }
+.pr-img.on { opacity: 1; position: relative; z-index: 1; }
+.pr-thumbs { display: flex; gap: 10px; margin-top: 12px; }
+.pr-thumb { width: 72px; height: 72px; padding: 0; border: 1px solid #333; background: none; cursor: pointer; opacity: 0.6; transition: opacity 0.2s ease, border-color 0.2s ease; }
+.pr-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.pr-thumb:hover, .pr-thumb.on { opacity: 1; border-color: var(--accent); }
+.pr-info { display: flex; flex-direction: column; gap: 14px; }
+.pr-form { display: flex; flex-direction: column; gap: 16px; margin-top: 10px; padding-top: 22px; border-top: 1px solid var(--line); }
+.pr-form fieldset { border: 0; display: flex; flex-direction: column; gap: 10px; }
+.pr-form legend { margin-bottom: 10px; }
+.pr-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.pr-opt { position: relative; cursor: pointer; }
+.pr-opt input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.pr-opt span { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #3a3a3a; font-size: 14px; color: var(--text2); transition: border-color 0.2s ease, color 0.2s ease; }
+.pr-opt input:checked + span { border-color: var(--accent); color: var(--paper); }
+.pr-opt input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pr-size { display: flex; flex-direction: column; gap: 8px; }
+.pr-size select { appearance: none; -webkit-appearance: none; min-height: 44px; padding: 0 40px 0 14px; background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23a3a3a0' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 14px center; color: var(--paper); border: 1px solid #3a3a3a; font: inherit; font-size: 15px; cursor: pointer; }
+.pr-price { font-family: var(--serif); font-weight: 300; font-size: 2rem; line-height: 1; }
+.pr-go { align-self: flex-start; }

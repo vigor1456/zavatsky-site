@@ -51,4 +51,43 @@ const series = defineCollection({
     images: z.array(z.object({ src: z.string(), alt: z.string().default('') })).default([]),
   }),
 });
-export const collections = { journal, galleries, series };
+const prints = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string(),
+    title_cs: z.string().optional(),
+    order: z.number().default(100),
+    available: z.boolean().default(true),
+    place: z.string().optional(),
+    place_cs: z.string().optional(),
+    year: z.number().optional(),
+    story: z.string().default(''),
+    story_cs: z.string().optional(),
+    orientation: z.enum(['portrait', 'landscape', 'square']).default('landscape'),
+    formats: z.array(z.string()).default([]),
+    mockups: z.array(z.object({ src: z.string(), alt: z.string().default('') })).min(1),
+  }),
+});
+const printshop = defineCollection({
+  type: 'data',
+  schema: z.object({
+    intro: z.string().default(''),
+    intro_cs: z.string().optional(),
+    shipping: z.string().default(''),
+    shipping_cs: z.string().optional(),
+    etsy_url: z.string().optional(),
+    formats: z.array(z.object({
+      id: z.string(),
+      name: z.string(),
+      name_cs: z.string().optional(),
+      note: z.string().optional(),
+      note_cs: z.string().optional(),
+      sizes: z.array(z.object({
+        size: z.string(),
+        price: z.number().optional(),
+        sku: z.string().optional(),
+      })).default([]),
+    })).default([]),
+  }),
+});
+export const collections = { journal, galleries, series, prints, printshop };

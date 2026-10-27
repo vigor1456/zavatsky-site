@@ -1,0 +1,174 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import { MR, SITE, abs } from '../lib/site.js';
+
+const shop = (await getEntry('printshop', 'settings')).data;
+const fmtById = Object.fromEntries(shop.formats.map((f) => [f.id, f]));
+const prints = (await getCollection('prints', ({ data }) => data.available))
+  .sort((a, b) => a.data.order - b.data.order || a.id.localeCompare(b.id))
+  .map((p) => ({ ...p, formats: p.data.formats.map((id) => fmtById[id]).filter((f) => f && f.sizes.length) }));
+
+const euro = (n) => (typeof n === 'number' ? '€' + (Number.isInteger(n) ? n : n.toFixed(2)) : null);
+const nav = [
+  { href: '/ravique#galleries', en: 'Galleries', cs: 'Galerie' },
+  { href: '/prints', en: 'Prints', cs: 'Tisky', current: true },
+  { href: '/ravique#about', en: 'About', cs: 'O tvorbě' },
+  { href: '#contact', en: 'Contact', cs: 'Kontakt' },
+];
+const graph = prints.map((p) => {
+  const priced = p.formats.flatMap((f) => f.sizes).map((s) => s.price).filter((x) => typeof x === 'number');
+  return {
+    '@type': 'Product', '@id': `${SITE}/prints#${p.id}`, name: `${p.data.title}, print by Maximilian Ravique`,
+    description: p.data.story, image: p.data.mockups.map((m) => abs(m.src)),
+    brand: { '@type': 'Brand', name: 'Maximilian Ravique' },
+    ...(priced.length ? { offers: { '@type': 'AggregateOffer', priceCurrency: 'EUR', lowPrice: Math.min(...priced), highPrice: Math.max(...priced), offerCount: priced.length, availability: 'https://schema.org/MadeToOrder' } } : {}),
+  };
+});
+---
+<Base
+  title="Prints for the Wall | Maximilian Ravique"
+  description="Archival pigment prints and framed canvases of landscape and street photography by Maximilian Ravique. Made to order and shipped across the EU."
+  path="/prints" image={prints[0]?.data.mockups[0].src} imageAlt={prints[0]?.data.mockups[0].alt}
+  side="mr" mark="mr" nav={nav} footer="mr" graph={graph}>
+
+  <header class="wrap g12" style="padding-top: clamp(56px, 8vw, 120px); padding-bottom: clamp(64px, 8vw, 120px); align-items: end">
+    <h1 class="display" style="grid-column: 1 / span 7" data-en="Prints for the wall" data-cs="Tisky na zeď">Prints for the wall</h1>
+    <div style="grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 14px">
+      <p class="lead" data-en={shop.intro} data-cs={shop.intro_cs || shop.intro}>{shop.intro}</p>
+    </div>
+  </header>
+
+  {prints.map((p, i) => {
+    const d = p.data;
+    const left = i % 2 === 0;
+    const first = p.formats[0];
+    const firstSize = first?.sizes[0];
+    return (
+      <section class="wrap g12 pr" id={p.id} style={`align-items: center; ${i > 0 ? 'margin-top: clamp(120px, 14vw, 220px)' : ''}`}>
+        <div class={`pr-media rv ${left ? 'bl' : 'br'}`} style={left ? 'grid-column: 1 / span 7' : 'grid-column: 6 / span 7; grid-row: 1'}>
+          <div class="pr-stage">
+            {d.mockups.map((m, k) => (
+              <Pic src={m.src} alt={m.alt} eager={i === 0 && k === 0} class={`pr-img${k === 0 ? ' on' : ''}`} sizes="(max-width: 760px) 100vw, 58vw" fallback={1600} />
+            ))}
+          </div>
+          {d.mockups.length > 1 && (
+            <div class="pr-thumbs" style={left ? 'padding-left: var(--pad)' : 'padding-right: var(--pad); justify-content: flex-end'}>
+              {d.mockups.map((m, k) => (
+                <button type="button" class={`pr-thumb${k === 0 ? ' on' : ''}`} data-k={k} aria-label={`Show view ${k + 1}: ${m.alt}`} aria-pressed={k === 0 ? 'true' : 'false'}>
+                  <Pic src={m.src} alt="" sizes="96px" fallback={480} />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div class="pr-info rv" style={left ? 'grid-column: 9 / span 4' : 'grid-column: 1 / span 4; grid-row: 1'}>
+          <h2 class="h2" style="font-weight: 300" data-en={d.title} data-cs={d.title_cs || d.title}>{d.title}</h2>
+          {(d.place || d.year) && (
+            <p class="small muted" data-en={[d.place, d.year].filter(Boolean).join(', ')} data-cs={[d.place_cs || d.place, d.year].filter(Boolean).join(', ')}>{[d.place, d.year].filter(Boolean).join(', ')}</p>
+          )}
+          <p class="small" data-en={d.story} data-cs={d.story_cs || d.story}>{d.story}</p>
+
+          {first && (
+            <form class="pr-form" data-title={d.title} onsubmit="return false">
+              <fieldset>
+                <legend class="small muted" data-en="Format" data-cs="Formát">Format</legend>
+                <div class="pr-opts">
+                  {p.formats.map((f, k) => (
+                    <label class="pr-opt">
+                      <input type="radio" name={`fmt-${p.id}`} value={f.id} checked={k === 0} />
+                      <span data-en={f.name} data-cs={f.name_cs || f.name}>{f.name}</span>
+                    </label>
+                  ))}
+                </div>
+                {p.formats.map((f, k) => f.note && (
+                  <p class="small muted pr-note" data-fmt={f.id} hidden={k !== 0} data-en={f.note} data-cs={f.note_cs || f.note}>{f.note}</p>
+                ))}
+              </fieldset>
+              <label class="pr-size">
+                <span class="small muted" data-en="Size" data-cs="Velikost">Size</span>
+                <select name="size">
+                  {p.formats.map((f, k) => f.sizes.map((s, j) => (
+                    <option value={s.size} data-fmt={f.id} data-price={s.price ?? ''} hidden={k !== 0} disabled={k !== 0} selected={k === 0 && j === 0}>{s.size}</option>
+                  )))}
+                </select>
+              </label>
+              <p class="pr-price" aria-live="polite">
+                {euro(firstSize?.price) ?? <span data-en="Price on request" data-cs="Cena na dotaz">Price on request</span>}
+              </p>
+              <a class="btn pr-go" href={`mailto:${MR.email}?subject=${encodeURIComponent(`Print enquiry: ${d.title}, ${first.name}, ${firstSize?.size}`)}`}
+                data-en="Enquire about this print" data-cs="Poptat tento tisk">Enquire about this print</a>
+            </form>
+          )}
+        </div>
+      </section>
+    );
+  })}
+
+  <div class="divider" aria-hidden="true"><span></span></div>
+
+  <section class="wrap g12" style="padding-top: clamp(100px, 12vw, 180px); row-gap: 40px">
+    <h2 class="sr-only" data-en="How it works" data-cs="Jak to funguje">How it works</h2>
+    <div class="rv" style="grid-column: 2 / span 4; display: flex; flex-direction: column; gap: 10px">
+      <h3 class="h2" style="font-size: 1.7rem; font-weight: 300" data-en="Made to order" data-cs="Na zakázku">Made to order</h3>
+      <p class="small" data-en={shop.shipping} data-cs={shop.shipping_cs || shop.shipping}>{shop.shipping}</p>
+    </div>
+    <div class="rv" style="grid-column: 8 / span 4; display: flex; flex-direction: column; gap: 10px; margin-top: clamp(48px, 6vw, 96px)">
+      <h3 class="h2" style="font-size: 1.7rem; font-weight: 300" data-en="Something else in mind?" data-cs="Máte jinou představu?">Something else in mind?</h3>
+      <p class="small" data-en="Any photograph from the galleries can be printed. Write to me with the frame, the size and the room it is for." data-cs="Vytisknout lze kterýkoli snímek z galerií. Napište mi, o jaký snímek, velikost a místnost jde.">Any photograph from the galleries can be printed. Write to me with the frame, the size and the room it is for.</p>
+      {shop.etsy_url && <a class="ulink small" href={shop.etsy_url} rel="noopener" style="align-self: flex-start" data-en="Buying from the UK? Visit the Etsy shop" data-cs="Nakupujete z Velké Británie? Navštivte obchod na Etsy">Buying from the UK? Visit the Etsy shop</a>}
+    </div>
+  </section>
+
+  <section id="contact" class="wrap g12" style="padding-top: clamp(120px, 14vw, 200px); padding-bottom: clamp(80px, 10vw, 140px); align-items: end">
+    <div class="rv" style="grid-column: 1 / span 6; display: flex; flex-direction: column; gap: 18px">
+      <h2 class="h2-big" data-en="Enquiries" data-cs="Poptávky">Enquiries</h2>
+      <p class="lead" style="max-width: 28rem" data-en="Questions about paper, framing or delivery? I answer every message myself." data-cs="Otázky k papíru, rámování nebo doručení? Na každou zprávu odpovídám osobně.">Questions about paper, framing or delivery? I answer every message myself.</p>
+    </div>
+    <div style="grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 10px; font-size: 16px">
+      <a class="ulink" href={`mailto:${MR.email}`} style="align-self: flex-start; font-size: 1.15rem">{MR.email}</a>
+      <a href={`tel:${MR.tel}`} style="color: var(--text2); text-decoration: none">{MR.phone}</a>
+      <a href={MR.whatsapp} style="color: var(--text2); text-decoration: none">WhatsApp</a>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ email: MR.email }}>
+    (function () {
+      function lang() { return document.documentElement.lang === 'cs' ? 'cs' : 'en'; }
+      document.querySelectorAll('.pr').forEach(function (sec) {
+        // switch mockup views
+        var imgs = sec.querySelectorAll('.pr-img'), th = sec.querySelectorAll('.pr-thumb');
+        th.forEach(function (b) {
+          b.addEventListener('click', function () {
+            var k = +b.dataset.k;
+            imgs.forEach(function (im, j) { im.classList.toggle('on', j === k); });
+            th.forEach(function (t, j) { t.classList.toggle('on', j === k); t.setAttribute('aria-pressed', j === k ? 'true' : 'false'); });
+          });
+        });
+        // format, size, price, enquiry link
+        var form = sec.querySelector('.pr-form'); if (!form) return;
+        var sel = form.querySelector('select'), price = form.querySelector('.pr-price'), go = form.querySelector('.pr-go');
+        function fmt() { return form.querySelector('input[type=radio]:checked'); }
+        function update() {
+          var f = fmt(), opt = sel.options[sel.selectedIndex];
+          var p = opt && opt.dataset.price;
+          price.innerHTML = p ? '€' + p : (lang() === 'cs' ? 'Cena na dotaz' : 'Price on request');
+          var fname = f.parentElement.querySelector('span').textContent;
+          go.href = 'mailto:' + email + '?subject=' + encodeURIComponent('Print enquiry: ' + form.dataset.title + ', ' + fname + ', ' + (opt ? opt.value : ''));
+        }
+        form.addEventListener('change', function (e) {
+          if (e.target.type === 'radio') {
+            var id = e.target.value, firstOk = null;
+            [].forEach.call(sel.options, function (o) { var on = o.dataset.fmt === id; o.hidden = !on; o.disabled = !on; if (on && !firstOk) firstOk = o; });
+            if (firstOk) firstOk.selected = true;
+            form.querySelectorAll('.pr-note').forEach(function (n) { n.hidden = n.dataset.fmt !== id; });
+          }
+          update();
+        });
+        document.addEventListener('langchange', update);
+      });
+    })();
+  </script>
+</Base>

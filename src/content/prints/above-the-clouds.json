@@ -1,0 +1,24 @@
+{
+  "title": "Above the Clouds",
+  "title_cs": "Nad mraky",
+  "order": 20,
+  "available": true,
+  "story": "A mountain ridge lit pink at the end of the day, rising out of a river of cloud above the dark line of the forest.",
+  "story_cs": "Horský hřeben zbarvený do růžova na konci dne, vystupující z řeky mraků nad tmavou linií lesa.",
+  "orientation": "landscape",
+  "formats": [
+    "print",
+    "framed",
+    "canvas"
+  ],
+  "mockups": [
+    {
+      "src": "/images/prints/peak-room.jpg",
+      "alt": "A framed print of a mountain range rising above clouds, hanging over a light wooden sideboard"
+    },
+    {
+      "src": "/images/prints/peak-framed.jpg",
+      "alt": "A framed print of a mountain range in pink evening light, with window shadows falling across it"
+    }
+  ]
+}

@@ -21,7 +21,8 @@ ${ss.map((x) => `- [${x.data.title} (personal series)](${SITE}/${x.id}): ${x.dat
 
 ## Maximilian Ravique
 
-- [Maximilian Ravique](${SITE}/ravique): Landscape, street and architecture photography, with prints for the wall.
+- [Maximilian Ravique](${SITE}/ravique): Landscape, street and architecture photography.
+- [Prints](${SITE}/prints): Archival prints and framed canvases, made to order and shipped within the EU.
 ${gs.filter((g) => g.data.side === 'ravique').map(line).join('\n')}
 
 ## Journal

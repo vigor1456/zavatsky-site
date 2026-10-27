@@ -1,0 +1,26 @@
+{
+  "title": "Lamps in the Fog",
+  "title_cs": "Lampy v mlze",
+  "order": 10,
+  "available": true,
+  "place": "Prague",
+  "place_cs": "Praha",
+  "story": "A cobbled lane on a winter night, the gas lamps burning orange through the fog, one after another into the distance.",
+  "story_cs": "Dlážděná ulička v zimní noci, plynové lampy prosvítají mlhou oranžově, jedna za druhou až do dálky.",
+  "orientation": "portrait",
+  "formats": [
+    "print",
+    "framed",
+    "canvas"
+  ],
+  "mockups": [
+    {
+      "src": "/images/prints/lamps-room.jpg",
+      "alt": "A large print of a foggy lamplit street hanging above a dark velvet sofa"
+    },
+    {
+      "src": "/images/prints/lamps-framed.jpg",
+      "alt": "A framed print of a cobbled street with gas lamps glowing in the fog"
+    }
+  ]
+}
