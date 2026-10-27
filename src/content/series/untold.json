@@ -2,6 +2,7 @@
   "title": "Untold",
   "title_cs": "Nevyprávěné",
   "order": 20,
+  "date": "2025-02-20",
   "cover": "/images/people-05.jpg",
   "cover_alt": "Hands gripping a woman's tattooed bare back, in black and white",
   "card": "Vulnerability and sexuality, in skin and shadow.",
@@ -9,7 +10,21 @@
   "intro": "Untold is the body with nothing to prove. An exploration of vulnerability and sexuality, of the things we feel but seldom say, written in skin, weight and shadow.",
   "intro_cs": "Nevyprávěné je tělo, které nemá co dokazovat. Zkoumání zranitelnosti a sexuality, věcí, které cítíme, ale málokdy vyslovíme, psané kůží, tíhou a stínem.",
   "essay": "There is the oscillation between withdrawal and release, clenching hands, a body folding in upon itself, the resistance against the world that had dictated rules for so long. And yet, there’s an emerging sense of surrender, an extending, and opening, an unravelling.",
-  "credits": [],
+  "essay_cs": "Je tu oscilace mezi stažením a uvolněním, zatínající se ruce, tělo svinující se samo do sebe, vzdor vůči světu, který tak dlouho diktoval pravidla. A přesto se vynořuje pocit odevzdání – natahování, otevírání, rozplétání.",
+  "credits": [
+    {
+      "role": "Model",
+      "role_cs": "Modelka",
+      "name": "Hanna Li",
+      "url": ""
+    },
+    {
+      "role": "Studio",
+      "role_cs": "Atelier",
+      "name": "FACTORY Photo Studio - Prague",
+      "url": "https://www.factoryphotostudio.cz/"
+    }
+  ],
   "splitAfter": 5,
   "images": [
     {
@@ -18,27 +33,27 @@
     },
     {
       "src": "/images/untold-02.jpg",
-      "alt": "A woman lying face down, a tattoo across her bare back, in black and white"
+      "alt": "Photo of a woman lying face down, a tattoo across her bare back, in black and white"
     },
     {
       "src": "/images/untold-03.jpg",
-      "alt": "A woman in black lingerie lying on a pale floor, an arm over her face, in black and white"
+      "alt": "Photo of a woman in black lingerie lying on a pale floor, an arm over her face, in black and white"
     },
     {
       "src": "/images/untold-04.jpg",
-      "alt": "A tattooed woman curled tightly on the floor, hugging her knees, in black and white"
+      "alt": "Photo of a tattooed woman curled tightly on the floor, hugging her knees, in black and white"
     },
     {
       "src": "/images/untold-05.jpg",
-      "alt": "A woman folded forward over a ledge, tattoos along her side, in black and white"
+      "alt": "Photo of a woman folded forward over a ledge, tattoos along her side, in black and white"
     },
     {
       "src": "/images/untold-06.jpg",
-      "alt": "A woman draped over a tufted vintage sofa, in black and white"
+      "alt": "Photo of a woman draped over a tufted vintage sofa, in black and white"
     },
     {
       "src": "/images/untold-07.jpg",
-      "alt": "A woman curled on a bed beneath a dark window grid, in black and white"
+      "alt": "Photo of a woman curled on a bed beneath a dark window grid, in black and white"
     },
     {
       "src": "/images/untold-08.jpg",
