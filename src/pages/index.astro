@@ -25,9 +25,15 @@ const graph = [{ '@type': 'WebPage', '@id': SITE + '/#home', url: SITE + '/', na
   .door {
     position: relative; flex: 1 1 520px; display: flex; align-items: flex-end; overflow: hidden;
     height: max(32rem, calc(88svh - var(--bar))); text-decoration: none;
+    transition: flex-grow .6s cubic-bezier(.2,.7,.2,1), filter .6s ease;
   }
-  .door img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease; }
-  .door:hover img { transform: scale(1.03); }
+  .door img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  @media (min-width: 1041px) { .door { flex: 1 1 0; } }
+  @media (min-width: 1041px) and (hover: hover) {
+    .doors:hover .door, .doors:focus-within .door { filter: brightness(.62) saturate(.85); }
+    .doors .door:hover, .doors .door:focus-visible { flex-grow: 1.32; filter: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .door { transition: none; } }
   .door::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, var(--ground) 0%, rgba(18,18,18,.9) 20%, rgba(18,18,18,.45) 42%, rgba(18,18,18,0) 62%); }
   .door-text { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 14px; padding: 0 var(--pad) clamp(36px, 5vw, 64px); max-width: 40rem; }
   .door.d-vz .door-text { padding-left: max(var(--pad), calc((100vw - var(--max)) / 2 + var(--pad))); max-width: calc(40rem + max(0px, (100vw - var(--max)) / 2)); }
@@ -79,11 +85,11 @@ const graph = [{ '@type': 'WebPage', '@id': SITE + '/#home', url: SITE + '/', na
       </div>
       <div class="cap" style="padding-left: var(--pad)"><a class="tlink sm" href="/people" style="align-self: flex-start" data-en="Portraits &amp; People" data-cs="Portréty &amp; lidé">Portraits &amp; People</a></div>
     </div>
-    <div class="br rv side-mr" style="grid-column: 7 / span 6; grid-row: 1; margin-top: clamp(120px, 16vw, 240px)">
+    <div class="br rv side-mr" style="grid-column: 7 / span 6; grid-row: 1">
       <div class="strip" style="padding-right: var(--pad)">
         {mrStrip.map((p, i) => <a href="/ravique" style="display: contents" tabindex="-1" aria-hidden="true"><Pic src={p.src} alt={p.alt} sizes="(max-width: 760px) 33vw, 20vw" fallback={800} class={i !== 0 ? 'tall' : ''} /></a>)}
       </div>
-      <div class="cap" style="padding-right: var(--pad)"><a class="tlink sm" href="/ravique" style="align-self: flex-start">Maximilian Ravique</a></div>
+      <div class="cap" style="padding-right: var(--pad); align-items: flex-end; text-align: right"><a class="tlink sm" href="/ravique">Maximilian Ravique</a></div>
     </div>
   </section>
 </Base>

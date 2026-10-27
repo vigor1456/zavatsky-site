@@ -70,6 +70,7 @@ button { font: inherit; color: inherit; }
   .g12 > * { grid-column: 1 / -1 !important; grid-row: auto !important; margin-top: 0 !important; }
   .g12 > * + * { margin-top: 36px !important; }
   .bl, .br { margin-left: 0; margin-right: 0; }
+  .stagger { margin-top: 56px !important; }
 }
 
 /* ---------- type ---------- */
