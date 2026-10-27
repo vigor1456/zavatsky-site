@@ -250,3 +250,12 @@ body.v-lock { overflow: hidden; }
 #cc-banner .cc-btns { display: flex; gap: 0.55rem; margin-left: auto; }
 .cc-btn { min-height: 44px; padding: 0 1.15rem; font-size: 0.88rem; font-weight: 500; cursor: pointer; border: 1px solid var(--paper); background: var(--paper); color: var(--ground); }
 .cc-btn.ghost { background: transparent; color: var(--paper); border-color: #4a4a4a; }
+
+/* ---------- series credits (only rendered when filled in) ---------- */
+.credits { max-width: 40rem; margin: 0 auto; padding: clamp(72px, 9vw, 128px) var(--pad) 0; text-align: center; }
+.credits h2 { font-family: var(--sans); font-weight: 400; letter-spacing: 0.02em; margin-bottom: 18px; }
+.credits dl { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: 14px 40px; }
+.credits dl > div { display: flex; flex-direction: column; gap: 2px; }
+.credits dt { font-size: 13px; color: var(--muted); }
+.credits dd { font-size: 16px; color: var(--paper); }
+.credits a { text-decoration: none; border-bottom: 1px solid var(--accent); }

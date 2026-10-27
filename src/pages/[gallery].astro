@@ -6,13 +6,20 @@ import { cdn, srcset } from '../lib/img.js';
 import { describe, abs, SITE } from '../lib/site.js';
 
 export async function getStaticPaths() {
+  // Galleries and series share this template. Series slugs that would clash with a page are skipped.
+  const reserved = new Set(['people', 'ravique', 'about', 'privacy', 'blog', '404', 'index', 'rss', 'sitemap', 'llms', 'admin', 'images']);
   const gs = await getCollection('galleries');
-  return gs.map((g) => ({ params: { gallery: g.id }, props: { g } }));
+  const ss = await getCollection('series');
+  return [
+    ...gs.map((g) => ({ params: { gallery: g.id }, props: { g, series: false } })),
+    ...ss.filter((x) => !reserved.has(x.id)).map((x) => ({ params: { gallery: x.id }, props: { g: x, series: true } })),
+  ];
 }
-const { g } = Astro.props;
+const { g, series } = Astro.props;
 const d = g.data;
-const people = d.side === 'people';
-const series = d.kind === 'series';
+const people = series || d.side === 'people';
+const year = series && d.date ? new Date(d.date).getFullYear() : null;
+const credits = series ? (d.credits || []).filter((c) => c && c.name && c.name.trim()) : [];
 
 const imgs = d.images.map((im) => ({ ...im, ar: ar(im.src) }));
 const split = people && d.splitAfter ? d.splitAfter : imgs.length;
@@ -43,9 +50,13 @@ const graph = [{
   name: d.title, description: d.intro, url: SITE + path, inLanguage: 'en',
   author: people ? { '@id': SITE + '/#vadim' } : { '@type': 'Person', name: 'Maximilian Ravique', url: SITE + '/ravique' },
   image: imgs.slice(0, 8).map((im) => ({ '@type': 'ImageObject', contentUrl: abs(im.src), description: im.alt })),
+  ...(year ? { dateCreated: String(year) } : {}),
+  ...(credits.length ? { contributor: credits.map((c) => ({ '@type': 'Person', name: c.name.trim(), ...(c.role ? { jobTitle: c.role } : {}), ...(c.url ? { url: c.url } : {}) })) } : {}),
 }];
+const shareImg = series && d.cover ? d.cover : imgs[0]?.src;
+const shareAlt = series && d.cover ? d.cover_alt : imgs[0]?.alt;
 ---
-<Base title={title} description={describe(d.intro)} path={path} image={imgs[0].src} imageAlt={imgs[0].alt}
+<Base title={title} description={describe(d.intro)} path={path} image={shareImg} imageAlt={shareAlt}
   side={people ? 'vz' : 'mr'} mark={people ? 'vz' : 'mr'} nav={nav} footer={people ? 'vz' : 'mr'} graph={graph} viewer>
 
   <header class="wrap g12" style="padding-top: clamp(56px, 8vw, 120px); padding-bottom: clamp(48px, 6vw, 88px); align-items: end">
@@ -53,7 +64,10 @@ const graph = [{
       <span data-en={d.title} data-cs={d.title_cs || d.title}>{d.title}</span>
       {series && d.title_cs && d.title_cs !== d.title && <span class="muted" style="display:block; margin-top: 0.3em; font-size: 0.32em; letter-spacing: 0" data-en={d.title_cs} data-cs={d.title}>{d.title_cs}</span>}
     </h1>
-    <p class="lead" style="grid-column: 9 / span 4" data-en={d.intro} data-cs={d.intro_cs || d.intro}>{d.intro}</p>
+    <div style="grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 14px">
+      <p class="lead" data-en={d.intro} data-cs={d.intro_cs || d.intro}>{d.intro}</p>
+      {year && <p class="small muted">{year}</p>}
+    </div>
   </header>
 
   <div class="wrap">
@@ -82,6 +96,20 @@ const graph = [{
       </section>
     )}
   </div>
+
+  {credits.length > 0 && (
+    <section class="credits wrap" aria-labelledby="credits-h">
+      <h2 id="credits-h" class="small muted" data-en="Credits" data-cs="Spolupráce">Credits</h2>
+      <dl>
+        {credits.map((c) => (
+          <div>
+            {c.role && <dt data-en={c.role} data-cs={c.role_cs || c.role}>{c.role}</dt>}
+            <dd>{c.url ? <a href={c.url} rel="noopener">{c.name.trim()}</a> : c.name.trim()}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  )}
 
   <div class="wrap center" style="padding-top: clamp(80px, 10vw, 140px)">
     <a class="tlink sm" href={back.href} data-en={people && !series ? 'Back to Portraits & People' : (series ? 'Back to Series' : 'Back to galleries')}

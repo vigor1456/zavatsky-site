@@ -1,10 +1,14 @@
 {
   "title": "Good Wife",
   "title_cs": "Good Wife",
-  "side": "people",
-  "kind": "series",
+  "order": 10,
+  "cover": "/images/people-04.jpg",
+  "cover_alt": "A woman with red lips and pearls in red light beside a window blind",
+  "card": "When a household’s damage turns deadly.",
+  "card_cs": "Když se újma domova promění ve smrtící.",
   "intro": "A marriage lived in misunderstanding, abuse and quiet cruelty does not always end quietly. Good Wife follows the moment that damage turns deadly, and the cold, domestic calm of cleaning away what is left.",
   "intro_cs": "Manželství žité v neporozumění, násilí a tiché krutosti nekončí vždy tiše. Good Wife sleduje okamžik, kdy se ta újma promění ve smrtící, a chladný, všední klid uklízení toho, co zbylo.",
+  "credits": [],
   "splitAfter": 5,
   "images": [
     {

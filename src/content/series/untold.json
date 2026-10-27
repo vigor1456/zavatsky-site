@@ -1,12 +1,16 @@
 {
   "title": "Untold",
   "title_cs": "Nevyprávěné",
-  "side": "people",
-  "kind": "series",
+  "order": 20,
+  "cover": "/images/people-05.jpg",
+  "cover_alt": "Hands gripping a woman's tattooed bare back, in black and white",
+  "card": "Vulnerability and sexuality, in skin and shadow.",
+  "card_cs": "Zranitelnost a sexualita, v kůži a stínu.",
   "intro": "Untold is the body with nothing to prove. An exploration of vulnerability and sexuality, of the things we feel but seldom say, written in skin, weight and shadow.",
   "intro_cs": "Nevyprávěné je tělo, které nemá co dokazovat. Zkoumání zranitelnosti a sexuality, věcí, které cítíme, ale málokdy vyslovíme, psané kůží, tíhou a stínem.",
-  "splitAfter": 5,
   "essay": "There is the oscillation between withdrawal and release, clenching hands, a body folding in upon itself, the resistance against the world that had dictated rules for so long. And yet, there’s an emerging sense of surrender, an extending, and opening, an unravelling.",
+  "credits": [],
+  "splitAfter": 5,
   "images": [
     {
       "src": "/images/untold-01.jpg",

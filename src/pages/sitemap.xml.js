@@ -6,7 +6,8 @@ import { SITE } from '../lib/site.js';
 const STATIC = ['/', '/people', '/ravique', '/about', '/blog', '/privacy'];
 
 export async function GET() {
-  const galleries = (await getCollection('galleries')).map((g) => ({ loc: `/${g.id}` }));
+  const reserved = new Set(['people', 'ravique', 'about', 'privacy', 'blog', '404', 'index', 'rss', 'sitemap', 'llms', 'admin', 'images']);
+  const galleries = [...(await getCollection('galleries')), ...(await getCollection('series')).filter((x) => !reserved.has(x.id))].map((g) => ({ loc: `/${g.id}` }));
   const posts = (await getCollection('journal', ({ data }) => !data.draft))
     .sort((a, b) => b.data.date - a.data.date)
     .map((p) => ({ loc: `/blog/${p.slug}`, lastmod: new Date(p.data.date).toISOString().slice(0, 10) }));

@@ -2,6 +2,33 @@
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
 import { VZ, SITE } from '../lib/site.js';
+import { getCollection } from 'astro:content';
+import { ar } from '../lib/ar.js';
+
+// Series cards: ordered by Position (then year, then name). Slots alternate sides;
+// wide covers take wide slots, upright covers the narrow inset slot.
+const reserved = new Set(['people', 'ravique', 'about', 'privacy', 'blog', '404', 'index', 'rss', 'sitemap', 'llms', 'admin', 'images']);
+const list = (await getCollection('series'))
+  .filter((x) => !reserved.has(x.id) && x.data.cover)
+  .sort((a, b) => (a.data.order - b.data.order)
+    || ((a.data.date ? +new Date(a.data.date) : 0) - (b.data.date ? +new Date(b.data.date) : 0))
+    || a.id.localeCompare(b.id));
+let prevSide = null, prevWide = null, leftWides = 0;
+const cards = list.map((x, i) => {
+  const d = x.data;
+  const wide = ar(d.cover) >= 1;
+  const side = prevSide === 'left' ? 'right' : 'left';
+  let col, bleed = null;
+  if (wide && side === 'right') { col = '7 / span 6'; bleed = 'right'; }
+  else if (wide) { if (leftWides % 2 === 1) { col = '1 / span 6'; bleed = 'left'; } else { col = '1 / span 5'; } leftWides++; }
+  else { col = side === 'left' ? '3 / span 3' : '8 / span 3'; }
+  const raise = wide && prevWide ? 'clamp(-260px, -16vw, -120px)' : 'clamp(-120px, -6vw, -48px)';
+  const card = { i, id: x.id, title: d.title, titleCs: d.title_cs || d.title, card: d.card, cardCs: d.card_cs || d.card,
+    cover: d.cover, coverAlt: d.cover_alt, col, raise, bleed,
+    sizes: wide ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 760px) 100vw, 25vw' };
+  prevSide = side; prevWide = wide;
+  return card;
+});
 
 const nav = [
   { href: '#work', en: 'Work', cs: 'Tvorba' },
@@ -71,35 +98,18 @@ const graph = [{ '@type': 'CollectionPage', '@id': SITE + '/people#page', url: S
     </div>
 
     <div class="wrap">
-      <div class="g12">
-        <div class="rv" style="grid-column: 1 / span 5">
-          <a href="/goodwife" aria-hidden="true" tabindex="-1"><Pic src="/images/people-04.jpg" class="cover" sizes="(max-width: 760px) 100vw, 40vw" alt="A woman with red lips and pearls in red light beside a window blind" /></a>
-          <div class="cap">
-            <a class="tlink sm" href="/goodwife" style="align-self: flex-start">Good Wife</a>
-            <p class="small" style="max-width: 22rem" data-en="When a household’s damage turns deadly." data-cs="Když se újma domova promění ve smrtící.">When a household’s damage turns deadly.</p>
+      {cards.map((c) => (
+        <div class={`g12${c.i > 0 ? ' stagger' : ''}`} style={c.i > 0 ? `margin-top: ${c.raise}` : ''}>
+          <div class={`rv${c.bleed === 'right' ? ' br' : c.bleed === 'left' ? ' bl' : ''}`} style={`grid-column: ${c.col}`}>
+            <a href={`/${c.id}`} aria-hidden="true" tabindex="-1"><Pic src={c.cover} class={`cover${c.bleed === 'right' ? ' cover-r' : ''}`} sizes={c.sizes} alt={c.coverAlt} /></a>
+            <div class="cap" style={c.bleed === 'right' ? 'padding-right: var(--pad)' : c.bleed === 'left' ? 'padding-left: var(--pad)' : ''}>
+              <a class="tlink sm" href={`/${c.id}`} style="align-self: flex-start" data-en={c.title} data-cs={c.titleCs}>{c.title}</a>
+              {c.titleCs !== c.title && <p class="small muted" data-en={c.titleCs} data-cs={c.title}>{c.titleCs}</p>}
+              {c.card && <p class="small" style="max-width: 22rem" data-en={c.card} data-cs={c.cardCs}>{c.card}</p>}
+            </div>
           </div>
         </div>
-      </div>
-      <div class="g12 stagger" style="margin-top: clamp(-260px, -16vw, -120px)">
-        <div class="br rv" style="grid-column: 7 / span 6">
-          <a href="/untold" aria-hidden="true" tabindex="-1"><Pic src="/images/people-05.jpg" class="cover cover-r" sizes="(max-width: 760px) 100vw, 50vw" alt="Hands gripping a woman's tattooed bare back, in black and white" /></a>
-          <div class="cap" style="padding-right: var(--pad)">
-            <a class="tlink sm" href="/untold" style="align-self: flex-start" data-en="Untold" data-cs="Nevyprávěné">Untold</a>
-            <p class="small muted" data-en="Nevyprávěné" data-cs="Untold">Nevyprávěné</p>
-            <p class="small" style="max-width: 22rem" data-en="Vulnerability and sexuality, in skin and shadow." data-cs="Zranitelnost a sexualita, v kůži a stínu.">Vulnerability and sexuality, in skin and shadow.</p>
-          </div>
-        </div>
-      </div>
-      <div class="g12 stagger" style="margin-top: clamp(-120px, -6vw, -48px)">
-        <div class="rv" style="grid-column: 3 / span 3">
-          <a href="/underthefilm" aria-hidden="true" tabindex="-1"><Pic src="/images/people-06.jpg" class="cover" sizes="(max-width: 760px) 100vw, 25vw" alt="A face pressed behind clear plastic film, lit red and blue" /></a>
-          <div class="cap">
-            <a class="tlink sm" href="/underthefilm" style="align-self: flex-start" data-en="Under the Film" data-cs="Pod fólií">Under the Film</a>
-            <p class="small muted" data-en="Pod fólií" data-cs="Under the Film">Pod fólií</p>
-            <p class="small" data-en="The masks daily life demands." data-cs="Masky, které si žádá každý den.">The masks daily life demands.</p>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   </section>
 

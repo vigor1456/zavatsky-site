@@ -1,10 +1,14 @@
 {
   "title": "Under the Film",
   "title_cs": "Pod fólií",
-  "side": "people",
-  "kind": "series",
+  "order": 30,
+  "cover": "/images/people-06.jpg",
+  "cover_alt": "A face pressed behind clear plastic film, lit red and blue",
+  "card": "The masks daily life demands.",
+  "card_cs": "Masky, které si žádá každý den.",
   "intro": "Under the Film is about the masks daily life demands. The way we hide what and how we really are, wrapping ourselves in a thin, transparent skin the world can almost, but never quite, see through.",
   "intro_cs": "Pod fólií je o maskách, které si žádá každý den. O tom, jak skrýváme, co a jací doopravdy jsme, a halíme se do tenké průsvitné slupky, skrze kterou svět téměř, ale nikdy úplně, vidí.",
+  "credits": [],
   "splitAfter": 4,
   "images": [
     {

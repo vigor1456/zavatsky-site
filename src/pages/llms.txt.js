@@ -4,6 +4,7 @@ import { SITE, VZ, MR } from '../lib/site.js';
 
 export async function GET() {
   const gs = await getCollection('galleries');
+  const ss = (await getCollection('series')).sort((a, b) => a.data.order - b.data.order);
   const posts = (await getCollection('journal', ({ data }) => !data.draft)).sort((a, b) => b.data.date - a.data.date);
   const line = (g) => `- [${g.data.title}](${SITE}/${g.id}): ${g.data.intro}`;
   const txt = `# Vadim Zavatsky & Maximilian Ravique
@@ -16,6 +17,7 @@ Contact: ${VZ.email} (portraits and editorial), ${MR.email} (prints). Phone and 
 
 - [Portraits & People](${SITE}/people): Portrait and editorial photography in Prague, made like a scene from a film.
 ${gs.filter((g) => g.data.side === 'people').map(line).join('\n')}
+${ss.map((x) => `- [${x.data.title} (personal series)](${SITE}/${x.id}): ${x.data.intro}`).join('\n')}
 
 ## Maximilian Ravique
 
