@@ -1,58 +1,61 @@
 {
   "title": "Landscape",
+  "title_cs": "Krajina",
   "side": "ravique",
+  "intro": "Coast and mountain, sea rock and glacier, all in the long light at either end of the day.",
+  "intro_cs": "Pobřeží a hory, mořská skála a ledovec, vše v dlouhém světle na obou koncích dne.",
   "images": [
     {
       "src": "/images/landscape-01.jpg",
-      "alt": ""
+      "alt": "The Edro III shipwreck off the Cyprus coast at sunset"
     },
     {
       "src": "/images/landscape-02.jpg",
-      "alt": ""
+      "alt": "Aerial view of a road running between two fields of yellow rapeseed"
     },
     {
       "src": "/images/landscape-03.jpg",
-      "alt": ""
+      "alt": "The Aletsch Glacier winding between snowy Alpine peaks"
     },
     {
       "src": "/images/landscape-04.jpg",
-      "alt": ""
+      "alt": "A river bend in a green valley, framed by trees in golden light"
     },
     {
       "src": "/images/landscape-05.jpg",
-      "alt": ""
+      "alt": "Limestone cliffs above a beach of stacked stones on the Cyprus coast at sunset"
     },
     {
       "src": "/images/landscape-06.jpg",
-      "alt": ""
+      "alt": "Purple wildflowers in a meadow as the sun sets beneath heavy clouds"
     },
     {
       "src": "/images/landscape-07.jpg",
-      "alt": ""
+      "alt": "Low sun shining through a pine forest"
     },
     {
       "src": "/images/landscape-08.jpg",
-      "alt": ""
+      "alt": "Aerial view of a turquoise bay along a rocky Mediterranean coast"
     },
     {
       "src": "/images/landscape-09.jpg",
-      "alt": ""
+      "alt": "A lone sea rock rising from the water at dusk"
     },
     {
       "src": "/images/landscape-10.jpg",
-      "alt": ""
+      "alt": "Sunlit birch trees and tall grass along a forest path"
     },
     {
       "src": "/images/landscape-11.jpg",
-      "alt": ""
+      "alt": "Three deer crossing a snowy field below a frosted forest"
     },
     {
       "src": "/images/landscape-12.jpg",
-      "alt": ""
+      "alt": "A house among autumn trees, reflected in a still pond"
     },
     {
       "src": "/images/landscape-13.jpg",
-      "alt": ""
+      "alt": "A green field under a wide sky of drifting clouds"
     }
   ]
 }

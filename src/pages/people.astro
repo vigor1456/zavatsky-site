@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import { VZ, SITE } from '../lib/site.js';
+import { getCollection } from 'astro:content';
+import { ar } from '../lib/ar.js';
+
+// Series cards: ordered by Position (then year, then name). Slots alternate sides;
+// wide covers take wide slots, upright covers the narrow inset slot.
+const reserved = new Set(['people', 'ravique', 'about', 'privacy', 'blog', '404', 'index', 'rss', 'sitemap', 'llms', 'admin', 'images']);
+const list = (await getCollection('series'))
+  .filter((x) => !reserved.has(x.id) && x.data.cover)
+  .sort((a, b) => (a.data.order - b.data.order)
+    || ((a.data.date ? +new Date(a.data.date) : 0) - (b.data.date ? +new Date(b.data.date) : 0))
+    || a.id.localeCompare(b.id));
+let prevSide = null, prevWide = null, leftWides = 0;
+const cards = list.map((x, i) => {
+  const d = x.data;
+  const wide = ar(d.cover) >= 1;
+  const side = prevSide === 'left' ? 'right' : 'left';
+  let col, bleed = null;
+  if (wide && side === 'right') { col = '7 / span 6'; bleed = 'right'; }
+  else if (wide) { if (leftWides % 2 === 1) { col = '1 / span 6'; bleed = 'left'; } else { col = '1 / span 5'; } leftWides++; }
+  else { col = side === 'left' ? '3 / span 3' : '8 / span 3'; }
+  const raise = wide && prevWide ? 'clamp(-260px, -16vw, -120px)' : 'clamp(-120px, -6vw, -48px)';
+  const card = { i, id: x.id, title: d.title, titleCs: d.title_cs || d.title, card: d.card, cardCs: d.card_cs || d.card,
+    cover: d.cover, coverAlt: d.cover_alt, col, raise, bleed,
+    sizes: wide ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 760px) 100vw, 25vw' };
+  prevSide = side; prevWide = wide;
+  return card;
+});
+
+const nav = [
+  { href: '#work', en: 'Work', cs: 'Tvorba' },
+  { href: '#series', en: 'Series', cs: 'Série' },
+  { href: '#contact', en: 'Contact', cs: 'Kontakt' },
+  { href: '/ravique', en: 'Ravique', cs: 'Ravique' },
+];
+const graph = [{ '@type': 'CollectionPage', '@id': SITE + '/people#page', url: SITE + '/people', name: 'Portraits & People', about: { '@id': SITE + '/#vadim' } }];
+---
+<Base
+  title="Portrait & Editorial Photography in Prague | Vadim Zavatsky"
+  description="Portraits, editorial and personal series by Vadim Zavatsky, photographer in Prague. Made like a scene from a film, with you at its centre."
+  path="/people" image="/images/hero-people.jpg" imageAlt="A woman in a white dress arching back beneath an arched window"
+  side="vz" mark="vz" nav={nav} footer="vz" graph={graph}>
+
+  <section class="hero">
+    <Pic src="/images/hero-people.jpg" hero eager class="hz" focal="62% 45%"
+      alt="A woman in a white dress arching back beneath an arched window" />
+    <div class="hero-text wrap">
+      <div class="g12">
+        <h1 class="display" style="grid-column: 1 / span 7" data-en="You, in frame." data-cs="Vy v záběru.">You, in frame.</h1>
+        <div style="grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 22px">
+          <p class="lead" data-en="Portrait and editorial photography, made like a scene from a film, with you at its centre." data-cs="Portrétní a editoriální fotografie, jako scéna z filmu, s vámi uprostřed.">Portrait and editorial photography, made like a scene from a film, with you at its centre.</p>
+          <div class="btns">
+            <a class="btn" href="#work" data-en="See the work" data-cs="Prohlédnout tvorbu">See the work</a>
+            <a class="btn ghost" href="#contact" data-en="Start a conversation" data-cs="Napište mi">Start a conversation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="center" style="padding-top: clamp(72px, 9vw, 128px); padding-bottom: clamp(72px, 9vw, 128px)">
+    <p class="quote rv" data-en="However it’s framed, it begins with a person." data-cs="Ať už je záběr jakýkoli, začíná u člověka.">However it’s framed, it begins with a person.</p>
+  </section>
+
+  <section id="work" class="wrap" style="display: flex; flex-direction: column; gap: clamp(72px, 9vw, 140px)">
+    <h2 class="sr-only" data-en="Work" data-cs="Tvorba">Work</h2>
+    <div class="g12" style="align-items: end">
+      <a class="bl rv" href="/portrait" style="grid-column: 1 / span 7" aria-hidden="true" tabindex="-1">
+        <Pic src="/images/people-02.jpg" class="cover" sizes="(max-width: 760px) 100vw, 58vw"
+          alt="A dark-haired woman in shadow, looking over her shoulder at the camera" />
+      </a>
+      <div class="rv cap" style="grid-column: 9 / span 4; padding-bottom: 8px">
+        <a class="tlink" href="/portrait" style="align-self: flex-start" data-en="Portraits" data-cs="Portréty">Portraits</a>
+        <p class="small" data-en="Studio and location, up close." data-cs="Ateliér i exteriér, zblízka.">Studio and location, up close.</p>
+      </div>
+    </div>
+    <div class="g12" style="align-items: start">
+      <div class="rv cap" style="grid-column: 3 / span 3; margin-top: clamp(80px, 12vw, 200px); text-align: right; align-items: flex-end">
+        <a class="tlink" href="/editorial" data-en="Editorial" data-cs="Editorial">Editorial</a>
+        <p class="small" data-en="Stories for print and brands." data-cs="Příběhy pro tisk a značky.">Stories for print and brands.</p>
+      </div>
+      <a class="rv" href="/editorial" style="grid-column: 7 / span 5" aria-hidden="true" tabindex="-1">
+        <Pic src="/images/people-03.jpg" class="cover" sizes="(max-width: 760px) 100vw, 42vw"
+          alt="A woman smoking at a kitchen table late at night" />
+      </a>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span></span></div>
+
+  <section id="series" style="padding-top: clamp(100px, 12vw, 180px)">
+    <div class="center rv" style="gap: 16px; padding-bottom: clamp(64px, 8vw, 112px)">
+      <h2 class="h2-big" data-en="Series" data-cs="Série">Series</h2>
+      <p class="small" style="max-width: 28rem" data-en="Work made for no client but the image itself, where everything else begins." data-cs="Tvorba, která nevzniká na objednávku, tady začíná vše ostatní.">Work made for no client but the image itself, where everything else begins.</p>
+    </div>
+
+    <div class="wrap">
+      {cards.map((c) => (
+        <div class={`g12${c.i > 0 ? ' stagger' : ''}`} style={c.i > 0 ? `margin-top: ${c.raise}` : ''}>
+          <div class={`rv${c.bleed === 'right' ? ' br' : c.bleed === 'left' ? ' bl' : ''}`} style={`grid-column: ${c.col}`}>
+            <a href={`/${c.id}`} aria-hidden="true" tabindex="-1"><Pic src={c.cover} class={`cover${c.bleed === 'right' ? ' cover-r' : ''}`} sizes={c.sizes} alt={c.coverAlt} /></a>
+            <div class="cap" style={c.bleed === 'right' ? 'padding-right: var(--pad)' : c.bleed === 'left' ? 'padding-left: var(--pad)' : ''}>
+              <a class="tlink sm" href={`/${c.id}`} style="align-self: flex-start" data-en={c.title} data-cs={c.titleCs}>{c.title}</a>
+              {c.titleCs !== c.title && <p class="small muted" data-en={c.titleCs} data-cs={c.title}>{c.titleCs}</p>}
+              {c.card && <p class="small" style="max-width: 22rem" data-en={c.card} data-cs={c.cardCs}>{c.card}</p>}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="contact" class="center" style="gap: 22px; padding-top: clamp(140px, 16vw, 240px); padding-bottom: clamp(100px, 12vw, 180px)">
+    <h2 class="h2-big rv" data-en="Start a conversation" data-cs="Napište mi">Start a conversation</h2>
+    <p class="lead" style="max-width: 28rem" data-en="Tell me what you have in mind. Portraits, an editorial, or a personal project." data-cs="Napište mi, co máte v plánu. Portréty, editorial nebo osobní projekt.">Tell me what you have in mind. Portraits, an editorial, or a personal project.</p>
+    <a class="ulink" href={`mailto:${VZ.email}`} style="font-size: 1.25rem">{VZ.email}</a>
+    <div class="f-row" style="justify-content: center; font-size: 15px">
+      <a href={`tel:${VZ.tel}`} style="color: var(--text2); text-decoration: none">{VZ.phone}</a>
+      <a href={VZ.whatsapp} style="color: var(--text2); text-decoration: none">WhatsApp</a>
+    </div>
+  </section>
+</Base>

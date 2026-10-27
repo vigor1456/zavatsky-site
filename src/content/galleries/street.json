@@ -1,30 +1,33 @@
 {
   "title": "Street",
+  "title_cs": "Ulice",
   "side": "ravique",
+  "intro": "Little moments happen around us every day. Sometimes I take my camera and go looking for them, to see and document what life here looks like now.",
+  "intro_cs": "Kolem nás se každý den dějí malé okamžiky. Občas vezmu foťák a vydám se je hledat, abych viděl a zaznamenal, jak dnes vypadá život kolem.",
   "images": [
     {
       "src": "/images/street-01.jpg",
-      "alt": ""
+      "alt": "A lone pedestrian passing the stone wall of the Nasjonalmuseet in Oslo, in black and white"
     },
     {
       "src": "/images/street-02.jpg",
-      "alt": ""
+      "alt": "A red vintage tram on a sunlit street in Lisbon"
     },
     {
       "src": "/images/street-03.jpg",
-      "alt": ""
+      "alt": "A red Prague tram passing a twin-spired church at dusk"
     },
     {
       "src": "/images/street-04.jpg",
-      "alt": ""
+      "alt": "Narrow gabled canal houses lit up at night above the water"
     },
     {
       "src": "/images/street-05.jpg",
-      "alt": ""
+      "alt": "Two men talking on a cobbled street, people on a bench behind them, in black and white"
     },
     {
       "src": "/images/street-06.jpg",
-      "alt": ""
+      "alt": "A figure walking through a dark arcade toward the light, in black and white"
     }
   ]
 }

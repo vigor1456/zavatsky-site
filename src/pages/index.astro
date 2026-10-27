@@ -1,0 +1,95 @@
+---
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import { VZ, SITE } from '../lib/site.js';
+
+const nav = [
+  { href: '/about', en: 'About', cs: 'O mně' },
+  { href: '/blog', en: 'Journal', cs: 'Deník' },
+  { href: '#contact', en: 'Contact', cs: 'Kontakt' },
+];
+const vzStrip = [
+  { src: '/images/index-04.jpg', alt: 'A woman leaning on a table under a single spotlight, a red rose beside her' },
+  { src: '/images/index-05.jpg', alt: 'Black-and-white portrait of a woman exhaling smoke, a cigarette in her hand' },
+  { src: '/images/index-06.jpg', alt: 'Close-up of a woman lighting a cigarette, the flame glowing in the dark' },
+];
+const mrStrip = [
+  { src: '/images/index-07.jpg', alt: 'A river bend in a green valley, framed by trees in golden light' },
+  { src: '/images/index-08.jpg', alt: 'The gilded domes and red brick of Uspenski Cathedral in Helsinki' },
+  { src: '/images/index-09.jpg', alt: 'A red Prague tram passing a twin-spired church at dusk' },
+];
+const graph = [{ '@type': 'WebPage', '@id': SITE + '/#home', url: SITE + '/', name: 'Vadim Zavatsky | Photographer in Prague', about: { '@id': SITE + '/#vadim' } }];
+---
+<style is:global>
+  .doors { display: flex; flex-wrap: wrap; }
+  .door {
+    position: relative; flex: 1 1 520px; display: flex; align-items: flex-end; overflow: hidden;
+    height: max(32rem, calc(88svh - var(--bar))); text-decoration: none;
+    transition: flex-grow .6s cubic-bezier(.2,.7,.2,1), filter .6s ease;
+  }
+  .door img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  @media (min-width: 1041px) { .door { flex: 1 1 0; } }
+  @media (min-width: 1041px) and (hover: hover) {
+    .doors:hover .door, .doors:focus-within .door { filter: brightness(.62) saturate(.85); }
+    .doors .door:hover, .doors .door:focus-visible { flex-grow: 1.32; filter: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .door { transition: none; } }
+  .door::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, var(--ground) 0%, rgba(18,18,18,.9) 20%, rgba(18,18,18,.45) 42%, rgba(18,18,18,0) 62%); }
+  .door-text { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 14px; padding: 0 var(--pad) clamp(36px, 5vw, 64px); max-width: 40rem; }
+  .door.d-vz .door-text { padding-left: max(var(--pad), calc((100vw - var(--max)) / 2 + var(--pad))); max-width: calc(40rem + max(0px, (100vw - var(--max)) / 2)); }
+  .door-name { font-family: var(--serif); font-weight: 300; font-size: clamp(2.6rem, 4.6vw, 4.6rem); line-height: 1; }
+  .door-enter { align-self: flex-start; border-bottom: 1px solid var(--accent); padding-bottom: 3px; font-size: 15px; }
+  .door + .door { border-left: 1px solid var(--ground); }
+  .door.d-vz { --accent: var(--vz); }
+  .door.d-mr { --accent: var(--mr); }
+  .strip { display: flex; gap: 8px; }
+  .strip img { flex: 1 1 0; min-width: 0; height: clamp(180px, 22vw, 360px); width: 100%; object-fit: cover; }
+  .strip .tall { flex: 0.7 1 0; }
+  @media (max-width: 1040px) { .door + .door { border-left: 0; border-top: 1px solid var(--ground); } .door { height: max(28rem, 70svh); } }
+</style>
+<Base
+  title="Vadim Zavatsky | Photographer in Prague"
+  description="Vadim Zavatsky, photographer in Prague. Portraits, editorial and personal series, plus landscape, street and architecture work as Maximilian Ravique."
+  path="/" image="/images/hero-people.jpg" imageAlt="A woman in a white dress arching back beneath an arched window"
+  side="vz" mark="vz" nav={nav} footer="vz" footerId="contact" graph={graph}>
+
+  <h1 class="sr-only">Vadim Zavatsky, photographer in Prague</h1>
+  <section class="doors" aria-label="Choose a body of work">
+    <a class="door d-vz" href="/people">
+      <Pic src="/images/hero-people.jpg" hero eager sizes="(max-width: 1040px) 100vw, 50vw" focal="62% 45%" alt="" />
+      <div class="door-text">
+        <h2 class="door-name" data-en="Portraits &amp; People" data-cs="Portréty &amp; lidé">Portraits &amp; People</h2>
+        <p class="lead" data-en="Portraits, editorial, personal series. A scene, directed with you." data-cs="Portréty, editorial, osobní série. Scéna, kterou režírujeme spolu.">Portraits, editorial, personal series. A scene, directed with you.</p>
+        <span class="door-enter" data-en="Enter" data-cs="Vstoupit">Enter</span>
+      </div>
+    </a>
+    <a class="door d-mr" href="/ravique">
+      <Pic src="/images/hero-ravique.jpg" hero eager sizes="(max-width: 1040px) 100vw, 50vw" focal="35% 55%" alt="" />
+      <div class="door-text">
+        <h2 class="door-name">Maximilian Ravique</h2>
+        <p class="lead" data-en="Landscape, street, architecture. Work for the wall." data-cs="Krajina, ulice, architektura. Tvorba pro vaši stěnu.">Landscape, street, architecture. Work for the wall.</p>
+        <span class="door-enter" data-en="Enter the gallery" data-cs="Vstoupit do galerie">Enter the gallery</span>
+      </div>
+    </a>
+  </section>
+
+  <section class="center" style="gap: 28px; padding-top: clamp(112px, 14vw, 200px); padding-bottom: clamp(96px, 12vw, 180px)">
+    <p class="quote rv" style="max-width: 34rem" data-en="Every frame, a scene from a film you haven’t seen." data-cs="Každý snímek jako scéna z neznámého filmu.">Every frame, a scene from a film you haven’t seen.</p>
+    <p class="lead" style="max-width: 36rem" data-en="One photographer in Prague, two ways of looking. On one side, the people I photograph. On the other, the places and light I chase when no one is around. Different subjects, one way of seeing." data-cs="Jeden fotograf v Praze, dva způsoby vidění. Na jedné straně lidé, které fotím. Na druhé místa a světlo, za kterými se vydávám, když kolem nikdo není. Různé náměty, jeden pohled.">One photographer in Prague, two ways of looking. On one side, the people I photograph. On the other, the places and light I chase when no one is around. Different subjects, one way of seeing.</p>
+  </section>
+
+  <section class="wrap g12" style="align-items: start; padding-bottom: clamp(80px, 10vw, 140px)" aria-label="A glimpse of both sides">
+    <div class="bl rv side-vz" style="grid-column: 1 / span 6; grid-row: 1">
+      <div class="strip" style="padding-left: var(--pad)">
+        {vzStrip.map((p, i) => <a href="/people" class={i !== 1 ? 'tall' : ''} style="display: contents" tabindex="-1" aria-hidden="true"><Pic src={p.src} alt={p.alt} sizes="(max-width: 760px) 33vw, 20vw" fallback={800} class={i !== 1 ? 'tall' : ''} /></a>)}
+      </div>
+      <div class="cap" style="padding-left: var(--pad)"><a class="tlink sm" href="/people" style="align-self: flex-start" data-en="Portraits &amp; People" data-cs="Portréty &amp; lidé">Portraits &amp; People</a></div>
+    </div>
+    <div class="br rv side-mr" style="grid-column: 7 / span 6; grid-row: 1">
+      <div class="strip" style="padding-right: var(--pad)">
+        {mrStrip.map((p, i) => <a href="/ravique" style="display: contents" tabindex="-1" aria-hidden="true"><Pic src={p.src} alt={p.alt} sizes="(max-width: 760px) 33vw, 20vw" fallback={800} class={i !== 0 ? 'tall' : ''} /></a>)}
+      </div>
+      <div class="cap" style="padding-right: var(--pad); align-items: flex-end; text-align: right"><a class="tlink sm" href="/ravique">Maximilian Ravique</a></div>
+    </div>
+  </section>
+</Base>

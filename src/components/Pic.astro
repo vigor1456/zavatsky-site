@@ -1,0 +1,23 @@
+---
+// Responsive photo served through the Netlify Image CDN.
+// Width/height come from the real file, so the page never jumps while loading.
+import { cdn, srcset, WIDTHS, HERO_WIDTHS } from '../lib/img.js';
+import { ar as arOf } from '../lib/ar.js';
+const { src, alt = '', sizes = '100vw', hero = false, eager = false, fallback = 1200, class: cls, style = '', focal } = Astro.props;
+const ratio = arOf(src);
+const widths = hero ? HERO_WIDTHS : WIDTHS;
+const css = `--ar:${ratio};${focal ? `object-position:${focal};` : ''}${style}`;
+---
+<img
+  src={cdn(src, hero ? 1920 : fallback)}
+  srcset={srcset(src, widths)}
+  sizes={sizes}
+  width={1000}
+  height={Math.round(1000 / ratio)}
+  alt={alt}
+  loading={eager ? 'eager' : 'lazy'}
+  decoding={eager ? 'auto' : 'async'}
+  fetchpriority={eager ? 'high' : undefined}
+  class={cls}
+  style={css}
+/>

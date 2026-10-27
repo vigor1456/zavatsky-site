@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+const nav = [
+  { href: '/people', en: 'People', cs: 'Lidé' },
+  { href: '/ravique', en: 'Ravique', cs: 'Ravique' },
+  { href: '/blog', en: 'Journal', cs: 'Deník' },
+];
+---
+<Base title="Page not found | Vadim Zavatsky" description="This page doesn’t exist." path="/404" side="vz" mark="vz" nav={nav} footer="vz">
+  <section class="center" style="gap: 24px; padding-top: clamp(120px, 16vw, 220px); padding-bottom: clamp(120px, 16vw, 220px)">
+    <h1 class="h2-big" data-en="Out of frame." data-cs="Mimo záběr.">Out of frame.</h1>
+    <p class="lead" data-en="This page doesn’t exist, or it has moved." data-cs="Tato stránka neexistuje, nebo se přesunula.">This page doesn’t exist, or it has moved.</p>
+    <div class="btns" style="justify-content: center">
+      <a class="btn" href="/people" data-en="Portraits &amp; People" data-cs="Portréty &amp; lidé">Portraits &amp; People</a>
+      <a class="btn ghost" href="/ravique">Maximilian Ravique</a>
+    </div>
+  </section>
+</Base>

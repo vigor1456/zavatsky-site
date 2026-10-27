@@ -1,0 +1,122 @@
+---
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import { MR, SITE } from '../lib/site.js';
+
+const nav = [
+  { href: '#galleries', en: 'Galleries', cs: 'Galerie' },
+  { href: '#prints', en: 'Prints', cs: 'Tisky' },
+  { href: '#about', en: 'About', cs: 'O tvorbě' },
+  { href: '#contact', en: 'Contact', cs: 'Kontakt' },
+];
+const sizes = [
+  { name: '30 × 40 cm', en: 'unframed', cs: 'bez rámu', price: '€40' },
+  { name: '50 × 70 cm', en: 'unframed', cs: 'bez rámu', price: '€70' },
+  { name: '70 × 100 cm', en: 'unframed', cs: 'bez rámu', price: '€100' },
+];
+const graph = [{ '@type': 'CollectionPage', '@id': SITE + '/ravique#page', url: SITE + '/ravique', name: 'Maximilian Ravique',
+  author: { '@type': 'Person', name: 'Maximilian Ravique', description: 'Pseudonym of Vadim Zavatsky', sameAs: MR.social.map((s) => s.href) } }];
+---
+<Base
+  title="Maximilian Ravique | Landscape, Street & Architecture Photography"
+  description="Landscape, street and architecture photography by Maximilian Ravique, from Prague and beyond. Archival pigment prints on cotton rag paper, shipped worldwide."
+  path="/ravique" image="/images/hero-ravique.jpg" imageAlt="Limestone cliffs above a beach of stacked stones on the Cyprus coast at sunset"
+  side="mr" mark="mr" nav={nav} footer="mr" graph={graph}>
+
+  <section class="hero">
+    <Pic src="/images/hero-ravique.jpg" hero eager class="hz" focal="45% 55%"
+      alt="Limestone cliffs above a beach of stacked stones on the Cyprus coast at sunset" />
+    <div class="hero-text wrap">
+      <div class="g12">
+        <h1 class="display" style="grid-column: 1 / span 7" data-en="Land, stone, light." data-cs="Země, kámen, světlo.">Land, stone, light.</h1>
+        <div style="grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 22px">
+          <p class="lead" data-en="Landscape, streets and architecture, frames from Prague and beyond, seen through my eyes." data-cs="Krajina, ulice a architektura, snímky z Prahy i odjinud, viděné mýma očima.">Landscape, streets and architecture, frames from Prague and beyond, seen through my eyes.</p>
+          <div class="btns">
+            <a class="btn" href="#galleries" data-en="Browse the galleries" data-cs="Prohlédnout galerie">Browse the galleries</a>
+            <a class="btn ghost" href="#prints" data-en="Prints for the wall" data-cs="Tisky na zeď">Prints for the wall</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="center" style="padding-top: clamp(112px, 14vw, 200px); padding-bottom: clamp(112px, 14vw, 200px)">
+    <p class="quote rv" style="max-width: 26rem" data-en="The world, with no one in the frame." data-cs="Svět, kde v záběru není nikdo.">The world, with no one in the frame.</p>
+  </section>
+
+  <section id="galleries" class="wrap" style="display: flex; flex-direction: column; gap: clamp(88px, 11vw, 160px)">
+    <h2 class="sr-only" data-en="Galleries" data-cs="Galerie">Galleries</h2>
+    <div class="g12" style="align-items: start">
+      <div class="bl rv" style="grid-column: 1 / span 8">
+        <a href="/landscape" aria-hidden="true" tabindex="-1"><Pic src="/images/ravique-02.jpg" class="cover" sizes="(max-width: 760px) 100vw, 66vw" alt="The Edro III shipwreck off the Cyprus coast at sunset" /></a>
+        <div class="cap" style="flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 6px 24px; padding-left: var(--pad)">
+          <a class="tlink" href="/landscape" data-en="Landscape" data-cs="Krajina">Landscape</a>
+          <p class="small" data-en="Coast, mountain, and the light at the day’s edges." data-cs="Pobřeží, hory a světlo na okrajích dne.">Coast, mountain, and the light at the day’s edges.</p>
+        </div>
+      </div>
+      <div class="br rv" style="grid-column: 10 / span 3; margin-top: clamp(160px, 22vw, 320px)">
+        <a href="/street" aria-hidden="true" tabindex="-1"><Pic src="/images/ravique-03.jpg" class="cover cover-r" sizes="(max-width: 760px) 100vw, 25vw" alt="A red vintage tram on a sunlit street in Lisbon" /></a>
+        <div class="cap" style="padding-right: var(--pad)">
+          <a class="tlink sm" href="/street" style="align-self: flex-start" data-en="Street" data-cs="Ulice">Street</a>
+          <p class="small" data-en="Little moments, caught in passing." data-cs="Malé okamžiky, zachycené mimochodem.">Little moments, caught in passing.</p>
+        </div>
+      </div>
+    </div>
+    <div class="g12" style="align-items: start">
+      <div class="rv" style="grid-column: 2 / span 4">
+        <a href="/architecture" aria-hidden="true" tabindex="-1"><Pic src="/images/ravique-04.jpg" class="cover" sizes="(max-width: 760px) 100vw, 33vw" alt="The sharp corner of a modern building with a grid of vertical windows" /></a>
+        <div class="cap">
+          <a class="tlink sm" href="/architecture" style="align-self: flex-start" data-en="Architecture" data-cs="Architektura">Architecture</a>
+          <p class="small" data-en="Line, mass, light." data-cs="Linie, hmota, světlo.">Line, mass, light.</p>
+        </div>
+      </div>
+      <div class="br rv" style="grid-column: 7 / span 6; margin-top: clamp(120px, 16vw, 240px)">
+        <a href="/studies" aria-hidden="true" tabindex="-1"><Pic src="/images/ravique-05.jpg" class="cover cover-r" sizes="(max-width: 760px) 100vw, 50vw" alt="A still life of flowers, a bowl of oranges and a tabby cat on a white-covered table" /></a>
+        <div class="cap" style="flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 6px 24px; padding-right: var(--pad)">
+          <a class="tlink" href="/studies" data-en="Studies" data-cs="Studie">Studies</a>
+          <p class="small" data-en="Still lifes, quiet rooms, and a creature or two." data-cs="Zátiší, tiché pokoje a zvíře nebo dvě.">Still lifes, quiet rooms, and a creature or two.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span></span></div>
+
+  <section id="prints" class="center" style="gap: 22px; padding-top: clamp(100px, 12vw, 180px)">
+    <Pic src="/images/print-room-mountain.jpg" class="cover rv" sizes="(max-width: 760px) 100vw, 760px" style="max-width: 760px; margin-bottom: clamp(24px, 4vw, 48px)"
+      alt="A framed print of a mountain range rising above clouds, hanging over a light wooden sideboard" />
+    <h2 class="h2-big rv" data-en="Prints for the wall" data-cs="Tisky na zeď">Prints for the wall</h2>
+    <p class="lead" style="max-width: 32rem" data-en="Archival pigment prints on cotton rag paper, made to order and shipped worldwide, so nothing sits in a drawer. Pick a size; framing is optional. Every print is an open edition." data-cs="Archivní pigmentové tisky na bavlněném papíře, vyráběné na zakázku a odesílané po celém světě, nic tak neleží v šuplíku. Vyberte velikost; rámování je volitelné. Každý tisk je otevřená edice.">Archival pigment prints on cotton rag paper, made to order and shipped worldwide, so nothing sits in a drawer. Pick a size; framing is optional. Every print is an open edition.</p>
+    <dl style="width: 100%; max-width: 30rem; margin-top: 12px; border-top: 1px solid var(--line)">
+      {sizes.map((s) => (
+        <div style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); text-align: left">
+          <dt>{s.name} <span class="muted" data-en={s.en} data-cs={s.cs}>{s.en}</span></dt>
+          <dd>{s.price}</dd>
+        </div>
+      ))}
+      <div style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); text-align: left">
+        <dt><span data-en="Framing" data-cs="Rámování">Framing</span> <span class="muted" data-en="oak or black, any size" data-cs="dub či černá, jakákoli velikost">oak or black, any size</span></dt>
+        <dd>+€20</dd>
+      </div>
+    </dl>
+    <p class="small muted" style="max-width: 30rem" data-en="Prints are made by a trusted print-on-demand partner and ship worldwide." data-cs="Tisky vyrábí ověřený partner pro tisk na zakázku a odesílají se po celém světě.">Prints are made by a trusted print-on-demand partner and ship worldwide.</p>
+    <a class="btn" href="#contact" style="margin-top: 8px" data-en="Enquire about a piece" data-cs="Poptat dílo">Enquire about a piece</a>
+  </section>
+
+  <section id="about" class="wrap g12" style="padding-top: clamp(140px, 16vw, 240px)">
+    <h2 class="sr-only" data-en="About the work" data-cs="O tvorbě">About the work</h2>
+    <p class="quote rv" style="grid-column: 2 / span 8; max-width: none" data-en="“I photograph the places people leave behind, the light on a wall, a street at the wrong hour, land that doesn’t need anyone in it to mean something.”" data-cs="„Fotografuji místa, která lidé opouštějí, světlo na zdi, ulici v nesprávnou hodinu, krajinu, která nepotřebuje nikoho, aby něco znamenala.“">“I photograph the places people leave behind, the light on a wall, a street at the wrong hour, land that doesn’t need anyone in it to mean something.”</p>
+  </section>
+
+  <section id="contact" class="wrap g12" style="padding-top: clamp(120px, 14vw, 200px); padding-bottom: clamp(80px, 10vw, 140px); align-items: end">
+    <div class="rv" style="grid-column: 1 / span 6; display: flex; flex-direction: column; gap: 18px">
+      <h2 class="h2-big" data-en="Prints &amp; enquiries" data-cs="Tisky &amp; poptávky">Prints &amp; enquiries</h2>
+      <p class="lead" style="max-width: 28rem" data-en="Want a specific frame on your wall, or a size that isn’t listed? Write to me." data-cs="Chcete konkrétní snímek na svou zeď, nebo velikost, která tu není? Napište mi.">Want a specific frame on your wall, or a size that isn’t listed? Write to me.</p>
+    </div>
+    <div style="grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 10px; font-size: 16px">
+      <a class="ulink" href={`mailto:${MR.email}`} style="align-self: flex-start; font-size: 1.15rem">{MR.email}</a>
+      <a href={`tel:${MR.tel}`} style="color: var(--text2); text-decoration: none">{MR.phone}</a>
+      <a href={MR.whatsapp} style="color: var(--text2); text-decoration: none">WhatsApp</a>
+    </div>
+  </section>
+</Base>

@@ -37,7 +37,7 @@ collections:
 
   - name: galleries
     label: "Galleries"
-    description: "Add, remove, reorder and caption the photos in each gallery."
+    description: "Add, remove, reorder and describe the photos in each gallery, and edit its title and intro in both languages."
     editor:
       preview: false
     files:
@@ -45,130 +45,153 @@ collections:
         label: "Portraits (Vadim Zavatsky)"
         file: "src/content/galleries/portrait.json"
         fields:
-          - { name: title, label: "Gallery name", widget: string }
+          - { name: title, label: "Title (English)", widget: string }
+          - { name: title_cs, label: "Title (Czech)", widget: string, required: false }
           - { name: side, label: Side, widget: hidden }
-          - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the visual break. Leave as-is unless rebalancing." }
+          - { name: intro, label: "Intro (English)", widget: text, hint: "Shown under the title, and used as the description in Google." }
+          - { name: intro_cs, label: "Intro (Czech)", widget: text, required: false }
+          - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the break. Leave as-is unless rebalancing." }
           - name: images
             label: Photos
             label_singular: Photo
             widget: list
             summary: "{{fields.alt}}"
             fields:
-              - { name: src, label: Photo, widget: image }
-              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
+              - { name: src, label: Photo, widget: image, hint: "sRGB, 2048 px on the long side, about 85% JPEG quality." }
+              - { name: alt, label: "Description (for screen readers and Google)", widget: string, required: false, default: "", hint: "One short sentence saying what is in the photo." }
       - name: editorial
         label: "Editorial (Vadim Zavatsky)"
         file: "src/content/galleries/editorial.json"
         fields:
-          - { name: title, label: "Gallery name", widget: string }
+          - { name: title, label: "Title (English)", widget: string }
+          - { name: title_cs, label: "Title (Czech)", widget: string, required: false }
           - { name: side, label: Side, widget: hidden }
-          - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the visual break. Leave as-is unless rebalancing." }
+          - { name: intro, label: "Intro (English)", widget: text, hint: "Shown under the title, and used as the description in Google." }
+          - { name: intro_cs, label: "Intro (Czech)", widget: text, required: false }
+          - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the break. Leave as-is unless rebalancing." }
           - name: images
             label: Photos
             label_singular: Photo
             widget: list
             summary: "{{fields.alt}}"
             fields:
-              - { name: src, label: Photo, widget: image }
-              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
-      - name: goodwife
-        label: "Series: The Good Wife (Vadim Zavatsky)"
-        file: "src/content/galleries/goodwife.json"
-        fields:
-          - { name: title, label: "Gallery name", widget: string }
-          - { name: side, label: Side, widget: hidden }
-          - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the visual break. Leave as-is unless rebalancing." }
-          - name: images
-            label: Photos
-            label_singular: Photo
-            widget: list
-            summary: "{{fields.alt}}"
-            fields:
-              - { name: src, label: Photo, widget: image }
-              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
-      - name: untold
-        label: "Series: Untold (Vadim Zavatsky)"
-        file: "src/content/galleries/untold.json"
-        fields:
-          - { name: title, label: "Gallery name", widget: string }
-          - { name: side, label: Side, widget: hidden }
-          - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the visual break. Leave as-is unless rebalancing." }
-          - name: images
-            label: Photos
-            label_singular: Photo
-            widget: list
-            summary: "{{fields.alt}}"
-            fields:
-              - { name: src, label: Photo, widget: image }
-              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
-      - name: underthefilm
-        label: "Series: Under the Film (Vadim Zavatsky)"
-        file: "src/content/galleries/underthefilm.json"
-        fields:
-          - { name: title, label: "Gallery name", widget: string }
-          - { name: side, label: Side, widget: hidden }
-          - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the visual break. Leave as-is unless rebalancing." }
-          - name: images
-            label: Photos
-            label_singular: Photo
-            widget: list
-            summary: "{{fields.alt}}"
-            fields:
-              - { name: src, label: Photo, widget: image }
-              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
+              - { name: src, label: Photo, widget: image, hint: "sRGB, 2048 px on the long side, about 85% JPEG quality." }
+              - { name: alt, label: "Description (for screen readers and Google)", widget: string, required: false, default: "", hint: "One short sentence saying what is in the photo." }
       - name: landscape
         label: "Landscape (Maximilian Ravique)"
         file: "src/content/galleries/landscape.json"
         fields:
-          - { name: title, label: "Gallery name", widget: string }
+          - { name: title, label: "Title (English)", widget: string }
+          - { name: title_cs, label: "Title (Czech)", widget: string, required: false }
           - { name: side, label: Side, widget: hidden }
+          - { name: intro, label: "Intro (English)", widget: text, hint: "Shown under the title, and used as the description in Google." }
+          - { name: intro_cs, label: "Intro (Czech)", widget: text, required: false }
           - name: images
             label: Photos
             label_singular: Photo
             widget: list
             summary: "{{fields.alt}}"
             fields:
-              - { name: src, label: Photo, widget: image }
-              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
+              - { name: src, label: Photo, widget: image, hint: "sRGB, 2048 px on the long side, about 85% JPEG quality." }
+              - { name: alt, label: "Description (for screen readers and Google)", widget: string, required: false, default: "", hint: "One short sentence saying what is in the photo." }
       - name: street
         label: "Street (Maximilian Ravique)"
         file: "src/content/galleries/street.json"
         fields:
-          - { name: title, label: "Gallery name", widget: string }
+          - { name: title, label: "Title (English)", widget: string }
+          - { name: title_cs, label: "Title (Czech)", widget: string, required: false }
           - { name: side, label: Side, widget: hidden }
+          - { name: intro, label: "Intro (English)", widget: text, hint: "Shown under the title, and used as the description in Google." }
+          - { name: intro_cs, label: "Intro (Czech)", widget: text, required: false }
           - name: images
             label: Photos
             label_singular: Photo
             widget: list
             summary: "{{fields.alt}}"
             fields:
-              - { name: src, label: Photo, widget: image }
-              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
+              - { name: src, label: Photo, widget: image, hint: "sRGB, 2048 px on the long side, about 85% JPEG quality." }
+              - { name: alt, label: "Description (for screen readers and Google)", widget: string, required: false, default: "", hint: "One short sentence saying what is in the photo." }
       - name: architecture
         label: "Architecture (Maximilian Ravique)"
         file: "src/content/galleries/architecture.json"
         fields:
-          - { name: title, label: "Gallery name", widget: string }
+          - { name: title, label: "Title (English)", widget: string }
+          - { name: title_cs, label: "Title (Czech)", widget: string, required: false }
           - { name: side, label: Side, widget: hidden }
+          - { name: intro, label: "Intro (English)", widget: text, hint: "Shown under the title, and used as the description in Google." }
+          - { name: intro_cs, label: "Intro (Czech)", widget: text, required: false }
           - name: images
             label: Photos
             label_singular: Photo
             widget: list
             summary: "{{fields.alt}}"
             fields:
-              - { name: src, label: Photo, widget: image }
-              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
+              - { name: src, label: Photo, widget: image, hint: "sRGB, 2048 px on the long side, about 85% JPEG quality." }
+              - { name: alt, label: "Description (for screen readers and Google)", widget: string, required: false, default: "", hint: "One short sentence saying what is in the photo." }
       - name: studies
         label: "Studies (Maximilian Ravique)"
         file: "src/content/galleries/studies.json"
         fields:
-          - { name: title, label: "Gallery name", widget: string }
+          - { name: title, label: "Title (English)", widget: string }
+          - { name: title_cs, label: "Title (Czech)", widget: string, required: false }
           - { name: side, label: Side, widget: hidden }
+          - { name: intro, label: "Intro (English)", widget: text, hint: "Shown under the title, and used as the description in Google." }
+          - { name: intro_cs, label: "Intro (Czech)", widget: text, required: false }
           - name: images
             label: Photos
             label_singular: Photo
             widget: list
             summary: "{{fields.alt}}"
             fields:
-              - { name: src, label: Photo, widget: image }
-              - { name: alt, label: "Alt text (accessibility / SEO)", widget: string, required: false, default: "" }
+              - { name: src, label: Photo, widget: image, hint: "sRGB, 2048 px on the long side, about 85% JPEG quality." }
+              - { name: alt, label: "Description (for screen readers and Google)", widget: string, required: false, default: "", hint: "One short sentence saying what is in the photo." }
+
+  - name: series
+    label: "Series"
+    label_singular: "Series"
+    description: "Personal series on the People side. Each one gets its own page and a card on the People page, ordered by Position."
+    folder: "src/content/series"
+    create: true
+    delete: true
+    extension: json
+    format: json
+    identifier_field: title
+    slug: "{{slug}}"
+    summary: "{{order}}: {{title}}"
+    sortable_fields: [order, title]
+    editor:
+      preview: false
+    fields:
+      - { name: title, label: "Title (English)", widget: string, hint: "Also sets the page address, e.g. 'Night Swim' becomes /night-swim." }
+      - { name: title_cs, label: "Title (Czech)", widget: string, required: false }
+      - { name: order, label: "Position", widget: number, value_type: int, default: 100, hint: "Lower numbers come first on the People page. Existing: Good Wife 10, Untold 20, Under the Film 30. Use 15 to sit between the first two." }
+      - { name: date, label: "Year made", widget: datetime, required: false, date_format: "YYYY", time_format: false, format: "YYYY-MM-DD", hint: "Optional. Shown under the intro." }
+      - { name: cover, label: "Cover photo (People page card)", widget: image, hint: "Wide covers take the wide slots, upright covers the narrow one." }
+      - { name: cover_alt, label: "Cover description", widget: string, required: false }
+      - { name: card, label: "Card line (English)", widget: string, required: false, hint: "One short line under the title on the People page." }
+      - { name: card_cs, label: "Card line (Czech)", widget: string, required: false }
+      - { name: intro, label: "Intro (English)", widget: text, hint: "Shown at the top of the series page, and used as the description in Google." }
+      - { name: intro_cs, label: "Intro (Czech)", widget: text, required: false }
+      - { name: essay, label: "Text in the middle (English)", widget: text, required: false, hint: "About the series, its inspiration. Shown between the two photo blocks. Leave an empty line between paragraphs." }
+      - { name: essay_cs, label: "Text in the middle (Czech)", widget: text, required: false }
+      - name: credits
+        label: "Credits"
+        label_singular: "Credit"
+        widget: list
+        required: false
+        hint: "Optional. Add only the people you want credited; leave empty for none. Nothing is shown when empty."
+        summary: "{{fields.role}}: {{fields.name}}"
+        fields:
+          - { name: role, label: "Role (English)", widget: string, required: false, hint: "e.g. Model, Styling, Make-up" }
+          - { name: role_cs, label: "Role (Czech)", widget: string, required: false }
+          - { name: name, label: "Name", widget: string }
+          - { name: url, label: "Link (optional)", widget: string, required: false, hint: "Instagram or website, starting with https://" }
+      - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit above the text in the middle. Leave empty to keep all photos in one block." }
+      - name: images
+        label: Photos
+        label_singular: Photo
+        widget: list
+        summary: "{{fields.alt}}"
+        fields:
+          - { name: src, label: Photo, widget: image, hint: "sRGB, 2048 px on the long side, about 85% JPEG quality." }
+          - { name: alt, label: "Description (for screen readers and Google)", widget: string, required: false, default: "", hint: "One short sentence saying what is in the photo." }

@@ -1,0 +1,48 @@
+---
+// Cookie consent. Google Analytics loads only after "Accept".
+---
+<div id="cc-banner" role="dialog" aria-label="Cookies" hidden>
+  <div class="cc-in">
+    <p id="cc-text"></p>
+    <a id="cc-privacy" href="/privacy"></a>
+    <span class="cc-btns">
+      <button class="cc-btn ghost" id="cc-decline" type="button"></button>
+      <button class="cc-btn" id="cc-accept" type="button"></button>
+    </span>
+  </div>
+</div>
+<script is:inline>
+(function(){
+  var GA='G-YQJYEGJQV9', KEY='tpl_consent';
+  var T={
+    text:{en:"This site uses analytics cookies to see how it's used. The choice is yours.",
+          cs:"Tento web používá analytické cookies, aby viděl, jak se používá. Volba je na vás."},
+    accept:{en:"Accept",cs:"Přijmout"}, decline:{en:"Decline",cs:"Odmítnout"},
+    privacy:{en:"Privacy policy",cs:"Zásady ochrany"}
+  };
+  function L(){return document.documentElement.lang==='cs'?'cs':'en';}
+  var banner=document.getElementById('cc-banner');
+  function paint(){var l=L();
+    document.getElementById('cc-text').textContent=T.text[l];
+    document.getElementById('cc-accept').textContent=T.accept[l];
+    document.getElementById('cc-decline').textContent=T.decline[l];
+    document.getElementById('cc-privacy').textContent=T.privacy[l];
+  }
+  function loadGA(){ if(window.__ga||GA.indexOf('XXXX')>-1)return; window.__ga=1;
+    var s=document.createElement('script'); s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+GA; document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag; gtag('js',new Date()); gtag('config',GA,{anonymize_ip:true});
+  }
+  function get(){try{return localStorage.getItem(KEY);}catch(e){return null;}}
+  function save(v){try{localStorage.setItem(KEY,v);}catch(e){}}
+  function show(e){if(e)e.preventDefault();paint();banner.hidden=false;document.getElementById('cc-accept').focus();}
+  function decide(v){save(v);banner.hidden=true;if(v==='accepted')loadGA();}
+  document.getElementById('cc-accept').onclick=function(){decide('accepted');};
+  document.getElementById('cc-decline').onclick=function(){decide('declined');};
+  var st=document.getElementById('cc-settings'); if(st)st.addEventListener('click',show);
+  var c=get(); paint();
+  if(c==='accepted'){loadGA();} else if(c!=='declined'){banner.hidden=false;}
+  document.addEventListener('langchange',paint);
+})();
+</script>

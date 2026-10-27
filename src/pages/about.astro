@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import { SITE } from '../lib/site.js';
+
+const nav = [
+  { href: '/people', en: 'People', cs: 'Lidé' },
+  { href: '/ravique', en: 'Ravique', cs: 'Ravique' },
+  { href: '/blog', en: 'Journal', cs: 'Deník' },
+];
+const anaEn = 'As a forensic pathologist, I looked at what remains after a story.<br>As a data analyst, I looked for what’s hidden in the noise.<br>As a diplomat, I looked at what people reveal when they think no one is watching.<br>As an inmate in an illegal prison, I saw how people break under a weight they never chose.';
+const anaCs = 'Jako soudní patolog jsem hleděl na to, co zůstává po příběhu.<br>Jako datový analytik jsem hledal, co se skrývá v šumu.<br>Jako diplomat jsem sledoval, co lidé prozradí, když si myslí, že se nikdo nedívá.<br>Jako vězeň v nelegálním vězení jsem viděl, jak se lidé lámou pod tíhou, kterou si nezvolili.';
+const graph = [{ '@type': 'AboutPage', '@id': SITE + '/about#page', url: SITE + '/about', name: 'About Vadim Zavatsky', mainEntity: { '@id': SITE + '/#vadim' } }];
+---
+<Base
+  title="About | Vadim Zavatsky, Photographer in Prague"
+  description="Forensic pathologist, data analyst, diplomat, and now photographer. Vadim Zavatsky on a life spent learning to watch, and the two bodies of work it led to."
+  path="/about" image="/images/about-01.jpg" imageAlt="Portrait of Vadim Zavatsky in profile, lit in cool blue"
+  side="vz" mark="world" nav={nav} footer="vz" graph={graph}>
+
+  <section class="hero">
+    <Pic src="/images/about-01.jpg" hero eager class="hz" focal="45% 35%" alt="Portrait of Vadim Zavatsky in profile, lit in cool blue" />
+    <div class="hero-text wrap">
+      <div class="g12">
+        <h1 class="display" style="grid-column: 1 / span 7" data-en="Learning to watch." data-cs="Učím se dívat.">Learning to watch.</h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap g12" style="padding-top: clamp(96px, 12vw, 180px); row-gap: clamp(56px, 7vw, 104px)">
+    <p class="quote rv" style="grid-column: 1 / span 8; max-width: none" data-en="For most of my life, I’ve been learning to watch." data-cs="Většinu svého života se učím dívat.">For most of my life, I’ve been learning to watch.</p>
+    <p class="lead rv" style="grid-column: 5 / span 7; font-size: 1.2rem; line-height: 1.9; color: var(--paper)" data-en={anaEn} data-cs={anaCs} set:html={anaEn}></p>
+  </section>
+
+  <section class="center" style="padding-top: clamp(112px, 14vw, 200px); padding-bottom: clamp(112px, 14vw, 200px)">
+    <p class="quote rv" style="max-width: 34rem" data-en="It was always the same, but now I finally have a camera in my hands." data-cs="Bylo to vždy totéž, ale teď konečně mám v rukou fotoaparát.">It was always the same, but now I finally have a camera in my hands.</p>
+  </section>
+
+  <section class="wrap g12">
+    <p class="lead rv" style="grid-column: 2 / span 6" data-en="In my personal projects, I carefully craft every scene, every detail, every emotion, and every expression. Every light in my photographs is intentional. I strive to make each shot feel like a scene from a movie that hasn’t been made yet." data-cs="Ve svých osobních projektech pečlivě utvářím každou scénu, každý detail, každou emoci i každý výraz. Každé světlo v mých fotografiích je záměrné. Snažím se, aby každý snímek působil jako scéna z filmu, který ještě nevznikl.">In my personal projects, I carefully craft every scene, every detail, every emotion, and every expression. Every light in my photographs is intentional. I strive to make each shot feel like a scene from a movie that hasn’t been made yet.</p>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span></span></div>
+
+  <section style="padding-top: clamp(100px, 12vw, 180px); padding-bottom: clamp(80px, 10vw, 140px)">
+    <div class="center rv" style="gap: 16px; padding-bottom: clamp(56px, 7vw, 96px)">
+      <h2 class="h2-big" data-en="One eye, two bodies of work." data-cs="Jedno vidění, dva světy.">One eye, two bodies of work.</h2>
+      <p class="small" data-en="Zavatsky for the people, Ravique for the places." data-cs="Zavatsky pro lidi, Ravique pro místa.">Zavatsky for the people, Ravique for the places.</p>
+    </div>
+    <div class="wrap g12" style="align-items: start">
+      <div class="bl rv side-vz" style="grid-column: 1 / span 6; grid-row: 1">
+        <a href="/people" aria-hidden="true" tabindex="-1"><Pic src="/images/people-01.jpg" class="cover" sizes="(max-width: 760px) 100vw, 50vw" alt="" /></a>
+        <div class="cap" style="padding-left: var(--pad)">
+          <a class="tlink sm" href="/people" style="align-self: flex-start">Vadim Zavatsky</a>
+          <p class="small" data-en="Portraits, editorial &amp; series" data-cs="Portréty, editorial &amp; série">Portraits, editorial &amp; series</p>
+        </div>
+      </div>
+      <div class="br rv side-mr" style="grid-column: 7 / span 6; grid-row: 1; margin-top: clamp(120px, 16vw, 240px)">
+        <a href="/ravique" aria-hidden="true" tabindex="-1"><Pic src="/images/ravique-01.jpg" class="cover cover-r" sizes="(max-width: 760px) 100vw, 50vw" alt="" /></a>
+        <div class="cap" style="padding-right: var(--pad)">
+          <a class="tlink sm" href="/ravique" style="align-self: flex-start">Maximilian Ravique</a>
+          <p class="small" data-en="Landscape, street &amp; architecture" data-cs="Krajina, ulice &amp; architektura">Landscape, street &amp; architecture</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
