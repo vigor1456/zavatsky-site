@@ -17,11 +17,14 @@ const series = d.kind === 'series';
 const imgs = d.images.map((im) => ({ ...im, ar: ar(im.src) }));
 const split = people && d.splitAfter ? d.splitAfter : imgs.length;
 const blocks = [imgs.slice(0, split), imgs.slice(split)].filter((b) => b.length);
+const paras = (t) => (t || '').split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean);
+const essay = paras(d.essay);
+const essayCs = paras(d.essay_cs);
 
 const back = people
   ? series ? { href: '/people#series', en: 'Series', cs: 'Série' } : { href: '/people#work', en: 'Portraits & People', cs: 'Portréty & lidé' }
   : { href: '/ravique#galleries', en: 'All galleries', cs: 'Všechny galerie' };
-const nav = [ { ...back }, people ? { href: '/ravique', en: 'Ravique', cs: 'Ravique' } : { href: '/people', en: 'People', cs: 'Lidé' } ];
+const nav = people ? [ { ...back } ] : [ { ...back }, { href: '/people', en: 'People', cs: 'Lidé' } ];
 
 const who = people ? 'Vadim Zavatsky' : 'Maximilian Ravique';
 const SEO = {
@@ -54,7 +57,13 @@ const graph = [{
   </header>
 
   <div class="wrap">
-    {blocks.map((b) => (
+    {blocks.map((b, bi) => (
+      <Fragment>
+      {bi === 1 && essay.length > 0 && (
+        <section class="essay" aria-label="About the series">
+          {essay.map((p, i) => <p class="rv" data-en={p} data-cs={essayCs[i] || p}>{p}</p>)}
+        </section>
+      )}
       <div class="jg">
         {b.map((im) => (
           <figure data-ar={im.ar} style={`width:${Math.round(300 * im.ar)}px`}>
@@ -65,7 +74,13 @@ const graph = [{
           </figure>
         ))}
       </div>
+      </Fragment>
     ))}
+    {blocks.length === 1 && essay.length > 0 && (
+      <section class="essay" aria-label="About the series">
+        {essay.map((p, i) => <p class="rv" data-en={p} data-cs={essayCs[i] || p}>{p}</p>)}
+      </section>
+    )}
   </div>
 
   <div class="wrap center" style="padding-top: clamp(80px, 10vw, 140px)">

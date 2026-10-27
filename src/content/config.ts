@@ -21,6 +21,8 @@ const galleries = defineCollection({
     kind: z.enum(['gallery','series']).default('gallery'),
     intro: z.string().default(''),
     intro_cs: z.string().optional(),
+    essay: z.string().optional(),
+    essay_cs: z.string().optional(),
     splitAfter: z.number().optional(),
     images: z.array(z.object({ src: z.string(), alt: z.string().default('') })),
   }),

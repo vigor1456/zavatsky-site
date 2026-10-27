@@ -89,6 +89,8 @@ collections:
           - { name: kind, label: Kind, widget: hidden }
           - { name: intro, label: "Intro (English)", widget: text, hint: "Shown under the title, and used as the description in Google." }
           - { name: intro_cs, label: "Intro (Czech)", widget: text, required: false }
+          - { name: essay, label: "Text in the middle (English)", widget: text, required: false, hint: "About the series, its inspiration. Shown between the two photo blocks. Leave an empty line between paragraphs." }
+          - { name: essay_cs, label: "Text in the middle (Czech)", widget: text, required: false }
           - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the break. Leave as-is unless rebalancing." }
           - name: images
             label: Photos
@@ -108,6 +110,8 @@ collections:
           - { name: kind, label: Kind, widget: hidden }
           - { name: intro, label: "Intro (English)", widget: text, hint: "Shown under the title, and used as the description in Google." }
           - { name: intro_cs, label: "Intro (Czech)", widget: text, required: false }
+          - { name: essay, label: "Text in the middle (English)", widget: text, required: false, hint: "About the series, its inspiration. Shown between the two photo blocks. Leave an empty line between paragraphs." }
+          - { name: essay_cs, label: "Text in the middle (Czech)", widget: text, required: false }
           - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the break. Leave as-is unless rebalancing." }
           - name: images
             label: Photos
@@ -127,6 +131,8 @@ collections:
           - { name: kind, label: Kind, widget: hidden }
           - { name: intro, label: "Intro (English)", widget: text, hint: "Shown under the title, and used as the description in Google." }
           - { name: intro_cs, label: "Intro (Czech)", widget: text, required: false }
+          - { name: essay, label: "Text in the middle (English)", widget: text, required: false, hint: "About the series, its inspiration. Shown between the two photo blocks. Leave an empty line between paragraphs." }
+          - { name: essay_cs, label: "Text in the middle (Czech)", widget: text, required: false }
           - { name: splitAfter, label: "Top block: number of photos", widget: number, required: false, value_type: int, hint: "How many photos sit in the upper block before the break. Leave as-is unless rebalancing." }
           - name: images
             label: Photos

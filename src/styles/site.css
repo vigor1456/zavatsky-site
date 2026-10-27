@@ -190,6 +190,11 @@ button { font: inherit; color: inherit; }
 .jg:not(.laid) figure { width: auto; }
 .jg:not(.laid) figure img { width: auto; height: 100%; }
 
+.essay { max-width: 40rem; margin: 0 auto; padding: clamp(80px, 10vw, 150px) var(--pad); text-align: center; }
+.essay p { font-family: var(--serif); font-weight: 300; font-size: clamp(1.35rem, 2.1vw, 1.85rem); line-height: 1.5; color: var(--paper); }
+.essay p + p { margin-top: 1em; }
+.essay + .jg { margin-top: 0 !important; }
+
 /* ---------- full-screen viewer ---------- */
 .viewer { position: fixed; inset: 0; z-index: 200; display: none; flex-direction: column; background: #0a0a0a; }
 .viewer.open { display: flex; }
