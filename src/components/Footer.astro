@@ -1,0 +1,23 @@
+---
+import { VZ, MR, COMPANY } from '../lib/site.js';
+const { side = 'vz', id } = Astro.props;
+const p = side === 'mr' ? MR : VZ;
+---
+<footer class="footer" id={id}>
+  <div class="footer-in">
+    <div class="f-col">
+      <span class="f-name">{p.name}{side === 'vz' && <span data-en=", Prague" data-cs=", Praha">, Prague</span>}</span>
+      <a href={`mailto:${p.email}`}>{p.email}</a>
+      <span><a href={`tel:${p.tel}`}>{p.phone}</a></span>
+      <a href={p.whatsapp}>WhatsApp</a>
+    </div>
+    <div class="f-row">
+      {p.social.map((s) => <a href={s.href} rel="me noopener">{s.label}</a>)}
+    </div>
+    <div class="f-row">
+      <a id="cc-privfoot" href="/privacy" data-en="Privacy" data-cs="Soukromí">Privacy</a>
+      <a id="cc-settings" href="#cookies" data-en="Cookie settings" data-cs="Nastavení cookies">Cookie settings</a>
+    </div>
+    <p class="f-legal">{side === 'mr' ? <span data-en={'Operated by ' + COMPANY} data-cs={'Provozuje ' + COMPANY}>Operated by {COMPANY}</span> : COMPANY}</p>
+  </div>
+</footer>

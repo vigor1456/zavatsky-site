@@ -1,39 +1,43 @@
 {
   "title": "Portraits",
+  "title_cs": "Portréty",
   "side": "people",
+  "kind": "gallery",
+  "intro": "Faces up close, unposed emotions and expressions, in studio and on location across Prague, Czechia and Europe. Portraits made to hold a look, a mood, a whole story, the way a film frame does.",
+  "intro_cs": "Tváře zblízka, neinscenované emoce a výrazy, v ateliéru i v exteriéru po Praze, Česku a Evropě. Portréty, které udrží pohled, náladu i celý příběh, tak jako filmové okénko.",
+  "splitAfter": 4,
   "images": [
     {
       "src": "/images/portrait-01.jpg",
-      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+      "alt": "Close-up of a woman's face framed by a pale headscarf, one eye catching the light"
     },
     {
       "src": "/images/portrait-02.jpg",
-      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+      "alt": "A woman in profile, warm light on her cheek against a dark green background"
     },
     {
       "src": "/images/portrait-03.jpg",
-      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+      "alt": "Black-and-white portrait of a woman exhaling smoke, a cigarette in her hand"
     },
     {
       "src": "/images/portrait-04.jpg",
-      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+      "alt": "A woman resting her chin on her hand beside a red rose in a blue vase"
     },
     {
       "src": "/images/portrait-05.jpg",
-      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+      "alt": "A woman leaning on a table under a single spotlight, a red rose beside her"
     },
     {
       "src": "/images/portrait-06.jpg",
-      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+      "alt": "A woman in a pink dress reclining on a staircase in red light"
     },
     {
       "src": "/images/portrait-07.jpg",
-      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+      "alt": "A dark-haired woman in shadow, looking over her shoulder at the camera"
     },
     {
       "src": "/images/portrait-08.jpg",
-      "alt": "Portrait photography in Prague by Vadim Zavatsky"
+      "alt": "A woman lying back on draped fabric, her face lit in cool blue"
     }
-  ],
-  "splitAfter": 4
+  ]
 }

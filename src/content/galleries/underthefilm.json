@@ -1,35 +1,39 @@
 {
-  "title": "Pod fólií · Under the Film",
+  "title": "Under the Film",
+  "title_cs": "Pod fólií",
   "side": "people",
+  "kind": "series",
+  "intro": "Under the Film is about the masks daily life demands. The way we hide what and how we really are, wrapping ourselves in a thin, transparent skin the world can almost, but never quite, see through.",
+  "intro_cs": "Pod fólií je o maskách, které si žádá každý den. O tom, jak skrýváme, co a jací doopravdy jsme, a halíme se do tenké průsvitné slupky, skrze kterou svět téměř, ale nikdy úplně, vidí.",
+  "splitAfter": 4,
   "images": [
     {
       "src": "/images/underthefilm-01.jpg",
-      "alt": "Under the Film fine-art photography series by Vadim Zavatsky"
+      "alt": "A woman's face seen through stretched plastic film in blue and red light"
     },
     {
       "src": "/images/underthefilm-02.jpg",
-      "alt": "Under the Film fine-art photography series by Vadim Zavatsky"
+      "alt": "A woman lying wrapped in clear plastic, lit in cyan"
     },
     {
       "src": "/images/underthefilm-03.jpg",
-      "alt": "Under the Film fine-art photography series by Vadim Zavatsky"
+      "alt": "A face pressed behind clear plastic film, lit red and blue"
     },
     {
       "src": "/images/underthefilm-04.jpg",
-      "alt": "Under the Film fine-art photography series by Vadim Zavatsky"
+      "alt": "A woman reclining in billowing clear plastic under cyan light"
     },
     {
       "src": "/images/underthefilm-05.jpg",
-      "alt": "Under the Film fine-art photography series by Vadim Zavatsky"
+      "alt": "A woman lifting a sheet of plastic over her head against red and blue light"
     },
     {
       "src": "/images/underthefilm-06.jpg",
-      "alt": "Under the Film fine-art photography series by Vadim Zavatsky"
+      "alt": "A woman veiled in glowing red plastic film, her eyes closed"
     },
     {
       "src": "/images/underthefilm-07.jpg",
-      "alt": "Under the Film fine-art photography series by Vadim Zavatsky"
+      "alt": "A woman in a red-lit plastic veil, arms raised above her head"
     }
-  ],
-  "splitAfter": 4
+  ]
 }

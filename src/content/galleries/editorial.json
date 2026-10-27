@@ -1,31 +1,35 @@
 {
   "title": "Editorial",
+  "title_cs": "Editorial",
   "side": "people",
+  "kind": "gallery",
+  "intro": "Styled stories, campaigns and cinematic scenes shot in Prague and across Europe, built frame by frame like film stills.",
+  "intro_cs": "Stylizované příběhy, kampaně a filmové scény focené v Praze a napříč Evropou, budované snímek po snímku jako filmová okénka.",
+  "splitAfter": 3,
   "images": [
     {
       "src": "/images/editorial-01.jpg",
-      "alt": "Editorial photography in Prague by Vadim Zavatsky"
+      "alt": "A figure in white at the end of a red-lit corridor lined with candles"
     },
     {
       "src": "/images/editorial-02.jpg",
-      "alt": "Editorial photography in Prague by Vadim Zavatsky"
+      "alt": "A woman in a kitchen holding a cup, steam rising through a beam of light"
     },
     {
       "src": "/images/editorial-03.jpg",
-      "alt": "Editorial photography in Prague by Vadim Zavatsky"
+      "alt": "A woman in a white dress arching back beneath an arched window"
     },
     {
       "src": "/images/editorial-04.jpg",
-      "alt": "Editorial photography in Prague by Vadim Zavatsky"
+      "alt": "Close-up of a woman lighting a cigarette, the flame glowing in the dark"
     },
     {
       "src": "/images/editorial-05.jpg",
-      "alt": "Editorial photography in Prague by Vadim Zavatsky"
+      "alt": "A woman smoking at a kitchen table late at night"
     },
     {
       "src": "/images/editorial-06.jpg",
-      "alt": "Editorial photography in Prague by Vadim Zavatsky"
+      "alt": "A woman with blood on her forehead before a wall marked with red handprints"
     }
-  ],
-  "splitAfter": 3
+  ]
 }

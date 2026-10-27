@@ -1,0 +1,19 @@
+---
+// One header for every page. `mark` keeps each section's own identity:
+// vz = "VZ.", mr = "MR.", both = "VZ | MR", world = "✻ Both worlds".
+const { mark = 'vz', home = '/', nav = [], lang = true } = Astro.props;
+---
+<header class="topbar">
+  <div class="topbar-in">
+    {mark === 'vz' && <a class="mark" href={home} aria-label="Vadim Zavatsky, home">VZ<span class="dot">.</span></a>}
+    {mark === 'mr' && <a class="mark" href={home} aria-label="Maximilian Ravique, home">MR<span class="dot">.</span></a>}
+    {mark === 'both' && <a class="mark" href={home} aria-label="Home"><span class="m-vz">VZ</span><span class="m-sep"> | </span><span class="m-mr">MR</span></a>}
+    {mark === 'world' && <a class="mark world" href={home}><span class="glyph" aria-hidden="true">✻</span><span data-en="Both worlds" data-cs="Oba světy">Both worlds</span></a>}
+    <nav class="nav" aria-label="Main">
+      {nav.map((n) => (
+        <a href={n.href} data-en={n.cs ? n.en : undefined} data-cs={n.cs} aria-current={n.current ? 'page' : undefined}>{n.en}</a>
+      ))}
+      {lang && <button class="lang" id="lang" type="button" aria-label="Switch language / Přepnout jazyk"><b>EN</b> / CS</button>}
+    </nav>
+  </div>
+</header>

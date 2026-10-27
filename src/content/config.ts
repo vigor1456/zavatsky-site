@@ -16,7 +16,11 @@ const galleries = defineCollection({
   type: 'data',
   schema: z.object({
     title: z.string(),
+    title_cs: z.string().optional(),
     side: z.enum(['people','ravique']),
+    kind: z.enum(['gallery','series']).default('gallery'),
+    intro: z.string().default(''),
+    intro_cs: z.string().optional(),
     splitAfter: z.number().optional(),
     images: z.array(z.object({ src: z.string(), alt: z.string().default('') })),
   }),

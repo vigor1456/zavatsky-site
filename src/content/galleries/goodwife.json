@@ -1,43 +1,47 @@
 {
   "title": "Good Wife",
+  "title_cs": "Good Wife",
   "side": "people",
+  "kind": "series",
+  "intro": "A marriage lived in misunderstanding, abuse and quiet cruelty does not always end quietly. Good Wife follows the moment that damage turns deadly, and the cold, domestic calm of cleaning away what is left.",
+  "intro_cs": "Manželství žité v neporozumění, násilí a tiché krutosti nekončí vždy tiše. Good Wife sleduje okamžik, kdy se ta újma promění ve smrtící, a chladný, všední klid uklízení toho, co zbylo.",
+  "splitAfter": 5,
   "images": [
     {
       "src": "/images/goodwife-01.jpg",
-      "alt": "Good Wife fine-art photography series by Vadim Zavatsky"
+      "alt": "A woman with blue hair crouched in a dim kitchen, her clothes stained red"
     },
     {
       "src": "/images/goodwife-02.jpg",
-      "alt": "Good Wife fine-art photography series by Vadim Zavatsky"
+      "alt": "A blue-haired woman in a floral robe and pearls, seated by a bathroom sink"
     },
     {
       "src": "/images/goodwife-03.jpg",
-      "alt": "Good Wife fine-art photography series by Vadim Zavatsky"
+      "alt": "The same woman leaning against the tiled wall of a narrow, dim bathroom"
     },
     {
       "src": "/images/goodwife-04.jpg",
-      "alt": "Good Wife fine-art photography series by Vadim Zavatsky"
+      "alt": "A body wrapped in plastic on a sofa in a lamplit living room"
     },
     {
       "src": "/images/goodwife-05.jpg",
-      "alt": "Good Wife fine-art photography series by Vadim Zavatsky"
+      "alt": "The shadow of a woman raising a hammer, cast on a pale wall"
     },
     {
       "src": "/images/goodwife-06.jpg",
-      "alt": "Good Wife fine-art photography series by Vadim Zavatsky"
+      "alt": "A woman's bare legs beside a blue garment on the floor, in red light"
     },
     {
       "src": "/images/goodwife-07.jpg",
-      "alt": "Good Wife fine-art photography series by Vadim Zavatsky"
+      "alt": "A woman with red lips and pearls in red light beside a window blind"
     },
     {
       "src": "/images/goodwife-08.jpg",
-      "alt": "Good Wife fine-art photography series by Vadim Zavatsky"
+      "alt": "Bare feet in red heels resting on a wooden table beside a glass"
     },
     {
       "src": "/images/goodwife-09.jpg",
-      "alt": "Good Wife fine-art photography series by Vadim Zavatsky"
+      "alt": "Hands washing red stains down a white bathroom sink"
     }
-  ],
-  "splitAfter": 5
+  ]
 }

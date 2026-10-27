@@ -1,38 +1,42 @@
 {
   "title": "Architecture",
+  "title_cs": "Architektura",
   "side": "ravique",
+  "kind": "gallery",
+  "intro": "Line, mass and light. Old domes and new corners, read as shape.",
+  "intro_cs": "Linie, hmota a světlo. Staré kupole a nové rohy, čtené jako tvar.",
   "images": [
     {
       "src": "/images/architecture-01.jpg",
-      "alt": ""
+      "alt": "The Copenhagen Opera House lit at night, reflected in the harbour"
     },
     {
       "src": "/images/architecture-02.jpg",
-      "alt": ""
+      "alt": "A tall oval window in a white concrete facade, a small figure below"
     },
     {
       "src": "/images/architecture-03.jpg",
-      "alt": ""
+      "alt": "The gilded domes and red brick of Uspenski Cathedral in Helsinki"
     },
     {
       "src": "/images/architecture-04.jpg",
-      "alt": ""
+      "alt": "The sandstone dome of the Frauenkirche in Dresden against a blue sky"
     },
     {
       "src": "/images/architecture-05.jpg",
-      "alt": ""
+      "alt": "The sharp corner of a modern building with a grid of vertical windows"
     },
     {
       "src": "/images/architecture-06.jpg",
-      "alt": ""
+      "alt": "A modern window grid beside a domed red-brick tower under a blue sky"
     },
     {
       "src": "/images/architecture-07.jpg",
-      "alt": ""
+      "alt": "A dark facade of repeating windows seen at an angle"
     },
     {
       "src": "/images/architecture-08.jpg",
-      "alt": ""
+      "alt": "The dome of Frederik's Church lit at night above Amalienborg, Copenhagen"
     }
   ]
 }

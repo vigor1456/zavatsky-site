@@ -1,30 +1,34 @@
 {
   "title": "Studies",
+  "title_cs": "Studie",
   "side": "ravique",
+  "kind": "gallery",
+  "intro": "The frames that belong to no gallery but this one. Still lifes, a quiet room, a stag, and birds caught mid-air.",
+  "intro_cs": "Snímky, které nepatří do žádné galerie kromě této. Zátiší, tichý pokoj, jelen a ptáci zachycení ve vzduchu.",
   "images": [
     {
       "src": "/images/studies-01.jpg",
-      "alt": ""
+      "alt": "A still life of flowers, a bowl of oranges and a tabby cat on a white-covered table"
     },
     {
       "src": "/images/studies-02.jpg",
-      "alt": ""
+      "alt": "Two rowing boats pulled up on a rocky shore, in black and white"
     },
     {
       "src": "/images/studies-03.jpg",
-      "alt": ""
+      "alt": "Close-up of a stag with large antlers in a forest"
     },
     {
       "src": "/images/studies-04.jpg",
-      "alt": ""
+      "alt": "A desk and chair seen through open blue shutters into a quiet room"
     },
     {
       "src": "/images/studies-05.jpg",
-      "alt": ""
+      "alt": "Two gulls landing on a railing above a blurred street"
     },
     {
       "src": "/images/studies-06.jpg",
-      "alt": ""
+      "alt": "Two Alpine choughs in flight above a glacier valley"
     }
   ]
 }

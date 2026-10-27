@@ -1,0 +1,77 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { ar } from '../lib/ar.js';
+import { cdn, srcset } from '../lib/img.js';
+import { describe, abs, SITE } from '../lib/site.js';
+
+export async function getStaticPaths() {
+  const gs = await getCollection('galleries');
+  return gs.map((g) => ({ params: { gallery: g.id }, props: { g } }));
+}
+const { g } = Astro.props;
+const d = g.data;
+const people = d.side === 'people';
+const series = d.kind === 'series';
+
+const imgs = d.images.map((im) => ({ ...im, ar: ar(im.src) }));
+const split = people && d.splitAfter ? d.splitAfter : imgs.length;
+const blocks = [imgs.slice(0, split), imgs.slice(split)].filter((b) => b.length);
+
+const back = people
+  ? series ? { href: '/people#series', en: 'Series', cs: 'Série' } : { href: '/people#work', en: 'Portraits & People', cs: 'Portréty & lidé' }
+  : { href: '/ravique#galleries', en: 'All galleries', cs: 'Všechny galerie' };
+const nav = [ { ...back }, people ? { href: '/ravique', en: 'Ravique', cs: 'Ravique' } : { href: '/people', en: 'People', cs: 'Lidé' } ];
+
+const who = people ? 'Vadim Zavatsky' : 'Maximilian Ravique';
+const SEO = {
+  portrait: 'Portrait Photography in Prague | Vadim Zavatsky',
+  editorial: 'Editorial & Fashion Photography in Prague | Vadim Zavatsky',
+  landscape: 'Landscape Photography | Maximilian Ravique',
+  street: 'Street Photography | Maximilian Ravique',
+  architecture: 'Architecture Photography | Maximilian Ravique',
+  studies: 'Studies: Still Lifes, Quiet Rooms & Animals | Maximilian Ravique',
+};
+const title = SEO[g.id] || (series ? `${d.title} | Personal series by Vadim Zavatsky` : `${d.title} | ${who}`);
+const path = '/' + g.id;
+const graph = [{
+  '@type': 'ImageGallery',
+  '@id': SITE + path + '#gallery',
+  name: d.title, description: d.intro, url: SITE + path, inLanguage: 'en',
+  author: people ? { '@id': SITE + '/#vadim' } : { '@type': 'Person', name: 'Maximilian Ravique', url: SITE + '/ravique' },
+  image: imgs.slice(0, 8).map((im) => ({ '@type': 'ImageObject', contentUrl: abs(im.src), description: im.alt })),
+}];
+---
+<Base title={title} description={describe(d.intro)} path={path} image={imgs[0].src} imageAlt={imgs[0].alt}
+  side={people ? 'vz' : 'mr'} mark={people ? 'vz' : 'mr'} nav={nav} footer={people ? 'vz' : 'mr'} graph={graph} viewer>
+
+  <header class="wrap g12" style="padding-top: clamp(56px, 8vw, 120px); padding-bottom: clamp(48px, 6vw, 88px); align-items: end">
+    <h1 class="display" style="grid-column: 1 / span 7">
+      <span data-en={d.title} data-cs={d.title_cs || d.title}>{d.title}</span>
+      {series && d.title_cs && d.title_cs !== d.title && <span class="muted" style="display:block; margin-top: 0.3em; font-size: 0.32em; letter-spacing: 0" data-en={d.title_cs} data-cs={d.title}>{d.title_cs}</span>}
+    </h1>
+    <p class="lead" style="grid-column: 9 / span 4" data-en={d.intro} data-cs={d.intro_cs || d.intro}>{d.intro}</p>
+  </header>
+
+  <div class="wrap">
+    {blocks.map((b) => (
+      <div class="jg">
+        {b.map((im) => (
+          <figure data-ar={im.ar} style={`width:${Math.round(300 * im.ar)}px`}>
+            <button type="button" data-full={cdn(im.src, 2048)} aria-label={`View full screen: ${im.alt}`}>
+              <img src={cdn(im.src, 800)} srcset={srcset(im.src)} sizes="(max-width: 600px) 100vw, 33vw"
+                width={1000} height={Math.round(1000 / im.ar)} alt={im.alt} loading="lazy" decoding="async" />
+            </button>
+          </figure>
+        ))}
+      </div>
+    ))}
+  </div>
+
+  <div class="wrap center" style="padding-top: clamp(80px, 10vw, 140px)">
+    <a class="tlink sm" href={back.href} data-en={people && !series ? 'Back to Portraits & People' : (series ? 'Back to Series' : 'Back to galleries')}
+      data-cs={people && !series ? 'Zpět na Portréty & lidé' : (series ? 'Zpět na Série' : 'Zpět na galerie')}>
+      {people && !series ? 'Back to Portraits & People' : (series ? 'Back to Series' : 'Back to galleries')}
+    </a>
+  </div>
+</Base>
