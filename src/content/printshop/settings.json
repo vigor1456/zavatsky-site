@@ -1,31 +1,32 @@
 {
-  "intro": "Archival pigment prints of the work, made to order and shipped across the EU. Choose a photograph, a format and a size, and I’ll take it from there.",
-  "intro_cs": "Archivní pigmentové tisky, vyráběné na zakázku a odesílané po celé EU. Vyberte snímek, formát a velikost, o zbytek se postarám.",
-  "shipping": "Every print is made to order by a fine-art print lab in the Netherlands and shipped tracked within the EU, usually within a week. Shipping is included in the price. For the UK, write to me.",
-  "shipping_cs": "Každý tisk vyrábí na zakázku laboratoř uměleckého tisku v Nizozemsku a odesílá se se sledováním po EU, obvykle do týdne. Doprava je v ceně. Pro Velkou Británii mi napište.",
-  "etsy_url": "",
+  "intro": "Archival prints on Hahnemühle paper and canvas, made to order by a certified fine-art lab in Czechia and shipped across the EU. Choose a photograph, a format and a size, and I’ll take it from there.",
+  "intro_cs": "Archivní tisky na papíře a plátně Hahnemühle, vyráběné na zakázku certifikovanou laboratoří uměleckého tisku v Česku a odesílané po celé EU. Vyberte snímek, formát a velikost, o zbytek se postarám.",
+  "shipping": "Every print is made to order by a fine-art print lab in Czechia, checked by me and shipped tracked from Prague, usually within 5 to 10 working days. Shipping is calculated by destination and shown before you pay. For the UK, write to me.",
+  "shipping_cs": "Každý tisk vyrábí na zakázku laboratoř uměleckého tisku v Česku, já ho zkontroluji a odešlu se sledováním z Prahy, obvykle do 5 až 10 pracovních dnů. Doprava se počítá podle místa doručení a zobrazí se před zaplacením. Pro Velkou Británii mi napište.",
+  "etsy_url": "https://www.etsy.com/shop/MRVQCreations",
   "formats": [
     {
       "id": "print",
       "name": "Fine art print",
       "name_cs": "Umělecký tisk",
-      "note": "Unframed, on Hahnemühle Photo Rag cotton paper",
-      "note_cs": "Bez rámu, na bavlněném papíře Hahnemühle Photo Rag",
+      "parcel": "tube",
+      "note": "Unframed, on Hahnemühle Photo Rag 308 cotton paper, shipped rolled in a tube",
+      "note_cs": "Bez rámu, na bavlněném papíře Hahnemühle Photo Rag 308, zasíláno srolované v tubusu",
       "sizes": [
         {
-          "size": "A3, 30 × 42 cm",
-          "price": 45,
-          "sku": "GLOBAL-HPR-A3"
+          "size": "30 × 45 cm",
+          "price": 55,
+          "code": "Hahnemühle Photo Rag 308"
         },
         {
-          "size": "A2, 42 × 59 cm",
-          "price": 70,
-          "sku": "GLOBAL-HPR-A2"
+          "size": "40 × 60 cm",
+          "price": 85,
+          "code": "Hahnemühle Photo Rag 308"
         },
         {
-          "size": "A1, 59 × 84 cm",
-          "price": 130,
-          "sku": "GLOBAL-HPR-A1"
+          "size": "60 × 90 cm",
+          "price": 160,
+          "code": "Hahnemühle Photo Rag 308"
         }
       ]
     },
@@ -33,49 +34,112 @@
       "id": "framed",
       "name": "Framed print",
       "name_cs": "Tisk v rámu",
-      "note": "Archival matte art paper, with mount and acrylic glazing. Frame in black, white or natural wood.",
-      "note_cs": "Archivní matný papír, s paspartou a akrylátovým sklem. Rám černý, bílý nebo z přírodního dřeva.",
+      "parcel": "box",
+      "note": "Hahnemühle Photo Rag 308, with mount and glass, in a slim aluminium frame",
+      "note_cs": "Hahnemühle Photo Rag 308, s paspartou a sklem, v úzkém hliníkovém rámu",
       "sizes": [
         {
           "size": "30 × 40 cm",
-          "price": 115,
-          "sku": "GLOBAL-CFPM-12X16"
+          "price": 130,
+          "code": "Nielsen profile 01, mount, 2 mm float glass"
         },
         {
           "size": "50 × 70 cm",
-          "price": 165,
-          "sku": "GLOBAL-CFPM-20X28"
+          "price": 260,
+          "code": "Nielsen profile 01, mount, 2 mm float glass"
         },
         {
           "size": "70 × 100 cm",
-          "price": 220,
-          "sku": "GLOBAL-CFPM-28X40"
+          "price": 420,
+          "code": "Nielsen profile 01, mount, 2 mm float glass"
         }
       ]
     },
     {
       "id": "canvas",
-      "name": "Framed canvas",
-      "name_cs": "Plátno v rámu",
-      "note": "Stretched canvas in a float frame, ready to hang",
-      "note_cs": "Napnuté plátno ve stínovém rámu, připravené k zavěšení",
+      "name": "Canvas",
+      "name_cs": "Plátno",
+      "parcel": "box",
+      "note": "Hahnemühle Photo Canvas, stretched on a frame and ready to hang",
+      "note_cs": "Plátno Hahnemühle Photo Canvas, napnuté na rámu a připravené k zavěšení",
       "sizes": [
         {
-          "size": "41 × 51 cm",
+          "size": "40 × 60 cm",
           "price": 150,
-          "sku": "GLOBAL-FRA-CAN-16X20"
+          "code": "Hahnemühle Photo Canvas 320, 28 × 65 mm stretcher"
         },
         {
-          "size": "51 × 71 cm",
-          "price": 195,
-          "sku": "GLOBAL-FRA-CAN-20X28"
+          "size": "60 × 90 cm",
+          "price": 240,
+          "code": "Hahnemühle Photo Canvas 320, 28 × 65 mm stretcher"
         },
         {
-          "size": "71 × 102 cm",
-          "price": 260,
-          "sku": "GLOBAL-FRA-CAN-28X40"
+          "size": "80 × 120 cm",
+          "price": 360,
+          "code": "Hahnemühle Photo Canvas 320, 28 × 65 mm stretcher"
         }
       ]
+    }
+  ],
+  "shipping_zones": [
+    {
+      "zone": "Czechia and Slovakia",
+      "zone_cs": "Česko a Slovensko",
+      "countries": [
+        "CZ",
+        "SK"
+      ],
+      "tube": 7,
+      "box": 13
+    },
+    {
+      "zone": "Neighbouring countries",
+      "zone_cs": "Sousední země",
+      "countries": [
+        "DE",
+        "AT",
+        "PL",
+        "HU"
+      ],
+      "tube": 16,
+      "box": 22
+    },
+    {
+      "zone": "Western and southern EU",
+      "zone_cs": "Západ a jih EU",
+      "countries": [
+        "BE",
+        "NL",
+        "LU",
+        "FR",
+        "DK",
+        "IT",
+        "SI",
+        "HR"
+      ],
+      "tube": 19,
+      "box": 25
+    },
+    {
+      "zone": "Rest of the EU",
+      "zone_cs": "Ostatní země EU",
+      "countries": [
+        "ES",
+        "PT",
+        "IE",
+        "GR",
+        "SE",
+        "FI",
+        "EE",
+        "LV",
+        "LT",
+        "RO",
+        "BG",
+        "CY",
+        "MT"
+      ],
+      "tube": 34,
+      "box": 40
     }
   ]
 }

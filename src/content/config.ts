@@ -65,6 +65,7 @@ const prints = defineCollection({
     story_cs: z.string().optional(),
     orientation: z.enum(['portrait', 'landscape', 'square']).default('landscape'),
     formats: z.array(z.string()).default([]),
+    etsy: z.string().optional(),
     mockups: z.array(z.object({ src: z.string(), alt: z.string().default('') })).min(1),
   }),
 });
@@ -76,16 +77,24 @@ const printshop = defineCollection({
     shipping: z.string().default(''),
     shipping_cs: z.string().optional(),
     etsy_url: z.string().optional(),
+    shipping_zones: z.array(z.object({
+      zone: z.string(),
+      zone_cs: z.string().optional(),
+      countries: z.array(z.string()).default([]),
+      tube: z.number().optional(),
+      box: z.number().optional(),
+    })).default([]),
     formats: z.array(z.object({
       id: z.string(),
       name: z.string(),
       name_cs: z.string().optional(),
       note: z.string().optional(),
       note_cs: z.string().optional(),
+      parcel: z.enum(['tube', 'box']).default('box'),
       sizes: z.array(z.object({
         size: z.string(),
         price: z.number().optional(),
-        sku: z.string().optional(),
+        code: z.string().optional(),
       })).default([]),
     })).default([]),
   }),

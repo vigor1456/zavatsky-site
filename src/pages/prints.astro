@@ -10,6 +10,14 @@ const prints = (await getCollection('prints', ({ data }) => data.available))
   .sort((a, b) => a.data.order - b.data.order || a.id.localeCompare(b.id))
   .map((p) => ({ ...p, formats: p.data.formats.map((id) => fmtById[id]).filter((f) => f && f.sizes.length) }));
 
+const regionEn = new Intl.DisplayNames(['en'], { type: 'region' });
+const regionCs = new Intl.DisplayNames(['cs'], { type: 'region' });
+const names = (codes, dn) => (codes || []).map((c) => { try { return dn.of(c); } catch { return c; } }).join(', ');
+const zones = (shop.shipping_zones || []).filter((z) => typeof z.tube === 'number' || typeof z.box === 'number');
+const minShip = (parcel) => { const v = zones.map((z) => z[parcel]).filter((x) => typeof x === 'number'); return v.length ? Math.min(...v) : null; };
+const shipLine = (parcel) => { const m = minShip(parcel); return m === null
+  ? { en: 'plus shipping by destination', cs: 'plus doprava podle místa doručení' }
+  : { en: `plus shipping, from €${Number.isInteger(m) ? m : m.toFixed(2)}`, cs: `plus doprava, od ${Number.isInteger(m) ? m : m.toFixed(2)} €` }; };
 const euro = (n) => (typeof n === 'number' ? '€' + (Number.isInteger(n) ? n : n.toFixed(2)) : null);
 const nav = [
   { href: '/ravique#galleries', en: 'Galleries', cs: 'Galerie' },
@@ -78,7 +86,7 @@ const graph = prints.map((p) => {
                 <div class="pr-opts">
                   {p.formats.map((f, k) => (
                     <label class="pr-opt">
-                      <input type="radio" name={`fmt-${p.id}`} value={f.id} checked={k === 0} />
+                      <input type="radio" name={`fmt-${p.id}`} value={f.id} checked={k === 0} data-ship-en={shipLine(f.parcel).en} data-ship-cs={shipLine(f.parcel).cs} />
                       <span data-en={f.name} data-cs={f.name_cs || f.name}>{f.name}</span>
                     </label>
                   ))}
@@ -98,8 +106,13 @@ const graph = prints.map((p) => {
               <p class="pr-price" aria-live="polite">
                 {euro(firstSize?.price) ?? <span data-en="Price on request" data-cs="Cena na dotaz">Price on request</span>}
               </p>
+              <p class="small muted pr-ship" style="margin-top: -8px">{shipLine(first.parcel).en}</p>
               <a class="btn pr-go" href={`mailto:${MR.email}?subject=${encodeURIComponent(`Print enquiry: ${d.title}, ${first.name}, ${firstSize?.size}`)}`}
                 data-en="Enquire about this print" data-cs="Poptat tento tisk">Enquire about this print</a>
+              {(d.etsy || shop.etsy_url) && (
+                <a class="small pr-digital" href={d.etsy || shop.etsy_url} rel="noopener"
+                  data-en="Prefer to print it yourself? Get the digital file on Etsy" data-cs="Chcete si tisk zajistit sami? Digitální soubor najdete na Etsy">Prefer to print it yourself? Get the digital file on Etsy</a>
+              )}
             </form>
           )}
         </div>
@@ -114,11 +127,27 @@ const graph = prints.map((p) => {
     <div class="rv" style="grid-column: 2 / span 4; display: flex; flex-direction: column; gap: 10px">
       <h3 class="h2" style="font-size: 1.7rem; font-weight: 300" data-en="Made to order" data-cs="Na zakázku">Made to order</h3>
       <p class="small" data-en={shop.shipping} data-cs={shop.shipping_cs || shop.shipping}>{shop.shipping}</p>
+      {zones.length > 0 && (
+        <table class="ship-t">
+          <thead><tr><th data-en="Shipping to" data-cs="Doprava do">Shipping to</th><th data-en="Unframed" data-cs="Bez rámu">Unframed</th><th data-en="Framed, canvas" data-cs="V rámu, plátno">Framed, canvas</th></tr></thead>
+          <tbody>
+            {zones.map((z) => (
+              <tr>
+                <td>
+                  <span style="display: block; color: var(--paper)" data-en={z.zone} data-cs={z.zone_cs || z.zone}>{z.zone}</span>
+                  {z.countries?.length > 0 && <span class="muted" style="display: block; font-size: 12.5px; line-height: 1.5; margin-top: 2px" data-en={names(z.countries, regionEn)} data-cs={names(z.countries, regionCs)}>{names(z.countries, regionEn)}</span>}
+                </td>
+                <td>{euro(z.tube) ?? '–'}</td><td>{euro(z.box) ?? '–'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
     <div class="rv" style="grid-column: 8 / span 4; display: flex; flex-direction: column; gap: 10px; margin-top: clamp(48px, 6vw, 96px)">
       <h3 class="h2" style="font-size: 1.7rem; font-weight: 300" data-en="Something else in mind?" data-cs="Máte jinou představu?">Something else in mind?</h3>
       <p class="small" data-en="Any photograph from the galleries can be printed. Write to me with the frame, the size and the room it is for." data-cs="Vytisknout lze kterýkoli snímek z galerií. Napište mi, o jaký snímek, velikost a místnost jde.">Any photograph from the galleries can be printed. Write to me with the frame, the size and the room it is for.</p>
-      {shop.etsy_url && <a class="ulink small" href={shop.etsy_url} rel="noopener" style="align-self: flex-start" data-en="Buying from the UK? Visit the Etsy shop" data-cs="Nakupujete z Velké Británie? Navštivte obchod na Etsy">Buying from the UK? Visit the Etsy shop</a>}
+      {shop.etsy_url && <a class="ulink small" href={shop.etsy_url} rel="noopener" style="align-self: flex-start" data-en="Digital files for printing at home are on Etsy" data-cs="Digitální soubory pro vlastní tisk najdete na Etsy">Digital files for printing at home are on Etsy</a>}
     </div>
   </section>
 
@@ -155,6 +184,7 @@ const graph = prints.map((p) => {
           var f = fmt(), opt = sel.options[sel.selectedIndex];
           var p = opt && opt.dataset.price;
           price.innerHTML = p ? '€' + p : (lang() === 'cs' ? 'Cena na dotaz' : 'Price on request');
+          var sh = form.querySelector('.pr-ship'); if (sh && f) sh.textContent = f.getAttribute(lang() === 'cs' ? 'data-ship-cs' : 'data-ship-en');
           var fname = f.parentElement.querySelector('span').textContent;
           go.href = 'mailto:' + email + '?subject=' + encodeURIComponent('Print enquiry: ' + form.dataset.title + ', ' + fname + ', ' + (opt ? opt.value : ''));
         }

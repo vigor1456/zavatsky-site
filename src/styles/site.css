@@ -283,3 +283,24 @@ body.v-lock { overflow: hidden; }
 .pr-size select { appearance: none; -webkit-appearance: none; min-height: 44px; padding: 0 40px 0 14px; background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23a3a3a0' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 14px center; color: var(--paper); border: 1px solid #3a3a3a; font: inherit; font-size: 15px; cursor: pointer; }
 .pr-price { font-family: var(--serif); font-weight: 300; font-size: 2rem; line-height: 1; }
 .pr-go { align-self: flex-start; }
+
+/* ---------- withdrawal form ---------- */
+.wd form { display: flex; flex-direction: column; gap: 16px; margin-top: 1.2em; max-width: 34rem; }
+.wd form[hidden] { display: none; }
+.wd label { display: flex; flex-direction: column; gap: 6px; font-size: 0.95rem; color: var(--text2); }
+.wd input { min-height: 46px; padding: 0 14px; background: var(--surface); color: var(--paper); border: 1px solid #3a3a3a; font: inherit; font-size: 16px; }
+.wd input:focus { border-color: var(--accent); outline: none; }
+.wd .btn { margin-top: 4px; }
+.ship-t { width: 100%; margin-top: 10px; border-collapse: collapse; font-size: 14px; }
+.ship-t th { text-align: left; font-weight: 400; color: var(--muted); padding: 8px 0; border-bottom: 1px solid var(--line); }
+.ship-t td { padding: 12px 0; vertical-align: top; border-bottom: 1px solid var(--line); color: var(--text2); }
+.ship-t th + th, .ship-t td + td { text-align: right; }
+.pr-digital { align-self: flex-start; color: var(--muted); text-decoration: underline; text-decoration-color: #4a4a4a; text-underline-offset: 3px; }
+.pr-digital:hover { color: var(--paper); text-decoration-color: var(--accent); }
+.ship-t { table-layout: fixed; }
+.ship-t th:first-child { width: auto; }
+.ship-t th + th { width: 5.2rem; }
+.ship-t th + th, .ship-t td + td { padding-left: 12px; white-space: nowrap; }
+.ship-t th { white-space: normal; line-height: 1.35; vertical-align: bottom; }
+.ship-t td:first-child { padding-right: 8px; }
+.ship-t thead th + th { white-space: normal; }

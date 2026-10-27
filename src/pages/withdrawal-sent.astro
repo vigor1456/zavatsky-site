@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+const nav = [ { href: '/prints', en: 'Prints', cs: 'Tisky' }, { href: '/terms', en: 'Terms', cs: 'Podmínky' } ];
+---
+<Base title="Withdrawal received | Maximilian Ravique" description="Your withdrawal has been received." path="/withdrawal-sent" side="mr" mark="mr" nav={nav} footer="mr" noindex>
+  <section class="center" style="gap: 22px; padding-top: clamp(120px, 16vw, 220px); padding-bottom: clamp(120px, 16vw, 220px)">
+    <h1 class="h2-big" data-en="Your withdrawal has been received." data-cs="Vaše odstoupení jsme přijali.">Your withdrawal has been received.</h1>
+    <p class="lead" style="max-width: 32rem" data-en="A confirmation of receipt will follow by email, with instructions for returning the print. Please keep this page or a screenshot of it for your records." data-cs="Potvrzení o přijetí vám zašleme e-mailem spolu s pokyny k vrácení tisku. Tuto stránku nebo její snímek si prosím uschovejte.">A confirmation of receipt will follow by email, with instructions for returning the print. Please keep this page or a screenshot of it for your records.</p>
+  </section>
+</Base>

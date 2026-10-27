@@ -222,7 +222,8 @@ collections:
       - { name: story, label: "Short story (English)", widget: text, hint: "Two or three sentences about the photograph." }
       - { name: story_cs, label: "Short story (Czech)", widget: text, required: false }
       - { name: orientation, label: "Orientation", widget: select, options: [landscape, portrait, square], default: landscape }
-      - { name: formats, label: "Available formats", widget: select, multiple: true, options: [{ label: "Fine art print", value: print }, { label: "Framed print", value: framed }, { label: "Framed canvas", value: canvas }], default: [print, framed, canvas] }
+      - { name: formats, label: "Available formats", widget: select, multiple: true, options: [{ label: "Fine art print", value: print }, { label: "Framed print", value: framed }, { label: "Canvas", value: canvas }], default: [print, framed, canvas] }
+      - { name: etsy, label: "Etsy listing for the digital file (optional)", widget: string, required: false, hint: "Paste this photo's Etsy listing link. Without one, the 'digital file' link goes to the Etsy shop." }
       - name: mockups
         label: "Mockups"
         label_singular: "Mockup"
@@ -248,7 +249,19 @@ collections:
           - { name: intro_cs, label: "Intro (Czech)", widget: text, required: false }
           - { name: shipping, label: "Made to order text (English)", widget: text }
           - { name: shipping_cs, label: "Made to order text (Czech)", widget: text, required: false }
-          - { name: etsy_url, label: "Etsy shop link (optional)", widget: string, required: false, hint: "When filled in, UK buyers see a link to your Etsy shop." }
+          - { name: etsy_url, label: "Etsy shop link (optional)", widget: string, required: false, hint: "Your Etsy shop. Used for the digital-file links when a print has no listing of its own." }
+          - name: shipping_zones
+            label: "Shipping rates"
+            label_singular: "Destination"
+            widget: list
+            summary: "{{fields.zone}}: tube {{fields.tube}}, box {{fields.box}}"
+            hint: "Rates in EUR per order. Tube: unframed prints, rolled. Box: framed prints and canvases. Leave a rate empty until you know it; the table appears on the Prints page once rates are filled in."
+            fields:
+              - { name: zone, label: "Destination (English)", widget: string }
+              - { name: zone_cs, label: "Destination (Czech)", widget: string, required: false }
+              - { name: countries, label: "Countries in this zone", widget: select, multiple: true, options: [{ label: "Austria", value: AT }, { label: "Belgium", value: BE }, { label: "Bulgaria", value: BG }, { label: "Croatia", value: HR }, { label: "Cyprus", value: CY }, { label: "Czechia", value: CZ }, { label: "Denmark", value: DK }, { label: "Estonia", value: EE }, { label: "Finland", value: FI }, { label: "France", value: FR }, { label: "Germany", value: DE }, { label: "Greece", value: GR }, { label: "Hungary", value: HU }, { label: "Ireland", value: IE }, { label: "Italy", value: IT }, { label: "Latvia", value: LV }, { label: "Lithuania", value: LT }, { label: "Luxembourg", value: LU }, { label: "Malta", value: MT }, { label: "Netherlands", value: NL }, { label: "Poland", value: PL }, { label: "Portugal", value: PT }, { label: "Romania", value: RO }, { label: "Slovakia", value: SK }, { label: "Slovenia", value: SI }, { label: "Spain", value: ES }, { label: "Sweden", value: SE }], hint: "Each EU country should be in exactly one zone." }
+              - { name: tube, label: "Tube (unframed), EUR", widget: number, value_type: float, required: false }
+              - { name: box, label: "Box (framed, canvas), EUR", widget: number, value_type: float, required: false }
           - name: formats
             label: "Formats"
             label_singular: "Format"
@@ -261,6 +274,7 @@ collections:
               - { name: name_cs, label: "Name (Czech)", widget: string, required: false }
               - { name: note, label: "Note (English)", widget: string, required: false }
               - { name: note_cs, label: "Note (Czech)", widget: string, required: false }
+              - { name: parcel, label: "Ships in", widget: select, options: [{ label: "Tube (rolled)", value: tube }, { label: "Box", value: box }], default: box }
               - name: sizes
                 label: "Sizes and prices"
                 label_singular: "Size"
@@ -269,4 +283,4 @@ collections:
                 fields:
                   - { name: size, label: "Size", widget: string, hint: "e.g. 50 × 70 cm" }
                   - { name: price, label: "Price in EUR", widget: number, value_type: float, required: false, hint: "Leave empty to show 'Price on request'." }
-                  - { name: sku, label: "Prodigi SKU (for automatic orders later)", widget: string, required: false }
+                  - { name: code, label: "Lab product code (optional)", widget: string, required: false, hint: "For your own reference, e.g. the lab's name for this product." }

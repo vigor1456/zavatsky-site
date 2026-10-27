@@ -1,0 +1,89 @@
+---
+// Terms of sale for prints (obchodní podmínky). DRAFT for legal review: kept out of search
+// results (noindex) and unlinked until reviewed. Placeholders are marked [ … ].
+import Base from '../layouts/Base.astro';
+import { MR } from '../lib/site.js';
+
+const nav = [
+  { href: '/prints', en: 'Prints', cs: 'Tisky' },
+  { href: '/withdrawal', en: 'Withdrawal', cs: 'Odstoupení' },
+  { href: '/ravique#contact', en: 'Contact', cs: 'Kontakt' },
+];
+const S = (en, cs) => ({ en, cs });
+const sections = [
+  { h: S('1. Seller', '1. Prodávající'), p: [
+    S(`These terms govern the sale of photographic prints offered on zavatsky.photo. The seller is Third Place Labs s.r.o., registered office Školská 660/3, Nové Město, 110 00 Praha 1, Czech Republic, company ID (IČO) 24501212, registered in the Commercial Register kept by the Municipal Court in Prague, file no. C 442228. The seller is not a VAT payer.`,
+      `Tyto obchodní podmínky upravují prodej fotografických tisků nabízených na webu zavatsky.photo. Prodávajícím je společnost Third Place Labs s.r.o., se sídlem Školská 660/3, Nové Město, 110 00 Praha 1, IČO 24501212, zapsaná v obchodním rejstříku vedeném Městským soudem v Praze, sp. zn. C 442228. Prodávající není plátcem DPH.`),
+    S(`Contact: ${MR.email}, ${MR.phone}.`, `Kontakt: ${MR.email}, ${MR.phone}.`),
+  ]},
+  { h: S('2. Who these terms apply to', '2. Na koho se podmínky vztahují'), p: [
+    S('These terms apply to buyers who are consumers as well as to business buyers. A consumer is a person who buys outside the scope of their business or profession. Provisions marked as applying to consumers do not apply to business buyers.',
+      'Tyto podmínky se vztahují na kupující spotřebitele i podnikatele. Spotřebitelem je člověk, který nakupuje mimo rámec své podnikatelské činnosti nebo povolání. Ustanovení určená spotřebitelům se na kupující podnikatele nepoužijí.'),
+  ]},
+  { h: S('3. Products and prices', '3. Zboží a ceny'), p: [
+    S('The products are prints of photographs by Maximilian Ravique, made to order by a fine-art print partner. The description, format, size and price of each print are shown on the Prints page. Colours on screen may differ slightly from the printed result, depending on the screen.',
+      'Zbožím jsou tisky fotografií Maximiliana Raviqua vyráběné na zakázku partnerem pro umělecký tisk. Popis, formát, velikost a cena každého tisku jsou uvedeny na stránce Tisky. Barvy na obrazovce se mohou od tištěného výsledku mírně lišit podle zobrazovacího zařízení.'),
+    S('Prices are final. Delivery is charged separately according to the destination and is shown before you pay. Because the seller is not a VAT payer, no VAT is charged. The prices that apply are those shown when the order is placed.',
+      'Ceny jsou konečné. Doprava se účtuje zvlášť podle místa doručení a zobrazí se před zaplacením. Prodávající není plátcem DPH, DPH proto není účtována. Platí ceny uvedené v okamžiku odeslání objednávky.'),
+  ]},
+  { h: S('4. Orders and conclusion of the contract', '4. Objednávka a uzavření smlouvy'), p: [
+    S('You can order through the website or by email. Before you send an order, you can check and correct everything you entered. The contract is concluded when the seller confirms your order by email. The seller may decline an order, for example when a price was shown incorrectly because of an obvious error.',
+      'Objednat můžete přes web nebo e-mailem. Před odesláním objednávky můžete všechny zadané údaje zkontrolovat a opravit. Smlouva je uzavřena okamžikem, kdy prodávající objednávku potvrdí e-mailem. Prodávající může objednávku odmítnout, například pokud byla cena uvedena chybně v důsledku zjevné chyby.'),
+    S('The contract is concluded in English or Czech. The seller keeps the concluded contract and these terms, and sends them to you in the order confirmation.',
+      'Smlouva se uzavírá v českém nebo anglickém jazyce. Prodávající uzavřenou smlouvu i tyto podmínky archivuje a zasílá vám je v potvrzení objednávky.'),
+  ]},
+  { h: S('5. Payment', '5. Platba'), p: [
+    S('Payment is made in advance, by card through the payment provider Stripe or by bank transfer based on an invoice. Production starts once the payment has been received.',
+      'Platba probíhá předem, kartou prostřednictvím platební brány Stripe nebo bankovním převodem na základě faktury. Výroba začíná po připsání platby.'),
+  ]},
+  { h: S('6. Delivery', '6. Doručení'), p: [
+    S('Prints are delivered to addresses in the European Union. Each print is produced by a partner fine-art lab in the Czech Republic, checked by the seller and sent from Prague by tracked shipping, usually within 5 to 10 working days of payment. The seller will tell you if a delay is expected.',
+      'Tisky doručujeme na adresy v Evropské unii. Každý tisk vyrábí partnerská laboratoř uměleckého tisku v České republice, prodávající ho zkontroluje a odešle z Prahy sledovanou zásilkou, obvykle do 5 až 10 pracovních dnů od připsání platby. O případném zpoždění vás prodávající informuje.'),
+    S('Please check the parcel when it arrives. If it is visibly damaged, note this with the carrier if you can, take photos and let the seller know as soon as possible, so a replacement can be arranged quickly. This does not limit your rights under section 8.',
+      'Zásilku si prosím při převzetí zkontrolujte. Je-li viditelně poškozená, uveďte to pokud možno u dopravce, pořiďte fotografie a dejte prodávajícímu co nejdříve vědět, aby bylo možné rychle zajistit náhradu. Tím nejsou dotčena vaše práva podle článku 8.'),
+  ]},
+  { h: S('7. Right of withdrawal (consumers)', '7. Odstoupení od smlouvy (spotřebitelé)'), p: [
+    S('As a consumer, you may withdraw from the contract without giving a reason within 14 days of receiving the print. To withdraw, send a clear statement before the period ends: by email to the address above, using the model withdrawal form, or, once online ordering is available, using the withdrawal button on the Withdrawal page.',
+      'Jako spotřebitel můžete od smlouvy odstoupit bez udání důvodu do 14 dnů od převzetí tisku. K odstoupení stačí před uplynutím lhůty zaslat jednoznačné prohlášení: e-mailem na výše uvedenou adresu, vzorovým formulářem pro odstoupení, nebo, jakmile bude k dispozici on-line objednávka, tlačítkem na stránce Odstoupení od smlouvy.'),
+    S('Please return the print without undue delay, and no later than 14 days after withdrawing, well packed to: Third Place Labs s.r.o., Školská 660/3, 110 00 Praha 1, Czech Republic. You bear the direct cost of returning the print. For large framed prints and canvases, which need a courier, this is estimated at up to about €50, depending on the destination and size.',
+      'Tisk prosím vraťte bez zbytečného odkladu, nejpozději do 14 dnů od odstoupení, dobře zabalený na adresu: Third Place Labs s.r.o., Školská 660/3, 110 00 Praha 1. Přímé náklady na vrácení nesete vy. U velkých tisků v rámu a pláten, které je nutné poslat kurýrem, se odhadují až na přibližně 50 €, podle místa doručení a velikosti.'),
+    S('The seller will refund everything you paid, including the standard delivery cost, within 14 days of receiving your withdrawal, using the same payment method. The seller may wait with the refund until the print has been returned or you have shown that you sent it back. You are liable for any loss of value caused by handling the print beyond what is needed to see it.',
+      'Prodávající vám vrátí vše, co jste zaplatili, včetně nákladů na standardní doručení, do 14 dnů od obdržení odstoupení, stejným platebním prostředkem. Prodávající může s vrácením peněz počkat, dokud mu tisk nebude vrácen nebo neprokážete jeho odeslání. Odpovídáte za snížení hodnoty tisku vzniklé nakládáním nad rámec nutného seznámení se s ním.'),
+    S('The right of withdrawal does not apply to prints made to your own specification, for example a size, crop or photograph agreed individually with you on request.',
+      'Právo na odstoupení se nevztahuje na tisky vyrobené podle vašich individuálních požadavků, například ve velikosti, ořezu nebo z fotografie dohodnuté s vámi na zakázku.'),
+  ]},
+  { h: S('8. Defects and complaints', '8. Vady a reklamace'), p: [
+    S('The seller is responsible for the print being free of defects when you receive it. As a consumer, you can claim defects that appear within 24 months of receipt. A print damaged in transport counts as defective.',
+      'Prodávající odpovídá za to, že tisk při převzetí nemá vady. Jako spotřebitel můžete uplatnit vady, které se projeví do 24 měsíců od převzetí. Tisk poškozený při přepravě se považuje za vadný.'),
+    S('To make a complaint, email the seller with your order number, a description of the defect and photos. In most cases a new print is produced and sent at no cost to you. You may also ask for a reasonable discount or, where the law allows, withdraw from the contract. The seller will confirm receipt of your complaint and resolve it within 30 days, unless a longer period is agreed with you.',
+      'Reklamaci uplatníte e-mailem s číslem objednávky, popisem vady a fotografiemi. Ve většině případů vám bude bezplatně vyroben a zaslán nový tisk. Můžete také požadovat přiměřenou slevu nebo, umožňuje-li to zákon, od smlouvy odstoupit. Prodávající vám přijetí reklamace potvrdí a vyřídí ji do 30 dnů, nedohodnete-li se na delší lhůtě.'),
+  ]},
+  { h: S('9. Out-of-court dispute resolution', '9. Mimosoudní řešení sporů'), p: [
+    S('If a consumer dispute cannot be settled directly, you may turn to the Czech Trade Inspection Authority (Česká obchodní inspekce), Štěpánská 15, 120 00 Praha 2, www.coi.cz, which handles out-of-court consumer disputes. The same authority supervises compliance with consumer protection law.',
+      'Nepodaří-li se spotřebitelský spor vyřešit dohodou, můžete se obrátit na Českou obchodní inspekci, Štěpánská 15, 120 00 Praha 2, www.coi.cz, která je subjektem mimosoudního řešení spotřebitelských sporů. Česká obchodní inspekce zároveň dozoruje dodržování předpisů na ochranu spotřebitele.'),
+  ]},
+  { h: S('10. Personal data', '10. Osobní údaje'), p: [
+    S('How personal data is handled is described in the Privacy policy.', 'Zpracování osobních údajů popisují Zásady ochrany osobních údajů.'),
+  ]},
+  { h: S('11. Final provisions', '11. Závěrečná ustanovení'), p: [
+    S('These terms and the contract are governed by Czech law. If you are a consumer living in another EU country, this does not take away the protection given to you by the mandatory law of your country. If the English and Czech versions differ, the Czech version prevails.',
+      'Tyto podmínky a smlouva se řídí českým právem. Jste-li spotřebitelem s bydlištěm v jiném státě EU, nejste tím zbaveni ochrany, kterou vám poskytují kogentní předpisy vašeho státu. V případě rozporu mezi českou a anglickou verzí má přednost česká verze.'),
+    S('These terms are effective from [date].', 'Tyto podmínky jsou účinné od [datum].'),
+  ]},
+];
+---
+<Base title="Terms of sale | Maximilian Ravique"
+  description="Terms of sale for prints sold by Third Place Labs s.r.o.: ordering, payment, delivery, withdrawal and complaints."
+  path="/terms" side="mr" mark="mr" nav={nav} footer="mr" noindex>
+  <article class="wrap g12" style="padding-top: clamp(56px, 8vw, 120px); padding-bottom: clamp(56px, 8vw, 120px)">
+    <div class="prose" style="grid-column: 3 / span 8">
+      <h1 class="display" style="font-size: clamp(2.6rem, 5vw, 4.4rem); margin-bottom: 0.6em" data-en="Terms of sale" data-cs="Obchodní podmínky">Terms of sale</h1>
+      {sections.map((s) => (
+        <Fragment>
+          <h2 data-en={s.h.en} data-cs={s.h.cs}>{s.h.en}</h2>
+          {s.p.map((x) => <p data-en={x.en} data-cs={x.cs}>{x.en}</p>)}
+        </Fragment>
+      ))}
+    </div>
+  </article>
+</Base>

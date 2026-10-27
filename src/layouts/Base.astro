@@ -10,7 +10,7 @@ import { SITE, abs, personGraph } from '../lib/site.js';
 const {
   title, description, path = '/', image = '/images/hero-people.jpg', imageAlt = '',
   side = 'vz', mark = 'vz', nav = [], lang = true,
-  footer = 'vz', footerId, graph = [], viewer = false, ogType = 'website',
+  footer = 'vz', footerId, graph = [], viewer = false, ogType = 'website', noindex = false,
 } = Astro.props;
 const canonical = SITE + path;
 const ld = { '@context': 'https://schema.org', '@graph': [...personGraph(), ...graph] };
@@ -23,6 +23,7 @@ const ld = { '@context': 'https://schema.org', '@graph': [...personGraph(), ...g
 <title>{title}</title>
 <meta name="description" content={description}>
 <link rel="canonical" href={canonical}>
+{noindex && <meta name="robots" content="noindex">}
 <meta name="theme-color" content="#121212">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content={ogType}>

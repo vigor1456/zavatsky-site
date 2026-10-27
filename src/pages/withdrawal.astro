@@ -1,0 +1,66 @@
+---
+// Withdrawal from the contract (odstoupení od smlouvy): explanation, model form and the
+// two-step online withdrawal function required by § 1830a of the Czech Civil Code from 1 January 2027.
+// Submissions go to Netlify Forms (enable form detection in Netlify). DRAFT for legal review.
+import Base from '../layouts/Base.astro';
+import { MR } from '../lib/site.js';
+const nav = [
+  { href: '/prints', en: 'Prints', cs: 'Tisky' },
+  { href: '/terms', en: 'Terms', cs: 'Podmínky' },
+  { href: '/ravique#contact', en: 'Contact', cs: 'Kontakt' },
+];
+const T = {
+  intro_en: 'If you bought a print as a consumer, you can withdraw from the contract without giving a reason within 14 days of receiving it. You can do it here in two steps, by email, or with the model form below.',
+  intro_cs: 'Pokud jste tisk koupili jako spotřebitel, můžete od smlouvy odstoupit bez udání důvodu do 14 dnů od jeho převzetí. Můžete tak učinit zde ve dvou krocích, e-mailem nebo vzorovým formulářem níže.',
+};
+---
+<Base title="Withdrawal from the contract | Maximilian Ravique"
+  description="How to withdraw from a print purchase within 14 days: online withdrawal, by email, or with the model form."
+  path="/withdrawal" side="mr" mark="mr" nav={nav} footer="mr" noindex>
+  <article class="wrap g12" style="padding-top: clamp(56px, 8vw, 120px); padding-bottom: clamp(56px, 8vw, 120px)">
+    <div class="prose" style="grid-column: 3 / span 8">
+      <h1 class="display" style="font-size: clamp(2.6rem, 5vw, 4.4rem); margin-bottom: 0.6em" data-en="Withdrawal from the contract" data-cs="Odstoupení od smlouvy">Withdrawal from the contract</h1>
+      <p data-en={T.intro_en} data-cs={T.intro_cs}>{T.intro_en}</p>
+
+      <section class="wd" aria-labelledby="wd-h">
+        <h2 id="wd-h" data-en="Withdraw online" data-cs="Odstoupit on-line">Withdraw online</h2>
+        <p><button type="button" class="btn" id="wd-start" aria-controls="wd-form" aria-expanded="false" data-en="Withdraw from the contract" data-cs="Odstoupit od smlouvy">Withdraw from the contract</button></p>
+        <form id="wd-form" name="withdrawal" method="POST" action="/withdrawal-sent" data-netlify="true" netlify-honeypot="company_website" hidden>
+          <input type="hidden" name="form-name" value="withdrawal" />
+          <p hidden><label>Leave empty <input name="company_website" /></label></p>
+          <label><span data-en="Your name" data-cs="Vaše jméno">Your name</span><input name="name" required autocomplete="name" /></label>
+          <label><span data-en="Order number or date of order" data-cs="Číslo nebo datum objednávky">Order number or date of order</span><input name="order" required /></label>
+          <label><span data-en="Which prints (leave empty for the whole order)" data-cs="Které tisky (nevyplňujte, jde-li o celou objednávku)">Which prints (leave empty for the whole order)</span><input name="items" /></label>
+          <label><span data-en="Email for the confirmation" data-cs="E-mail pro potvrzení">Email for the confirmation</span><input name="email" type="email" required autocomplete="email" /></label>
+          <p class="small muted" data-en="You will receive a confirmation of receipt by email. Personal data is handled as described in the Privacy policy." data-cs="Potvrzení o přijetí obdržíte e-mailem. S osobními údaji nakládáme podle Zásad ochrany osobních údajů.">You will receive a confirmation of receipt by email. Personal data is handled as described in the Privacy policy.</p>
+          <p><button type="submit" class="btn" data-en="Confirm withdrawal from the contract" data-cs="Potvrdit odstoupení od smlouvy">Confirm withdrawal from the contract</button></p>
+        </form>
+        <noscript><style>#wd-form{display:flex !important}#wd-start{display:none}</style></noscript>
+      </section>
+
+      <h2 data-en="By email or post" data-cs="E-mailem nebo poštou">By email or post</h2>
+      <p data-en={`Send a clear statement that you are withdrawing to ${MR.email}, or by post to Third Place Labs s.r.o., Školská 660/3, 110 00 Praha 1, Czech Republic. You may use the model form below, but you do not have to.`} data-cs={`Zašlete jednoznačné prohlášení o odstoupení na ${MR.email} nebo poštou na adresu Third Place Labs s.r.o., Školská 660/3, 110 00 Praha 1. Můžete použít vzorový formulář níže, ale nemusíte.`}>Send a clear statement that you are withdrawing to {MR.email}, or by post to Third Place Labs s.r.o., Školská 660/3, 110 00 Praha 1, Czech Republic. You may use the model form below, but you do not have to.</p>
+
+      <h2 data-en="Returning the print and your refund" data-cs="Vrácení tisku a peněz">Returning the print and your refund</h2>
+      <p data-en="Return the print, well packed, within 14 days of withdrawing to the address above. You pay the direct cost of the return. We refund everything you paid, including standard delivery, within 14 days of receiving your withdrawal, using the same payment method, but may wait until the print has arrived or you have shown that you sent it." data-cs="Tisk dobře zabalený vraťte do 14 dnů od odstoupení na výše uvedenou adresu. Přímé náklady na vrácení nesete vy. Vše, co jste zaplatili, včetně standardního doručení, vrátíme do 14 dnů od obdržení odstoupení stejným platebním prostředkem, můžeme však počkat, dokud tisk nedorazí nebo neprokážete jeho odeslání.">Return the print, well packed, within 14 days of withdrawing to the address above. You pay the direct cost of the return. We refund everything you paid, including standard delivery, within 14 days of receiving your withdrawal, using the same payment method, but may wait until the print has arrived or you have shown that you sent it.</p>
+      <p data-en="This does not apply to prints made to your own specification. Full details are in the Terms of sale." data-cs="Neplatí to pro tisky vyrobené podle vašich individuálních požadavků. Podrobnosti jsou v Obchodních podmínkách.">This does not apply to prints made to your own specification. Full details are in the <a href="/terms">Terms of sale</a>.</p>
+
+      <h2 data-en="Model withdrawal form" data-cs="Vzorový formulář pro odstoupení od smlouvy">Model withdrawal form</h2>
+      <blockquote>
+        <p data-en="To: Third Place Labs s.r.o., Školská 660/3, 110 00 Praha 1, Czech Republic, maximilianravique@gmail.com" data-cs="Adresát: Third Place Labs s.r.o., Školská 660/3, 110 00 Praha 1, maximilianravique@gmail.com">To: Third Place Labs s.r.o., Školská 660/3, 110 00 Praha 1, Czech Republic, maximilianravique@gmail.com</p>
+        <p data-en="I hereby give notice that I withdraw from my contract for the following goods: ……" data-cs="Oznamuji, že tímto odstupuji od smlouvy o nákupu tohoto zboží: ……">I hereby give notice that I withdraw from my contract for the following goods: ……</p>
+        <p data-en="Ordered on (*) / received on (*): ……" data-cs="Datum objednání (*) / datum obdržení (*): ……">Ordered on (*) / received on (*): ……</p>
+        <p data-en="Name of consumer: …… · Address of consumer: ……" data-cs="Jméno a příjmení spotřebitele: …… · Adresa spotřebitele: ……">Name of consumer: …… · Address of consumer: ……</p>
+        <p data-en="Signature of consumer (only if this form is sent on paper): …… · Date: ……" data-cs="Podpis spotřebitele (pouze pokud je formulář zasílán v listinné podobě): …… · Datum: ……">Signature of consumer (only if this form is sent on paper): …… · Date: ……</p>
+        <p data-en="(*) Delete as appropriate." data-cs="(*) Nehodící se škrtněte.">(*) Delete as appropriate.</p>
+      </blockquote>
+    </div>
+  </article>
+  <script is:inline>
+    (function () {
+      var b = document.getElementById('wd-start'), f = document.getElementById('wd-form');
+      if (!b || !f) return;
+      b.addEventListener('click', function () { f.hidden = false; b.setAttribute('aria-expanded', 'true'); f.querySelector('input[name=name]').focus(); });
+    })();
+  </script>
+</Base>
