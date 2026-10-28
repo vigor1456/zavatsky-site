@@ -19,7 +19,7 @@
     },
     {
       "src": "/images/landscape-04.jpg",
-      "alt": "A river bend in a green valley, framed by trees in golden light"
+      "alt": "Vltava river bend in a green valley, framed by trees in golden light"
     },
     {
       "src": "/images/landscape-05.jpg",
@@ -31,7 +31,7 @@
     },
     {
       "src": "/images/landscape-07.jpg",
-      "alt": "Low sun shining through a pine forest"
+      "alt": "Low sun shining through a pine forest in Czechia"
     },
     {
       "src": "/images/landscape-08.jpg",
@@ -43,19 +43,11 @@
     },
     {
       "src": "/images/landscape-10.jpg",
-      "alt": "Sunlit birch trees and tall grass along a forest path"
+      "alt": "Sunlit birch trees and tall grass along a forest path in Czechia"
     },
     {
       "src": "/images/landscape-11.jpg",
       "alt": "Three deer crossing a snowy field below a frosted forest"
-    },
-    {
-      "src": "/images/landscape-12.jpg",
-      "alt": "A house among autumn trees, reflected in a still pond"
-    },
-    {
-      "src": "/images/landscape-13.jpg",
-      "alt": "A green field under a wide sky of drifting clouds"
     }
   ]
 }
