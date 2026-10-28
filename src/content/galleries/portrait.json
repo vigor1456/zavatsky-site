@@ -8,7 +8,7 @@
   "images": [
     {
       "src": "/images/portrait-01.jpg",
-      "alt": "Close-up of a woman's face framed by a pale headscarf, one eye catching the light"
+      "alt": "Photo of an Asian woman, with a hard light on her face split by the shadow."
     },
     {
       "src": "/images/portrait-02.jpg",
@@ -32,11 +32,11 @@
     },
     {
       "src": "/images/portrait-07.jpg",
-      "alt": "A dark-haired woman in shadow, looking over her shoulder at the camera"
+      "alt": "Beauty portrait of a dark-haired young Czech girl, framed by the veil."
     },
     {
       "src": "/images/portrait-08.jpg",
-      "alt": "A woman lying back on draped fabric, her face lit in cool blue"
+      "alt": "Photograph of a woman lying back on draped fabric, her face lit in cool blue"
     }
   ]
 }
