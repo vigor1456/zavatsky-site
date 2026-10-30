@@ -1,0 +1,32 @@
+{
+  "title": "Winter Forest",
+  "title_cs": "Zimní les",
+  "order": 30,
+  "available": true,
+  "place": "Czech Republic",
+  "place_cs": "Česká republika",
+  "year": 2025,
+  "story": "Painterly image of a winter forest, made during a heavy snowfall.",
+  "story_cs": "Malířsky působící fotografie zimního lesa, pořízená během hustého sněžení.",
+  "orientation": "landscape",
+  "formats": [
+    "print",
+    "framed",
+    "canvas"
+  ],
+  "etsy": "https://www.etsy.com/listing/4606408032/winter-forest",
+  "mockups": [
+    {
+      "src": "/images/artwork-0-63cef2aa-e9ef-4399-a83c-0e4b6a40a732.jpg",
+      "alt": "Painterly image of a winter forest in Czechia, taken during a heavy snowfall"
+    },
+    {
+      "src": "/images/artwork-0-c0cf1f27-129d-4920-9da4-b6d6b097fa43.jpg",
+      "alt": "Mockup of an image of a winter forest, taken during a heavy snowfall, framed and placed in a bedroom."
+    },
+    {
+      "src": "/images/artwork-0-a61f8393-cfda-42a1-b478-645b30e43bfb.jpg",
+      "alt": "Mockup of an image of a winter forest, taken during a heavy snowfall, framed and placed on a wall."
+    }
+  ]
+}
