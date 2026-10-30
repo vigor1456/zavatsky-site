@@ -1,11 +1,11 @@
 ---
-title: 'First light on the Aletsch'
-date: 2026-09-18
+title: First light on the Aletsch
+date: 2024-07-15
 author: MR
-category: 'Field notes'
+category: Field notes
 cover: /images/blog-01.jpg
 hero: /images/blog-post-01.jpg
-excerpt: "Four in the morning, a cable car that wasn't running yet, and the longest glacier in the Alps turning from grey to gold. Some notes on chasing a sunrise you cannot be late for."
+excerpt: Four in the morning, a cable car that wasn't running yet, and the longest glacier in the Alps turning from grey to gold. Some notes on chasing a sunrise you cannot be late for.
 draft: false
 ---
 
