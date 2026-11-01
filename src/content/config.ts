@@ -77,6 +77,7 @@ const printshop = defineCollection({
     shipping: z.string().default(''),
     shipping_cs: z.string().optional(),
     etsy_url: z.string().optional(),
+    checkout_enabled: z.boolean().default(false),
     shipping_zones: z.array(z.object({
       zone: z.string(),
       zone_cs: z.string().optional(),

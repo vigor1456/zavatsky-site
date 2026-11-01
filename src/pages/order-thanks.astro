@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+const nav = [ { href: '/prints', en: 'Prints', cs: 'Tisky' }, { href: '/ravique#galleries', en: 'Galleries', cs: 'Galerie' } ];
+---
+<Base title="Thank you for your order | Maximilian Ravique" description="Your order has been received." path="/order-thanks" side="mr" mark="mr" nav={nav} footer="mr" noindex>
+  <section class="center" style="gap: 22px; padding-top: clamp(120px, 16vw, 220px); padding-bottom: clamp(120px, 16vw, 220px)">
+    <h1 class="h2-big" data-en="Thank you for your order." data-cs="Děkuji za objednávku.">Thank you for your order.</h1>
+    <p class="lead" style="max-width: 34rem" data-en="Your payment has been received. A confirmation with your order details and the terms of sale is on its way to your email. Your print will be made, checked and sent within 5 to 10 working days, and you’ll receive the tracking number by email." data-cs="Platba proběhla v pořádku. Potvrzení s údaji o objednávce a obchodními podmínkami vám přijde e-mailem. Tisk bude vyroben, zkontrolován a odeslán do 5 až 10 pracovních dnů a číslo pro sledování zásilky vám pošlu e-mailem.">Your payment has been received. A confirmation with your order details and the terms of sale is on its way to your email. Your print will be made, checked and sent within 5 to 10 working days, and you’ll receive the tracking number by email.</p>
+    <a class="tlink sm" href="/prints" data-en="Back to the prints" data-cs="Zpět na tisky">Back to the prints</a>
+  </section>
+</Base>

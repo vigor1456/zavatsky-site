@@ -141,5 +141,6 @@
       "tube": 34,
       "box": 40
     }
-  ]
+  ],
+  "checkout_enabled": true
 }
