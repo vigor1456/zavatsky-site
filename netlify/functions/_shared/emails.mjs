@@ -13,6 +13,7 @@ export function buyerConfirmation(o, lang = 'en') {
     `Tisk: ${o.title_cs}`, `Formát: ${o.formatName_cs}, ${o.size}`,
     `Cena: ${eur(o.priceCents)}`, `Doprava (${o.zone}): ${eur(o.shippingCents)}`, `Celkem zaplaceno: ${eur(o.totalCents)}`, '',
     `Doručovací adresa: ${o.shipName || o.name}, ${addr(o.shipAddress)}`, '',
+    ...(o.receiptNumber ? [`V příloze najdete doklad o prodeji č. ${o.receiptNumber}.`, ''] : []),
     'Tisk vyrobí laboratoř uměleckého tisku v Česku, zkontroluji ho a odešlu sledovanou zásilkou, obvykle do 5 až 10 pracovních dnů. Číslo pro sledování vám pošlu e-mailem.', '',
     'Jako spotřebitel můžete od smlouvy odstoupit do 14 dnů od převzetí: https://zavatsky.photo/withdrawal', '',
     'S pozdravem', 'Maximilian Ravique', SELLER, 'Prodávající není plátcem DPH.', '',
@@ -23,6 +24,7 @@ export function buyerConfirmation(o, lang = 'en') {
     `Print: ${o.title}`, `Format: ${o.formatName}, ${o.size}`,
     `Price: ${eur(o.priceCents)}`, `Shipping (${o.zone}): ${eur(o.shippingCents)}`, `Total paid: ${eur(o.totalCents)}`, '',
     `Delivery address: ${o.shipName || o.name}, ${addr(o.shipAddress)}`, '',
+    ...(o.receiptNumber ? [`Your receipt no. ${o.receiptNumber} is attached.`, ''] : []),
     "Your print will be made by a fine-art print lab in Czechia, checked by me and sent by tracked shipping, usually within 5 to 10 working days. I'll email you the tracking number.", '',
     'As a consumer, you may withdraw from the contract within 14 days of receiving the print: https://zavatsky.photo/withdrawal', '',
     'Best regards,', 'Maximilian Ravique', SELLER, 'The seller is not a VAT payer.', '',
@@ -33,7 +35,7 @@ export function buyerConfirmation(o, lang = 'en') {
 
 export function ownerNotification(o) {
   const text = [
-    `NEW ORDER ${o.number}`, '',
+    `NEW ORDER ${o.number}`, o.receiptNumber ? `Receipt: ${o.receiptNumber} (PDF attached)` : `RECEIPT NOT ISSUED automatically${o.receiptError ? ' (' + o.receiptError + ')' : ''}. Please issue it manually.`, '',
     `Print: ${o.title} (${o.print})`, `Format: ${o.formatName}, ${o.size}`, `Lab product: ${o.code || '-'}`, `Parcel: ${o.parcel}`, '',
     `Price ${eur(o.priceCents)} + shipping ${eur(o.shippingCents)} (${o.zone}) = ${eur(o.totalCents)} paid`, '',
     `Ship to: ${o.shipName || o.name}`, `Address: ${addr(o.shipAddress)}`, `Phone: ${o.phone || '-'}`, `Email: ${o.email || '-'}`, `Language: ${o.lang}`, '',

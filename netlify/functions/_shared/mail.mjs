@@ -1,5 +1,5 @@
 // Sends email through Brevo's transactional API. Keys come from Netlify environment variables.
-export async function sendMail({ to, subject, text, html, replyTo }) {
+export async function sendMail({ to, subject, text, html, replyTo, attachments }) {
   const key = process.env.BREVO_API_KEY;
   if (!key) throw new Error('BREVO_API_KEY is not set');
   const res = await fetch('https://api.brevo.com/v3/smtp/email', {
@@ -10,6 +10,7 @@ export async function sendMail({ to, subject, text, html, replyTo }) {
       to: (Array.isArray(to) ? to : [to]).map((t) => (typeof t === 'string' ? { email: t } : t)),
       replyTo: { email: replyTo || process.env.ORDER_EMAIL_TO || 'maximilianravique@gmail.com' },
       subject, textContent: text, htmlContent: html,
+      ...(attachments?.length ? { attachment: attachments.map((a) => ({ name: a.name, content: Buffer.from(a.content).toString('base64') })) } : {}),
     }),
   });
   if (!res.ok) throw new Error(`Brevo ${res.status}: ${await res.text()}`);
