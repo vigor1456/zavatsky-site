@@ -16,6 +16,7 @@ const p = side === 'mr' ? MR : VZ;
     </div>
     <div class="f-row">
       <a id="cc-privfoot" href="/privacy" data-en="Privacy" data-cs="Soukromí">Privacy</a>
+      {side === 'mr' && <a href="/terms" data-en="Terms of sale" data-cs="Obchodní podmínky">Terms of sale</a>}
       <a id="cc-settings" href="#cookies" data-en="Cookie settings" data-cs="Nastavení cookies">Cookie settings</a>
     </div>
     <p class="f-legal">{side === 'mr' ? <span data-en={'Operated by ' + COMPANY} data-cs={'Provozuje ' + COMPANY}>Operated by {COMPANY}</span> : COMPANY}</p>

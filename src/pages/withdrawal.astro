@@ -27,6 +27,7 @@ const T = {
         <p><button type="button" class="btn" id="wd-start" aria-controls="wd-form" aria-expanded="false" data-en="Withdraw from the contract" data-cs="Odstoupit od smlouvy">Withdraw from the contract</button></p>
         <form id="wd-form" name="withdrawal" method="POST" action="/withdrawal-sent" data-netlify="true" netlify-honeypot="company_website" hidden>
           <input type="hidden" name="form-name" value="withdrawal" />
+          <input type="hidden" name="lang" value="en" />
           <p hidden><label>Leave empty <input name="company_website" /></label></p>
           <label><span data-en="Your name" data-cs="Vaše jméno">Your name</span><input name="name" required autocomplete="name" /></label>
           <label><span data-en="Order number or date of order" data-cs="Číslo nebo datum objednávky">Order number or date of order</span><input name="order" required /></label>
@@ -60,7 +61,7 @@ const T = {
     (function () {
       var b = document.getElementById('wd-start'), f = document.getElementById('wd-form');
       if (!b || !f) return;
-      b.addEventListener('click', function () { f.hidden = false; b.setAttribute('aria-expanded', 'true'); f.querySelector('input[name=name]').focus(); });
+      b.addEventListener('click', function () { f.querySelector('input[name=lang]').value = document.documentElement.lang === 'cs' ? 'cs' : 'en'; f.hidden = false; b.setAttribute('aria-expanded', 'true'); f.querySelector('input[name=name]').focus(); });
     })();
   </script>
 </Base>

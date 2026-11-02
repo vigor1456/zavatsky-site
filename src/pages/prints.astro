@@ -18,6 +18,12 @@ const minShip = (parcel) => { const v = zones.map((z) => z[parcel]).filter((x) =
 const shipLine = (parcel) => { const m = minShip(parcel); return m === null
   ? { en: 'plus shipping by destination', cs: 'plus doprava podle místa doručení' }
   : { en: `plus shipping, from €${Number.isInteger(m) ? m : m.toFixed(2)}`, cs: `plus doprava, od ${Number.isInteger(m) ? m : m.toFixed(2)} €` }; };
+const checkout = shop.checkout_enabled === true && zones.length > 0;
+const countries = zones.flatMap((z) => (z.countries || []).map((c) => {
+  let en = c, csName = c; try { en = regionEn.of(c); csName = regionCs.of(c); } catch {}
+  return { code: c, en, cs: csName, tube: z.tube, box: z.box };
+})).sort((a, b) => a.en.localeCompare(b.en));
+const defaultCountry = countries.find((c) => c.code === 'CZ') ? 'CZ' : countries[0]?.code;
 const euro = (n) => (typeof n === 'number' ? '€' + (Number.isInteger(n) ? n : n.toFixed(2)) : null);
 const nav = [
   { href: '/ravique#galleries', en: 'Galleries', cs: 'Galerie' },
@@ -80,7 +86,7 @@ const graph = prints.map((p) => {
           <p class="small" data-en={d.story} data-cs={d.story_cs || d.story}>{d.story}</p>
 
           {first && (
-            <form class="pr-form" data-title={d.title} onsubmit="return false">
+            <form class="pr-form" data-title={d.title} data-parcels={JSON.stringify(Object.fromEntries(p.formats.map((f) => [f.id, f.parcel || "box"])))} onsubmit="return false">
               <fieldset>
                 <legend class="small muted" data-en="Format" data-cs="Formát">Format</legend>
                 <div class="pr-opts">
@@ -103,12 +109,34 @@ const graph = prints.map((p) => {
                   )))}
                 </select>
               </label>
+              {checkout && (
+                <label class="pr-size">
+                  <span class="small muted" data-en="Deliver to" data-cs="Doručit do">Deliver to</span>
+                  <select name="country">
+                    {countries.map((c) => <option value={c.code} data-tube={c.tube ?? ''} data-box={c.box ?? ''} data-en={c.en} data-cs={c.cs} selected={c.code === defaultCountry}>{c.en}</option>)}
+                  </select>
+                </label>
+              )}
               <p class="pr-price" aria-live="polite">
                 {euro(firstSize?.price) ?? <span data-en="Price on request" data-cs="Cena na dotaz">Price on request</span>}
               </p>
               <p class="small muted pr-ship" style="margin-top: -8px">{shipLine(first.parcel).en}</p>
-              <a class="btn pr-go" href={`mailto:${MR.email}?subject=${encodeURIComponent(`Print enquiry: ${d.title}, ${first.name}, ${firstSize?.size}`)}`}
-                data-en="Enquire about this print" data-cs="Poptat tento tisk">Enquire about this print</a>
+              {checkout ? (
+                <Fragment>
+                  <button type="button" class="btn pr-buy" data-en="Buy now" data-cs="Koupit">Buy now</button>
+                  <p class="small pr-msg" role="status" hidden></p>
+                  <p class="small muted" style="margin-top: -4px">
+                    <span data-en="Secure payment by card, Apple Pay or Google Pay." data-cs="Bezpečná platba kartou, Apple Pay nebo Google Pay.">Secure payment by card, Apple Pay or Google Pay.</span>{' '}
+                    <a href="/terms" data-en="Terms of sale" data-cs="Obchodní podmínky">Terms of sale</a>{', '}
+                    <a href="/withdrawal" data-en="withdrawal" data-cs="odstoupení od smlouvy">withdrawal</a>
+                  </p>
+                  <a class="small pr-go pr-digital" href={`mailto:${MR.email}?subject=${encodeURIComponent(`Print enquiry: ${d.title}, ${first.name}, ${firstSize?.size}`)}`}
+                    data-en="Questions first? Write to me about this print" data-cs="Máte dotaz? Napište mi k tomuto tisku">Questions first? Write to me about this print</a>
+                </Fragment>
+              ) : (
+                <a class="btn pr-go" href={`mailto:${MR.email}?subject=${encodeURIComponent(`Print enquiry: ${d.title}, ${first.name}, ${firstSize?.size}`)}`}
+                  data-en="Enquire about this print" data-cs="Poptat tento tisk">Enquire about this print</a>
+              )}
               {(d.etsy || shop.etsy_url) && (
                 <a class="small pr-digital" href={d.etsy || shop.etsy_url} rel="noopener"
                   data-en="Prefer to print it yourself? Get the digital file on Etsy" data-cs="Chcete si tisk zajistit sami? Digitální soubor najdete na Etsy">Prefer to print it yourself? Get the digital file on Etsy</a>
@@ -178,17 +206,42 @@ const graph = prints.map((p) => {
         });
         // format, size, price, enquiry link
         var form = sec.querySelector('.pr-form'); if (!form) return;
-        var sel = form.querySelector('select'), price = form.querySelector('.pr-price'), go = form.querySelector('.pr-go');
+        var sel = form.querySelector('select[name=size]'), csel = form.querySelector('select[name=country]');
+        var price = form.querySelector('.pr-price'), go = form.querySelector('.pr-go'), buy = form.querySelector('.pr-buy'), msg = form.querySelector('.pr-msg');
+        var PARCEL = JSON.parse(form.dataset.parcels || '{}');
+        if (csel) { try { var saved = localStorage.getItem('ship_country'); if (saved && csel.querySelector('option[value="' + saved + '"]')) csel.value = saved; } catch (e) {} }
+        function eur(n) { var v = Math.round(n * 100) % 100 ? n.toFixed(2) : String(Math.round(n)); return lang() === 'cs' ? v.replace('.', ',') + ' €' : '€' + v; }
         function fmt() { return form.querySelector('input[type=radio]:checked'); }
         function update() {
           var f = fmt(), opt = sel.options[sel.selectedIndex];
           var p = opt && opt.dataset.price;
-          price.innerHTML = p ? '€' + p : (lang() === 'cs' ? 'Cena na dotaz' : 'Price on request');
-          var sh = form.querySelector('.pr-ship'); if (sh && f) sh.textContent = f.getAttribute(lang() === 'cs' ? 'data-ship-cs' : 'data-ship-en');
+          price.innerHTML = p ? eur(+p) : (lang() === 'cs' ? 'Cena na dotaz' : 'Price on request');
+          var sh = form.querySelector('.pr-ship');
+          if (sh && csel && p) {
+            var co = csel.options[csel.selectedIndex], parcel = PARCEL[f.value] || 'box', rate = parseFloat(co.dataset[parcel]);
+            var cname = co.textContent, cs = lang() === 'cs';
+            sh.textContent = isNaN(rate) ? (cs ? 'Doprava do této země zatím není k dispozici' : 'Shipping to this country is not available yet')
+              : (cs ? 'plus ' + eur(rate) + ' doprava do země ' + cname + ', celkem ' + eur(+p + rate) : 'plus ' + eur(rate) + ' shipping to ' + cname + ', total ' + eur(+p + rate));
+            if (buy) buy.disabled = isNaN(rate);
+          } else if (sh && f) sh.textContent = f.getAttribute(lang() === 'cs' ? 'data-ship-cs' : 'data-ship-en');
+          if (buy && !p) buy.disabled = true;
           var fname = f.parentElement.querySelector('span').textContent;
           go.href = 'mailto:' + email + '?subject=' + encodeURIComponent('Print enquiry: ' + form.dataset.title + ', ' + fname + ', ' + (opt ? opt.value : ''));
         }
+        if (buy) buy.addEventListener('click', function () {
+          var f = fmt(), cs = lang() === 'cs', label = buy.textContent;
+          buy.disabled = true; buy.textContent = cs ? 'Otevírám platbu…' : 'Opening secure payment…'; msg.hidden = true;
+          fetch('/api/checkout', { method: 'POST', headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ print: sec.id, format: f.value, size: sel.value, country: csel.value, lang: lang() }) })
+            .then(function (r) { return r.json().then(function (j) { if (!r.ok || !j.url) throw new Error(j.error || 'error'); return j; }); })
+            .then(function (j) { location.href = j.url; })
+            .catch(function (err) {
+              msg.textContent = (cs ? 'Platbu se nepodařilo otevřít. Zkuste to prosím znovu, nebo mi napište. ' : 'The payment page could not be opened. Please try again, or write to me. ') + '(' + err.message + ')';
+              msg.hidden = false; buy.disabled = false; buy.textContent = label;
+            });
+        });
         form.addEventListener('change', function (e) {
+          if (e.target.name === 'country') { try { localStorage.setItem('ship_country', e.target.value); } catch (x) {} document.querySelectorAll('.pr-form select[name=country]').forEach(function (o) { if (o !== e.target && o.value !== e.target.value) { o.value = e.target.value; o.dispatchEvent(new Event('change', { bubbles: true })); } }); }
           if (e.target.type === 'radio') {
             var id = e.target.value, firstOk = null;
             [].forEach.call(sel.options, function (o) { var on = o.dataset.fmt === id; o.hidden = !on; o.disabled = !on; if (on && !firstOk) firstOk = o; });
@@ -198,6 +251,7 @@ const graph = prints.map((p) => {
           update();
         });
         document.addEventListener('langchange', update);
+        update();
       });
     })();
   </script>

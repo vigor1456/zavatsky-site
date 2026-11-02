@@ -249,6 +249,7 @@ collections:
           - { name: intro_cs, label: "Intro (Czech)", widget: text, required: false }
           - { name: shipping, label: "Made to order text (English)", widget: text }
           - { name: shipping_cs, label: "Made to order text (Czech)", widget: text, required: false }
+          - { name: checkout_enabled, label: "Online checkout (Buy buttons)", widget: boolean, default: false, hint: "On: visitors can buy with Stripe. Off: prints can only be enquired about by email." }
           - { name: etsy_url, label: "Etsy shop link (optional)", widget: string, required: false, hint: "Your Etsy shop. Used for the digital-file links when a print has no listing of its own." }
           - name: shipping_zones
             label: "Shipping rates"
