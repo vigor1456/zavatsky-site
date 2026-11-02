@@ -19,7 +19,26 @@ async function tooMany(ip) {
   } catch { return false; } // never block a genuine enquiry because the counter is unavailable
 }
 
+// GET /api/form?check : a self-check you can open in the browser. Shows only yes/no for each setting
+// (never the values), which deploy it is, and whether Brevo accepts the key. Sends no email.
+async function selfCheck(context) {
+  const has = (k) => Boolean(process.env[k] && String(process.env[k]).trim());
+  let brevo = 'not tested (no key)';
+  if (has('BREVO_API_KEY')) {
+    try {
+      const r = await fetch('https://api.brevo.com/v3/account', { headers: { 'api-key': process.env.BREVO_API_KEY.trim(), accept: 'application/json' } });
+      brevo = r.ok ? 'OK, key accepted' : `refused: ${r.status} ${(await r.text()).slice(0, 200)}`;
+    } catch (e) { brevo = 'could not reach Brevo: ' + e.message; }
+  }
+  return json(200, {
+    deploy: context?.deploy?.context || process.env.CONTEXT || 'unknown',
+    settings: { BREVO_API_KEY: has('BREVO_API_KEY'), MAIL_FROM: has('MAIL_FROM'), MAIL_FROM_NAME: has('MAIL_FROM_NAME'), ENQUIRY_EMAIL_TO: has('ENQUIRY_EMAIL_TO'), ORDER_EMAIL_TO: has('ORDER_EMAIL_TO') },
+    brevo,
+  });
+}
+
 export default async (req, context) => {
+  if (req.method === 'GET' && new URL(req.url).searchParams.has('check')) return selfCheck(context);
   if (req.method !== 'POST') return json(405, { error: 'Method not allowed' });
   const host = new URL(req.url).host;
   const from = req.headers.get('origin') || req.headers.get('referer') || '';
@@ -50,7 +69,7 @@ export default async (req, context) => {
     }
   } catch (e) {
     console.error(`Form email failed (${kind}):`, e.message);
-    return json(502, { error: 'email' });
+    return json(502, { error: 'email', reason: String(e.message).slice(0, 300) });
   }
   return json(200, { ok: true });
 };
