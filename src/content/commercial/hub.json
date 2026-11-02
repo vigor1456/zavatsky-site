@@ -1,0 +1,207 @@
+{
+  "hero": {
+    "src": "/images/commercial/event-host.jpg",
+    "alt": {
+      "cs": "Hostitelka akce s hosty u stolu",
+      "en": "The host of an event with guests at the table"
+    }
+  },
+  "eyebrow": {
+    "cs": "Vadim Zavatsky, fotograf v Praze",
+    "en": "Vadim Zavatsky, photographer in Prague"
+  },
+  "h1": {
+    "cs": "Fotografie pro firmy, značky a akce, které chcete ukázat.",
+    "en": "Photography for companies, brands and events worth showing."
+  },
+  "lead": {
+    "cs": "Konference, firemní večírky, produkty, interiéry i portréty. Rychle, spolehlivě a s okem, které z běžné akce udělá příběh.",
+    "en": "Conferences, company parties, products, interiors and portraits. Fast, reliable, and with an eye that turns an ordinary event into a story."
+  },
+  "facts": [
+    {
+      "title": {
+        "cs": "Týž den",
+        "en": "Same day"
+      },
+      "text": {
+        "cs": "výběr fotek z akce pro sociální sítě",
+        "en": "selected event photos for social media"
+      }
+    },
+    {
+      "title": {
+        "cs": "Druhý den",
+        "en": "Next day"
+      },
+      "text": {
+        "cs": "kompletní upravená galerie",
+        "en": "the full edited gallery"
+      }
+    },
+    {
+      "title": {
+        "cs": "Licence v ceně",
+        "en": "Licence included"
+      },
+      "text": {
+        "cs": "pro web, PR i sociální sítě",
+        "en": "for web, PR and social media"
+      }
+    }
+  ],
+  "trust": [
+    {
+      "title": {
+        "cs": "Faktura na firmu",
+        "en": "Invoiced as a company"
+      },
+      "text": {
+        "cs": "Third Place Labs s.r.o., IČO 24501212. Nejsem plátce DPH, ceny jsou konečné.",
+        "en": "Third Place Labs s.r.o., company ID 24501212. Not a VAT payer, so prices are final."
+      }
+    },
+    {
+      "title": {
+        "cs": "Odpověď do 24 hodin",
+        "en": "Reply within 24 hours"
+      },
+      "text": {
+        "cs": "Nabídka s cenou, rozsahem a termínem dodání.",
+        "en": "A quote with price, scope and delivery date."
+      }
+    },
+    {
+      "title": {
+        "cs": "Termín jistý zálohou",
+        "en": "Date secured by a deposit"
+      },
+      "text": {
+        "cs": "Záloha 30 % online, potvrzení i doklad přijdou e-mailem.",
+        "en": "A 30% deposit paid online, with confirmation and receipt by email."
+      }
+    },
+    {
+      "title": {
+        "cs": "NDA bez problému",
+        "en": "NDAs welcome"
+      },
+      "text": {
+        "cs": "U interních akcí nic nezveřejňuji bez vašeho souhlasu.",
+        "en": "Nothing from internal events is published without your consent."
+      }
+    }
+  ],
+  "steps": [
+    {
+      "title": {
+        "cs": "Poptávka",
+        "en": "Enquiry"
+      },
+      "text": {
+        "cs": "Napíšete termín, místo a co potřebujete.",
+        "en": "You send the date, the place and what you need."
+      }
+    },
+    {
+      "title": {
+        "cs": "Nabídka do 24 hodin",
+        "en": "Quote within 24 hours"
+      },
+      "text": {
+        "cs": "Jasná cena, rozsah a termín dodání.",
+        "en": "A clear price, scope and delivery date."
+      }
+    },
+    {
+      "title": {
+        "cs": "Focení",
+        "en": "The shoot"
+      },
+      "text": {
+        "cs": "Nenápadně, bez rušení programu.",
+        "en": "Unobtrusive, without disturbing the programme."
+      }
+    },
+    {
+      "title": {
+        "cs": "Dodání",
+        "en": "Delivery"
+      },
+      "text": {
+        "cs": "Galerie online, faktura, hotovo.",
+        "en": "An online gallery, an invoice, done."
+      }
+    }
+  ],
+  "faqs": [
+    {
+      "q": {
+        "cs": "Vystavujete fakturu?",
+        "en": "Do you issue invoices?"
+      },
+      "a": {
+        "cs": "Ano, fakturuji jako firma Third Place Labs s.r.o. Nejsem plátce DPH, uvedené ceny jsou konečné.",
+        "en": "Yes, I invoice as a company, Third Place Labs s.r.o. I’m not a VAT payer, so the prices shown are final."
+      }
+    },
+    {
+      "q": {
+        "cs": "Fotíte i mimo Prahu?",
+        "en": "Do you work outside Prague?"
+      },
+      "a": {
+        "cs": "Ano, po celém Česku, na Slovensku i v zahraničí. Cestovné vždy uvedu předem v nabídce.",
+        "en": "Yes, across Czechia, Slovakia and abroad. Any travel costs are always stated in the quote."
+      }
+    },
+    {
+      "q": {
+        "cs": "Jak můžeme fotografie použít?",
+        "en": "How can we use the photos?"
+      },
+      "a": {
+        "cs": "Licence pro firemní komunikaci, web, sociální sítě a PR je v ceně. Reklamní kampaně řešíme individuálně.",
+        "en": "A licence for company communication, web, social media and PR is included. Advertising campaigns are agreed individually."
+      }
+    },
+    {
+      "q": {
+        "cs": "Jak rychle fotky dostaneme?",
+        "en": "How fast do we get the photos?"
+      },
+      "a": {
+        "cs": "U akcí výběr ještě týž den a kompletní galerii druhý den. U ostatních služeb do 5 pracovních dnů.",
+        "en": "For events, a selection the same day and the full gallery the next day. For other services, within 5 working days."
+      }
+    },
+    {
+      "q": {
+        "cs": "Jak termín rezervujeme?",
+        "en": "How do we book a date?"
+      },
+      "a": {
+        "cs": "Po potvrzení nabídky vám pošlu odkaz na zálohu ve výši 30 % ceny. Zaplacením je termín váš, zbytek fakturuji po dodání fotografií.",
+        "en": "Once you confirm the quote, I’ll send you a link to pay a 30% deposit. Paying it secures the date; the rest is invoiced after delivery."
+      }
+    },
+    {
+      "q": {
+        "cs": "Podepíšete NDA?",
+        "en": "Will you sign an NDA?"
+      },
+      "a": {
+        "cs": "Ano, NDA podepisuji bez problému.",
+        "en": "Yes, I sign NDAs without any problem."
+      }
+    }
+  ],
+  "seo_title": {
+    "cs": "Fotograf pro firmy, značky a akce v Praze | Vadim Zavatsky",
+    "en": "Commercial & Event Photographer in Prague | Vadim Zavatsky"
+  },
+  "seo_description": {
+    "cs": "Fotograf v Praze pro konference, firemní akce, oslavy, značky, interiéry a business portréty. Jasné ceny, výběr fotek týž den, nabídka do 24 hodin.",
+    "en": "Photographer in Prague for conferences, corporate events, celebrations, brands, interiors and business portraits. Clear prices, same-day selections, quotes within 24 hours."
+  }
+}

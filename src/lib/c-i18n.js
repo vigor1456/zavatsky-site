@@ -1,0 +1,33 @@
+export const BUSINESS_ID = 'https://zavatsky.photo/sluzby#business';
+// Interface wording for the commercial section, in Czech and English.
+export const UI = {
+  cs: {
+    base: '/sluzby', other: 'en', services: 'Služby', how: 'Jak pracuji', reviews: 'Reference', faq: 'Časté dotazy',
+    cta: 'Poptat termín', from: 'od', currency: (n) => `${n.toLocaleString('cs-CZ').replace(/\u00a0/g, ' ')} Kč`,
+    detail: 'Detail služby', servicesLead: 'Každá služba má jasnou počáteční cenu. Přesnou nabídku vám pošlu do 24 hodin.',
+    reviewsTitle: 'Co říkají klienti', reviewsNote: 'Recenze uvádím v jazyce, ve kterém je klienti napsali.',
+    stepsTitle: 'Jak spolupráce probíhá', trustTitle: 'Na čem se můžete spolehnout', faqTitle: 'Časté dotazy',
+    ctaTitle: 'Máte termín? Napište mi.', ctaLead: 'Nabídku pošlu do 24 hodin, obvykle ještě týž den.',
+    timelineTitle: 'Co dostanete a kdy', galleryTitle: 'Ukázky', more: 'Další služby', breadcrumb: 'Služby',
+    formTitle: 'Poptávka', formLead: 'Odpovím do 24 hodin, obvykle ještě týž den.', priceLabel: 'Cena',
+    f: { service: 'Služba', date: 'Datum', venue: 'Místo', venuePh: 'Adresa, hotel, město', details: 'Typ akce nebo zakázky', detailsPh: 'Konference, oslava, produktové focení…', length: 'Délka focení', lengths: ['Do 2 hodin', 'Půl dne (4 h)', 'Celý den', 'Zatím nevím'], guests: 'Počet hostů', guestsPh: 'např. 150', name: 'Jméno a firma', email: 'E-mail', phone: 'Telefon', note: 'Poznámka', notePh: 'Program, co je pro vás nejdůležitější, termín dodání', send: 'Odeslat poptávku', privacy: 'Údaje použiji jen k vyřízení poptávky.', privacyLink: 'Zásady ochrany osobních údajů' },
+    thanks: 'Děkuji, poptávka dorazila.', thanksLead: 'Odpovím do 24 hodin, obvykle ještě týž den. Kopii poptávky najdete ve své e-mailové schránce.', back: 'Zpět na služby',
+    viewer: { close: 'Zavřít', prev: 'Předchozí fotka', next: 'Další fotka', dialog: 'Prohlížeč fotografií' },
+    lang: 'English', company: 'Third Place Labs s.r.o., IČO 24501212, Školská 660/3, Praha', cookie: 'Nastavení cookies', privacyFooter: 'Soukromí',
+  },
+  en: {
+    base: '/en/services', other: 'cs', services: 'Services', how: 'How I work', reviews: 'Reviews', faq: 'FAQ',
+    cta: 'Check availability', from: 'from', currency: (n) => `€${n.toLocaleString('en-GB')}`,
+    detail: 'View service', servicesLead: 'Every service has a clear starting price. I’ll send you an exact quote within 24 hours.',
+    reviewsTitle: 'What clients say', reviewsNote: 'Reviews are shown in the language the clients wrote them in.',
+    stepsTitle: 'How it works', trustTitle: 'What you can rely on', faqTitle: 'Frequently asked questions',
+    ctaTitle: 'Have a date? Get in touch.', ctaLead: 'I’ll send a quote within 24 hours, usually the same day.',
+    timelineTitle: 'What you get, and when', galleryTitle: 'Examples', more: 'Other services', breadcrumb: 'Services',
+    formTitle: 'Enquiry', formLead: 'I reply within 24 hours, usually the same day.', priceLabel: 'Price',
+    f: { service: 'Service', date: 'Date', venue: 'Location', venuePh: 'Address, hotel, city', details: 'Type of event or project', detailsPh: 'Conference, party, product shoot…', length: 'Length of the shoot', lengths: ['Up to 2 hours', 'Half day (4 h)', 'Full day', 'Not sure yet'], guests: 'Number of guests', guestsPh: 'e.g. 150', name: 'Name and company', email: 'Email', phone: 'Phone', note: 'Notes', notePh: 'Programme, what matters most to you, delivery date', send: 'Send enquiry', privacy: 'Your details are used only to handle your enquiry.', privacyLink: 'Privacy policy' },
+    thanks: 'Thank you, your enquiry has arrived.', thanksLead: 'I’ll reply within 24 hours, usually the same day. A copy of your enquiry is in your inbox.', back: 'Back to services',
+    viewer: { close: 'Close viewer', prev: 'Previous photo', next: 'Next photo', dialog: 'Photo viewer' },
+    lang: 'Čeština', company: 'Third Place Labs s.r.o., company ID 24501212, Školská 660/3, Prague', cookie: 'Cookie settings', privacyFooter: 'Privacy',
+  },
+};
+export const svcPath = (lang, s) => `${UI[lang].base}/${lang === 'cs' ? s.data.slug_cs : s.data.slug_en}`;

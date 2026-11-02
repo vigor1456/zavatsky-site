@@ -1,0 +1,25 @@
+---
+// Up to three reviews in full; any further ones behind a "more reviews" toggle so the page stays scannable.
+const { reviews = [], title, note, lang = 'cs' } = Astro.props;
+const shown = reviews.slice(0, 3), rest = reviews.slice(3);
+const moreLabel = (n) => (lang === 'cs' ? `Další recenze (${n})` : `More reviews (${n})`);
+---
+{reviews.length > 0 && (
+  <section id="reference" class="w" style="padding-bottom: clamp(64px, 8vw, 104px)">
+    <div class="row-head">
+      <h2 class="h2">{title}</h2>
+      {note && <p class="ink2" style="font-size: 15px">{note}</p>}
+    </div>
+    <div class="revs">
+      {shown.map((r) => <figure class="rev"><blockquote lang={r.data.lang}>„{r.data.quote}“</blockquote><figcaption>{r.data.author}</figcaption></figure>)}
+    </div>
+    {rest.length > 0 && (
+      <details class="more-revs">
+        <summary class="btn line" style="list-style: none; display: inline-flex">{moreLabel(rest.length)}</summary>
+        <div class="revs" style="margin-top: 20px">
+          {rest.map((r) => <figure class="rev"><blockquote lang={r.data.lang}>„{r.data.quote}“</blockquote><figcaption>{r.data.author}</figcaption></figure>)}
+        </div>
+      </details>
+    )}
+  </section>
+)}

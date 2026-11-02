@@ -1,0 +1,10 @@
+# Old Squarespace addresses on zavatsky.eu. These rules take effect once zavatsky.eu (and www) are added
+# to this Netlify site as domain aliases and its DNS points to Netlify.
+# The two pages that had search visibility go to their new equivalents:
+https://zavatsky.eu/eventovy-fotograf-praha          https://zavatsky.photo/sluzby/oslavy      301!
+https://www.zavatsky.eu/eventovy-fotograf-praha      https://zavatsky.photo/sluzby/oslavy      301!
+https://zavatsky.eu/firemni-konferencni-fotograf     https://zavatsky.photo/sluzby/konference  301!
+https://www.zavatsky.eu/firemni-konferencni-fotograf https://zavatsky.photo/sluzby/konference  301!
+# Everything else on the old domain lands on the services page:
+https://zavatsky.eu/*                                https://zavatsky.photo/sluzby             301!
+https://www.zavatsky.eu/*                            https://zavatsky.photo/sluzby             301!

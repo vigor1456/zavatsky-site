@@ -1,0 +1,9 @@
+---
+import { getCollection } from 'astro:content';
+import ServicePage from '../../../components/commercial/ServicePage.astro';
+export async function getStaticPaths() {
+  return (await getCollection('services')).map((svc) => ({ params: { service: svc.data.slug_en }, props: { svc } }));
+}
+const { svc } = Astro.props;
+---
+<ServicePage lang="en" svc={svc} />

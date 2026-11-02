@@ -1,0 +1,12 @@
+---
+import CBase from '../../layouts/CBase.astro';
+import { UI } from '../../lib/c-i18n.js';
+const t = UI['cs'];
+---
+<CBase lang="cs" title={t.thanks} description={t.thanksLead} path="/sluzby/dekuji" altPath="/en/services/thank-you" noindex>
+  <section class="w" style="padding-top: clamp(96px, 14vw, 200px); padding-bottom: clamp(96px, 14vw, 200px); display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center">
+    <h1 class="h1" style="max-width: 18ch">{t.thanks}</h1>
+    <p class="lead" style="max-width: 34rem">{t.thanksLead}</p>
+    <a class="btn line" href={t.base}>{t.back}</a>
+  </section>
+</CBase>

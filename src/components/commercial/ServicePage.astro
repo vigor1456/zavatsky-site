@@ -1,0 +1,122 @@
+---
+import { getCollection } from 'astro:content';
+import CBase from '../../layouts/CBase.astro';
+import Pic from '../Pic.astro';
+import Reviews from './Reviews.astro';
+import Enquiry from './Enquiry.astro';
+import { UI, svcPath, BUSINESS_ID } from '../../lib/c-i18n.js';
+import { SITE, abs, describe } from '../../lib/site.js';
+import { cdn, srcset } from '../../lib/img.js';
+import { ar } from '../../lib/ar.js';
+
+const { lang = 'cs', svc } = Astro.props;
+const t = UI[lang];
+const d = svc.data;
+const all = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const others = all.filter((s) => s.id !== svc.id);
+const reviews = (await getCollection('reviews', ({ data }) => data.services.includes(svc.id)))
+  .sort((a, b) => (a.data.lang === lang ? 0 : 1) - (b.data.lang === lang ? 0 : 1) || a.data.order - b.data.order).slice(0, 3);
+const price = (s) => (lang === 'cs' ? s.data.price_czk : s.data.price_eur);
+const path = svcPath(lang, svc), altPath = svcPath(t.other, svc);
+const linked = d.extra?.link_service ? all.find((s) => s.id === d.extra.link_service) : null;
+const gallery = d.gallery.map((im) => ({ ...im, ar: ar(im.src) }));
+const graph = [
+  { '@type': 'Service', '@id': SITE + path + '#service', name: d.title[lang], serviceType: d.title[lang], description: d.intro[lang], url: SITE + path,
+    provider: { '@id': BUSINESS_ID }, areaServed: [{ '@type': 'Country', name: 'Czech Republic' }, { '@type': 'Country', name: 'Slovakia' }],
+    image: abs(d.hero.src),
+    ...(price(svc) ? { offers: { '@type': 'Offer', priceCurrency: lang === 'cs' ? 'CZK' : 'EUR', price: price(svc), description: d.example_label[lang] } } : {}) },
+  { '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t.breadcrumb, item: SITE + t.base },
+    { '@type': 'ListItem', position: 2, name: d.title[lang], item: SITE + path } ] },
+  ...(d.faqs.length ? [{ '@type': 'FAQPage', mainEntity: d.faqs.map((f) => ({ '@type': 'Question', name: f.q[lang], acceptedAnswer: { '@type': 'Answer', text: f.a[lang] } })) }] : []),
+];
+const check = '<path d="M5 12l4 4 10-10"></path>';
+---
+<CBase lang={lang} title={d.seo_title[lang]} description={describe(d.seo_description[lang])} path={path} altPath={altPath}
+  image={d.hero.src} imageAlt={d.hero.alt?.[lang]} graph={graph} viewer={gallery.length > 0}>
+
+  <section class="w" style="padding-top: clamp(32px, 4vw, 48px); padding-bottom: clamp(48px, 6vw, 80px)">
+    <nav class="crumb" aria-label={lang === 'cs' ? 'Drobečková navigace' : 'Breadcrumb'}><a href={t.base}>{t.breadcrumb}</a> <span aria-hidden="true">/</span> {d.title[lang]}</nav>
+    <div class="top">
+      <div style="display: flex; flex-direction: column; gap: 24px">
+        <h1 class="h1" style="font-size: clamp(2.5rem, 4.8vw, 4.4rem)">{d.h1[lang]}</h1>
+        <p class="lead">{d.intro[lang]}</p>
+        <div class="btns">
+          <a class="btn" href="#poptavka">{t.cta}</a>
+          {gallery.length > 0 && <a class="btn line" href="#ukazky">{t.galleryTitle}</a>}
+        </div>
+      </div>
+      <aside class="price" aria-label={t.priceLabel}>
+        <p class="muted" style="font-size: 14px">{d.example_label[lang]}</p>
+        {price(svc) && <p class="amount">{t.from} {t.currency(price(svc))}</p>}
+        <ul>
+          {d.includes[lang].map((x) => <li><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent)" set:html={check}></svg>{x}</li>)}
+        </ul>
+        <p class="note">{d.price_note[lang]}</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="w wide" style="padding-bottom: clamp(56px, 7vw, 88px)">
+    <Pic src={d.hero.src} alt={d.hero.alt?.[lang] || ''} eager sizes="(max-width: 1320px) 100vw, 1320px" fallback={1600} />
+  </section>
+
+  <Reviews reviews={reviews} title={t.reviewsTitle} note={reviews.some((r) => r.data.lang !== lang) ? t.reviewsNote : ''} lang={lang} />
+
+  {d.timeline.length > 0 && (
+    <section class="band sec">
+      <div class="w">
+        <h2 class="h2" style="margin-bottom: 36px">{t.timelineTitle}</h2>
+        <div class="three">
+          {d.timeline.map((x) => <div class="tcard"><span class="when">{x.when[lang]}</span><h3>{x.title[lang]}</h3><p>{x.text[lang]}</p></div>)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {gallery.length > 0 && (
+    <section id="ukazky" class="w sec">
+      <h2 class="h2" style="margin-bottom: 28px">{t.galleryTitle}</h2>
+      <div class="jg">
+        {gallery.map((im) => (
+          <figure data-ar={im.ar} style={`width:${Math.round(300 * im.ar)}px`}>
+            <button type="button" data-full={cdn(im.src, 2048)} aria-label={im.alt?.[lang] || d.title[lang]}>
+              <img src={cdn(im.src, 800)} srcset={srcset(im.src)} sizes="(max-width: 600px) 100vw, 33vw" width={1000} height={Math.round(1000 / im.ar)} alt={im.alt?.[lang] || ''} loading="lazy" decoding="async" />
+            </button>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {d.extra && (
+    <section class="dark sec">
+      <div class="w split">
+        {d.extra.image && <Pic src={d.extra.image.src} alt={d.extra.image.alt?.[lang] || ''} sizes="(max-width: 860px) 100vw, 50vw" fallback={1200} />}
+        <div style="display: flex; flex-direction: column; gap: 18px">
+          <h2 class="h2">{d.extra.title[lang]}</h2>
+          <p style="color: #CFCBC4; font-size: 18px">{d.extra.text[lang]}</p>
+          {linked && <p style="color: #CFCBC4">{d.extra.link_label?.[lang]} <a href={svcPath(lang, linked)}>{linked.data.title[lang]}</a></p>}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {d.faqs.length > 0 && (
+    <section id="faq" class="w sec">
+      <h2 class="h2" style="margin-bottom: 28px">{t.faqTitle}</h2>
+      <div class="faq">
+        {d.faqs.map((f, i) => <details open={i < 2}><summary>{f.q[lang]}</summary><p>{f.a[lang]}</p></details>)}
+      </div>
+    </section>
+  )}
+
+  <Enquiry lang={lang} services={all} selected={svc.id} />
+
+  <section class="w" style="padding-top: clamp(56px, 7vw, 88px); padding-bottom: clamp(56px, 7vw, 88px)">
+    <h2 style="font-size: 15px; font-weight: 600; margin-bottom: 22px" class="muted">{t.more}</h2>
+    <div class="three more">
+      {others.map((s) => <a href={svcPath(lang, s)}><span>{s.data.title[lang]}</span>{price(s) && <span>{t.from} {t.currency(price(s))}</span>}</a>)}
+    </div>
+  </section>
+</CBase>

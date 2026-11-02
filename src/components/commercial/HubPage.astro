@@ -1,0 +1,95 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import CBase from '../../layouts/CBase.astro';
+import Pic from '../Pic.astro';
+import Reviews from './Reviews.astro';
+import Enquiry from './Enquiry.astro';
+import { UI, svcPath, BUSINESS_ID } from '../../lib/c-i18n.js';
+import { SITE, VZ, describe } from '../../lib/site.js';
+
+const { lang = 'cs' } = Astro.props;
+const t = UI[lang];
+const hub = (await getEntry('commercial', 'hub')).data;
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const reviews = (await getCollection('reviews', ({ data }) => data.on_hub)).sort((a, b) => (a.data.lang === lang ? 0 : 1) - (b.data.lang === lang ? 0 : 1) || a.data.order - b.data.order);
+const price = (s) => (lang === 'cs' ? s.data.price_czk : s.data.price_eur);
+const first = services[0];
+const path = t.base, altPath = UI[t.other].base;
+const graph = [
+  { '@type': 'WebPage', '@id': SITE + path + '#page', url: SITE + path, name: hub.seo_title[lang], inLanguage: lang, about: { '@id': BUSINESS_ID } },
+  { '@type': 'OfferCatalog', name: t.services, itemListElement: services.map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s.data.title[lang], url: SITE + svcPath(lang, s) }, priceCurrency: lang === 'cs' ? 'CZK' : 'EUR', price: price(s) })) },
+  { '@type': 'FAQPage', mainEntity: hub.faqs.map((f) => ({ '@type': 'Question', name: f.q[lang], acceptedAnswer: { '@type': 'Answer', text: f.a[lang] } })) },
+];
+---
+<CBase lang={lang} title={hub.seo_title[lang]} description={describe(hub.seo_description[lang])} path={path} altPath={altPath}
+  image={hub.hero.src} imageAlt={hub.hero.alt?.[lang]} graph={graph} current="services">
+
+  <section class="w" style="padding-top: clamp(48px, 6vw, 88px); padding-bottom: clamp(56px, 7vw, 104px)">
+    <div class="hero">
+      <div style="display: flex; flex-direction: column; gap: 26px">
+        <p style="font-size: 15px; font-weight: 500; color: var(--accent)">{hub.eyebrow[lang]}</p>
+        <h1 class="h1">{hub.h1[lang]}</h1>
+        <p class="lead">{hub.lead[lang]}</p>
+        <div class="btns">
+          <a class="btn" href="#poptavka">{t.cta}</a>
+          <a class="btn line" href={`tel:${VZ.tel}`}>{VZ.phone}</a>
+        </div>
+        <div class="facts">
+          {hub.facts.map((f) => <div><strong>{f.title[lang]}</strong><span>{f.text[lang]}</span></div>)}
+        </div>
+      </div>
+      <div class="hero-img">
+        <Pic src={hub.hero.src} alt={hub.hero.alt?.[lang] || ''} eager sizes="(max-width: 860px) 100vw, 46vw" fallback={1600} />
+        {first && price(first) && <div class="badge"><span class="muted" style="font-size: 13px">{first.data.title[lang]}</span><strong>{t.from} {t.currency(price(first))}</strong></div>}
+      </div>
+    </div>
+  </section>
+
+  <Reviews reviews={reviews} title={t.reviewsTitle} note={t.reviewsNote} lang={lang} />
+
+  <section id="sluzby" class="band sec">
+    <div class="w">
+      <div class="row-head">
+        <h2 class="h2">{t.services}</h2>
+        <p class="ink2" style="max-width: 28rem">{t.servicesLead}</p>
+      </div>
+      <div class="bento">
+        {services.map((s, i) => (
+          <a class={`card${i === 0 ? ' big' : ''}`} href={svcPath(lang, s)}>
+            <Pic src={(s.data.card_image || s.data.hero).src} alt="" sizes={i === 0 ? '(max-width: 860px) 100vw, 33vw' : '(max-width: 860px) 100vw, 33vw'} fallback={1200} />
+            <div class="card-b">
+              <h3>{s.data.title[lang]}</h3>
+              <p>{s.data.card[lang]}</p>
+              <div class="card-f">{price(s) ? <strong>{t.from} {t.currency(price(s))}</strong> : <strong></strong>}<span>{t.detail}</span></div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="jak" class="w sec">
+    <h2 class="h2" style="margin-bottom: 36px">{t.stepsTitle}</h2>
+    <ol class="steps">
+      {hub.steps.map((s, i) => <li><span class="n">{i + 1}</span><strong>{s.title[lang]}</strong><span>{s.text[lang]}</span></li>)}
+    </ol>
+  </section>
+
+  <section class="dark sec">
+    <div class="w">
+      <h2 class="h2" style="margin-bottom: 32px; font-size: clamp(2rem, 3.2vw, 2.8rem)">{t.trustTitle}</h2>
+      <ul class="trust">
+        {hub.trust.map((x) => <li><strong>{x.title[lang]}</strong><span>{x.text[lang]}</span></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section id="faq" class="w sec">
+    <h2 class="h2" style="margin-bottom: 28px">{t.faqTitle}</h2>
+    <div class="faq">
+      {hub.faqs.map((f, i) => <details open={i < 2}><summary>{f.q[lang]}</summary><p>{f.a[lang]}</p></details>)}
+    </div>
+  </section>
+
+  <Enquiry lang={lang} services={services} />
+</CBase>

@@ -285,3 +285,604 @@ collections:
                   - { name: size, label: "Size", widget: string, hint: "e.g. 50 × 70 cm" }
                   - { name: price, label: "Price in EUR", widget: number, value_type: float, required: false, hint: "Leave empty to show 'Price on request'." }
                   - { name: code, label: "Lab product code (optional)", widget: string, required: false, hint: "For your own reference, e.g. the lab's name for this product." }
+
+  - name: services
+    label: 'Commercial: services'
+    label_singular: Service
+    folder: src/content/services
+    create: true
+    delete: false
+    extension: json
+    format: json
+    identifier_field: slug_cs
+    slug: '{{fields.slug_cs}}'
+    summary: '{{order}}: {{fields.title.cs}}'
+    sortable_fields:
+    - order
+    editor:
+      preview: false
+    description: The five commercial services. Each has a Czech page (/sluzby/…) and an English page (/en/services/…).
+    fields:
+    - name: order
+      label: Position
+      widget: number
+      value_type: int
+      default: 100
+      hint: Order on the services page (lower first).
+    - name: slug_cs
+      label: Czech address
+      widget: string
+      hint: Last part of the Czech address, e.g. konference. Changing it changes the page address.
+    - name: slug_en
+      label: English address
+      widget: string
+      hint: Last part of the English address, e.g. conferences.
+    - name: title
+      label: Service name
+      widget: object
+      collapsed: false
+      fields:
+      - name: cs
+        label: Czech
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: h1
+      label: Page headline
+      widget: object
+      collapsed: false
+      fields:
+      - name: cs
+        label: Czech
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: card
+      label: Card line (services page)
+      widget: object
+      collapsed: false
+      fields:
+      - name: cs
+        label: Czech
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: intro
+      label: Intro
+      widget: object
+      collapsed: false
+      fields:
+      - name: cs
+        label: Czech
+        widget: text
+      - name: en
+        label: English
+        widget: text
+    - name: seo_title
+      label: Title in Google
+      widget: object
+      collapsed: false
+      fields:
+      - name: cs
+        label: Czech
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: seo_description
+      label: Description in Google
+      widget: object
+      collapsed: false
+      fields:
+      - name: cs
+        label: Czech
+        widget: text
+      - name: en
+        label: English
+        widget: text
+    - name: price_czk
+      label: Starting price in CZK
+      widget: number
+      value_type: int
+      required: false
+    - name: price_eur
+      label: Starting price in EUR
+      widget: number
+      value_type: int
+      required: false
+    - name: example_label
+      label: Price example label
+      widget: object
+      collapsed: false
+      fields:
+      - name: cs
+        label: Czech
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: includes
+      label: What the example includes
+      widget: object
+      fields:
+      - name: cs
+        label: Czech
+        widget: list
+        field:
+          name: item
+          label: Item
+          widget: string
+      - name: en
+        label: English
+        widget: list
+        field:
+          name: item
+          label: Item
+          widget: string
+    - name: price_note
+      label: Note under the price
+      widget: object
+      collapsed: false
+      fields:
+      - name: cs
+        label: Czech
+        widget: text
+      - name: en
+        label: English
+        widget: text
+    - name: timeline
+      label: What you get, and when
+      label_singular: Step
+      widget: list
+      required: false
+      summary: '{{fields.when.en}}'
+      fields:
+      - name: when
+        label: When
+        widget: object
+        collapsed: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: string
+        - name: en
+          label: English
+          widget: string
+      - name: title
+        label: Title
+        widget: object
+        collapsed: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: string
+        - name: en
+          label: English
+          widget: string
+      - name: text
+        label: Text
+        widget: object
+        collapsed: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: text
+        - name: en
+          label: English
+          widget: text
+    - name: hero
+      label: Hero photo (large photo at the top)
+      widget: object
+      fields:
+      - name: src
+        label: Photo
+        widget: image
+      - name: alt
+        label: Description (for screen readers and Google)
+        widget: object
+        required: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: string
+          required: false
+        - name: en
+          label: English
+          widget: string
+          required: false
+    - name: card_image
+      label: Card photo (services page)
+      widget: object
+      fields:
+      - name: src
+        label: Photo
+        widget: image
+      - name: alt
+        label: Description (for screen readers and Google)
+        widget: object
+        required: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: string
+          required: false
+        - name: en
+          label: English
+          widget: string
+          required: false
+      required: false
+    - name: gallery
+      label: Gallery
+      label_singular: Photo
+      widget: list
+      summary: '{{fields.src}}'
+      required: false
+      fields:
+      - name: src
+        label: Photo
+        widget: image
+      - name: alt
+        label: Description (for screen readers and Google)
+        widget: object
+        required: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: string
+          required: false
+        - name: en
+          label: English
+          widget: string
+          required: false
+    - name: extra
+      label: Extra section (optional)
+      widget: object
+      required: false
+      fields:
+      - name: title
+        label: Title
+        widget: object
+        collapsed: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: string
+        - name: en
+          label: English
+          widget: string
+      - name: text
+        label: Text
+        widget: object
+        collapsed: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: text
+        - name: en
+          label: English
+          widget: text
+      - name: image
+        label: Photo
+        widget: object
+        fields:
+        - name: src
+          label: Photo
+          widget: image
+        - name: alt
+          label: Description (for screen readers and Google)
+          widget: object
+          required: false
+          fields:
+          - name: cs
+            label: Czech
+            widget: string
+            required: false
+          - name: en
+            label: English
+            widget: string
+            required: false
+        required: false
+      - name: link_service
+        label: Link to service (file name, e.g. oslavy)
+        widget: string
+        required: false
+      - name: link_label
+        label: Link lead-in
+        widget: object
+        collapsed: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: string
+        - name: en
+          label: English
+          widget: string
+        required: false
+    - name: faqs
+      label: FAQs
+      label_singular: Question
+      widget: list
+      required: false
+      summary: '{{fields.q.en}}'
+      fields:
+      - name: q
+        label: Question
+        widget: object
+        collapsed: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: string
+        - name: en
+          label: English
+          widget: string
+      - name: a
+        label: Answer
+        widget: object
+        collapsed: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: text
+        - name: en
+          label: English
+          widget: text
+  - name: reviews
+    label: 'Commercial: reviews'
+    label_singular: Review
+    folder: src/content/reviews
+    create: true
+    delete: true
+    extension: json
+    format: json
+    identifier_field: author
+    slug: '{{slug}}'
+    summary: '{{author}}'
+    sortable_fields:
+    - order
+    - author
+    editor:
+      preview: false
+    description: Client reviews. Most appear on the services page; each service page shows up to three that are tagged for it.
+    fields:
+    - name: quote
+      label: Review text
+      widget: text
+      hint: Exactly as the client wrote it.
+    - name: author
+      label: Name
+      widget: string
+    - name: lang
+      label: Language of the review
+      widget: select
+      options:
+      - label: Czech
+        value: cs
+      - label: English
+        value: en
+      default: cs
+    - name: on_hub
+      label: Show on the services page
+      widget: boolean
+      default: true
+    - name: services
+      label: Also show on these service pages (up to 3 per page)
+      widget: select
+      multiple: true
+      required: false
+      options:
+      - label: Conferences and corporate events
+        value: konference
+      - label: Celebrations and parties
+        value: oslavy
+      - label: Brands and products
+        value: znacky
+      - label: Interiors
+        value: interiery
+      - label: Portraits for professionals
+        value: portrety
+    - name: order
+      label: Position
+      widget: number
+      value_type: int
+      default: 100
+  - name: commercial
+    label: 'Commercial: services page'
+    editor:
+      preview: false
+    files:
+    - name: hub
+      label: Services page (/sluzby and /en/services)
+      file: src/content/commercial/hub.json
+      fields:
+      - name: hero
+        label: Hero photo
+        widget: object
+        fields:
+        - name: src
+          label: Photo
+          widget: image
+        - name: alt
+          label: Description (for screen readers and Google)
+          widget: object
+          required: false
+          fields:
+          - name: cs
+            label: Czech
+            widget: string
+            required: false
+          - name: en
+            label: English
+            widget: string
+            required: false
+      - name: eyebrow
+        label: Line above the headline
+        widget: object
+        collapsed: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: string
+        - name: en
+          label: English
+          widget: string
+      - name: h1
+        label: Headline
+        widget: object
+        collapsed: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: string
+        - name: en
+          label: English
+          widget: string
+      - name: lead
+        label: Intro
+        widget: object
+        collapsed: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: text
+        - name: en
+          label: English
+          widget: text
+      - name: facts
+        label: Three facts under the intro
+        label_singular: Item
+        widget: list
+        summary: '{{fields.title.en}}'
+        fields:
+        - name: title
+          label: Title
+          widget: object
+          collapsed: false
+          fields:
+          - name: cs
+            label: Czech
+            widget: string
+          - name: en
+            label: English
+            widget: string
+        - name: text
+          label: Text
+          widget: object
+          collapsed: false
+          fields:
+          - name: cs
+            label: Czech
+            widget: text
+          - name: en
+            label: English
+            widget: text
+      - name: steps
+        label: How it works (steps)
+        label_singular: Item
+        widget: list
+        summary: '{{fields.title.en}}'
+        fields:
+        - name: title
+          label: Title
+          widget: object
+          collapsed: false
+          fields:
+          - name: cs
+            label: Czech
+            widget: string
+          - name: en
+            label: English
+            widget: string
+        - name: text
+          label: Text
+          widget: object
+          collapsed: false
+          fields:
+          - name: cs
+            label: Czech
+            widget: text
+          - name: en
+            label: English
+            widget: text
+      - name: trust
+        label: What you can rely on
+        label_singular: Item
+        widget: list
+        summary: '{{fields.title.en}}'
+        fields:
+        - name: title
+          label: Title
+          widget: object
+          collapsed: false
+          fields:
+          - name: cs
+            label: Czech
+            widget: string
+          - name: en
+            label: English
+            widget: string
+        - name: text
+          label: Text
+          widget: object
+          collapsed: false
+          fields:
+          - name: cs
+            label: Czech
+            widget: text
+          - name: en
+            label: English
+            widget: text
+      - name: faqs
+        label: FAQs
+        label_singular: Question
+        widget: list
+        required: false
+        summary: '{{fields.q.en}}'
+        fields:
+        - name: q
+          label: Question
+          widget: object
+          collapsed: false
+          fields:
+          - name: cs
+            label: Czech
+            widget: string
+          - name: en
+            label: English
+            widget: string
+        - name: a
+          label: Answer
+          widget: object
+          collapsed: false
+          fields:
+          - name: cs
+            label: Czech
+            widget: text
+          - name: en
+            label: English
+            widget: text
+      - name: seo_title
+        label: Title in Google
+        widget: object
+        collapsed: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: string
+        - name: en
+          label: English
+          widget: string
+      - name: seo_description
+        label: Description in Google
+        widget: object
+        collapsed: false
+        fields:
+        - name: cs
+          label: Czech
+          widget: text
+        - name: en
+          label: English
+          widget: text

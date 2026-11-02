@@ -1,0 +1,173 @@
+{
+  "order": 20,
+  "slug_cs": "oslavy",
+  "slug_en": "celebrations",
+  "title": {
+    "cs": "Oslavy a večírky",
+    "en": "Celebrations and parties"
+  },
+  "h1": {
+    "cs": "Fotograf na oslavy a večírky v Praze",
+    "en": "Photographer for celebrations and parties in Prague"
+  },
+  "card": {
+    "cs": "Narozeniny, promoce, Halloween a další soukromé oslavy.",
+    "en": "Birthdays, graduations, Halloween and other private celebrations."
+  },
+  "intro": {
+    "cs": "Narozeniny, promoce, Halloween nebo večírek s přáteli. Fotím nenápadně, aby se všichni bavili, a vy pak máte fotky, ke kterým se budete vracet.",
+    "en": "Birthdays, graduations, Halloween or a party with friends. I work unobtrusively so everyone can enjoy themselves, and you get photos you’ll come back to."
+  },
+  "seo_title": {
+    "cs": "Fotograf na oslavu a večírek v Praze | Vadim Zavatsky",
+    "en": "Party & Celebration Photographer in Prague | Vadim Zavatsky"
+  },
+  "seo_description": {
+    "cs": "Focení oslav a večírků v Praze: narozeniny, promoce, Halloween. 2 hodiny focení a cca 80 upravených fotek od 6 000 Kč.",
+    "en": "Photography for birthdays, graduations, Halloween and private parties in Prague. 2 hours and around 80 edited photos from €250."
+  },
+  "price_czk": 6000,
+  "price_eur": 250,
+  "example_label": {
+    "cs": "Příklad: dvouhodinová oslava",
+    "en": "Example: a two-hour celebration"
+  },
+  "includes": {
+    "cs": [
+      "2 hodiny focení",
+      "cca 80 upravených fotografií",
+      "online galerie do týdne",
+      "fotografie ke stažení i pro sdílení"
+    ],
+    "en": [
+      "2 hours of coverage",
+      "around 80 edited photos",
+      "online gallery within a week",
+      "photos to download and share"
+    ]
+  },
+  "price_note": {
+    "cs": "Cenu ovlivňuje délka oslavy a místo konání. Nejsem plátce DPH, cena je konečná.",
+    "en": "The price depends on the length of the celebration and the venue. I’m not a VAT payer, so the price is final."
+  },
+  "timeline": [
+    {
+      "when": {
+        "cs": "Před oslavou",
+        "en": "Before"
+      },
+      "title": {
+        "cs": "Krátká domluva",
+        "en": "A quick chat"
+      },
+      "text": {
+        "cs": "Program, důležití lidé a momenty, které nesmí chybět.",
+        "en": "The plan, the key people and the moments that mustn’t be missed."
+      }
+    },
+    {
+      "when": {
+        "cs": "Během oslavy",
+        "en": "During"
+      },
+      "title": {
+        "cs": "Přirozené fotky",
+        "en": "Natural photos"
+      },
+      "text": {
+        "cs": "Atmosféra, emoce a detaily, bez aranžování a čekání.",
+        "en": "The atmosphere, emotions and details, without staging or waiting."
+      }
+    },
+    {
+      "when": {
+        "cs": "Do týdne",
+        "en": "Within a week"
+      },
+      "title": {
+        "cs": "Online galerie",
+        "en": "Online gallery"
+      },
+      "text": {
+        "cs": "Všechny upravené fotky na jednom místě, ke stažení i sdílení.",
+        "en": "All edited photos in one place, to download and share."
+      }
+    }
+  ],
+  "hero": {
+    "src": "/images/commercial/celebration-toast.jpg",
+    "alt": {
+      "cs": "Přípitek sklenkami vína",
+      "en": "A toast with glasses of wine"
+    }
+  },
+  "card_image": {
+    "src": "/images/commercial/celebration-toast.jpg",
+    "alt": {
+      "cs": "Přípitek sklenkami vína",
+      "en": "A toast with glasses of wine"
+    }
+  },
+  "gallery": [
+    {
+      "src": "/images/commercial/party-garden.jpg",
+      "alt": {
+        "cs": "Hosté na večírku v zahradě",
+        "en": "Guests at an evening garden party"
+      }
+    },
+    {
+      "src": "/images/commercial/event-welcome.jpg",
+      "alt": {
+        "cs": "Srdečné přivítání hostů",
+        "en": "A warm welcome between guests"
+      }
+    },
+    {
+      "src": "/images/commercial/event-guests.jpg",
+      "alt": {
+        "cs": "Hosté sledují program akce",
+        "en": "Guests following the event programme"
+      }
+    },
+    {
+      "src": "/images/commercial/event-host.jpg",
+      "alt": {
+        "cs": "Hostitelka akce s hosty u stolu",
+        "en": "The host of an event with guests at the table"
+      }
+    }
+  ],
+  "faqs": [
+    {
+      "q": {
+        "cs": "Jak termín rezervujeme?",
+        "en": "How do we book a date?"
+      },
+      "a": {
+        "cs": "Po potvrzení nabídky vám pošlu odkaz na zálohu ve výši 30 % ceny. Zaplacením je termín váš, zbytek fakturuji po dodání fotografií.",
+        "en": "Once you confirm the quote, I’ll send you a link to pay a 30% deposit. Paying it secures the date; the rest is invoiced after delivery."
+      }
+    },
+    {
+      "q": {
+        "cs": "Fotíte i firemní večírky?",
+        "en": "Do you photograph company parties too?"
+      },
+      "a": {
+        "cs": "Ano, firemní a vánoční večírky najdete u konferencí a firemních akcí.",
+        "en": "Yes, company and Christmas parties are covered under conferences and corporate events."
+      }
+    },
+    {
+      "q": {
+        "cs": "Fotíte i mimo Prahu?",
+        "en": "Do you work outside Prague?"
+      },
+      "a": {
+        "cs": "Ano, po celém Česku, na Slovensku i v zahraničí. Cestovné vždy uvedu předem v nabídce.",
+        "en": "Yes, across Czechia, Slovakia and abroad. Any travel costs are always stated in the quote."
+      }
+    }
+  ]
+}

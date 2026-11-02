@@ -1,0 +1,159 @@
+{
+  "order": 50,
+  "slug_cs": "portrety",
+  "slug_en": "portraits",
+  "title": {
+    "cs": "Portréty pro profesionály",
+    "en": "Portraits for professionals"
+  },
+  "h1": {
+    "cs": "Portréty pro zakladatele, manažery a kreativce",
+    "en": "Portraits for founders, executives and creatives"
+  },
+  "card": {
+    "cs": "Pro zakladatele, manažery, řečníky a kreativce.",
+    "en": "For founders, executives, speakers and creatives."
+  },
+  "intro": {
+    "cs": "Portréty pro osobní značku, web, média a konference. Konzultace předem, vedení při focení a fotky, které působí sebevědomě a přirozeně.",
+    "en": "Portraits for your personal brand, website, press and conferences. A consultation beforehand, direction during the shoot, and images that look confident and natural."
+  },
+  "seo_title": {
+    "cs": "Business portréty a personal branding v Praze | Vadim Zavatsky",
+    "en": "Business Portraits & Personal Branding in Prague | Vadim Zavatsky"
+  },
+  "seo_description": {
+    "cs": "Business portréty a personal branding v Praze pro zakladatele, manažery a řečníky. Dvouhodinové focení s konzultací a 10 retušovaných portrétů od 9 000 Kč.",
+    "en": "Business portraits and personal branding in Prague for founders, executives and speakers. A two-hour session with consultation and 10 retouched portraits from €370."
+  },
+  "price_czk": 9000,
+  "price_eur": 370,
+  "example_label": {
+    "cs": "Příklad: portrétní focení",
+    "en": "Example: a portrait session"
+  },
+  "includes": {
+    "cs": [
+      "konzultace před focením",
+      "2 hodiny focení, více lokací nebo outfitů",
+      "10 retušovaných portrétů",
+      "dodání do 5 pracovních dnů"
+    ],
+    "en": [
+      "consultation before the shoot",
+      "2-hour session, several looks or locations",
+      "10 retouched portraits",
+      "delivery within 5 working days"
+    ]
+  },
+  "price_note": {
+    "cs": "Cenu ovlivňuje délka focení a počet lokací. Nejsem plátce DPH, cena je konečná.",
+    "en": "The price depends on the length of the session and the number of locations. I’m not a VAT payer, so the price is final."
+  },
+  "timeline": [
+    {
+      "when": {
+        "cs": "Před focením",
+        "en": "Before"
+      },
+      "title": {
+        "cs": "Konzultace",
+        "en": "Consultation"
+      },
+      "text": {
+        "cs": "K čemu portréty budou, jaký dojem mají vyvolat, co si vzít na sebe.",
+        "en": "What the portraits are for, the impression they should make, what to wear."
+      }
+    },
+    {
+      "when": {
+        "cs": "Den focení",
+        "en": "The shoot"
+      },
+      "title": {
+        "cs": "Vedení",
+        "en": "Direction"
+      },
+      "text": {
+        "cs": "Pomůžu vám s pózou i výrazem, abyste se cítili přirozeně.",
+        "en": "I guide your posture and expression so you feel at ease."
+      }
+    },
+    {
+      "when": {
+        "cs": "Do 5 dnů",
+        "en": "Within 5 days"
+      },
+      "title": {
+        "cs": "Hotové portréty",
+        "en": "Final portraits"
+      },
+      "text": {
+        "cs": "Retušované fotky pro web, LinkedIn, média i tisk.",
+        "en": "Retouched images for web, LinkedIn, press and print."
+      }
+    }
+  ],
+  "hero": {
+    "src": "/images/portrait-02.jpg",
+    "alt": {
+      "cs": "Portrét ženy z profilu v teplém světle",
+      "en": "A woman in profile, warm light on her cheek"
+    }
+  },
+  "card_image": {
+    "src": "/images/portrait-02.jpg",
+    "alt": {
+      "cs": "Portrét ženy z profilu v teplém světle",
+      "en": "A woman in profile, warm light on her cheek"
+    }
+  },
+  "gallery": [
+    {
+      "src": "/images/portrait-02.jpg",
+      "alt": {
+        "cs": "Portrét ženy z profilu v teplém světle",
+        "en": "A woman in profile, warm light on her cheek"
+      }
+    },
+    {
+      "src": "/images/portrait-07.jpg",
+      "alt": {
+        "cs": "Portrét ženy ve stínu, pohled přes rameno",
+        "en": "A dark-haired woman in shadow, looking over her shoulder"
+      }
+    }
+  ],
+  "faqs": [
+    {
+      "q": {
+        "cs": "Jak termín rezervujeme?",
+        "en": "How do we book a date?"
+      },
+      "a": {
+        "cs": "Po potvrzení nabídky vám pošlu odkaz na zálohu ve výši 30 % ceny. Zaplacením je termín váš, zbytek fakturuji po dodání fotografií.",
+        "en": "Once you confirm the quote, I’ll send you a link to pay a 30% deposit. Paying it secures the date; the rest is invoiced after delivery."
+      }
+    },
+    {
+      "q": {
+        "cs": "Fotíte i celé týmy?",
+        "en": "Do you photograph whole teams?"
+      },
+      "a": {
+        "cs": "Ano, firemní portréty týmu nacením podle počtu lidí a místa focení.",
+        "en": "Yes, team portraits are priced by the number of people and the location."
+      }
+    },
+    {
+      "q": {
+        "cs": "Vystavujete fakturu?",
+        "en": "Do you issue invoices?"
+      },
+      "a": {
+        "cs": "Ano, fakturuji jako firma Third Place Labs s.r.o. Nejsem plátce DPH, uvedené ceny jsou konečné.",
+        "en": "Yes, I invoice as a company, Third Place Labs s.r.o. I’m not a VAT payer, so the prices shown are final."
+      }
+    }
+  ]
+}

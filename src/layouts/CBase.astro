@@ -1,0 +1,82 @@
+---
+// Layout for the commercial section: light theme, separate language pages (cs / en), linked for Google.
+import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/instrument-sans';
+import '../styles/commercial.css';
+import Consent from '../components/Consent.astro';
+import Viewer from '../components/Viewer.astro';
+import { SITE, abs, VZ } from '../lib/site.js';
+import { UI, BUSINESS_ID } from '../lib/c-i18n.js';
+
+const { lang = 'cs', title, description, path, altPath, image = '/images/commercial/event-host.jpg', imageAlt = '', graph = [], current = '', noindex = false, viewer = false } = Astro.props;
+const t = UI[lang];
+const csPath = lang === 'cs' ? path : altPath;
+const enPath = lang === 'en' ? path : altPath;
+const business = {
+  '@type': 'ProfessionalService', '@id': BUSINESS_ID,
+  name: 'Vadim Zavatsky, fotograf', alternateName: 'Vadim Zavatsky Photography',
+  url: SITE + '/sluzby', image: abs('/images/commercial/event-host.jpg'),
+  telephone: VZ.tel, email: VZ.email,
+  address: { '@type': 'PostalAddress', streetAddress: 'Školská 660/3', postalCode: '110 00', addressLocality: 'Praha', addressCountry: 'CZ' },
+  areaServed: [{ '@type': 'Country', name: 'Czech Republic' }, { '@type': 'Country', name: 'Slovakia' }],
+  founder: { '@id': SITE + '/#vadim' }, priceRange: '6 000–15 000+ Kč',
+  legalName: 'Third Place Labs s.r.o.', taxID: '24501212',
+};
+const ld = { '@context': 'https://schema.org', '@graph': [business, ...graph] };
+const nav = [
+  { href: `${t.base}#sluzby`, label: t.services, key: 'services' },
+  { href: `${t.base}#jak`, label: t.how, key: 'how' },
+  { href: `${t.base}#reference`, label: t.reviews, key: 'reviews' },
+  { href: '#faq', label: t.faq, key: 'faq' },
+];
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{title}</title>
+<meta name="description" content={description}>
+<link rel="canonical" href={SITE + path}>
+{noindex && <meta name="robots" content="noindex">}
+{csPath && <link rel="alternate" hreflang="cs" href={SITE + csPath}>}
+{enPath && <link rel="alternate" hreflang="en" href={SITE + enPath}>}
+{csPath && <link rel="alternate" hreflang="x-default" href={SITE + csPath}>}
+<meta name="theme-color" content="#F4F0E9">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content={lang === 'cs' ? 'cs_CZ' : 'en_GB'}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={SITE + path}>
+<meta property="og:image" content={abs(image)}>
+{imageAlt && <meta property="og:image:alt" content={imageAlt}>}
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json" set:html={JSON.stringify(ld)} />
+</head>
+<body class="cm">
+<a class="skip" href="#main">{lang === 'cs' ? 'Přeskočit na obsah' : 'Skip to content'}</a>
+<header class="ch">
+  <div class="ch-in">
+    <a class="ch-mark" href={t.base} aria-label="Vadim Zavatsky">VZ<span>.</span></a>
+    <nav aria-label={lang === 'cs' ? 'Hlavní' : 'Main'}>
+      <span class="ch-links">
+        {nav.map((n) => <a href={n.href} aria-current={current === n.key ? 'page' : undefined}>{n.label}</a>)}
+      </span>
+      {altPath && <a class="ch-lang" href={altPath} hreflang={t.other} lang={t.other}>{t.lang}</a>}
+      <a class="btn sm" href="#poptavka">{t.cta}</a>
+    </nav>
+  </div>
+</header>
+<main id="main"><slot /></main>
+<footer class="cf">
+  <div class="cf-in">
+    <span>Vadim Zavatsky, {lang === 'cs' ? 'Praha' : 'Prague'}. <a href={`mailto:${VZ.email}`}>{VZ.email}</a>, <a href={`tel:${VZ.tel}`}>{VZ.phone}</a></span>
+    <span>{t.company}. {lang === 'cs' ? 'Neplátce DPH.' : 'Not a VAT payer.'}</span>
+    <span><a id="cc-privfoot" href="/privacy">{t.privacyFooter}</a>, <a id="cc-settings" href="#cookies">{t.cookie}</a></span>
+  </div>
+</footer>
+{viewer && <Viewer labels={t.viewer} />}
+<Consent />
+</body>
+</html>

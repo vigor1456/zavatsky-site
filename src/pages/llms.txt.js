@@ -4,6 +4,7 @@ import { SITE, VZ, MR } from '../lib/site.js';
 
 export async function GET() {
   const gs = await getCollection('galleries');
+  const sv = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
   const ss = (await getCollection('series')).sort((a, b) => a.data.order - b.data.order);
   const posts = (await getCollection('journal', ({ data }) => !data.draft)).sort((a, b) => b.data.date - a.data.date);
   const line = (g) => `- [${g.data.title}](${SITE}/${g.id}): ${g.data.intro}`;
@@ -24,6 +25,11 @@ ${ss.map((x) => `- [${x.data.title} (personal series)](${SITE}/${x.id}): ${x.dat
 - [Maximilian Ravique](${SITE}/ravique): Landscape, street and architecture photography.
 - [Prints](${SITE}/prints): Archival prints and framed canvases, made to order and shipped within the EU.
 ${gs.filter((g) => g.data.side === 'ravique').map(line).join('\n')}
+
+## Commercial photography (Czech and English pages)
+
+- [Services](${SITE}/sluzby) ([English](${SITE}/en/services)): Commercial and event photography in Prague, with starting prices, same-day selections and quotes within 24 hours.
+${sv.map((x) => `- [${x.data.title.en}](${SITE}/en/services/${x.data.slug_en}) (Czech: ${SITE}/sluzby/${x.data.slug_cs}): ${x.data.intro.en}${x.data.price_eur ? ' From €' + x.data.price_eur + '.' : ''}`).join('\n')}
 
 ## Journal
 

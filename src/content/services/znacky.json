@@ -1,0 +1,197 @@
+{
+  "order": 30,
+  "slug_cs": "znacky",
+  "slug_en": "brands",
+  "title": {
+    "cs": "Značky a produkty",
+    "en": "Brands and products"
+  },
+  "h1": {
+    "cs": "Fotografie pro značky a produkty",
+    "en": "Photography for brands and products"
+  },
+  "card": {
+    "cs": "Produktové a propagační fotografie, kampaně, lookbooky.",
+    "en": "Product and promotional photos, campaigns, lookbooks."
+  },
+  "intro": {
+    "cs": "Produktové a propagační fotografie, kampaně a lookbooky pro módní značky. Každé focení začíná konzultací konceptu, aby fotky odpovídaly vaší značce.",
+    "en": "Product and promotional photos, campaigns and lookbooks for fashion brands. Every shoot starts with a concept consultation, so the images fit your brand."
+  },
+  "seo_title": {
+    "cs": "Fotograf pro značky a produktové focení v Praze | Vadim Zavatsky",
+    "en": "Brand & Product Photographer in Prague | Vadim Zavatsky"
+  },
+  "seo_description": {
+    "cs": "Produktové a propagační focení, kampaně a lookbooky v Praze. Půldenní focení s konzultací konceptu od 15 000 Kč.",
+    "en": "Product and promotional photography, campaigns and lookbooks in Prague. Half-day shoots with a concept consultation from €600."
+  },
+  "price_czk": 15000,
+  "price_eur": 600,
+  "example_label": {
+    "cs": "Příklad: půldenní focení",
+    "en": "Example: a half-day shoot"
+  },
+  "includes": {
+    "cs": [
+      "konzultace konceptu před focením",
+      "půldenní focení (4 hodiny)",
+      "výběr a úprava fotografií",
+      "dodání do 5 pracovních dnů"
+    ],
+    "en": [
+      "concept consultation before the shoot",
+      "half-day shoot (4 hours)",
+      "selection and editing of the photos",
+      "delivery within 5 working days"
+    ]
+  },
+  "price_note": {
+    "cs": "Licenci pro reklamní kampaně dohodneme podle rozsahu projektu. Nejsem plátce DPH, cena je konečná.",
+    "en": "Usage licences for advertising campaigns are agreed per project. I’m not a VAT payer, so the price is final."
+  },
+  "timeline": [
+    {
+      "when": {
+        "cs": "Před focením",
+        "en": "Before"
+      },
+      "title": {
+        "cs": "Koncept",
+        "en": "Concept"
+      },
+      "text": {
+        "cs": "Co má fotka říct, kde se použije a jaký má mít styl.",
+        "en": "What the images should say, where they’ll be used and how they should look."
+      }
+    },
+    {
+      "when": {
+        "cs": "Den focení",
+        "en": "The shoot"
+      },
+      "title": {
+        "cs": "Produkce",
+        "en": "Production"
+      },
+      "text": {
+        "cs": "Ve studiu, u vás nebo na lokaci, podle konceptu.",
+        "en": "In the studio, on your premises or on location, as the concept needs."
+      }
+    },
+    {
+      "when": {
+        "cs": "Do 5 dnů",
+        "en": "Within 5 days"
+      },
+      "title": {
+        "cs": "Hotové fotografie",
+        "en": "Final images"
+      },
+      "text": {
+        "cs": "Upravené fotky ve formátech pro web, e-shop i tisk.",
+        "en": "Edited images sized for web, e-shop and print."
+      }
+    }
+  ],
+  "hero": {
+    "src": "/images/commercial/brand-product.jpg",
+    "alt": {
+      "cs": "Produkt značky v rukou",
+      "en": "A brand product held in both hands"
+    }
+  },
+  "card_image": {
+    "src": "/images/commercial/brand-product.jpg",
+    "alt": {
+      "cs": "Produkt značky v rukou",
+      "en": "A brand product held in both hands"
+    }
+  },
+  "gallery": [
+    {
+      "src": "/images/commercial/brand-w-prague.jpg",
+      "alt": {
+        "cs": "Značka W Prague s nápojem",
+        "en": "W Prague branding with a drink"
+      }
+    },
+    {
+      "src": "/images/commercial/brand-cans.jpg",
+      "alt": {
+        "cs": "Plechovky nápoje na baru",
+        "en": "Drink cans on a bar"
+      }
+    },
+    {
+      "src": "/images/commercial/brand-product-fridge.jpg",
+      "alt": {
+        "cs": "Produkt v ruce u chladicí vitríny",
+        "en": "A product held up at a chilled display"
+      }
+    },
+    {
+      "src": "/images/commercial/brand-phone.jpg",
+      "alt": {
+        "cs": "Telefon s kampaní značky nad stolem",
+        "en": "A phone showing a brand campaign above the table"
+      }
+    },
+    {
+      "src": "/images/commercial/brand-workshop.jpg",
+      "alt": {
+        "cs": "Detail rukou při workshopu značky",
+        "en": "Hands at work during a brand workshop"
+      }
+    },
+    {
+      "src": "/images/commercial/brand-phone-vertical.jpg",
+      "alt": {
+        "cs": "Telefon v ruce, svislý snímek",
+        "en": "A phone in hand, vertical shot"
+      }
+    }
+  ],
+  "faqs": [
+    {
+      "q": {
+        "cs": "Jak termín rezervujeme?",
+        "en": "How do we book a date?"
+      },
+      "a": {
+        "cs": "Po potvrzení nabídky vám pošlu odkaz na zálohu ve výši 30 % ceny. Zaplacením je termín váš, zbytek fakturuji po dodání fotografií.",
+        "en": "Once you confirm the quote, I’ll send you a link to pay a 30% deposit. Paying it secures the date; the rest is invoiced after delivery."
+      }
+    },
+    {
+      "q": {
+        "cs": "Jak můžeme fotografie použít?",
+        "en": "How can we use the photos?"
+      },
+      "a": {
+        "cs": "Licence pro web, sociální sítě a PR je v ceně. Reklamní kampaně a tisk ve velkém nákladu řešíme podle rozsahu.",
+        "en": "A licence for web, social media and PR is included. Advertising campaigns and large print runs are agreed according to scope."
+      }
+    },
+    {
+      "q": {
+        "cs": "Zajistíte i modely a stylisty?",
+        "en": "Can you arrange models and stylists?"
+      },
+      "a": {
+        "cs": "Ano, podle potřeby projektu doporučím a zajistím spolupracovníky. Jejich náklady uvedu v nabídce.",
+        "en": "Yes, if the project needs it I’ll recommend and arrange collaborators, with their costs stated in the quote."
+      }
+    },
+    {
+      "q": {
+        "cs": "Vystavujete fakturu?",
+        "en": "Do you issue invoices?"
+      },
+      "a": {
+        "cs": "Ano, fakturuji jako firma Third Place Labs s.r.o. Nejsem plátce DPH, uvedené ceny jsou konečné.",
+        "en": "Yes, I invoice as a company, Third Place Labs s.r.o. I’m not a VAT payer, so the prices shown are final."
+      }
+    }
+  ]
+}

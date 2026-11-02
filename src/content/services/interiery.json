@@ -1,0 +1,152 @@
+{
+  "order": 40,
+  "slug_cs": "interiery",
+  "slug_en": "interiors",
+  "title": {
+    "cs": "Interiéry",
+    "en": "Interiors"
+  },
+  "h1": {
+    "cs": "Fotograf interiérů: restaurace, hotely, apartmány",
+    "en": "Interior photographer for restaurants, hotels and apartments"
+  },
+  "card": {
+    "cs": "Restaurace, hotely, apartmány a kanceláře.",
+    "en": "Restaurants, hotels, apartments and offices."
+  },
+  "intro": {
+    "cs": "Restaurace, hotely, apartmány a kanceláře. Fotografie, které ukážou atmosféru prostoru a přimějí hosty rezervovat.",
+    "en": "Restaurants, hotels, apartments and offices. Photos that show the atmosphere of a space and make guests want to book."
+  },
+  "seo_title": {
+    "cs": "Fotograf interiérů v Praze: restaurace, hotely, apartmány | Vadim Zavatsky",
+    "en": "Interior Photographer in Prague: Restaurants, Hotels, Apartments | Vadim Zavatsky"
+  },
+  "seo_description": {
+    "cs": "Focení interiérů restaurací, hotelů a apartmánů v Praze. 15 upravených fotografií od 9 000 Kč, dodání do 5 pracovních dnů.",
+    "en": "Interior photography for restaurants, hotels and apartments in Prague. 15 edited photos from €370, delivered within 5 working days."
+  },
+  "price_czk": 9000,
+  "price_eur": 370,
+  "example_label": {
+    "cs": "Příklad: restaurace nebo apartmán",
+    "en": "Example: a restaurant or apartment"
+  },
+  "includes": {
+    "cs": [
+      "15 upravených fotografií",
+      "detaily i celkové záběry",
+      "verze pro web, booking platformy a tisk",
+      "dodání do 5 pracovních dnů"
+    ],
+    "en": [
+      "15 edited photos",
+      "details and wide shots",
+      "versions for web, booking platforms and print",
+      "delivery within 5 working days"
+    ]
+  },
+  "price_note": {
+    "cs": "Cenu ovlivňuje velikost prostoru a počet záběrů. Nejsem plátce DPH, cena je konečná.",
+    "en": "The price depends on the size of the space and the number of shots. I’m not a VAT payer, so the price is final."
+  },
+  "timeline": [
+    {
+      "when": {
+        "cs": "Před focením",
+        "en": "Before"
+      },
+      "title": {
+        "cs": "Příprava",
+        "en": "Preparation"
+      },
+      "text": {
+        "cs": "Krátký seznam, jak prostor připravit, a výběr záběrů.",
+        "en": "A short checklist for preparing the space and a shot list."
+      }
+    },
+    {
+      "when": {
+        "cs": "Den focení",
+        "en": "The shoot"
+      },
+      "title": {
+        "cs": "Světlo a atmosféra",
+        "en": "Light and atmosphere"
+      },
+      "text": {
+        "cs": "Fotím v nejlepším světle dne, celky i detaily.",
+        "en": "Shot in the best light of the day, wide views and details."
+      }
+    },
+    {
+      "when": {
+        "cs": "Do 5 dnů",
+        "en": "Within 5 days"
+      },
+      "title": {
+        "cs": "Hotové fotografie",
+        "en": "Final images"
+      },
+      "text": {
+        "cs": "Upravené fotky ve formátech pro web i booking platformy.",
+        "en": "Edited images sized for your website and booking platforms."
+      }
+    }
+  ],
+  "hero": {
+    "src": "/images/studies-04.jpg",
+    "alt": {
+      "cs": "Stůl a židle v tichém pokoji za otevřenými okenicemi",
+      "en": "A desk and chair seen through open blue shutters into a quiet room"
+    }
+  },
+  "card_image": {
+    "src": "/images/studies-04.jpg",
+    "alt": {
+      "cs": "Stůl a židle v tichém pokoji za otevřenými okenicemi",
+      "en": "A desk and chair seen through open blue shutters into a quiet room"
+    }
+  },
+  "gallery": [
+    {
+      "src": "/images/studies-04.jpg",
+      "alt": {
+        "cs": "Stůl a židle v tichém pokoji za otevřenými okenicemi",
+        "en": "A desk and chair seen through open blue shutters into a quiet room"
+      }
+    }
+  ],
+  "faqs": [
+    {
+      "q": {
+        "cs": "Jak termín rezervujeme?",
+        "en": "How do we book a date?"
+      },
+      "a": {
+        "cs": "Po potvrzení nabídky vám pošlu odkaz na zálohu ve výši 30 % ceny. Zaplacením je termín váš, zbytek fakturuji po dodání fotografií.",
+        "en": "Once you confirm the quote, I’ll send you a link to pay a 30% deposit. Paying it secures the date; the rest is invoiced after delivery."
+      }
+    },
+    {
+      "q": {
+        "cs": "Můžeme fotky použít na Bookingu a Airbnb?",
+        "en": "Can we use the photos on Booking and Airbnb?"
+      },
+      "a": {
+        "cs": "Ano, licence pro web a booking platformy je v ceně.",
+        "en": "Yes, the licence for websites and booking platforms is included."
+      }
+    },
+    {
+      "q": {
+        "cs": "Vystavujete fakturu?",
+        "en": "Do you issue invoices?"
+      },
+      "a": {
+        "cs": "Ano, fakturuji jako firma Third Place Labs s.r.o. Nejsem plátce DPH, uvedené ceny jsou konečné.",
+        "en": "Yes, I invoice as a company, Third Place Labs s.r.o. I’m not a VAT payer, so the prices shown are final."
+      }
+    }
+  ]
+}

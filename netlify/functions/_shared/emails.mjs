@@ -62,3 +62,22 @@ export function withdrawalAck(d, lang = 'en') {
   ]).join('\n');
   return { subject: cs ? 'Potvrzení přijetí odstoupení od smlouvy' : 'Withdrawal received', text };
 }
+
+const field = (label, v) => (v ? `${label}: ${v}` : null);
+export function enquiryOwner(d) {
+  const text = ['NEW ENQUIRY', '', field('Service', d.service), field('Date', d.date), field('Location', d.venue), field('Type', d.details), field('Length', d.length), field('Guests', d.guests), '',
+    field('Name', d.name), field('Email', d.email), field('Phone', d.phone), field('Language', d.lang), field('Sent from', d.page), '', d.note ? 'Notes:\n' + d.note : null, '', 'Reply to this email to answer the client directly.']
+    .filter((x) => x !== null).join('\n');
+  return { subject: `Enquiry: ${d.service || 'service'}${d.date ? ', ' + d.date : ''} (${d.name || d.email || '?'})`, text };
+}
+export function enquiryAck(d, lang = 'cs') {
+  const cs = lang === 'cs';
+  d = { ...d, name: String(d.name || '').split(',')[0].trim() };
+  const lines = cs ? [`Dobrý den${d.name ? ' ' + d.name : ''},`, '', 'děkuji za poptávku, dorazila v pořádku. Ozvu se vám do 24 hodin, obvykle ještě týž den, s nabídkou ceny, rozsahu a termínu dodání.', '',
+      'Shrnutí poptávky:', field('Služba', d.service), field('Datum', d.date), field('Místo', d.venue), field('Typ', d.details), field('Délka', d.length), d.note ? 'Poznámka: ' + d.note : null, '',
+      'Pokud chcete cokoli doplnit, stačí odpovědět na tento e-mail.', '', 'S pozdravem', 'Vadim Zavatsky', '+420 725 557 540', 'Third Place Labs s.r.o., IČO 24501212']
+    : [`Hello${d.name ? ' ' + d.name : ''},`, '', 'Thank you for your enquiry, it has arrived safely. I’ll get back to you within 24 hours, usually the same day, with a quote covering the price, scope and delivery date.', '',
+      'Your enquiry:', field('Service', d.service), field('Date', d.date), field('Location', d.venue), field('Type', d.details), field('Length', d.length), d.note ? 'Notes: ' + d.note : null, '',
+      'If you’d like to add anything, simply reply to this email.', '', 'Best regards,', 'Vadim Zavatsky', '+420 725 557 540', 'Third Place Labs s.r.o., company ID 24501212'];
+  return { subject: cs ? 'Děkuji za poptávku' : 'Thank you for your enquiry', text: lines.filter((x) => x !== null).join('\n') };
+}

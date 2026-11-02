@@ -1,0 +1,241 @@
+{
+  "order": 10,
+  "slug_cs": "konference",
+  "slug_en": "conferences",
+  "title": {
+    "cs": "Konference a firemní akce",
+    "en": "Conferences and corporate events"
+  },
+  "h1": {
+    "cs": "Fotograf na konference a firemní akce v Praze",
+    "en": "Conference and corporate event photographer in Prague"
+  },
+  "card": {
+    "cs": "Konference, launche produktů, firemní a vánoční večírky.",
+    "en": "Conferences, product launches, company and Christmas parties."
+  },
+  "intro": {
+    "cs": "Konference, launche produktů, firemní a vánoční večírky. Nenápadná reportáž, výběr fotek ještě týž den a kompletní galerie druhý den.",
+    "en": "Conferences, product launches, company and Christmas parties. Unobtrusive coverage, a selection of photos the same day and the full gallery the next day."
+  },
+  "seo_title": {
+    "cs": "Fotograf na konference a firemní akce v Praze | Vadim Zavatsky",
+    "en": "Conference & Corporate Event Photographer in Prague | Vadim Zavatsky"
+  },
+  "seo_description": {
+    "cs": "Eventový fotograf v Praze: konference, launche a firemní večírky. Výběr fotek týž den, kompletní galerie druhý den. Půldenní akce od 12 000 Kč.",
+    "en": "Event photographer in Prague for conferences, launches and company parties. Selected photos the same day, the full gallery the next day. Half-day events from €490."
+  },
+  "price_czk": 12000,
+  "price_eur": 490,
+  "example_label": {
+    "cs": "Příklad: půldenní konference",
+    "en": "Example: half-day conference"
+  },
+  "includes": {
+    "cs": [
+      "4 hodiny focení",
+      "cca 200 upravených fotografií",
+      "10 vybraných fotek ještě týž den",
+      "kompletní galerie druhý den",
+      "licence pro web, PR a sociální sítě"
+    ],
+    "en": [
+      "4 hours of coverage",
+      "around 200 edited photos",
+      "10 selected photos the same day",
+      "the full gallery the next day",
+      "licence for web, PR and social media"
+    ]
+  },
+  "price_note": {
+    "cs": "Cenu ovlivňuje délka akce, místo konání a počet výstupů. Nejsem plátce DPH, cena je konečná.",
+    "en": "The price depends on the length of the event, the venue and the deliverables. I’m not a VAT payer, so the price is final."
+  },
+  "timeline": [
+    {
+      "when": {
+        "cs": "Během akce",
+        "en": "During the event"
+      },
+      "title": {
+        "cs": "Nenápadná reportáž",
+        "en": "Unobtrusive coverage"
+      },
+      "text": {
+        "cs": "Řečníci, publikum, networking i detaily vaší značky, bez rušení programu.",
+        "en": "Speakers, audience, networking and the details of your brand, without disturbing the programme."
+      }
+    },
+    {
+      "when": {
+        "cs": "Týž den",
+        "en": "The same day"
+      },
+      "title": {
+        "cs": "10 vybraných fotek",
+        "en": "10 selected photos"
+      },
+      "text": {
+        "cs": "Hotové pro sociální sítě a tiskovou zprávu, zatímco o akci ještě mluví všichni.",
+        "en": "Ready for social media and the press release while everyone is still talking about the event."
+      }
+    },
+    {
+      "when": {
+        "cs": "Druhý den",
+        "en": "The next day"
+      },
+      "title": {
+        "cs": "Kompletní galerie",
+        "en": "The full gallery"
+      },
+      "text": {
+        "cs": "Všechny upravené fotky online, ke stažení ve vysokém rozlišení i pro web.",
+        "en": "All edited photos online, to download in high resolution and web sizes."
+      }
+    }
+  ],
+  "hero": {
+    "src": "/images/commercial/event-tablet.jpg",
+    "alt": {
+      "cs": "Prezentace produktu na tabletu",
+      "en": "A product presentation on a tablet"
+    }
+  },
+  "card_image": {
+    "src": "/images/commercial/conference-speaker.jpg",
+    "alt": {
+      "cs": "Řečník prezentuje na konferenci",
+      "en": "A speaker presenting at a conference"
+    }
+  },
+  "gallery": [
+    {
+      "src": "/images/commercial/event-guests.jpg",
+      "alt": {
+        "cs": "Hosté sledují program akce",
+        "en": "Guests following the event programme"
+      }
+    },
+    {
+      "src": "/images/commercial/conference-speaker.jpg",
+      "alt": {
+        "cs": "Řečník prezentuje na konferenci",
+        "en": "A speaker presenting at a conference"
+      }
+    },
+    {
+      "src": "/images/commercial/event-welcome.jpg",
+      "alt": {
+        "cs": "Srdečné přivítání hostů",
+        "en": "A warm welcome between guests"
+      }
+    },
+    {
+      "src": "/images/commercial/brand-phone.jpg",
+      "alt": {
+        "cs": "Telefon s kampaní značky nad stolem",
+        "en": "A phone showing a brand campaign above the table"
+      }
+    },
+    {
+      "src": "/images/commercial/event-host.jpg",
+      "alt": {
+        "cs": "Hostitelka akce s hosty u stolu",
+        "en": "The host of an event with guests at the table"
+      }
+    },
+    {
+      "src": "/images/commercial/event-workshop.jpg",
+      "alt": {
+        "cs": "Účastníci workshopu u stolu",
+        "en": "Workshop participants at the table"
+      }
+    }
+  ],
+  "extra": {
+    "title": {
+      "cs": "Firemní a vánoční večírky",
+      "en": "Company and Christmas parties"
+    },
+    "text": {
+      "cs": "Atmosféra, lidé a momenty, které týmy sdílejí ještě týdny potom. Stejně rychlé dodání jako u konferencí.",
+      "en": "The atmosphere, the people and the moments teams keep sharing for weeks. The same fast delivery as for conferences."
+    },
+    "image": {
+      "src": "/images/commercial/party-garden.jpg",
+      "alt": {
+        "cs": "Hosté na večírku v zahradě",
+        "en": "Guests at an evening garden party"
+      }
+    },
+    "link_service": "oslavy",
+    "link_label": {
+      "cs": "Plánujete soukromou oslavu?",
+      "en": "Planning a private celebration?"
+    }
+  },
+  "faqs": [
+    {
+      "q": {
+        "cs": "Jak termín rezervujeme?",
+        "en": "How do we book a date?"
+      },
+      "a": {
+        "cs": "Po potvrzení nabídky vám pošlu odkaz na zálohu ve výši 30 % ceny. Zaplacením je termín váš, zbytek fakturuji po dodání fotografií.",
+        "en": "Once you confirm the quote, I’ll send you a link to pay a 30% deposit. Paying it secures the date; the rest is invoiced after delivery."
+      }
+    },
+    {
+      "q": {
+        "cs": "Podepíšete NDA?",
+        "en": "Will you sign an NDA?"
+      },
+      "a": {
+        "cs": "Ano, NDA podepisuji bez problému. Fotografie z interních akcí nikde nezveřejňuji bez vašeho souhlasu.",
+        "en": "Yes, I sign NDAs without any problem. Photos from internal events are never published without your consent."
+      }
+    },
+    {
+      "q": {
+        "cs": "Fotíte i v angličtině?",
+        "en": "Do you work in English?"
+      },
+      "a": {
+        "cs": "Ano, s řečníky i hosty komunikuji česky i anglicky.",
+        "en": "Yes, I work with speakers and guests in Czech and English."
+      }
+    },
+    {
+      "q": {
+        "cs": "Co celodenní konference?",
+        "en": "What about full-day conferences?"
+      },
+      "a": {
+        "cs": "Celý den nacením podle programu. Napište mi časy a pošlu nabídku do 24 hodin.",
+        "en": "Full days are priced according to the programme. Send me the times and I’ll send a quote within 24 hours."
+      }
+    },
+    {
+      "q": {
+        "cs": "Vystavujete fakturu?",
+        "en": "Do you issue invoices?"
+      },
+      "a": {
+        "cs": "Ano, fakturuji jako firma Third Place Labs s.r.o. Nejsem plátce DPH, uvedené ceny jsou konečné.",
+        "en": "Yes, I invoice as a company, Third Place Labs s.r.o. I’m not a VAT payer, so the prices shown are final."
+      }
+    },
+    {
+      "q": {
+        "cs": "Fotíte i mimo Prahu?",
+        "en": "Do you work outside Prague?"
+      },
+      "a": {
+        "cs": "Ano, po celém Česku, na Slovensku i v zahraničí. Cestovné vždy uvedu předem v nabídce.",
+        "en": "Yes, across Czechia, Slovakia and abroad. Any travel costs are always stated in the quote."
+      }
+    }
+  ]
+}

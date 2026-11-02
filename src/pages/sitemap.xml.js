@@ -11,7 +11,8 @@ export async function GET() {
   const posts = (await getCollection('journal', ({ data }) => !data.draft))
     .sort((a, b) => b.data.date - a.data.date)
     .map((p) => ({ loc: `/blog/${p.slug}`, lastmod: new Date(p.data.date).toISOString().slice(0, 10) }));
-  const urls = [...STATIC.map((loc) => ({ loc })), ...galleries, ...posts];
+  const svcs = (await getCollection('services')).flatMap((x) => [{ loc: `/sluzby/${x.data.slug_cs}` }, { loc: `/en/services/${x.data.slug_en}` }]);
+  const urls = [...STATIC.map((loc) => ({ loc })), { loc: '/sluzby' }, { loc: '/en/services' }, ...svcs, ...galleries, ...posts];
   const body =
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     urls.map((u) => `  <url><loc>${SITE}${u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ''}</url>`).join('\n') +
