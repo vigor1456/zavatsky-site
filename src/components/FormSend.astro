@@ -1,0 +1,28 @@
+---
+// Sends a Netlify form to two places at once: Netlify Forms (record + your notification) and /api/form
+// (the emails). Then shows the thank-you page. Without JavaScript the form still posts to Netlify Forms.
+const { form, error = 'Something went wrong. Please try again, or email me directly.' } = Astro.props;
+---
+<script is:inline define:vars={{ sel: form, error }}>
+  (function () {
+    var f = document.querySelector(sel); if (!f) return;
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (f.reportValidity && !f.reportValidity()) return;
+      var btn = f.querySelector('[type=submit]'), label = btn ? btn.textContent : '';
+      var msg = f.querySelector('.form-msg');
+      if (btn) { btn.disabled = true; btn.textContent = '…'; }
+      if (msg) msg.hidden = true;
+      var fd = new FormData(f), data = {};
+      fd.forEach(function (v, k) { data[k] = v; });
+      var toNetlify = fetch('/', { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(fd).toString() });
+      var toEmails = fetch('/api/form', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(data) });
+      Promise.allSettled([toNetlify, toEmails]).then(function (r) {
+        var okN = r[0].status === 'fulfilled' && r[0].value.ok, okE = r[1].status === 'fulfilled' && r[1].value.ok;
+        if (okE || okN) { location.href = f.getAttribute('action'); return; }
+        if (msg) { msg.textContent = error; msg.hidden = false; }
+        if (btn) { btn.disabled = false; btn.textContent = label; }
+      });
+    });
+  })();
+</script>

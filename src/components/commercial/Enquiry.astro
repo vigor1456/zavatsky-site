@@ -1,6 +1,7 @@
 ---
 // One enquiry form for the whole section (Netlify Forms "enquiry"); every page sends the same fields.
 import { UI } from '../../lib/c-i18n.js';
+import FormSend from '../FormSend.astro';
 const { lang = 'cs', services = [], selected = '' } = Astro.props;
 const t = UI[lang]; const f = t.f;
 const action = lang === 'cs' ? '/sluzby/dekuji' : '/en/services/thank-you';
@@ -9,7 +10,7 @@ const action = lang === 'cs' ? '/sluzby/dekuji' : '/en/services/thank-you';
   <div class="w" style="max-width: 920px">
     <h2 class="h2" style="margin-bottom: 8px">{t.formTitle}</h2>
     <p class="ink2" style="margin-bottom: 32px">{t.formLead}</p>
-    <form class="form" name="enquiry" method="POST" action={action} data-netlify="true" netlify-honeypot="website">
+    <form class="form" id="enquiry-form" name="enquiry" method="POST" action={action} data-netlify="true" netlify-honeypot="website">
       <input type="hidden" name="form-name" value="enquiry" />
       <input type="hidden" name="lang" value={lang} />
       <input type="hidden" name="page" value={Astro.url.pathname} />
@@ -30,8 +31,10 @@ const action = lang === 'cs' ? '/sluzby/dekuji' : '/en/services/thank-you';
       <label class="field full">{f.note}<textarea name="note" placeholder={f.notePh}></textarea></label>
       <div class="full" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 4px">
         <button class="btn" type="submit">{f.send}</button>
+        <p class="form-msg" role="alert" hidden style="flex-basis: 100%; color: #A3341F; font-weight: 500"></p>
         <span class="muted" style="font-size: 14px">{f.privacy} <a href="/privacy" style="color: var(--muted)">{f.privacyLink}</a></span>
       </div>
     </form>
   </div>
 </section>
+<FormSend form="#enquiry-form" error={lang === 'cs' ? 'Poptávku se nepodařilo odeslat. Zkuste to prosím znovu, nebo mi napište na zavatsky.v@seznam.cz.' : 'Your enquiry could not be sent. Please try again, or email me at zavatsky.v@seznam.cz.'} />

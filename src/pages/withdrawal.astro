@@ -4,6 +4,7 @@
 // Submissions go to Netlify Forms (enable form detection in Netlify). DRAFT for legal review.
 import Base from '../layouts/Base.astro';
 import { MR } from '../lib/site.js';
+import FormSend from '../components/FormSend.astro';
 const nav = [
   { href: '/prints', en: 'Prints', cs: 'Tisky' },
   { href: '/terms', en: 'Terms', cs: 'Podmínky' },
@@ -35,6 +36,7 @@ const T = {
           <label><span data-en="Email for the confirmation" data-cs="E-mail pro potvrzení">Email for the confirmation</span><input name="email" type="email" required autocomplete="email" /></label>
           <p class="small muted" data-en="You will receive a confirmation of receipt by email. Personal data is handled as described in the Privacy policy." data-cs="Potvrzení o přijetí obdržíte e-mailem. S osobními údaji nakládáme podle Zásad ochrany osobních údajů.">You will receive a confirmation of receipt by email. Personal data is handled as described in the Privacy policy.</p>
           <p class="small muted" data-en="If the confirmation doesn’t reach your inbox within a few minutes (please check spam too), email me at maximilianravique@gmail.com and I’ll confirm your withdrawal personally." data-cs="Pokud vám potvrzení nepřijde do několika minut (zkontrolujte prosím i spam), napište mi na maximilianravique@gmail.com a odstoupení vám potvrdím osobně.">If the confirmation doesn’t reach your inbox within a few minutes (please check spam too), email me at maximilianravique@gmail.com and I’ll confirm your withdrawal personally.</p>
+          <p class="form-msg" role="alert" hidden style="color: #E0604A"></p>
           <p><button type="submit" class="btn" data-en="Confirm withdrawal from the contract" data-cs="Potvrdit odstoupení od smlouvy">Confirm withdrawal from the contract</button></p>
         </form>
         <noscript><style>#wd-form{display:flex !important}#wd-start{display:none}</style></noscript>
@@ -65,4 +67,5 @@ const T = {
       b.addEventListener('click', function () { f.querySelector('input[name=lang]').value = document.documentElement.lang === 'cs' ? 'cs' : 'en'; f.hidden = false; b.setAttribute('aria-expanded', 'true'); f.querySelector('input[name=name]').focus(); });
     })();
   </script>
+  <FormSend form="#wd-form" error="Sending failed. Please try again, or email maximilianravique@gmail.com / Odeslání se nezdařilo. Zkuste to znovu, nebo napište na maximilianravique@gmail.com." />
 </Base>
