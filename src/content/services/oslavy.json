@@ -117,27 +117,28 @@
       }
     },
     {
-      "src": "/images/commercial/event-welcome.jpg",
+      "src": "/images/party-decoration.jpg",
       "alt": {
-        "cs": "Srdečné přivítání hostů",
-        "en": "A warm welcome between guests"
+        "cs": "Fotografie party dekorace se svíčkami",
+        "en": "Photo of a party decoration with candles"
       }
     },
     {
-      "src": "/images/commercial/event-guests.jpg",
+      "src": "/images/party-dance.jpg",
       "alt": {
-        "cs": "Hosté sledují program akce",
-        "en": "Guests following the event programme"
+        "cs": "Fotografie tančících hostů na večírku",
+        "en": "Photo of dancing party guests"
       }
     },
     {
-      "src": "/images/commercial/event-host.jpg",
+      "src": "/images/party-cake.jpg",
       "alt": {
-        "cs": "Hostitelka akce s hosty u stolu",
-        "en": "The host of an event with guests at the table"
+        "cs": "Fotografie hostů na večírku, jak krájejí dort",
+        "en": "Photo of party guests cutting a cake"
       }
     }
   ],
+  "extra": null,
   "faqs": [
     {
       "q": {
