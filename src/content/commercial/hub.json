@@ -1,6 +1,6 @@
 {
   "hero": {
-    "src": "/images/commercial/event-host.jpg",
+    "src": "/images/commercial/brand-product.jpg",
     "alt": {
       "cs": "Hostitelka akce s hosty u stolu",
       "en": "The host of an event with guests at the table"
@@ -50,48 +50,6 @@
       }
     }
   ],
-  "trust": [
-    {
-      "title": {
-        "cs": "Faktura na firmu",
-        "en": "Invoiced as a company"
-      },
-      "text": {
-        "cs": "Third Place Labs s.r.o., IČO 24501212. Nejsem plátce DPH, ceny jsou konečné.",
-        "en": "Third Place Labs s.r.o., company ID 24501212. Not a VAT payer, so prices are final."
-      }
-    },
-    {
-      "title": {
-        "cs": "Odpověď do 24 hodin",
-        "en": "Reply within 24 hours"
-      },
-      "text": {
-        "cs": "Nabídka s cenou, rozsahem a termínem dodání.",
-        "en": "A quote with price, scope and delivery date."
-      }
-    },
-    {
-      "title": {
-        "cs": "Termín jistý zálohou",
-        "en": "Date secured by a deposit"
-      },
-      "text": {
-        "cs": "Záloha 30 % online, potvrzení i doklad přijdou e-mailem.",
-        "en": "A 30% deposit paid online, with confirmation and receipt by email."
-      }
-    },
-    {
-      "title": {
-        "cs": "NDA bez problému",
-        "en": "NDAs welcome"
-      },
-      "text": {
-        "cs": "U interních akcí nic nezveřejňuji bez vašeho souhlasu.",
-        "en": "Nothing from internal events is published without your consent."
-      }
-    }
-  ],
   "steps": [
     {
       "title": {
@@ -131,6 +89,48 @@
       "text": {
         "cs": "Galerie online, faktura, hotovo.",
         "en": "An online gallery, an invoice, done."
+      }
+    }
+  ],
+  "trust": [
+    {
+      "title": {
+        "cs": "Faktura na firmu",
+        "en": "Invoiced as a company"
+      },
+      "text": {
+        "cs": "Third Place Labs s.r.o., IČO 24501212. Nejsem plátce DPH, ceny jsou konečné.",
+        "en": "Third Place Labs s.r.o., company ID 24501212. Not a VAT payer, prices are final."
+      }
+    },
+    {
+      "title": {
+        "cs": "Odpověď do 24 hodin",
+        "en": "Reply within 24 hours"
+      },
+      "text": {
+        "cs": "Nabídka s cenou, rozsahem a termínem dodání.",
+        "en": "A quote with price, scope and delivery date."
+      }
+    },
+    {
+      "title": {
+        "cs": "Termín jistý zálohou",
+        "en": "Date secured by a deposit"
+      },
+      "text": {
+        "cs": "Záloha 30 % online, potvrzení i doklad přijdou e-mailem.",
+        "en": "A 30% deposit paid online, with confirmation and receipt by email."
+      }
+    },
+    {
+      "title": {
+        "cs": "NDA bez problému",
+        "en": "NDAs welcome"
+      },
+      "text": {
+        "cs": "U interních akcí nic nezveřejňuji bez vašeho souhlasu.",
+        "en": "Nothing from internal events is published without your consent."
       }
     }
   ],
