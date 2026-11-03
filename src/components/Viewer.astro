@@ -51,7 +51,7 @@ const { labels = { close: 'Close viewer', prev: 'Previous photo', next: 'Next ph
 
   // Full-screen viewer
   var v=document.getElementById('viewer'); if(!v) return;
-  var items=[].slice.call(document.querySelectorAll('.jg figure button'));
+  var items=[].slice.call(document.querySelectorAll('.jg figure button, .mosaic figure button'));
   var img=document.getElementById('v-img'), cnt=document.getElementById('v-count'), alt=document.getElementById('v-alt');
   var i=0, opener=null, x0=null;
   function show(n){

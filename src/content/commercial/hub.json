@@ -11,8 +11,8 @@
     "en": "Vadim Zavatsky, photographer in Prague"
   },
   "h1": {
-    "cs": "Fotografie pro firmy, značky a akce, které chcete ukázat.",
-    "en": "Photography for companies, brands and events worth showing."
+    "cs": "Fotky, které vaše firma opravdu použije.",
+    "en": "Photos your company will actually use."
   },
   "lead": {
     "cs": "Konference, firemní večírky, produkty, interiéry i portréty. Rychle, spolehlivě a s okem, které z běžné akce udělá příběh.",
@@ -59,16 +59,24 @@
       "text": {
         "cs": "Napíšete termín, místo a co potřebujete.",
         "en": "You send the date, the place and what you need."
+      },
+      "when": {
+        "cs": "Dnes",
+        "en": "Today"
       }
     },
     {
       "title": {
-        "cs": "Nabídka do 24 hodin",
-        "en": "Quote within 24 hours"
+        "cs": "Nabídka",
+        "en": "Quote"
       },
       "text": {
         "cs": "Jasná cena, rozsah a termín dodání.",
         "en": "A clear price, scope and delivery date."
+      },
+      "when": {
+        "cs": "Do 24 hodin",
+        "en": "Within 24 hours"
       }
     },
     {
@@ -79,6 +87,10 @@
       "text": {
         "cs": "Nenápadně, bez rušení programu.",
         "en": "Unobtrusive, without disturbing the programme."
+      },
+      "when": {
+        "cs": "Den focení",
+        "en": "The shoot"
       }
     },
     {
@@ -87,8 +99,12 @@
         "en": "Delivery"
       },
       "text": {
-        "cs": "Galerie online, faktura, hotovo.",
-        "en": "An online gallery, an invoice, done."
+        "cs": "Kompletní galerie online. U ostatních služeb do 5 pracovních dnů.",
+        "en": "The full gallery online. Other services within 5 working days."
+      },
+      "when": {
+        "cs": "Druhý den u akcí",
+        "en": "Next day for events"
       }
     }
   ],

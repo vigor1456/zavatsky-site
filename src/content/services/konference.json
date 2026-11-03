@@ -97,10 +97,10 @@
     }
   ],
   "hero": {
-    "src": "/images/event-tablet.jpg",
+    "src": "/images/commercial/conference-stage.jpg",
     "alt": {
-      "cs": "Prezentace produktu na tabletu",
-      "en": "A product presentation on a tablet"
+      "cs": "Řečnice čte z papíru u řečnického pultu na konferenci",
+      "en": "A speaker reading from a sheet of paper at a lectern on stage"
     }
   },
   "card_image": {
@@ -116,6 +116,13 @@
       "alt": {
         "cs": "Hosté sledují program akce",
         "en": "Guests following the event programme"
+      }
+    },
+    {
+      "src": "/images/commercial/conference-camera.jpg",
+      "alt": {
+        "cs": "Displej kamery zabírá řečnici na pódiu",
+        "en": "A camera screen framing the speaker on stage"
       }
     },
     {
@@ -237,5 +244,13 @@
         "en": "Yes, across Czechia, Slovakia and abroad. Any travel costs are always stated in the quote."
       }
     }
-  ]
+  ],
+  "tagline": {
+    "cs": "Fotky z vaší akce ještě týž den.",
+    "en": "Your event photos, the same day."
+  },
+  "timeline_title": {
+    "cs": "Fotky dřív, než o akci dopíšete tiskovou zprávu",
+    "en": "Photos before you’ve finished the press release"
+  }
 }

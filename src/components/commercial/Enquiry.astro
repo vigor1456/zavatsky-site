@@ -1,37 +1,36 @@
 ---
-// One enquiry form for the whole section (Netlify Forms "enquiry"); every page sends the same fields.
+// Short enquiry form (Netlify Forms "enquiry" + /api/form for the emails). Only name and email are required.
 import { UI } from '../../lib/c-i18n.js';
 import FormSend from '../FormSend.astro';
 const { lang = 'cs', services = [], selected = '' } = Astro.props;
 const t = UI[lang]; const f = t.f;
 const action = lang === 'cs' ? '/sluzby/dekuji' : '/en/services/thank-you';
+const opt = `(${f.optional})`;
 ---
-<section id="poptavka" class="band sec">
-  <div class="w rv" style="max-width: 920px">
-    <h2 class="h2" style="margin-bottom: 8px">{t.formTitle}</h2>
-    <p class="ink2" style="margin-bottom: 32px">{t.formLead}</p>
-    <form class="form" id="enquiry-form" name="enquiry" method="POST" action={action} data-netlify="true" netlify-honeypot="website">
+<section id="poptavka" class="band">
+  <div class="w sec formwrap">
+    <div class="rv" style="display: flex; flex-direction: column; gap: 14px">
+      <h2 class="h2">{t.formTitle}</h2>
+      <p class="ink2" style="max-width: 24rem">{t.formLead}</p>
+    </div>
+    <form class="form rv" id="enquiry-form" name="enquiry" method="POST" action={action} data-netlify="true" netlify-honeypot="website" style="--d: .1s">
       <input type="hidden" name="form-name" value="enquiry" />
       <input type="hidden" name="lang" value={lang} />
       <input type="hidden" name="page" value={Astro.url.pathname} />
       <p class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off" /></label></p>
-      <label class="field">{f.service}
-        <select name="service">
-          {services.map((s) => <option value={s.data.title[lang]} selected={s.id === selected}>{s.data.title[lang]}</option>)}
-        </select>
-      </label>
-      <label class="field">{f.date}<input type="date" name="date" /></label>
-      <label class="field">{f.venue}<input type="text" name="venue" placeholder={f.venuePh} /></label>
-      <label class="field">{f.details}<input type="text" name="details" placeholder={f.detailsPh} /></label>
-      <label class="field">{f.length}<select name="length">{f.lengths.map((l) => <option>{l}</option>)}</select></label>
-      <label class="field">{f.guests}<input type="number" name="guests" min="1" placeholder={f.guestsPh} /></label>
-      <label class="field">{f.name}<input type="text" name="name" autocomplete="name" required /></label>
+      <fieldset class="chips full">
+        <legend>{f.service}</legend>
+        {services.map((s) => <label class="chip"><input type="radio" name="service" value={s.data.title[lang]} checked={s.id === selected} /><span>{s.data.title[lang]}</span></label>)}
+        <label class="chip"><input type="radio" name="service" value={f.other} /><span>{f.other}</span></label>
+      </fieldset>
+      <label class="field">{f.name2}<input type="text" name="name" autocomplete="name" required /></label>
       <label class="field">{f.email}<input type="email" name="email" autocomplete="email" required /></label>
-      <label class="field">{f.phone}<input type="tel" name="phone" autocomplete="tel" /></label>
-      <label class="field full">{f.note}<textarea name="note" placeholder={f.notePh}></textarea></label>
+      <label class="field"><span>{f.date} <span class="opt">{opt}</span></span><input type="date" name="date" /></label>
+      <label class="field"><span>{f.phone} <span class="opt">{opt}</span></span><input type="tel" name="phone" autocomplete="tel" /></label>
+      <label class="field full"><span>{f.message} <span class="opt">{opt}</span></span><textarea name="note" placeholder={f.messagePh}></textarea></label>
       <div class="full" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 4px">
-        <button class="btn" type="submit">{f.send}</button>
         <p class="form-msg" role="alert" hidden style="flex-basis: 100%; color: #A3341F; font-weight: 500"></p>
+        <button class="btn" type="submit">{f.send}</button>
         <span class="muted" style="font-size: 14px">{f.privacy} <a href="/privacy" style="color: var(--muted)">{f.privacyLink}</a></span>
       </div>
     </form>

@@ -1,25 +1,29 @@
 ---
-// Up to three reviews in full; any further ones behind a "more reviews" toggle so the page stays scannable.
+// One featured review in large type, up to two smaller ones beside it; any further ones behind a toggle.
 const { reviews = [], title, note, lang = 'cs' } = Astro.props;
-const shown = reviews.slice(0, 3), rest = reviews.slice(3);
+const [feat, ...others] = reviews;
+const side = others.slice(0, 2), rest = others.slice(2);
 const moreLabel = (n) => (lang === 'cs' ? `Další recenze (${n})` : `More reviews (${n})`);
 ---
-{reviews.length > 0 && (
-  <section id="reference" class="w" style="padding-bottom: clamp(64px, 8vw, 104px)">
+{feat && (
+  <section id="reference" class="w" style="padding-bottom: clamp(72px, 9vw, 120px)">
     <div class="row-head">
       <h2 class="h2 rv">{title}</h2>
       {note && <p class="ink2" style="font-size: 15px">{note}</p>}
     </div>
-    <div class="revs">
-      {shown.map((r, i) => <figure class="rev rv" style={`--d:${i * 0.12}s`}><blockquote lang={r.data.lang}>„{r.data.quote}“</blockquote><figcaption>{r.data.author}</figcaption></figure>)}
+    <div class="revs2">
+      <figure class={`feat rv${feat.data.quote.length > 220 ? ' long' : ''}`}><blockquote lang={feat.data.lang}>„{feat.data.quote}“</blockquote><figcaption>{feat.data.author}</figcaption></figure>
+      <div>
+        {side.map((r, i) => <figure class="srev rv" style={`--d:${0.1 + i * 0.1}s`}><blockquote lang={r.data.lang}>„{r.data.quote}“</blockquote><figcaption>{r.data.author}</figcaption></figure>)}
+        {rest.length > 0 && (
+          <details class="more-revs" style="margin-top: 0">
+            <summary class="btn line" style="list-style: none; display: inline-flex; min-height: 44px; font-size: 15px">{moreLabel(rest.length)}</summary>
+            <div style="margin-top: 20px">
+              {rest.map((r) => <figure class="srev"><blockquote lang={r.data.lang}>„{r.data.quote}“</blockquote><figcaption>{r.data.author}</figcaption></figure>)}
+            </div>
+          </details>
+        )}
+      </div>
     </div>
-    {rest.length > 0 && (
-      <details class="more-revs">
-        <summary class="btn line" style="list-style: none; display: inline-flex">{moreLabel(rest.length)}</summary>
-        <div class="revs" style="margin-top: 20px">
-          {rest.map((r) => <figure class="rev"><blockquote lang={r.data.lang}>„{r.data.quote}“</blockquote><figcaption>{r.data.author}</figcaption></figure>)}
-        </div>
-      </details>
-    )}
   </section>
 )}
