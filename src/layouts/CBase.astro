@@ -6,10 +6,13 @@ import '../styles/commercial.css';
 import Consent from '../components/Consent.astro';
 import Viewer from '../components/Viewer.astro';
 import { SITE, abs, VZ } from '../lib/site.js';
-import { UI, BUSINESS_ID } from '../lib/c-i18n.js';
+import { UI, BUSINESS_ID, svcPath } from '../lib/c-i18n.js';
+import { getCollection } from 'astro:content';
 
-const { lang = 'cs', title, description, path, altPath, image = '/images/commercial/event-host.jpg', imageAlt = '', graph = [], current = '', noindex = false, viewer = false } = Astro.props;
+const { lang = 'cs', title, description, path, altPath, image = '/images/commercial/event-host.jpg', imageAlt = '', graph = [], current = '', noindex = false, viewer = false, serviceId = '' } = Astro.props;
 const t = UI[lang];
+const menuServices = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const menuPrice = (x) => (lang === 'cs' ? x.data.price_czk : x.data.price_eur);
 const csPath = lang === 'cs' ? path : altPath;
 const enPath = lang === 'en' ? path : altPath;
 const business = {
@@ -24,7 +27,6 @@ const business = {
 };
 const ld = { '@context': 'https://schema.org', '@graph': [business, ...graph] };
 const nav = [
-  { href: `${t.base}#sluzby`, label: t.services, key: 'services' },
   { href: `${t.base}#jak`, label: t.how, key: 'how' },
   { href: `${t.base}#reference`, label: t.reviews, key: 'reviews' },
   { href: '#faq', label: t.faq, key: 'faq' },
@@ -55,11 +57,31 @@ const nav = [
 <script type="application/ld+json" set:html={JSON.stringify(ld)} />
 </head>
 <body class="cm">
+<script is:inline>document.documentElement.classList.add('js');</script>
 <a class="skip" href="#main">{lang === 'cs' ? 'Přeskočit na obsah' : 'Skip to content'}</a>
 <header class="ch">
   <div class="ch-in">
     <a class="ch-mark" href={t.base} aria-label="Vadim Zavatsky">VZ<span>.</span></a>
     <nav aria-label={lang === 'cs' ? 'Hlavní' : 'Main'}>
+      <div class="ch-menu">
+        <button type="button" class="ch-mbtn" aria-expanded="false" aria-controls="ch-panel" aria-current={current === 'services' ? 'page' : undefined}>
+          {t.services}<svg aria-hidden="true" width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1.5l5 5 5-5"></path></svg>
+        </button>
+        <div class="ch-panel" id="ch-panel" hidden>
+          <ul class="ch-svcs">
+            {menuServices.map((x) => (
+              <li><a href={svcPath(lang, x)} aria-current={serviceId === x.id ? 'page' : undefined}>
+                <span>{x.data.title[lang]}</span>{menuPrice(x) && <span class="ch-p">{t.from} {t.currency(menuPrice(x))}</span>}
+              </a></li>
+            ))}
+          </ul>
+          <a class="ch-all" href={t.base}>{lang === 'cs' ? 'Všechny služby' : 'All services'}</a>
+          <div class="ch-mlinks">
+            {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+            {altPath && <a class="ch-mlang" href={altPath} hreflang={t.other} lang={t.other}>{t.lang}</a>}
+          </div>
+        </div>
+      </div>
       <span class="ch-links">
         {nav.map((n) => <a href={n.href} aria-current={current === n.key ? 'page' : undefined}>{n.label}</a>)}
       </span>
@@ -78,5 +100,25 @@ const nav = [
 </footer>
 {viewer && <Viewer labels={t.viewer} />}
 <Consent />
+<script is:inline>
+  // Services menu: opens on click or tap, closes with Escape, a click outside, or choosing a link.
+  (function () {
+    var b = document.querySelector('.ch-mbtn'), p = document.getElementById('ch-panel'); if (!b || !p) return;
+    function set(open) { p.hidden = !open; b.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+    b.addEventListener('click', function (e) { e.stopPropagation(); set(p.hidden); });
+    document.addEventListener('click', function (e) { if (!p.hidden && !p.contains(e.target) && e.target !== b) set(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !p.hidden) { set(false); b.focus(); } });
+    p.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+  })();
+  // Reveal on scroll: a gentle fade-and-rise as elements come into view.
+  (function () {
+    var els = document.querySelectorAll('.rv'); if (!els.length) return;
+    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) { els.forEach(function (el) { el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
 </body>
 </html>

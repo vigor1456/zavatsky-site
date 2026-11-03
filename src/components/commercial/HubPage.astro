@@ -26,7 +26,7 @@ const graph = [
 
   <section class="w" style="padding-top: clamp(48px, 6vw, 88px); padding-bottom: clamp(56px, 7vw, 104px)">
     <div class="hero">
-      <div style="display: flex; flex-direction: column; gap: 26px">
+      <div class="rv" style="display: flex; flex-direction: column; gap: 26px">
         <p style="font-size: 15px; font-weight: 500; color: var(--accent)">{hub.eyebrow[lang]}</p>
         <h1 class="h1">{hub.h1[lang]}</h1>
         <p class="lead">{hub.lead[lang]}</p>
@@ -38,7 +38,7 @@ const graph = [
           {hub.facts.map((f) => <div><strong>{f.title[lang]}</strong><span>{f.text[lang]}</span></div>)}
         </div>
       </div>
-      <div class="hero-img">
+      <div class="hero-img rv" style="--d: .15s">
         <Pic src={hub.hero.src} alt={hub.hero.alt?.[lang] || ''} eager sizes="(max-width: 860px) 100vw, 46vw" fallback={1600} />
         {first && price(first) && <div class="badge"><span class="muted" style="font-size: 13px">{first.data.title[lang]}</span><strong>{t.from} {t.currency(price(first))}</strong></div>}
       </div>
@@ -50,12 +50,12 @@ const graph = [
   <section id="sluzby" class="band sec">
     <div class="w">
       <div class="row-head">
-        <h2 class="h2">{t.services}</h2>
+        <h2 class="h2 rv">{t.services}</h2>
         <p class="ink2" style="max-width: 28rem">{t.servicesLead}</p>
       </div>
       <div class="bento">
         {services.map((s, i) => (
-          <a class={`card${i === 0 ? ' big' : ''}`} href={svcPath(lang, s)}>
+          <a class={`card rv${i === 0 ? ' big' : ''}`} href={svcPath(lang, s)} style={`--d:${(i % 3) * 0.1}s`}>
             <Pic src={(s.data.card_image || s.data.hero).src} alt="" sizes={i === 0 ? '(max-width: 860px) 100vw, 33vw' : '(max-width: 860px) 100vw, 33vw'} fallback={1200} />
             <div class="card-b">
               <h3>{s.data.title[lang]}</h3>
@@ -69,25 +69,25 @@ const graph = [
   </section>
 
   <section id="jak" class="w sec">
-    <h2 class="h2" style="margin-bottom: 36px">{t.stepsTitle}</h2>
+    <h2 class="h2 rv" style="margin-bottom: 36px">{t.stepsTitle}</h2>
     <ol class="steps">
-      {hub.steps.map((s, i) => <li><span class="n">{i + 1}</span><strong>{s.title[lang]}</strong><span>{s.text[lang]}</span></li>)}
+      {hub.steps.map((s, i) => <li class="rv" style={`--d:${i * 0.1}s`}><span class="n">{i + 1}</span><strong>{s.title[lang]}</strong><span>{s.text[lang]}</span></li>)}
     </ol>
   </section>
 
   <section class="dark sec">
     <div class="w">
-      <h2 class="h2" style="margin-bottom: 32px; font-size: clamp(2rem, 3.2vw, 2.8rem)">{t.trustTitle}</h2>
+      <h2 class="h2 rv" style="margin-bottom: 32px; font-size: clamp(2rem, 3.2vw, 2.8rem)">{t.trustTitle}</h2>
       <ul class="trust">
-        {hub.trust.map((x) => <li><strong>{x.title[lang]}</strong><span>{x.text[lang]}</span></li>)}
+        {hub.trust.map((x, i) => <li class="rv" style={`--d:${i * 0.1}s`}><strong>{x.title[lang]}</strong><span>{x.text[lang]}</span></li>)}
       </ul>
     </div>
   </section>
 
   <section id="faq" class="w sec">
-    <h2 class="h2" style="margin-bottom: 28px">{t.faqTitle}</h2>
+    <h2 class="h2 rv" style="margin-bottom: 28px">{t.faqTitle}</h2>
     <div class="faq">
-      {hub.faqs.map((f, i) => <details open={i < 2}><summary>{f.q[lang]}</summary><p>{f.a[lang]}</p></details>)}
+      {hub.faqs.map((f, i) => <details class="rv" style={`--d:${(i % 2) * 0.1}s`} open={i < 2}><summary>{f.q[lang]}</summary><p>{f.a[lang]}</p></details>)}
     </div>
   </section>
 

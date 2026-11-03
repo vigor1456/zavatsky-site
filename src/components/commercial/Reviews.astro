@@ -7,11 +7,11 @@ const moreLabel = (n) => (lang === 'cs' ? `Další recenze (${n})` : `More revie
 {reviews.length > 0 && (
   <section id="reference" class="w" style="padding-bottom: clamp(64px, 8vw, 104px)">
     <div class="row-head">
-      <h2 class="h2">{title}</h2>
+      <h2 class="h2 rv">{title}</h2>
       {note && <p class="ink2" style="font-size: 15px">{note}</p>}
     </div>
     <div class="revs">
-      {shown.map((r) => <figure class="rev"><blockquote lang={r.data.lang}>„{r.data.quote}“</blockquote><figcaption>{r.data.author}</figcaption></figure>)}
+      {shown.map((r, i) => <figure class="rev rv" style={`--d:${i * 0.12}s`}><blockquote lang={r.data.lang}>„{r.data.quote}“</blockquote><figcaption>{r.data.author}</figcaption></figure>)}
     </div>
     {rest.length > 0 && (
       <details class="more-revs">
