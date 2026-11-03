@@ -10,6 +10,7 @@
     "cs": "Fotografie pro značky a produkty",
     "en": "Photography for brands and products"
   },
+  "tagline": null,
   "card": {
     "cs": "Produktové a propagační fotografie, kampaně, lookbooky.",
     "en": "Product and promotional photos, campaigns, lookbooks."
@@ -50,6 +51,7 @@
     "cs": "Licenci pro reklamní kampaně dohodneme podle rozsahu projektu. Nejsem plátce DPH, cena je konečná.",
     "en": "Usage licences for advertising campaigns are agreed per project. I’m not a VAT payer, so the price is final."
   },
+  "timeline_title": null,
   "timeline": [
     {
       "when": {
@@ -117,17 +119,17 @@
       }
     },
     {
-      "src": "/images/commercial/brand-cans.jpg",
+      "src": "/images/brand-cans.jpg",
       "alt": {
         "cs": "Plechovky nápoje na baru",
         "en": "Drink cans on a bar"
       }
     },
     {
-      "src": "/images/commercial/brand-product-fridge.jpg",
+      "src": "/images/brand-perfume.jpg",
       "alt": {
-        "cs": "Produkt v ruce u chladicí vitríny",
-        "en": "A product held up at a chilled display"
+        "cs": "Fotografie velkého reklamního flakonu parfému na akci u příležitosti uvedení na trh",
+        "en": "Photo of a large promo perfume bottle at a launch event"
       }
     },
     {
@@ -138,7 +140,7 @@
       }
     },
     {
-      "src": "/images/commercial/brand-workshop.jpg",
+      "src": "/images/brand-workshop.jpg",
       "alt": {
         "cs": "Detail rukou při workshopu značky",
         "en": "Hands at work during a brand workshop"
@@ -152,6 +154,7 @@
       }
     }
   ],
+  "extra": null,
   "faqs": [
     {
       "q": {
