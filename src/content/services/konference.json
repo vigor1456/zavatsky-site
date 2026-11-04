@@ -10,6 +10,10 @@
     "cs": "Fotograf na konference a firemní akce v Praze",
     "en": "Conference and corporate event photographer in Prague"
   },
+  "tagline": {
+    "cs": "Fotky z vaší akce ještě týž den.",
+    "en": "Your event photos, the same day."
+  },
   "card": {
     "cs": "Konference, launche produktů, firemní a vánoční večírky.",
     "en": "Conferences, product launches, company and Christmas parties."
@@ -51,6 +55,10 @@
   "price_note": {
     "cs": "Cenu ovlivňuje délka akce, místo konání a počet výstupů. Nejsem plátce DPH, cena je konečná.",
     "en": "The price depends on the length of the event, the venue and the deliverables. I’m not a VAT payer, so the price is final."
+  },
+  "timeline_title": {
+    "cs": "Fotky dřív, než o akci dopíšete tiskovou zprávu",
+    "en": "Photos before you’ve finished the press release"
   },
   "timeline": [
     {
@@ -104,10 +112,10 @@
     }
   },
   "card_image": {
-    "src": "/images/conference-speaker.jpg",
+    "src": "/images/commercial/conference-stage.jpg",
     "alt": {
-      "cs": "Řečník prezentuje na konferenci",
-      "en": "A speaker presenting at a conference"
+      "cs": "Řečnice čte z papíru u řečnického pultu na konferenci",
+      "en": "A speaker reading from a sheet of paper at a lectern on stage"
     }
   },
   "gallery": [
@@ -244,13 +252,5 @@
         "en": "Yes, across Czechia, Slovakia and abroad. Any travel costs are always stated in the quote."
       }
     }
-  ],
-  "tagline": {
-    "cs": "Fotky z vaší akce ještě týž den.",
-    "en": "Your event photos, the same day."
-  },
-  "timeline_title": {
-    "cs": "Fotky dřív, než o akci dopíšete tiskovou zprávu",
-    "en": "Photos before you’ve finished the press release"
-  }
+  ]
 }
