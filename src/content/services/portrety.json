@@ -10,6 +10,7 @@
     "cs": "Firemní portréty a headshoty v Praze",
     "en": "Corporate portraits and headshots in Prague"
   },
+  "tagline": null,
   "card": {
     "cs": "Týmové portréty ve vaší firmě i individuální business portréty.",
     "en": "Team portraits at your office and individual business portraits."
@@ -28,6 +29,14 @@
   },
   "price_czk": 1200,
   "price_eur": 50,
+  "price_unit": {
+    "cs": "za osobu",
+    "en": "per person"
+  },
+  "offer_title": {
+    "cs": "Týmové portréty",
+    "en": "Team portraits"
+  },
   "example_label": {
     "cs": "Příklad: portréty týmu ve vaší firmě",
     "en": "Example: team portraits at your office"
@@ -52,6 +61,42 @@
     "cs": "Minimální objednávka 10 osob (12 000 Kč). Nejsem plátce DPH, cena je konečná.",
     "en": "Minimum 10 people (€490). I’m not a VAT payer, so the price is final."
   },
+  "offer2": {
+    "title": {
+      "cs": "Individuální business portrét",
+      "en": "Individual business portrait"
+    },
+    "text": {
+      "cs": "Pro zakladatele, manažery a řečníky, kteří potřebují portrét pro web, LinkedIn, média nebo konferenci.",
+      "en": "For founders, executives and speakers who need a portrait for their website, LinkedIn, the press or a conference."
+    },
+    "example_label": {
+      "cs": "Příklad: hodinové focení",
+      "en": "Example: a one-hour session"
+    },
+    "price_czk": 4500,
+    "price_eur": 190,
+    "price_unit": null,
+    "includes": {
+      "cs": [
+        "konzultace oblečení a stylu předem",
+        "cca 1 hodina focení",
+        "5 retušovaných portrétů",
+        "dodání do 5 pracovních dnů"
+      ],
+      "en": [
+        "advice on clothing and style beforehand",
+        "about 1 hour of shooting",
+        "5 retouched portraits",
+        "delivery within 5 working days"
+      ]
+    },
+    "note": {
+      "cs": "Fotíme ve vaší kanceláři nebo na domluvené lokaci v Praze.",
+      "en": "We shoot at your office or an agreed location in Prague."
+    }
+  },
+  "timeline_title": null,
   "timeline": [
     {
       "when": {
@@ -97,35 +142,43 @@
     }
   ],
   "hero": {
-    "src": "/images/portrait-02.jpg",
+    "src": "/images/conferences-12.jpg",
     "alt": {
-      "cs": "Portrét ženy z profilu v teplém světle",
-      "en": "A woman in profile, warm light on her cheek"
+      "cs": "Fotografie týmu společnosti",
+      "en": "Photo of a company's team"
     }
   },
   "card_image": {
-    "src": "/images/portrait-02.jpg",
+    "src": "/images/conferences-14.jpg",
     "alt": {
-      "cs": "Portrét ženy z profilu v teplém světle",
-      "en": "A woman in profile, warm light on her cheek"
+      "cs": "Fotografie staršího muže ve vedoucí roli",
+      "en": "Photo of a senior man in a leadership role"
     }
   },
   "gallery": [
     {
-      "src": "/images/portrait-02.jpg",
+      "src": "/images/conferences-14.jpg",
       "alt": {
-        "cs": "Portrét ženy z profilu v teplém světle",
-        "en": "A woman in profile, warm light on her cheek"
+        "cs": "Fotografie staršího muže ve vedoucí roli",
+        "en": "Photo of a senior man in a leadership role"
       }
     },
     {
-      "src": "/images/portrait-07.jpg",
+      "src": "/images/conferences-13.jpg",
       "alt": {
-        "cs": "Portrét ženy ve stínu, pohled přes rameno",
-        "en": "A dark-haired woman in shadow, looking over her shoulder"
+        "cs": "Ženy ve vedoucích pozicích na pozadí značkové společnosti",
+        "en": "Women in leadership against a branded company's backdrop"
+      }
+    },
+    {
+      "src": "/images/conferences-12.jpg",
+      "alt": {
+        "cs": "Fotografie týmu společnosti",
+        "en": "Photo of a company's team"
       }
     }
   ],
+  "extra": null,
   "faqs": [
     {
       "q": {
@@ -167,47 +220,5 @@
         "en": "Yes, I invoice as a company, Third Place Labs s.r.o. I’m not a VAT payer, so the prices shown are final."
       }
     }
-  ],
-  "offer_title": {
-    "cs": "Týmové portréty",
-    "en": "Team portraits"
-  },
-  "price_unit": {
-    "cs": "za osobu",
-    "en": "per person"
-  },
-  "offer2": {
-    "title": {
-      "cs": "Individuální business portrét",
-      "en": "Individual business portrait"
-    },
-    "text": {
-      "cs": "Pro zakladatele, manažery a řečníky, kteří potřebují portrét pro web, LinkedIn, média nebo konferenci.",
-      "en": "For founders, executives and speakers who need a portrait for their website, LinkedIn, the press or a conference."
-    },
-    "example_label": {
-      "cs": "Příklad: hodinové focení",
-      "en": "Example: a one-hour session"
-    },
-    "price_czk": 4500,
-    "price_eur": 190,
-    "includes": {
-      "cs": [
-        "konzultace oblečení a stylu předem",
-        "cca 1 hodina focení",
-        "5 retušovaných portrétů",
-        "dodání do 5 pracovních dnů"
-      ],
-      "en": [
-        "advice on clothing and style beforehand",
-        "about 1 hour of shooting",
-        "5 retouched portraits",
-        "delivery within 5 working days"
-      ]
-    },
-    "note": {
-      "cs": "Fotíme ve vaší kanceláři nebo na domluvené lokaci v Praze.",
-      "en": "We shoot at your office or an agreed location in Prague."
-    }
-  }
+  ]
 }
