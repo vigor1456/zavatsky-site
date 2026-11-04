@@ -12,6 +12,8 @@
     "@fontsource-variable/brygada-1918": "^5.3.0",
     "@fontsource-variable/fraunces": "^5.3.0",
     "@fontsource-variable/instrument-sans": "^5.3.0",
+    "@fontsource-variable/league-gothic": "^5.3.0",
+    "@fontsource-variable/libre-franklin": "^5.3.0",
     "@fontsource-variable/schibsted-grotesk": "^5.3.0",
     "@netlify/blobs": "^11.1.7",
     "@pdf-lib/fontkit": "^1.1.1",

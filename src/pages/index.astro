@@ -37,7 +37,7 @@ const graph = [{ '@type': 'WebPage', '@id': SITE + '/#home', url: SITE + '/', na
   .door::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, var(--ground) 0%, rgba(18,18,18,.9) 20%, rgba(18,18,18,.45) 42%, rgba(18,18,18,0) 62%); }
   .door-text { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 14px; padding: 0 var(--pad) clamp(36px, 5vw, 64px); max-width: 40rem; }
   .door.d-vz .door-text { padding-left: max(var(--pad), calc((100vw - var(--max)) / 2 + var(--pad))); max-width: calc(40rem + max(0px, (100vw - var(--max)) / 2)); }
-  .door-name { font-family: var(--serif); font-weight: 300; font-size: clamp(2.6rem, 4.6vw, 4.6rem); line-height: 1; }
+  .door-name { font-family: var(--serif); font-weight: 400; font-size: clamp(2.8rem, 5.2vw, 5.4rem); line-height: .95; text-transform: uppercase; }
   .door-enter { align-self: flex-start; border-bottom: 1px solid var(--accent); padding-bottom: 3px; font-size: 15px; }
   .door + .door { border-left: 1px solid var(--ground); }
   .door.d-vz { --accent: var(--vz); }
