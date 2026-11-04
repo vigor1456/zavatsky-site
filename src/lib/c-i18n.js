@@ -42,3 +42,17 @@ export function listPrice(s, lang) {
   const amount = comparable && typeof main === 'number' ? Math.min(main, alt) : (typeof main === 'number' ? main : (comparable ? alt : null));
   return { amount, unit: amount === main ? d.price_unit?.[lang] || '' : '' };
 }
+
+// Czech typesetting rule: a one-letter preposition or conjunction (k, s, v, z, o, u, a, i) never ends a line.
+// A non-breaking space ties it to the next word. Applied to every Czech text in the commercial section,
+// including texts entered later in the CMS.
+const czTie = (t) => t.replace(/(^|[\s(„“"])([ksvzouaiKSVZOUAI])\s+(?=\S)/g, '$1$2\u00A0');
+export function cz(v, isCzech = false) {
+  if (typeof v === 'string') return isCzech ? czTie(czTie(v)) : v;
+  if (Array.isArray(v)) return v.map((x) => cz(x, isCzech));
+  if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, cz(x, isCzech || k === 'cs')]));
+  return v;
+}
+
+// Apply the Czech tie rule to the Czech interface texts too.
+UI.cs = cz(UI.cs, true);

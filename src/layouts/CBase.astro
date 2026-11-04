@@ -1,17 +1,17 @@
 ---
 // Layout for the commercial section: light theme, separate language pages (cs / en), linked for Google.
-import '@fontsource-variable/fraunces/opsz.css';
-import '@fontsource-variable/instrument-sans';
+import '@fontsource-variable/brygada-1918';
+import '@fontsource-variable/schibsted-grotesk';
 import '../styles/commercial.css';
 import Consent from '../components/Consent.astro';
 import Viewer from '../components/Viewer.astro';
 import { SITE, abs, VZ } from '../lib/site.js';
-import { UI, BUSINESS_ID, svcPath, listPrice } from '../lib/c-i18n.js';
+import { UI, BUSINESS_ID, svcPath, listPrice, cz } from '../lib/c-i18n.js';
 import { getCollection } from 'astro:content';
 
 const { lang = 'cs', title, description, path, altPath, image = '/images/commercial/event-host.jpg', imageAlt = '', graph = [], current = '', noindex = false, viewer = false, serviceId = '' } = Astro.props;
 const t = UI[lang];
-const menuServices = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const menuServices = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order).map((x) => ({ ...x, data: cz(x.data) }));
 const menuPrice = (x) => (lang === 'cs' ? x.data.price_czk : x.data.price_eur);
 const csPath = lang === 'cs' ? path : altPath;
 const enPath = lang === 'en' ? path : altPath;

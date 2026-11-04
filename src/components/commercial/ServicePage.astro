@@ -4,18 +4,18 @@ import CBase from '../../layouts/CBase.astro';
 import Pic from '../Pic.astro';
 import Reviews from './Reviews.astro';
 import Enquiry from './Enquiry.astro';
-import { UI, svcPath, BUSINESS_ID, listPrice } from '../../lib/c-i18n.js';
+import { UI, svcPath, BUSINESS_ID, listPrice, cz } from '../../lib/c-i18n.js';
 import { SITE, abs, describe } from '../../lib/site.js';
 import { cdn, srcset } from '../../lib/img.js';
 import { ar } from '../../lib/ar.js';
 
 const { lang = 'cs', svc } = Astro.props;
 const t = UI[lang];
-const d = svc.data;
-const all = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const d = cz(svc.data);
+const all = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order).map((s) => ({ ...s, data: cz(s.data) }));
 const others = all.filter((s) => s.id !== svc.id);
 const reviews = (await getCollection('reviews', ({ data }) => data.services.includes(svc.id)))
-  .sort((a, b) => (a.data.lang === lang ? 0 : 1) - (b.data.lang === lang ? 0 : 1) || a.data.order - b.data.order).slice(0, 3);
+  .sort((a, b) => (a.data.lang === lang ? 0 : 1) - (b.data.lang === lang ? 0 : 1) || a.data.order - b.data.order).slice(0, 3).map((r) => ({ ...r, data: { ...r.data, quote: cz(r.data.quote, r.data.lang === 'cs') } }));
 const price = (s) => (lang === 'cs' ? s.data.price_czk : s.data.price_eur);
 const o2 = d.offer2;
 const o2price = o2 ? (lang === 'cs' ? o2.price_czk : o2.price_eur) : null;
