@@ -251,7 +251,9 @@ body.v-lock { overflow: hidden; }
 @media (max-width: 860px) {
   .c-open, .revs2, .duo, .formwrap { grid-template-columns: 1fr; }
   .strip { overflow-x: auto; scroll-snap-type: x mandatory; }
-  .strip a { flex: 0 0 auto; scroll-snap-align: start; } .strip img { width: auto; height: 300px; aspect-ratio: var(--arr, 3 / 2); }
+  .strip { scroll-padding-left: var(--pad); }
+  .strip a { flex: 0 0 auto; width: min(78vw, calc(300px * var(--arr, 1.5))); scroll-snap-align: start; }
+  .strip img { width: 100%; height: auto; aspect-ratio: var(--arr, 3 / 2); }
   .irow { grid-template-columns: 88px minmax(0, 1fr) auto; gap: 16px; } .irow img { width: 88px; height: 66px; } .irow p { display: none; }
   .track { grid-template-columns: 1fr; gap: 0; } .track::before { left: 9px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; }
   .track .node { padding: 0 0 28px 40px; } .track .node::before { top: 2px; }
