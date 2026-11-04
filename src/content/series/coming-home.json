@@ -39,6 +39,11 @@
   ],
   "images": [
     {
+      "src": "/images/coming home-10.jpg",
+      "alt": "Cigarette, fingers and lips",
+      "layout": "auto"
+    },
+    {
       "src": "/images/coming home-01.jpg",
       "alt": "A young woman on the staircase",
       "layout": "auto"
@@ -86,11 +91,6 @@
     {
       "src": "/images/coming home-04.jpg",
       "alt": "Afterthoughts",
-      "layout": "auto"
-    },
-    {
-      "src": "/images/coming home-10.jpg",
-      "alt": "Cigarette, fingers and lips",
       "layout": "auto"
     }
   ]
