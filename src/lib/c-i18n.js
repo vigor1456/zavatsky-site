@@ -31,3 +31,14 @@ export const UI = {
   },
 };
 export const svcPath = (lang, s) => `${UI[lang].base}/${lang === 'cs' ? s.data.slug_cs : s.data.slug_en}`;
+
+// Starting price shown in overviews (hub filmstrip and index, menu, other-services rows).
+// A second offer only lowers it when neither offer has a unit ("per person", "for 2 hours"):
+// that keeps add-ons like the headshot corner from looking like the service's own starting price.
+export function listPrice(s, lang) {
+  const d = s.data, cur = (x) => (lang === 'cs' ? x?.price_czk : x?.price_eur);
+  const main = cur(d), alt = cur(d.offer2);
+  const comparable = typeof alt === 'number' && !d.price_unit && !d.offer2?.price_unit;
+  const amount = comparable && typeof main === 'number' ? Math.min(main, alt) : (typeof main === 'number' ? main : (comparable ? alt : null));
+  return { amount, unit: amount === main ? d.price_unit?.[lang] || '' : '' };
+}

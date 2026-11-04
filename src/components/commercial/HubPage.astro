@@ -4,7 +4,7 @@ import CBase from '../../layouts/CBase.astro';
 import Pic from '../Pic.astro';
 import Reviews from './Reviews.astro';
 import Enquiry from './Enquiry.astro';
-import { UI, svcPath, BUSINESS_ID } from '../../lib/c-i18n.js';
+import { UI, svcPath, BUSINESS_ID, listPrice } from '../../lib/c-i18n.js';
 import { SITE, VZ, describe } from '../../lib/site.js';
 import { ar } from '../../lib/ar.js';
 
@@ -46,7 +46,7 @@ const graph = [
       return (
         <a href={svcPath(lang, s)} style={`--ar:${r};--arr:${r}`}>
           <Pic src={im.src} alt={im.alt?.[lang] || s.data.title[lang]} eager={i < 3} sizes="(max-width: 860px) 70vw, 28vw" fallback={1200} />
-          <span class="cap"><strong>{s.data.title[lang]}</strong>{price(s) && <span>{t.from} {t.currency(price(s))}</span>}</span>
+          <span class="cap"><strong>{s.data.title[lang]}</strong>{listPrice(s, lang).amount && <span>{t.from} {t.currency(listPrice(s, lang).amount)}{listPrice(s, lang).unit && ` ${listPrice(s, lang).unit}`}</span>}</span>
         </a>
       );
     })}
@@ -69,7 +69,7 @@ const graph = [
           <Pic src={(s.data.card_image || s.data.hero).src} alt="" sizes="132px" fallback={480} />
           <h3>{s.data.title[lang]}</h3>
           <p>{s.data.card[lang]}</p>
-          <span class="pr">{price(s) ? `${t.from} ${t.currency(price(s))}` : ''}<span>{t.detail}</span></span>
+          <span class="pr">{listPrice(s, lang).amount ? `${t.from} ${t.currency(listPrice(s, lang).amount)}${listPrice(s, lang).unit ? ' ' + listPrice(s, lang).unit : ''}` : ''}<span>{t.detail}</span></span>
         </a>
       ))}
     </div>

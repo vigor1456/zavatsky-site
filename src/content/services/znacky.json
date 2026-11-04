@@ -3,29 +3,29 @@
   "slug_cs": "znacky",
   "slug_en": "brands",
   "title": {
-    "cs": "Značky a produkty",
-    "en": "Brands and products"
+    "cs": "Značky a tvůrci",
+    "en": "Brands and creators"
   },
   "h1": {
-    "cs": "Fotografie pro značky a produkty",
-    "en": "Photography for brands and products"
+    "cs": "Fotografie pro značky a tvůrce",
+    "en": "Photography for brands and creators"
   },
   "tagline": null,
   "card": {
-    "cs": "Produktové a propagační fotografie, kampaně, lookbooky.",
-    "en": "Product and promotional photos, campaigns, lookbooks."
+    "cs": "Produktové a propagační fotky, kampaně a vizuální obsah pro tvůrce.",
+    "en": "Product and promotional photos, campaigns and visual content for creators."
   },
   "intro": {
-    "cs": "Produktové a propagační fotografie, kampaně a lookbooky pro módní značky. Každé focení začíná konzultací konceptu, aby fotky odpovídaly vaší značce.",
-    "en": "Product and promotional photos, campaigns and lookbooks for fashion brands. Every shoot starts with a concept consultation, so the images fit your brand."
+    "cs": "Pro značky produktové a propagační fotografie, kampaně a lookbooky. Pro tvůrce focení, které vyjádří váš styl, světlem a příběhem. Každé focení začíná konzultací konceptu.",
+    "en": "For brands, product and promotional photos, campaigns and lookbooks. For creators, a shoot that expresses your style through light and story. Every shoot starts with a concept consultation."
   },
   "seo_title": {
-    "cs": "Fotograf pro značky a produktové focení v Praze | Vadim Zavatsky",
-    "en": "Brand & Product Photographer in Prague | Vadim Zavatsky"
+    "cs": "Fotograf pro značky a tvůrce obsahu v Praze | Vadim Zavatsky",
+    "en": "Brand & Creator Photographer in Prague | Vadim Zavatsky"
   },
   "seo_description": {
-    "cs": "Produktové a propagační focení, kampaně a lookbooky v Praze. Půldenní focení s konzultací konceptu od 15 000 Kč.",
-    "en": "Product and promotional photography, campaigns and lookbooks in Prague. Half-day shoots with a concept consultation from €600."
+    "cs": "Produktové a propagační focení pro značky od 15 000 Kč a kreativní focení pro tvůrce a influencery od 12 000 Kč. Praha.",
+    "en": "Product and promotional photography for brands from €600, and creative shoots for creators and influencers from €490. Prague."
   },
   "price_czk": 15000,
   "price_eur": 600,
@@ -178,6 +178,16 @@
     },
     {
       "q": {
+        "cs": "Můžeme fotky použít na kalendář nebo jiný produkt?",
+        "en": "Can we use the photos on a calendar or another product?"
+      },
+      "a": {
+        "cs": "Ano. Použití na produktech, které prodáváte, licencuji zvlášť: podle produktu, nákladu a doby použití. Pošlu vám nabídku na míru.",
+        "en": "Yes. Use on products you sell is licensed separately, based on the product, print run and duration. I’ll send you a tailored quote."
+      }
+    },
+    {
+      "q": {
         "cs": "Zajistíte i modely a stylisty?",
         "en": "Can you arrange models and stylists?"
       },
@@ -196,5 +206,45 @@
         "en": "Yes, I invoice as a company, Third Place Labs s.r.o. I’m not a VAT payer, so the prices shown are final."
       }
     }
-  ]
+  ],
+  "offer_title": {
+    "cs": "Pro značky",
+    "en": "For brands"
+  },
+  "offer2": {
+    "title": {
+      "cs": "Pro tvůrce",
+      "en": "For creators"
+    },
+    "text": {
+      "cs": "Pro ty, kdo se chtějí vyjádřit obrazem: vlastním stylem, světlem a příběhem, ne další standardní fotkou. Společně najdeme koncept, který sedí k vám a k tomu, co tvoříte.",
+      "en": "For people who want to express themselves through images: with their own style, light and story, not another standard photo. Together we find a concept that fits you and what you create."
+    },
+    "example_label": {
+      "cs": "Příklad: kreativní focení",
+      "en": "Example: a creative session"
+    },
+    "price_czk": 12000,
+    "price_eur": 490,
+    "includes": {
+      "cs": [
+        "konzultace konceptu a stylingu",
+        "cca 3 hodiny focení",
+        "20 retušovaných fotografií",
+        "použití na vašich sociálních sítích a pro propagaci",
+        "dodání do 5 pracovních dnů"
+      ],
+      "en": [
+        "concept and styling consultation",
+        "about 3 hours of shooting",
+        "20 retouched photos",
+        "use on your own social media and for promotion",
+        "delivery within 5 working days"
+      ]
+    },
+    "note": {
+      "cs": "Pokud mají fotky skončit na produktu, který prodáváte, třeba na kalendáři nebo plakátu, domluvíme licenci zvlášť, podle produktu a nákladu.",
+      "en": "If the photos are going onto a product you sell, like a calendar or poster, we agree a licence separately, based on the product and print run."
+    }
+  }
 }

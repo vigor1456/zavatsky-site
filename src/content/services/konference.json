@@ -252,5 +252,43 @@
         "en": "Yes, across Czechia, Slovakia and abroad. Any travel costs are always stated in the quote."
       }
     }
-  ]
+  ],
+  "offer2": {
+    "title": {
+      "cs": "Headshot koutek na vaší akci",
+      "en": "A headshot corner at your event"
+    },
+    "text": {
+      "cs": "Během přestávek si řečníci i hosté nechají udělat profesionální portrét na LinkedIn nebo web, v jednoduchém ateliéru vedle programu. Pro hosty je to vítaný bonus a pro partnery akce místo pro jejich logo.",
+      "en": "During the breaks, speakers and guests get a professional portrait for LinkedIn or their website, in a simple studio next to the programme. Guests love the extra, and event partners get a place for their logo."
+    },
+    "example_label": {
+      "cs": "Doplněk k focení akce",
+      "en": "Add-on to event coverage"
+    },
+    "price_czk": 8000,
+    "price_eur": 330,
+    "price_unit": {
+      "cs": "za 2 hodiny",
+      "en": "for 2 hours"
+    },
+    "includes": {
+      "cs": [
+        "mobilní ateliér s jednotným světlem a pozadím",
+        "cca 40 portrétů za 2 hodiny",
+        "upravené portréty do 5 pracovních dnů",
+        "každá další hodina 3 000 Kč"
+      ],
+      "en": [
+        "a mobile studio with consistent light and background",
+        "around 40 portraits in 2 hours",
+        "edited portraits within 5 working days",
+        "each extra hour €125"
+      ]
+    },
+    "note": {
+      "cs": "Pozadí s logem partnera akce můžeme domluvit.",
+      "en": "A backdrop with an event partner’s logo can be arranged."
+    }
+  }
 }

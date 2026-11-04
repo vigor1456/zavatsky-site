@@ -269,3 +269,6 @@ body.v-lock { overflow: hidden; }
 
 /* Desktop: give the hero text room from the photo; the panel reaches left, the text stays on the grid */
 @media (min-width: 861px) { .panel { margin-left: calc(-1 * clamp(28px, 2.6vw, 44px)); padding-left: clamp(28px, 2.6vw, 44px); } }
+
+.offer-title { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.price .amount .unit { font-family: var(--sans); font-size: 17px; font-weight: 500; color: var(--ink2); white-space: nowrap; }

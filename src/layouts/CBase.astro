@@ -6,7 +6,7 @@ import '../styles/commercial.css';
 import Consent from '../components/Consent.astro';
 import Viewer from '../components/Viewer.astro';
 import { SITE, abs, VZ } from '../lib/site.js';
-import { UI, BUSINESS_ID, svcPath } from '../lib/c-i18n.js';
+import { UI, BUSINESS_ID, svcPath, listPrice } from '../lib/c-i18n.js';
 import { getCollection } from 'astro:content';
 
 const { lang = 'cs', title, description, path, altPath, image = '/images/commercial/event-host.jpg', imageAlt = '', graph = [], current = '', noindex = false, viewer = false, serviceId = '' } = Astro.props;
@@ -71,7 +71,7 @@ const nav = [
           <ul class="ch-svcs">
             {menuServices.map((x) => (
               <li><a href={svcPath(lang, x)} aria-current={serviceId === x.id ? 'page' : undefined}>
-                <span>{x.data.title[lang]}</span>{menuPrice(x) && <span class="ch-p">{t.from} {t.currency(menuPrice(x))}</span>}
+                <span>{x.data.title[lang]}</span>{listPrice(x, lang).amount && <span class="ch-p">{t.from} {t.currency(listPrice(x, lang).amount)}{listPrice(x, lang).unit && ` ${listPrice(x, lang).unit}`}</span>}
               </a></li>
             ))}
           </ul>

@@ -119,7 +119,13 @@ const services = defineCollection({
     title: T, h1: T, tagline: T.optional(), card: T, intro: T, timeline_title: T.optional(),
     seo_title: T, seo_description: T,
     price_czk: z.number().optional(), price_eur: z.number().optional(),
+    offer_title: T.optional(), price_unit: T.optional(),
     example_label: T, includes: TL, price_note: T,
+    offer2: z.object({
+      title: T, text: T.optional(), example_label: T,
+      price_czk: z.number().optional(), price_eur: z.number().optional(), price_unit: T.optional(),
+      includes: TL, note: T.optional(),
+    }).optional(),
     timeline: z.array(z.object({ when: T, title: T, text: T })).default([]),
     hero: img, card_image: img.optional(),
     gallery: z.array(img).default([]),

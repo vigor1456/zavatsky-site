@@ -3,52 +3,54 @@
   "slug_cs": "portrety",
   "slug_en": "portraits",
   "title": {
-    "cs": "Portréty pro profesionály",
-    "en": "Portraits for professionals"
+    "cs": "Firemní portréty",
+    "en": "Corporate portraits"
   },
   "h1": {
-    "cs": "Portréty pro zakladatele, manažery a kreativce",
-    "en": "Portraits for founders, executives and creatives"
+    "cs": "Firemní portréty a headshoty v Praze",
+    "en": "Corporate portraits and headshots in Prague"
   },
   "card": {
-    "cs": "Pro zakladatele, manažery, řečníky a kreativce.",
-    "en": "For founders, executives, speakers and creatives."
+    "cs": "Týmové portréty ve vaší firmě i individuální business portréty.",
+    "en": "Team portraits at your office and individual business portraits."
   },
   "intro": {
-    "cs": "Portréty pro osobní značku, web, média a konference. Konzultace předem, vedení při focení a fotky, které působí sebevědomě a přirozeně.",
-    "en": "Portraits for your personal brand, website, press and conferences. A consultation beforehand, direction during the shoot, and images that look confident and natural."
+    "cs": "Jednotné portréty celého týmu přímo ve vaší firmě, nebo individuální business portrét pro web, LinkedIn a média. Rychle, bez přecházení do ateliéru.",
+    "en": "Consistent portraits of your whole team at your own office, or an individual business portrait for your website, LinkedIn and the press. Quick, with no trip to a studio."
   },
   "seo_title": {
-    "cs": "Business portréty a personal branding v Praze | Vadim Zavatsky",
-    "en": "Business Portraits & Personal Branding in Prague | Vadim Zavatsky"
+    "cs": "Firemní portréty a headshoty v Praze | Vadim Zavatsky",
+    "en": "Corporate Portraits & Headshots in Prague | Vadim Zavatsky"
   },
   "seo_description": {
-    "cs": "Business portréty a personal branding v Praze pro zakladatele, manažery a řečníky. Dvouhodinové focení s konzultací a 10 retušovaných portrétů od 9 000 Kč.",
-    "en": "Business portraits and personal branding in Prague for founders, executives and speakers. A two-hour session with consultation and 10 retouched portraits from €370."
+    "cs": "Firemní portréty týmu přímo ve vaší firmě od 1 200 Kč za osobu a individuální business portréty od 4 500 Kč. Praha a celé Česko.",
+    "en": "Team headshots at your office from €50 per person and individual business portraits from €190. Prague and across Czechia."
   },
-  "price_czk": 9000,
-  "price_eur": 370,
+  "price_czk": 1200,
+  "price_eur": 50,
   "example_label": {
-    "cs": "Příklad: portrétní focení",
-    "en": "Example: a portrait session"
+    "cs": "Příklad: portréty týmu ve vaší firmě",
+    "en": "Example: team portraits at your office"
   },
   "includes": {
     "cs": [
-      "konzultace před focením",
-      "2 hodiny focení, více lokací nebo outfitů",
-      "10 retušovaných portrétů",
-      "dodání do 5 pracovních dnů"
+      "mobilní ateliér přímo ve vaší firmě",
+      "jednotné světlo a pozadí pro celý tým",
+      "1 retušovaný portrét na osobu",
+      "dodání do 5 pracovních dnů",
+      "licence pro web, LinkedIn a tisk"
     ],
     "en": [
-      "consultation before the shoot",
-      "2-hour session, several looks or locations",
-      "10 retouched portraits",
-      "delivery within 5 working days"
+      "a mobile studio set up at your office",
+      "consistent light and background for the whole team",
+      "1 retouched portrait per person",
+      "delivery within 5 working days",
+      "licence for web, LinkedIn and print"
     ]
   },
   "price_note": {
-    "cs": "Cenu ovlivňuje délka focení a počet lokací. Nejsem plátce DPH, cena je konečná.",
-    "en": "The price depends on the length of the session and the number of locations. I’m not a VAT payer, so the price is final."
+    "cs": "Minimální objednávka 10 osob (12 000 Kč). Nejsem plátce DPH, cena je konečná.",
+    "en": "Minimum 10 people (€490). I’m not a VAT payer, so the price is final."
   },
   "timeline": [
     {
@@ -57,12 +59,12 @@
         "en": "Before"
       },
       "title": {
-        "cs": "Konzultace",
-        "en": "Consultation"
+        "cs": "Domluva",
+        "en": "Planning"
       },
       "text": {
-        "cs": "K čemu portréty budou, jaký dojem mají vyvolat, co si vzít na sebe.",
-        "en": "What the portraits are for, the impression they should make, what to wear."
+        "cs": "Počet lidí, místo, oblečení a jednotný styl pro celý tým.",
+        "en": "Number of people, location, clothing and one consistent look for the team."
       }
     },
     {
@@ -71,12 +73,12 @@
         "en": "The shoot"
       },
       "title": {
-        "cs": "Vedení",
-        "en": "Direction"
+        "cs": "Mobilní ateliér",
+        "en": "Mobile studio"
       },
       "text": {
-        "cs": "Pomůžu vám s pózou i výrazem, abyste se cítili přirozeně.",
-        "en": "I guide your posture and expression so you feel at ease."
+        "cs": "Postavím ateliér u vás, každý je na řadě jen pár minut.",
+        "en": "I set up a studio at your office; each person needs only a few minutes."
       }
     },
     {
@@ -89,8 +91,8 @@
         "en": "Final portraits"
       },
       "text": {
-        "cs": "Retušované fotky pro web, LinkedIn, média i tisk.",
-        "en": "Retouched images for web, LinkedIn, press and print."
+        "cs": "Retušované portréty ve formátech pro web, LinkedIn i tisk.",
+        "en": "Retouched portraits sized for web, LinkedIn and print."
       }
     }
   ],
@@ -137,12 +139,22 @@
     },
     {
       "q": {
-        "cs": "Fotíte i celé týmy?",
-        "en": "Do you photograph whole teams?"
+        "cs": "Kolik lidí zvládnete za den?",
+        "en": "How many people can you photograph in a day?"
       },
       "a": {
-        "cs": "Ano, firemní portréty týmu nacením podle počtu lidí a místa focení.",
-        "en": "Yes, team portraits are priced by the number of people and the location."
+        "cs": "Obvykle desítky. Každý člověk potřebuje jen několik minut, přesný plán připravím podle počtu lidí a vašeho programu.",
+        "en": "Usually dozens. Each person needs only a few minutes; I’ll plan the schedule around your team size and your day."
+      }
+    },
+    {
+      "q": {
+        "cs": "Fotíte portréty i během konference?",
+        "en": "Can you photograph headshots during a conference?"
+      },
+      "a": {
+        "cs": "Ano, jako headshot koutek během přestávek. Najdete ho u konferencí a firemních akcí.",
+        "en": "Yes, as a headshot corner during the breaks. You’ll find it under conferences and corporate events."
       }
     },
     {
@@ -155,5 +167,47 @@
         "en": "Yes, I invoice as a company, Third Place Labs s.r.o. I’m not a VAT payer, so the prices shown are final."
       }
     }
-  ]
+  ],
+  "offer_title": {
+    "cs": "Týmové portréty",
+    "en": "Team portraits"
+  },
+  "price_unit": {
+    "cs": "za osobu",
+    "en": "per person"
+  },
+  "offer2": {
+    "title": {
+      "cs": "Individuální business portrét",
+      "en": "Individual business portrait"
+    },
+    "text": {
+      "cs": "Pro zakladatele, manažery a řečníky, kteří potřebují portrét pro web, LinkedIn, média nebo konferenci.",
+      "en": "For founders, executives and speakers who need a portrait for their website, LinkedIn, the press or a conference."
+    },
+    "example_label": {
+      "cs": "Příklad: hodinové focení",
+      "en": "Example: a one-hour session"
+    },
+    "price_czk": 4500,
+    "price_eur": 190,
+    "includes": {
+      "cs": [
+        "konzultace oblečení a stylu předem",
+        "cca 1 hodina focení",
+        "5 retušovaných portrétů",
+        "dodání do 5 pracovních dnů"
+      ],
+      "en": [
+        "advice on clothing and style beforehand",
+        "about 1 hour of shooting",
+        "5 retouched portraits",
+        "delivery within 5 working days"
+      ]
+    },
+    "note": {
+      "cs": "Fotíme ve vaší kanceláři nebo na domluvené lokaci v Praze.",
+      "en": "We shoot at your office or an agreed location in Prague."
+    }
+  }
 }

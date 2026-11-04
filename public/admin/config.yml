@@ -822,6 +822,32 @@ collections:
     widget: number
     value_type: int
     required: false
+  - name: price_unit
+    label: Price unit (optional)
+    widget: object
+    collapsed: false
+    fields:
+    - name: cs
+      label: Czech
+      widget: string
+    - name: en
+      label: English
+      widget: string
+    required: false
+    hint: Shown after the price, e.g. "za osobu" / "per person".
+  - name: offer_title
+    label: Label above the price (optional)
+    widget: object
+    collapsed: false
+    fields:
+    - name: cs
+      label: Czech
+      widget: string
+    - name: en
+      label: English
+      widget: string
+    required: false
+    hint: e.g. "Pro značky" / "For brands". Useful when the page has two offers.
   - name: example_label
     label: Price example label
     widget: object
@@ -862,6 +888,99 @@ collections:
     - name: en
       label: English
       widget: text
+  - name: offer2
+    label: Second offer (optional)
+    widget: object
+    required: false
+    collapsed: true
+    hint: A second offer with its own price card, e.g. "Pro tvůrce" or the headshot corner.
+    fields:
+    - name: title
+      label: Title
+      widget: object
+      collapsed: false
+      fields:
+      - name: cs
+        label: Czech
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: text
+      label: Text
+      widget: object
+      collapsed: false
+      fields:
+      - name: cs
+        label: Czech
+        widget: text
+      - name: en
+        label: English
+        widget: text
+      required: false
+    - name: example_label
+      label: Price example label
+      widget: object
+      collapsed: false
+      fields:
+      - name: cs
+        label: Czech
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: price_czk
+      label: Starting price in CZK
+      widget: number
+      value_type: int
+      required: false
+    - name: price_eur
+      label: Starting price in EUR
+      widget: number
+      value_type: int
+      required: false
+    - name: price_unit
+      label: Price unit (optional)
+      widget: object
+      collapsed: false
+      fields:
+      - name: cs
+        label: Czech
+        widget: string
+      - name: en
+        label: English
+        widget: string
+      required: false
+    - name: includes
+      label: What it includes
+      widget: object
+      fields:
+      - name: cs
+        label: Czech
+        widget: list
+        field:
+          name: item
+          label: Item
+          widget: string
+      - name: en
+        label: English
+        widget: list
+        field:
+          name: item
+          label: Item
+          widget: string
+    - name: note
+      label: Note (optional)
+      widget: object
+      collapsed: false
+      fields:
+      - name: cs
+        label: Czech
+        widget: text
+      - name: en
+        label: English
+        widget: text
+      required: false
   - name: timeline_title
     label: Timeline heading (optional)
     widget: object
