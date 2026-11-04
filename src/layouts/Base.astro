@@ -24,6 +24,10 @@ const ld = { '@context': 'https://schema.org', '@graph': [...personGraph(), ...g
 <title>{title}</title>
 <meta name="description" content={description}>
 <link rel="canonical" href={canonical}>
+<script is:inline>
+  // The opening "developing print" plays once per visit for each page.
+  try { var k = 'dev:' + location.pathname; if (sessionStorage.getItem(k)) document.documentElement.classList.add('seen'); else sessionStorage.setItem(k, '1'); } catch (e) {}
+</script>
 {noindex && <meta name="robots" content="noindex">}
 <meta name="theme-color" content="#121212">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -56,7 +60,7 @@ const ld = { '@context': 'https://schema.org', '@graph': [...personGraph(), ...g
   function apply(){
     document.documentElement.lang=lang;
     document.querySelectorAll('[data-en]').forEach(function(el){
-      var v=el.getAttribute(lang==='en'?'data-en':'data-cs'); if(v!=null) el.innerHTML=v;
+      var v=el.getAttribute(lang==='en'?'data-en':'data-cs'); if(v!=null){ if(lang==='cs') v=v.replace(/(^|[\s(„“"])([ksvzouaiKSVZOUAI])\s+(?=\S)/g,'$1$2\u00a0').replace(/(^|[\s(„“"])([ksvzouaiKSVZOUAI])\s+(?=\S)/g,'$1$2\u00a0'); el.innerHTML=v; }
     });
     document.querySelectorAll('[data-alt-cs]').forEach(function(el){
       el.alt=el.getAttribute(lang==='en'?'data-alt-en':'data-alt-cs');
