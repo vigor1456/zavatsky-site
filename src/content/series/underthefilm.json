@@ -2,7 +2,7 @@
   "title": "Under the Film",
   "title_cs": "Pod fólií",
   "order": 30,
-  "date": "",
+  "date": "2025-10-15",
   "cover": "/images/people-06.jpg",
   "cover_alt": "A face pressed behind clear plastic film, lit red and blue",
   "card": "The masks daily life demands.",
@@ -15,6 +15,12 @@
       "text_cs": "Tváře pod maskami se vynořují jen proto, aby se v maskách opět rozplynuly. Jedna pro každou příležitost. Jedna pro rodinu, jedna pro přátele, jedna pro kolegy, jedna pro cizí lidi.",
       "after": 5,
       "align": "left"
+    },
+    {
+      "text": "One for self, looking in the mirror. There's always mask under the mask.",
+      "text_cs": "Jedna pro sebe, pro zrcadlo. Pod maskou je vždycky další maska.",
+      "after": 5,
+      "align": "right"
     }
   ],
   "credits": [
