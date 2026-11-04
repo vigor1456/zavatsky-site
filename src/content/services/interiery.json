@@ -10,6 +10,7 @@
     "cs": "Fotograf interiérů: restaurace, hotely, apartmány",
     "en": "Interior photographer for restaurants, hotels and apartments"
   },
+  "tagline": null,
   "card": {
     "cs": "Restaurace, hotely, apartmány a kanceláře.",
     "en": "Restaurants, hotels, apartments and offices."
@@ -50,6 +51,7 @@
     "cs": "Cenu ovlivňuje velikost prostoru a počet záběrů. Nejsem plátce DPH, cena je konečná.",
     "en": "The price depends on the size of the space and the number of shots. I’m not a VAT payer, so the price is final."
   },
+  "timeline_title": null,
   "timeline": [
     {
       "when": {
@@ -102,21 +104,43 @@
     }
   },
   "card_image": {
-    "src": "/images/studies-04.jpg",
+    "src": "/images/interiors-1.jpg",
     "alt": {
-      "cs": "Stůl a židle v tichém pokoji za otevřenými okenicemi",
-      "en": "A desk and chair seen through open blue shutters into a quiet room"
+      "cs": "Pohovky a stůl u okna s panoramatickým výhledem",
+      "en": "Sofas and table by the window with panoramic view"
     }
   },
   "gallery": [
     {
-      "src": "/images/studies-04.jpg",
+      "src": "/images/interiors-1.jpg",
       "alt": {
-        "cs": "Stůl a židle v tichém pokoji za otevřenými okenicemi",
-        "en": "A desk and chair seen through open blue shutters into a quiet room"
+        "cs": "Pohovky a stůl u okna s panoramatickým výhledem",
+        "en": "Sofas and table by the window with panoramic view"
+      }
+    },
+    {
+      "src": "/images/interiors-2.jpg",
+      "alt": {
+        "cs": "Hotelové lůžko s designovými zrcadly",
+        "en": "Hotel bed with designed mirrors"
+      }
+    },
+    {
+      "src": "/images/interiors-3.jpg",
+      "alt": {
+        "cs": "Židle a květiny v hotelové restauraci u okna s panoramatickým výhledem",
+        "en": "Chairs and flowers in a hotel restaurant by the window with panoramic views"
+      }
+    },
+    {
+      "src": "/images/interiors-6.jpg",
+      "alt": {
+        "cs": "Hotelová židle u okna s výhledem na město",
+        "en": "Hotel chair by the window overlooking the city"
       }
     }
   ],
+  "extra": null,
   "faqs": [
     {
       "q": {
