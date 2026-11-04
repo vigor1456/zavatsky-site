@@ -372,15 +372,38 @@ collections:
     label: Intro (Czech)
     widget: text
     required: false
-  - name: essay
-    label: Text in the middle (English)
-    widget: text
+  - name: texts
+    label: Text blocks between photos
+    label_singular: Text block
+    widget: list
     required: false
-    hint: About the series, its inspiration. Shown between the two photo blocks. Leave an empty line between paragraphs.
-  - name: essay_cs
-    label: Text in the middle (Czech)
-    widget: text
-    required: false
+    summary: 'after photo {{fields.after}}, {{fields.align}}: {{fields.text}}'
+    hint: Short texts placed between the photos. Blocks set after the same photo appear together, as one pause.
+    fields:
+    - name: text
+      label: Text (English)
+      widget: text
+    - name: text_cs
+      label: Text (Czech)
+      widget: text
+      required: false
+    - name: after
+      label: Appears after photo number
+      widget: number
+      value_type: int
+      required: false
+      hint: 'e.g. 5 = after the fifth photo. Empty: the middle of the series.'
+    - name: align
+      label: Alignment
+      widget: select
+      options:
+      - label: Left
+        value: left
+      - label: Centre
+        value: center
+      - label: Right
+        value: right
+      default: left
   - name: credits
     label: Credits
     label_singular: Credit
@@ -406,12 +429,6 @@ collections:
       widget: string
       required: false
       hint: Instagram or website, starting with https://
-  - name: splitAfter
-    label: 'Top block: number of photos'
-    widget: number
-    required: false
-    value_type: int
-    hint: How many photos sit above the text in the middle. Leave empty to keep all photos in one block.
   - name: images
     label: Photos
     label_singular: Photo
@@ -428,6 +445,26 @@ collections:
       required: false
       default: ''
       hint: One short sentence saying what is in the photo.
+    - name: layout
+      label: Layout
+      widget: select
+      default: auto
+      required: false
+      hint: Automatic picks a layout from the photo’s shape and position. Pair joins this photo with the next one.
+      options:
+      - label: Automatic
+        value: auto
+      - label: Full width
+        value: full
+      - label: Framed (centred)
+        value: framed
+      - label: Left
+        value: left
+      - label: Right
+        value: right
+      - label: Pair with next photo
+        value: pair
+    hint: The photos in order. The page lays them out as a photo essay; each photo can override its layout.
 - name: prints
   label: Prints
   label_singular: Print

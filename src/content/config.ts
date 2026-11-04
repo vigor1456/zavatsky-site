@@ -56,7 +56,16 @@ const series = defineCollection({
       url: z.string().optional(),
     })).default([]),
     splitAfter: z.number().optional(),
-    images: z.array(z.object({ src: z.string(), alt: z.string().default('') })).default([]),
+    // Text blocks placed between photos: after which photo, and aligned left, centre or right.
+    texts: z.array(z.object({
+      text: z.string(), text_cs: z.string().optional(),
+      after: z.number().optional(), align: z.enum(['left', 'center', 'right']).default('left'),
+    })).default([]),
+    // Each photo may override the automatic layout of the photo essay.
+    images: z.array(z.object({
+      src: z.string(), alt: z.string().default(''),
+      layout: z.enum(['auto', 'full', 'framed', 'left', 'right', 'pair']).default('auto'),
+    })).default([]),
   })),
 });
 const prints = defineCollection({

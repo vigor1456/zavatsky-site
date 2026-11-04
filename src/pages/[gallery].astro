@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import { ar } from '../lib/ar.js';
 import { cdn, srcset } from '../lib/img.js';
 import { describe, abs, SITE } from '../lib/site.js';
+import { essayBlocks } from '../lib/essay.js';
 
 export async function getStaticPaths() {
   // Galleries and series share this template. Series slugs that would clash with a page are skipped.
@@ -27,6 +28,11 @@ const blocks = [imgs.slice(0, split), imgs.slice(split)].filter((b) => b.length)
 const paras = (t) => (t || '').split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean);
 const essay = paras(d.essay);
 const essayCs = paras(d.essay_cs);
+
+// Series: paced photo essay, and the next series in People-page order.
+const blocksPE = series ? essayBlocks(imgs, d.texts || [], { en: essay, cs: essayCs }) : [];
+const allSeries = series ? (await getCollection('series')).sort((a, b) => (a.data.order ?? 100) - (b.data.order ?? 100) || (b.data.date?.getTime?.() ?? 0) - (a.data.date?.getTime?.() ?? 0) || a.id.localeCompare(b.id)) : [];
+const nextSeries = series && allSeries.length > 1 ? allSeries[(allSeries.findIndex((x) => x.id === g.id) + 1) % allSeries.length] : null;
 
 const back = people
   ? series ? { href: '/people#series', en: 'Series', cs: 'Série' } : { href: '/people#work', en: 'Portraits & People', cs: 'Portréty & lidé' }
@@ -59,6 +65,72 @@ const shareAlt = series && d.cover ? d.cover_alt : imgs[0]?.alt;
 <Base title={title} description={describe(d.intro)} path={path} image={shareImg} imageAlt={shareAlt}
   side={people ? 'vz' : 'mr'} mark={people ? 'vz' : 'mr'} nav={nav} footer={people ? 'vz' : 'mr'} graph={graph} viewer>
 
+  {series ? (
+    <article class="pe" aria-label={d.title}>
+      {blocksPE.map((bk) => {
+        if (bk.type === 'pause') return (
+          <section class="pe-pause" aria-label="Text">
+            {bk.texts.map((t) => <p class={`pe-t ${t.align || 'left'}`} data-en={t.text} data-cs={t.text_cs || t.text}>{t.text}</p>)}
+          </section>
+        );
+        const F = (im, cls, sizes, eager) => (
+          <figure class={cls}>
+            <button type="button" data-full={cdn(im.src, 2048)} aria-label={`View full screen: ${im.alt}`}>
+              <img src={cdn(im.src, 1600)} srcset={srcset(im.src)} sizes={sizes} width={1000} height={Math.round(1000 / im.ar)} alt={im.alt}
+                loading={eager ? 'eager' : 'lazy'} decoding={eager ? 'auto' : 'async'} fetchpriority={eager ? 'high' : undefined} style={`--ar:${im.ar}`} />
+            </button>
+          </figure>
+        );
+        const [x, y] = bk.items;
+        if (bk.type === 'open-up' || bk.type === 'open-wide') return (
+          <section class={`pe-open ${bk.type}`}>
+            {F(x, 'pe-lead', bk.type === 'open-up' ? '(max-width: 760px) 100vw, 50vw' : '100vw', true)}
+            <div class="pe-head">
+              <p class="small muted" data-en={`Personal series, Vadim Zavatsky${year ? ', ' + year : ''}`} data-cs={`Osobní série, Vadim Zavatsky${year ? ', ' + year : ''}`}>Personal series, Vadim Zavatsky{year ? `, ${year}` : ''}</p>
+              <h1 class="display pe-title">
+                <span data-en={d.title} data-cs={d.title_cs || d.title}>{d.title}</span>
+                {d.title_cs && d.title_cs !== d.title && <span class="muted pe-sub" data-en={d.title_cs} data-cs={d.title}>{d.title_cs}</span>}
+              </h1>
+              <p class="lead" data-en={d.intro} data-cs={d.intro_cs || d.intro}>{d.intro}</p>
+            </div>
+          </section>
+        );
+        if (bk.type === 'solo') return <section class={`pe-row pe-solo ${bk.side}`}>{F(x, 'pe-i', '(max-width: 760px) 80vw, 34vw')}</section>;
+        if (bk.type === 'pair-up') return <section class="pe-row pe-pair-up">{F(x, 'pe-a', '(max-width: 760px) 100vw, 40vw')}{F(y, 'pe-b', '(max-width: 760px) 100vw, 40vw')}</section>;
+        if (bk.type === 'duo') return <section class="pe-row pe-duo">{F(x, 'pe-a')}{F(y, 'pe-b')}</section>;
+        if (bk.type === 'stagger') return <section class="pe-row pe-stagger">{F(x, 'pe-a', '(max-width: 760px) 100vw, 40vw')}{F(y, 'pe-b')}</section>;
+        if (bk.type === 'full') return <section class="pe-full">{F(x, 'pe-i', '100vw')}</section>;
+        if (bk.type === 'framed') return <section class="pe-row pe-framed">{F(x, 'pe-i', '(max-width: 760px) 100vw, 66vw')}</section>;
+        return <section class="pe-row pe-close">{F(x, 'pe-i', '100vw')}</section>;
+      })}
+
+      <section class="pe-end">
+        <dl class="pe-cred">
+          <div><dt class="small muted" data-en="Series" data-cs="Série">Series</dt><dd data-en={d.title} data-cs={d.title_cs || d.title}>{d.title}</dd></div>
+          {credits.map((c) => (
+            <div>
+              {c.role && <dt class="small muted" data-en={c.role} data-cs={c.role_cs || c.role}>{c.role}</dt>}
+              <dd>{c.url ? <a href={c.url} rel="noopener">{c.name.trim()}</a> : c.name.trim()}</dd>
+            </div>
+          ))}
+        </dl>
+        {nextSeries && (
+          <a class="pe-next" href={'/' + nextSeries.id}>
+            <img src={cdn(nextSeries.data.cover, 480)} alt="" width="120" height="180" loading="lazy" decoding="async" />
+            <span>
+              <span class="small muted" data-en="Next series" data-cs="Další série">Next series</span>
+              <span class="pe-next-t" data-en={nextSeries.data.title} data-cs={nextSeries.data.title_cs || nextSeries.data.title}>{nextSeries.data.title}</span>
+              {nextSeries.data.card && <span class="small" style="color: var(--text2)" data-en={nextSeries.data.card} data-cs={nextSeries.data.card_cs || nextSeries.data.card}>{nextSeries.data.card}</span>}
+            </span>
+          </a>
+        )}
+      </section>
+      <div class="wrap center" style="padding-bottom: clamp(56px, 7vw, 96px)">
+        <a class="ulink" href={back.href} data-en="All series" data-cs="Všechny série">All series</a>
+      </div>
+    </article>
+  ) : (
+    <Fragment>
   <header class="wrap g12" style="padding-top: clamp(56px, 8vw, 120px); padding-bottom: clamp(48px, 6vw, 88px); align-items: end">
     <h1 class="display" style="grid-column: 1 / span 7">
       <span data-en={d.title} data-cs={d.title_cs || d.title}>{d.title}</span>
@@ -117,4 +189,6 @@ const shareAlt = series && d.cover ? d.cover_alt : imgs[0]?.alt;
       {people && !series ? 'Back to Portraits & People' : (series ? 'Back to Series' : 'Back to galleries')}
     </a>
   </div>
+    </Fragment>
+  )}
 </Base>
