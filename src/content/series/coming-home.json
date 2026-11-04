@@ -1,0 +1,97 @@
+{
+  "title": "Coming home",
+  "title_cs": "Domů",
+  "order": 40,
+  "date": "",
+  "cover": "/images/coming home-10.jpg",
+  "cover_alt": "",
+  "card": "Loneliness. Emptiness. Home.",
+  "card_cs": "Osamělost. Prázdnota. Domov.",
+  "intro": "An exploration of loneliness and emptiness in a city full of moments.",
+  "intro_cs": "Zkoumání osamělosti a prázdnoty ve městě plném okamžiků.",
+  "texts": [
+    {
+      "text": "Long day. Old apartment. Loneliness. Nobody waits. Nobody to wait for.",
+      "text_cs": "Dlouhý den. Starý byt. Osamělost. Nikdo nečeká. Není na koho čekat.",
+      "after": 5,
+      "align": "left"
+    },
+    {
+      "text": "Cigarette. Evening. Summer. Prague. Last rays of warm sun.",
+      "text_cs": "Cigareta. Večer. Léto. Praha. Poslední paprsky teplého slunce.",
+      "after": 5,
+      "align": "right"
+    }
+  ],
+  "credits": [
+    {
+      "role": "Model",
+      "role_cs": "Modelka",
+      "name": "Elaïza Kobalchynska",
+      "url": "https://www.instagram.com/eeela_i_za"
+    },
+    {
+      "role": "Assistant camera",
+      "role_cs": "Asistent kamery",
+      "name": "Lucie Svecova",
+      "url": "https://www.instagram.com/sbtb_lucy"
+    }
+  ],
+  "images": [
+    {
+      "src": "/images/coming home-01.jpg",
+      "alt": "A young woman on the staircase",
+      "layout": "auto"
+    },
+    {
+      "src": "/images/coming home-12.jpg",
+      "alt": "takes a moment to sit and reflect",
+      "layout": "auto"
+    },
+    {
+      "src": "/images/coming home-09.jpg",
+      "alt": "Inside. Taking shoes off",
+      "layout": "auto"
+    },
+    {
+      "src": "/images/coming home-08.jpg",
+      "alt": "Taking off the work blazer",
+      "layout": "auto"
+    },
+    {
+      "src": "/images/coming home-06.jpg",
+      "alt": "Close up of a lighter",
+      "layout": "auto"
+    },
+    {
+      "src": "/images/coming home-05.jpg",
+      "alt": "Lighting up a cigarette, illuminated",
+      "layout": "auto"
+    },
+    {
+      "src": "/images/coming home-03.jpg",
+      "alt": "Looking somewhere and nowhere while smoking in the kitchen",
+      "layout": "auto"
+    },
+    {
+      "src": "/images/coming home-07.jpg",
+      "alt": "Some cigarettes are left in the pack",
+      "layout": "auto"
+    },
+    {
+      "src": "/images/coming home-02.jpg",
+      "alt": "Late evening kitchen",
+      "layout": "auto"
+    },
+    {
+      "src": "/images/coming home-04.jpg",
+      "alt": "Afterthoughts",
+      "layout": "auto"
+    },
+    {
+      "src": "/images/coming home-10.jpg",
+      "alt": "Cigarette, fingers and lips",
+      "layout": "auto"
+    }
+  ]
+}
