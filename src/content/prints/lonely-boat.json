@@ -1,0 +1,32 @@
+{
+  "title": "Lonely boat",
+  "title_cs": "Osamělá loď",
+  "order": 40,
+  "available": true,
+  "place": "Finland",
+  "place_cs": "Finsko",
+  "year": 2026,
+  "story": "A lonely boat left on a lake shore, waiting for winter to come, almost similar to the nature surrounding it. This picture was taken during autumn road trip around Finland, on one of the lakes near Tampere.",
+  "story_cs": "Osamělá loď ponechaná na břehu jezera, čekající na příchod zimy – tak trochu podobná okolní přírodě. Tento snímek vznikl během podzimního putování po Finsku, u jednoho z jezer nedaleko Tampere.",
+  "orientation": "portrait",
+  "formats": [
+    "print",
+    "framed",
+    "canvas"
+  ],
+  "etsy": "https://www.etsy.com/listing/4609840246/lonely-boat-on-a-lake-shore",
+  "mockups": [
+    {
+      "src": "/images/boat-2.jpg",
+      "alt": "Framed boat photograph on a wooden console against a textured green wall"
+    },
+    {
+      "src": "/images/boat-1.jpg",
+      "alt": "Framed boat photograph on a wall"
+    },
+    {
+      "src": "/images/boat-3.jpg",
+      "alt": "Framed boat photograph above a cream sofa in a sunlit living room"
+    }
+  ]
+}
