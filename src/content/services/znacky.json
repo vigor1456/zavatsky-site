@@ -29,6 +29,11 @@
   },
   "price_czk": 15000,
   "price_eur": 600,
+  "price_unit": null,
+  "offer_title": {
+    "cs": "Pro značky",
+    "en": "For brands"
+  },
   "example_label": {
     "cs": "Příklad: půldenní focení",
     "en": "Example: a half-day shoot"
@@ -50,6 +55,43 @@
   "price_note": {
     "cs": "Licenci pro reklamní kampaně dohodneme podle rozsahu projektu. Nejsem plátce DPH, cena je konečná.",
     "en": "Usage licences for advertising campaigns are agreed per project. I’m not a VAT payer, so the price is final."
+  },
+  "offer2": {
+    "title": {
+      "cs": "Pro tvůrce",
+      "en": "For creators"
+    },
+    "text": {
+      "cs": "Pro ty, kdo se chtějí vyjádřit obrazem: vlastním stylem, světlem a příběhem, ne další standardní fotkou. Společně najdeme koncept, který sedí k vám a k tomu, co tvoříte.",
+      "en": "For people who want to express themselves through images: with their own style, light and story, not another standard photo. Together we find a concept that fits you and what you create."
+    },
+    "example_label": {
+      "cs": "Příklad: kreativní focení",
+      "en": "Example: a creative session"
+    },
+    "price_czk": 12000,
+    "price_eur": 490,
+    "price_unit": null,
+    "includes": {
+      "cs": [
+        "konzultace konceptu a stylingu",
+        "cca 3 hodiny focení",
+        "20 retušovaných fotografií",
+        "použití na vašich sociálních sítích a pro propagaci",
+        "dodání do 5 pracovních dnů"
+      ],
+      "en": [
+        "concept and styling consultation",
+        "about 3 hours of shooting",
+        "20 retouched photos",
+        "use on your own social media and for promotion",
+        "delivery within 5 working days"
+      ]
+    },
+    "note": {
+      "cs": "Pokud mají fotky skončit na produktu, který prodáváte, třeba na kalendáři nebo plakátu, domluvíme licenci zvlášť, podle produktu a nákladu.",
+      "en": "If the photos are going onto a product you sell, like a calendar or poster, we agree a licence separately, based on the product and print run."
+    }
   },
   "timeline_title": null,
   "timeline": [
@@ -149,8 +191,8 @@
     {
       "src": "/images/commercial/brand-phone-vertical.jpg",
       "alt": {
-        "cs": "Telefon v ruce, svislý snímek",
-        "en": "A phone in hand, vertical shot"
+        "cs": "Perfume v ruce, svislý snímek",
+        "en": "A perfume in hand, vertical shot"
       }
     }
   ],
@@ -206,45 +248,5 @@
         "en": "Yes, I invoice as a company, Third Place Labs s.r.o. I’m not a VAT payer, so the prices shown are final."
       }
     }
-  ],
-  "offer_title": {
-    "cs": "Pro značky",
-    "en": "For brands"
-  },
-  "offer2": {
-    "title": {
-      "cs": "Pro tvůrce",
-      "en": "For creators"
-    },
-    "text": {
-      "cs": "Pro ty, kdo se chtějí vyjádřit obrazem: vlastním stylem, světlem a příběhem, ne další standardní fotkou. Společně najdeme koncept, který sedí k vám a k tomu, co tvoříte.",
-      "en": "For people who want to express themselves through images: with their own style, light and story, not another standard photo. Together we find a concept that fits you and what you create."
-    },
-    "example_label": {
-      "cs": "Příklad: kreativní focení",
-      "en": "Example: a creative session"
-    },
-    "price_czk": 12000,
-    "price_eur": 490,
-    "includes": {
-      "cs": [
-        "konzultace konceptu a stylingu",
-        "cca 3 hodiny focení",
-        "20 retušovaných fotografií",
-        "použití na vašich sociálních sítích a pro propagaci",
-        "dodání do 5 pracovních dnů"
-      ],
-      "en": [
-        "concept and styling consultation",
-        "about 3 hours of shooting",
-        "20 retouched photos",
-        "use on your own social media and for promotion",
-        "delivery within 5 working days"
-      ]
-    },
-    "note": {
-      "cs": "Pokud mají fotky skončit na produktu, který prodáváte, třeba na kalendáři nebo plakátu, domluvíme licenci zvlášť, podle produktu a nákladu.",
-      "en": "If the photos are going onto a product you sell, like a calendar or poster, we agree a licence separately, based on the product and print run."
-    }
-  }
+  ]
 }
