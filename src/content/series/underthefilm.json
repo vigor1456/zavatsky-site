@@ -13,13 +13,13 @@
     {
       "text": "Faces under masks emerge only to be dissolved in masks again. One for each occasion. One for family, one for friends, one for colleagues, one for strangers.",
       "text_cs": "Tváře pod maskami se vynořují jen proto, aby se v maskách opět rozplynuly. Jedna pro každou příležitost. Jedna pro rodinu, jedna pro přátele, jedna pro kolegy, jedna pro cizí lidi.",
-      "after": null,
+      "after": 5,
       "align": "left"
     },
     {
       "text": "One for self, looking in the mirror. Masks upon masks.",
       "text_cs": "Jedna pro sebe, pro zrcadlo. Masky na maskách.",
-      "after": null,
+      "after": 5,
       "align": "right"
     }
   ],
