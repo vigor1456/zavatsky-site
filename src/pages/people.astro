@@ -1,4 +1,5 @@
 ---
+import { getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
 import { VZ, SITE } from '../lib/site.js';
@@ -37,16 +38,16 @@ const nav = [
   { href: '/ravique', en: 'Ravique', cs: 'Ravique' },
 ];
 const graph = [{ '@type': 'CollectionPage', '@id': SITE + '/people#page', url: SITE + '/people', name: 'Portraits & People', about: { '@id': SITE + '/#vadim' } }];
+const hero = (await getEntry('heroes', 'site')).data.people;
 ---
 <Base
   title="People: Portraits, Editorial & Series | Vadim Zavatsky"
   description="Portraits, editorial and personal series by Vadim Zavatsky, photographer in Prague, made like scenes from a film that hasn’t been made yet."
-  path="/people" image="/images/hero-people.jpg" imageAlt="A woman in a white dress arching back beneath an arched window"
+  path="/people" image={hero.src} imageAlt={hero.alt}
   side="vz" mark="vz" nav={nav} footer="vz" graph={graph}>
 
   <section class="hero">
-    <Pic src="/images/hero-people.jpg" hero eager class="develop" focal="62% 45%"
-      alt="A woman in a white dress arching back beneath an arched window" />
+    <Pic src={hero.src} hero eager class="develop" focal={hero.focal || '50% 50%'} alt={hero.alt} />
     <div class="hero-text wrap develop-text">
       <div class="g12">
         <h1 class="display" style="grid-column: 1 / span 7" data-en="People, in frame." data-cs="Lidé v záběru.">People, in frame.</h1>

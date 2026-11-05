@@ -1,4 +1,5 @@
 ---
+import { getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
 import { VZ, SITE } from '../lib/site.js';
@@ -19,6 +20,10 @@ const mrStrip = [
   { src: '/images/index-09.jpg', alt: 'A red Prague tram passing a twin-spired church at dusk' },
 ];
 const graph = [{ '@type': 'WebPage', '@id': SITE + '/#home', url: SITE + '/', name: 'Vadim Zavatsky | Photographer in Prague', about: { '@id': SITE + '/#vadim' } }];
+const H = (await getEntry('heroes', 'site')).data;
+// Each door shows its page's hero unless a different photo or crop is set for the door in the CMS.
+const doorVZ = { src: H.door_people?.src || H.people.src, focal: H.door_people?.focal || H.people.focal || '50% 50%' };
+const doorMR = { src: H.door_ravique?.src || H.ravique.src, focal: H.door_ravique?.focal || H.ravique.focal || '50% 50%' };
 ---
 <style is:global>
   .doors { display: flex; flex-wrap: wrap; }
@@ -50,21 +55,21 @@ const graph = [{ '@type': 'WebPage', '@id': SITE + '/#home', url: SITE + '/', na
 <Base
   title="Vadim Zavatsky | Photographer in Prague"
   description="Vadim Zavatsky, photographer in Prague. Portraits, editorial and personal series, plus landscape, street and architecture work as Maximilian Ravique."
-  path="/" image="/images/hero-people.jpg" imageAlt="A woman in a white dress arching back beneath an arched window"
+  path="/" image={H.people.src} imageAlt={H.people.alt}
   side="vz" mark="vz" nav={nav} footer="vz" footerId="contact" graph={graph}>
 
   <h1 class="sr-only">Vadim Zavatsky, photographer in Prague</h1>
   <section class="doors" aria-label="Choose a body of work">
     <a class="door d-vz" href="/people">
-      <Pic src="/images/hero-people.jpg" hero eager sizes="(max-width: 1040px) 100vw, 50vw" focal="62% 45%" alt="" />
+      <Pic src={doorVZ.src} hero eager sizes="(max-width: 1040px) 100vw, 50vw" focal={doorVZ.focal} alt="" />
       <div class="door-text">
         <h2 class="door-name" data-en="Portraits &amp; People" data-cs="Portréty &amp; lidé">Portraits &amp; People</h2>
         <p class="lead" data-en="Portraits, editorial, personal series. Faces, light and the stories between them." data-cs="Portréty, editorial, osobní série. Tváře, světlo a příběhy mezi nimi.">Portraits, editorial, personal series. Faces, light and the stories between them.</p>
-        <span class="door-enter" data-en="Enter" data-cs="Vstoupit">Enter</span>
+        <span class="door-enter" data-en="Enter the gallery" data-cs="Vstoupit do galerie">Enter the gallery</span>
       </div>
     </a>
     <a class="door d-mr" href="/ravique">
-      <Pic src="/images/hero-ravique.jpg" hero eager sizes="(max-width: 1040px) 100vw, 50vw" focal="35% 55%" alt="" />
+      <Pic src={doorMR.src} hero eager sizes="(max-width: 1040px) 100vw, 50vw" focal={doorMR.focal} alt="" />
       <div class="door-text">
         <h2 class="door-name">Maximilian Ravique</h2>
         <p class="lead" data-en="Landscape, street, architecture. Places and light, with no one in the frame." data-cs="Krajina, ulice, architektura. Místa a světlo, kde v záběru nikdo není.">Landscape, street, architecture. Places and light, with no one in the frame.</p>
@@ -89,7 +94,7 @@ const graph = [{ '@type': 'WebPage', '@id': SITE + '/#home', url: SITE + '/', na
       <div class="strip" style="padding-right: var(--pad)">
         {mrStrip.map((p, i) => <a href="/ravique" style="display: contents" tabindex="-1" aria-hidden="true"><Pic src={p.src} alt={p.alt} sizes="(max-width: 760px) 33vw, 20vw" fallback={800} class={i !== 0 ? 'tall' : ''} /></a>)}
       </div>
-      <div class="cap" style="padding-right: var(--pad); align-items: flex-end; text-align: right"><a class="tlink sm" href="/ravique">Maximilian Ravique</a></div>
+      <div class="cap" style="padding-right: var(--pad); align-items: flex-end; text-align: right"><a class="tlink sm" href="/ravique" data-en="Land, stone, light" data-cs="Země, kámen, světlo">Land, stone, light</a></div>
     </div>
   </section>
 </Base>

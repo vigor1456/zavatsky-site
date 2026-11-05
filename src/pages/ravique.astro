@@ -1,4 +1,5 @@
 ---
+import { getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
 import { MR, SITE } from '../lib/site.js';
@@ -11,16 +12,16 @@ const nav = [
 ];
 const graph = [{ '@type': 'CollectionPage', '@id': SITE + '/ravique#page', url: SITE + '/ravique', name: 'Maximilian Ravique',
   author: { '@type': 'Person', name: 'Maximilian Ravique', description: 'Pseudonym of Vadim Zavatsky', sameAs: MR.social.map((s) => s.href) } }];
+const hero = (await getEntry('heroes', 'site')).data.ravique;
 ---
 <Base
   title="Maximilian Ravique | Landscape, Street & Architecture Photography"
   description="Landscape, street and architecture photography by Maximilian Ravique, from Prague and beyond. Fine art prints, framed prints and canvases, shipped across the EU."
-  path="/ravique" image="/images/hero-ravique.jpg" imageAlt="Limestone cliffs above a beach of stacked stones on the Cyprus coast at sunset"
+  path="/ravique" image={hero.src} imageAlt={hero.alt}
   side="mr" mark="mr" nav={nav} footer="mr" graph={graph}>
 
   <section class="hero">
-    <Pic src="/images/hero-ravique.jpg" hero eager class="develop" focal="45% 55%"
-      alt="Limestone cliffs above a beach of stacked stones on the Cyprus coast at sunset" />
+    <Pic src={hero.src} hero eager class="develop" focal={hero.focal || '50% 50%'} alt={hero.alt} />
     <div class="hero-text wrap develop-text">
       <div class="g12">
         <h1 class="display" style="grid-column: 1 / span 7" data-en="Land, stone, light." data-cs="Země, kámen, světlo.">Land, stone, light.</h1>

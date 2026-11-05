@@ -160,4 +160,14 @@ const commercial = defineCollection({
     seo_title: T, seo_description: T,
   })),
 });
-export const collections = { journal, galleries, series, prints, printshop, services, reviews, commercial };
+const heroImg = z.object({ src: z.string(), alt: z.string().default(''), focal: z.string().optional() });
+const heroes = defineCollection({
+  type: 'data',
+  schema: clean(z.object({
+    people: heroImg, ravique: heroImg,
+    // Optional: a different photo or crop for the home page doors (otherwise each door uses its page's hero)
+    door_people: z.object({ src: z.string().optional(), focal: z.string().optional() }).optional(),
+    door_ravique: z.object({ src: z.string().optional(), focal: z.string().optional() }).optional(),
+  })),
+});
+export const collections = { journal, galleries, series, prints, printshop, services, reviews, commercial, heroes };

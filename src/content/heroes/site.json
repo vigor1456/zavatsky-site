@@ -1,0 +1,18 @@
+{
+  "people": {
+    "src": "/images/hero-people.jpg",
+    "alt": "A woman in a white dress arching back beneath an arched window",
+    "focal": "62% 45%"
+  },
+  "ravique": {
+    "src": "/images/hero-ravique.jpg",
+    "alt": "Limestone cliffs above a beach of stacked stones on the Cyprus coast at sunset",
+    "focal": "45% 55%"
+  },
+  "door_people": {
+    "focal": "62% 45%"
+  },
+  "door_ravique": {
+    "focal": "35% 55%"
+  }
+}

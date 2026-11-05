@@ -1497,3 +1497,76 @@ collections:
       - name: en
         label: English
         widget: text
+- name: heroes
+  label: Hero images
+  editor:
+    preview: false
+  description: The large opening photos of the People and Ravique pages, and the two doors on the home page.
+  files:
+  - name: site
+    label: Hero images (People, Ravique and home page doors)
+    file: src/content/heroes/site.json
+    fields:
+    - name: people
+      label: People page hero
+      widget: object
+      fields:
+      - name: src
+        label: Photo
+        widget: image
+        hint: A wide (landscape) photo, ideally 3,000 pixels wide or more.
+      - name: alt
+        label: Description (for screen readers and Google)
+        widget: string
+        required: false
+      - &id001
+        name: focal
+        label: Crop focus
+        widget: string
+        required: false
+        hint: 'Which part stays visible when the photo is cropped: across, then down, in %. 50% 50% is the centre; e.g. 62% 45% keeps a subject right of centre in view.'
+    - name: ravique
+      label: Ravique page hero
+      widget: object
+      fields:
+      - name: src
+        label: Photo
+        widget: image
+        hint: A wide (landscape) photo, ideally 3,000 pixels wide or more.
+      - name: alt
+        label: Description (for screen readers and Google)
+        widget: string
+        required: false
+      - *id001
+    - name: door_people
+      label: 'Home page door: Portraits & People'
+      widget: object
+      required: false
+      collapsed: true
+      hint: Leave the photo empty to use the People hero. You can still set a different crop focus for the door.
+      fields:
+      - name: src
+        label: Different photo for the door (optional)
+        widget: image
+        required: false
+      - name: focal
+        label: Crop focus
+        widget: string
+        required: false
+        hint: Crop focus for the door, which shows a narrower slice of the photo than the page.
+    - name: door_ravique
+      label: 'Home page door: Maximilian Ravique'
+      widget: object
+      required: false
+      collapsed: true
+      hint: Leave the photo empty to use the Ravique hero. You can still set a different crop focus for the door.
+      fields:
+      - name: src
+        label: Different photo for the door (optional)
+        widget: image
+        required: false
+      - name: focal
+        label: Crop focus
+        widget: string
+        required: false
+        hint: Crop focus for the door, which shows a narrower slice of the photo than the page.
