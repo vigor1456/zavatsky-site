@@ -25,6 +25,8 @@ const ld = { '@context': 'https://schema.org', '@graph': [...personGraph(), ...g
 <title>{title}</title>
 <meta name="description" content={description}>
 <link rel="canonical" href={canonical}>
+<meta name="tdm-reservation" content="1">
+<meta name="robots" content="noai, noimageai">
 <script is:inline>
   // The opening "developing print" plays once per visit for each page.
   try { var k = 'dev:' + location.pathname; if (sessionStorage.getItem(k)) document.documentElement.classList.add('seen'); else sessionStorage.setItem(k, '1'); } catch (e) {}

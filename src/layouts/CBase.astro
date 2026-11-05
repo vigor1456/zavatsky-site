@@ -40,6 +40,8 @@ const nav = [
 <title>{title}</title>
 <meta name="description" content={description}>
 <link rel="canonical" href={SITE + path}>
+<meta name="tdm-reservation" content="1">
+<meta name="robots" content="noai, noimageai">
 {noindex && <meta name="robots" content="noindex">}
 {csPath && <link rel="alternate" hreflang="cs" href={SITE + csPath}>}
 {enPath && <link rel="alternate" hreflang="en" href={SITE + enPath}>}
@@ -96,6 +98,7 @@ const nav = [
     <span>Vadim Zavatsky, {lang === 'cs' ? 'Praha' : 'Prague'}. <a href={`mailto:${VZ.email}`}>{VZ.email}</a>, <a href={`tel:${VZ.tel}`}>{VZ.phone}</a></span>
     <span>{t.company}. {lang === 'cs' ? 'Neplátce DPH.' : 'Not a VAT payer.'}</span>
     <span><a id="cc-privfoot" href="/privacy">{t.privacyFooter}</a>, <a id="cc-settings" href="#cookies">{t.cookie}</a></span>
+    <span style="flex-basis: 100%">© {new Date().getFullYear()} Vadim Zavatsky. {lang === 'cs' ? 'Všechna práva vyhrazena. Fotografie a texty na tomto webu nesmí být použity k trénování AI ani k vytěžování textů a dat.' : 'All rights reserved. The photographs and texts on this site may not be used for AI training or text and data mining.'}</span>
   </div>
 </footer>
 {viewer && <Viewer labels={t.viewer} />}

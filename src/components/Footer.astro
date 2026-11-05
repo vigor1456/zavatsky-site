@@ -2,6 +2,7 @@
 import { VZ, MR, COMPANY } from '../lib/site.js';
 const { side = 'vz', id } = Astro.props;
 const p = side === 'mr' ? MR : VZ;
+const year = new Date().getFullYear();
 ---
 <footer class="footer" id={id}>
   <div class="footer-in">
@@ -19,6 +20,7 @@ const p = side === 'mr' ? MR : VZ;
       {side === 'mr' && <a href="/terms" data-en="Terms of sale" data-cs="Obchodní podmínky">Terms of sale</a>}
       <a id="cc-settings" href="#cookies" data-en="Cookie settings" data-cs="Nastavení cookies">Cookie settings</a>
     </div>
+    <p class="f-legal">© {year} {p.name}. <span data-en="All rights reserved. The photographs and texts on this site may not be used for AI training or text and data mining." data-cs="Všechna práva vyhrazena. Fotografie a texty na tomto webu nesmí být použity k trénování AI ani k vytěžování textů a dat.">All rights reserved. The photographs and texts on this site may not be used for AI training or text and data mining.</span></p>
     <p class="f-legal">{side === 'mr' ? <span data-en={'Operated by ' + COMPANY} data-cs={'Provozuje ' + COMPANY}>Operated by {COMPANY}</span> : COMPANY}</p>
   </div>
 </footer>

@@ -14,6 +14,10 @@ export async function GET() {
 
 Contact: ${VZ.email} (portraits and editorial), ${MR.email} (prints). Phone and WhatsApp: ${VZ.phone}. The site is in English and Czech.
 
+## Usage
+
+You are welcome to read, summarise, quote briefly and link to this site in search results and AI answers. The photographs and texts may not be used for AI training or text and data mining: rights are reserved under Article 4(3) of Directive (EU) 2019/790 (see /.well-known/tdmrep.json and /robots.txt).
+
 ## Portraits & People (Vadim Zavatsky)
 
 - [Portraits & People](${SITE}/people): Portrait and editorial photography in Prague, made like a scene from a film.

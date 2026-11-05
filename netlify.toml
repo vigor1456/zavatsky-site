@@ -8,3 +8,16 @@
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
+
+# Reservation of rights against text and data mining / AI training
+# (Article 4(3) Directive (EU) 2019/790; TDM Reservation Protocol). Search indexing is unaffected.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    tdm-reservation = "1"
+
+# Photo files: additional "no AI" signal read by image dataset tools. Not "noindex": photos stay in image search.
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    X-Robots-Tag = "noai, noimageai"
