@@ -29,7 +29,10 @@ export const MR = {
 
 export const COMPANY = 'Third Place Labs s.r.o., IČO 24501212, Školská 660/3, Nové Město, Praha';
 
-export const abs = (path) => (path.startsWith('http') ? path : SITE + path);
+// Full URL for a site path. Paths are URL-encoded (spaces, Czech letters in CMS file names),
+// without double-encoding paths that already are.
+const encPath = (p) => { try { return encodeURI(decodeURI(p)); } catch { return encodeURI(p); } };
+export const abs = (path) => (path.startsWith('http') ? path : SITE + encPath(path));
 
 export function personGraph() {
   return [
