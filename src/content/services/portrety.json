@@ -142,7 +142,7 @@
     }
   ],
   "hero": {
-    "src": "/images/conferences-12.jpg",
+    "src": "/images/conferences-13.jpg",
     "alt": {
       "cs": "Fotografie týmu společnosti",
       "en": "Photo of a company's team"
@@ -175,6 +175,13 @@
       "alt": {
         "cs": "Fotografie týmu společnosti",
         "en": "Photo of a company's team"
+      }
+    },
+    {
+      "src": "/images/DSC_5123.jpg",
+      "alt": {
+        "cs": "Podnikatel v obleku během firemního focení",
+        "en": "A business man in a suit during corporate photoshoot"
       }
     }
   ],
