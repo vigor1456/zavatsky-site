@@ -1,0 +1,36 @@
+{
+  "title": "Near-abstract stillness; pine tree branches against pastel pink sky",
+  "title_cs": "Téměř abstraktní klid; větve borovice na pozadí pastelově růžové oblohy",
+  "order": 50,
+  "available": true,
+  "place": "Czech Republic",
+  "place_cs": "Česká republika",
+  "year": 2026,
+  "story": "Photographer in late November, reflecting the nature slowly fading into winter stillness.",
+  "story_cs": "Fotograf koncem listopadu, reflektující přírodu, která se zvolna noří do zimního klidu.",
+  "orientation": "landscape",
+  "formats": [
+    "print",
+    "framed",
+    "canvas"
+  ],
+  "etsy": "",
+  "mockups": [
+    {
+      "src": "/images/pink-sky-branches 1.jpg",
+      "alt": "Mockup of a photograph of bare branches against pastel pink sky"
+    },
+    {
+      "src": "/images/pink-sky-branches 2.jpg",
+      "alt": "Mockup of a photograph of bare branches against pastel pink sky in a living room"
+    },
+    {
+      "src": "/images/pink-sky-branches 4.jpg",
+      "alt": "Mockup of a photograph of bare branches against pastel pink sky in a pink living room"
+    },
+    {
+      "src": "/images/pink-sky-branches 3.jpg",
+      "alt": "Mockup of a photograph of bare branches against pastel pink sky in a bathroom"
+    }
+  ]
+}
