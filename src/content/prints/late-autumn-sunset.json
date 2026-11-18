@@ -1,0 +1,32 @@
+{
+  "title": "Late autumn sunset",
+  "title_cs": "Pozdně podzimní západ slunce",
+  "order": 60,
+  "available": true,
+  "place": "Czech Republic",
+  "place_cs": "Česká republika",
+  "year": 2026,
+  "story": "Bare tree branches against setting sun",
+  "story_cs": "Holé větve stromů proti zapadajícímu slunci",
+  "orientation": "landscape",
+  "formats": [
+    "print",
+    "framed",
+    "canvas"
+  ],
+  "etsy": "",
+  "mockups": [
+    {
+      "src": "/images/sunset-branches2.jpg",
+      "alt": "A mockup of a photograph of setting sun and bare tree branches, framed and hanging on a wall"
+    },
+    {
+      "src": "/images/sunset-branches1.jpg",
+      "alt": "A mockup of a photograph of setting sun and bare tree branches, framed and hanging on a wall"
+    },
+    {
+      "src": "/images/sunset-branches3.jpg",
+      "alt": "A mockup of a photograph of setting sun and bare tree branches, framed and hanging on a wall"
+    }
+  ]
+}
